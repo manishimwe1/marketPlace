@@ -12,7 +12,7 @@ type Props = {
 const HowItworkCard = ({
 	work: { title, icon, desc },
 }: Props) => {
-	console.log(icon);
+	// console.log(icon);
 	return (
 		<div className='flex flex-col gap-3 mt-10 w-full px-4'>
 			<Image

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { Toaster } from "react-hot-toast";
+import QueryProvider from "@/lib/react-query/QueryProvider";
+import { AuthProvider } from "@/lib/authContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +22,13 @@ export default function RootLayout({
 		<html lang='en'>
 			<body
 				className={`inter.className bg-[#09080d] text-[#f9f9f9]`}>
-				<Navbar />
-				{children}
+				<QueryProvider>
+					<AuthProvider>
+						<Navbar />
+						{children}
+						<Toaster />
+					</AuthProvider>
+				</QueryProvider>
 			</body>
 		</html>
 	);

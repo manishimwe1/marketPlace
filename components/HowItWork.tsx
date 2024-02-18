@@ -21,7 +21,10 @@ const HowItWork = () => {
 			</div>
 			<div className='grid grid-cols-1 md:grid-cols-4 py-4'>
 				{hwoItWork.map((work) => (
-					<HowItworkCard work={work} />
+					<HowItworkCard
+						work={work}
+						key={work.title}
+					/>
 				))}
 			</div>
 		</div>
