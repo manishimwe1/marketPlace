@@ -100,19 +100,19 @@ export default function SignUpPage() {
 			toast.error("Ooops something went worng");
 			return;
 		}
-		const session = await userSignin({
-			email: user.email,
-			password: user.password,
-		});
-		if (!session) {
-			toast.remove();
-			toast.error(
-				"Ooops something went worng in signin user",
-			);
-			router.push("/sign-in");
-			return;
-		}
-		return session;
+		// const session = await userSignin({
+		// 	email: user.email,
+		// 	password: user.password,
+		// });
+		// if (!session) {
+		// 	toast.remove();
+		// 	toast.error(
+		// 		"Ooops something went worng in signin user",
+		// 	);
+		// 	return;
+		// }
+		// return session;
+		router.push("/sign-in");
 	}
 	return (
 		<Form {...form}>
