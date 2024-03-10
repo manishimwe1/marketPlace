@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.title {
+		@apply text-2xl font-bold tracking-wide text-stone-700;
+	}
+}
+
 @layer base {
 	:root {
 		--background: 0 0% 100%;
