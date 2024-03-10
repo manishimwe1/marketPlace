@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
-import { Toaster } from "react-hot-toast";
-import QueryProvider from "@/lib/react-query/QueryProvider";
-import { AuthProvider } from "@/lib/authContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+	subsets: ["latin"],
+	weight: ["400", "600", "900"],
+	variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -21,15 +23,15 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={`inter.className bg-[#09080d] text-[#f9f9f9]`}>
-				<QueryProvider>
-					<AuthProvider>
-						<Navbar />
-						{children}
-						<Toaster />
-					</AuthProvider>
-				</QueryProvider>
+				className={cn(
+					poppins.variable,
+					"text-white ",
+				)}>
+				<Navbar />
+				{children}
 			</body>
 		</html>
 	);
 }
+
+// bg-[#09080d]

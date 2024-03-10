@@ -1,0 +1,76 @@
+"use client";
+
+import {
+	NavigationMenu,
+	NavigationMenuContent,
+	NavigationMenuIndicator,
+	NavigationMenuItem,
+	NavigationMenuLink,
+	NavigationMenuList,
+	NavigationMenuTrigger,
+	NavigationMenuViewport,
+} from "@/components/ui/navigation-menu";
+import { NAVLINKS } from "@/constants";
+import { cn } from "@/lib/utils";
+import { Bars4Icon } from "@heroicons/react/24/solid";
+import Link from "next/link";
+
+const Menubar = () => {
+	return (
+		<nav className='bg-primary w-full h-10 flex gap-6 items-center'>
+			<div className='max-w-7xl mx-auto flex justify-between items-center gap-6 h-full w-full'>
+				<NavigationMenu>
+					<NavigationMenuList>
+						<NavigationMenuItem>
+							<NavigationMenuTrigger>
+								<div className='flex gap-4 items-center'>
+									<Bars4Icon className='w-7 h-7' />
+									<p className='font-semibold text-lg'>
+										All Categories
+									</p>
+								</div>
+							</NavigationMenuTrigger>
+							<NavigationMenuContent>
+								<NavigationMenuLink>
+									Link
+								</NavigationMenuLink>
+							</NavigationMenuContent>
+						</NavigationMenuItem>
+					</NavigationMenuList>
+				</NavigationMenu>
+				<ul className=' flex gap-3 w-full justify-evenly'>
+					{NAVLINKS.map((link) => (
+						<Link
+							href={link.href}
+							className={cn(
+								link.label === "SuperDeals"
+									? "text-red-500"
+									: "",
+								"hover:underline hover:underline-offset-2 text-lg font-bold",
+							)}>
+							{link.label}
+						</Link>
+					))}
+				</ul>
+				<NavigationMenu>
+					<NavigationMenuList>
+						<NavigationMenuItem>
+							<NavigationMenuTrigger>
+								<p className='font-semibold text-lg'>
+									More
+								</p>
+							</NavigationMenuTrigger>
+							<NavigationMenuContent>
+								<NavigationMenuLink>
+									Link
+								</NavigationMenuLink>
+							</NavigationMenuContent>
+						</NavigationMenuItem>
+					</NavigationMenuList>
+				</NavigationMenu>
+			</div>
+		</nav>
+	);
+};
+
+export default Menubar;
