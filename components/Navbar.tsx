@@ -9,8 +9,8 @@ import {
 import Link from "next/link";
 const Navbar = () => {
 	return (
-		<header className='bg-primary w-full h-20'>
-			<div className='max-w-7xl mx-auto flex justify-between items-center gap-6 h-full'>
+		<header className='bg-primary w-full h-10 py-3 lg:h-20'>
+			<div className='md:max-w-7xl w-full mx-auto flex  justify-between items-center gap-6 h-full py-4 lg:py-8'>
 				<div className='relative h-14 w-20 '>
 					<Image
 						src={"/logo.svg"}
@@ -31,7 +31,7 @@ const Navbar = () => {
 						search
 					</button>
 				</form>
-				<div className='flex items-center gap-1'>
+				<div className='lg:flex items-center gap-1 hidden'>
 					<UserIcon className='w-8 h-8' />
 					<div className='font-semibold flex flex-col'>
 						<p>Welcome</p>
@@ -41,12 +41,12 @@ const Navbar = () => {
 					</div>
 				</div>
 				<div className='flex items-center hover:bg-purple-500 px-4 py-2 rounded-full cursor-pointer'>
-					<ShoppingCartIcon className='w-8 h-8' />
+					<ShoppingCartIcon className='w-6 lg:w-8 h-6 lg:h-8' />
 					<div className='flex flex-col'>
-						<p className='bg-slate-100 font-bold text-primary w-full text-center rounded-full'>
+						<p className='bg-slate-100 font-bold text-primary w-4  h-4 flex items-center justify-center text-xs rounded-full'>
 							0
 						</p>
-						<p className='text-sm font-semibold'>
+						<p className='text-sm font-semibold hidden lg:inline-block'>
 							Cart
 						</p>
 					</div>

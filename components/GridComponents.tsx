@@ -3,9 +3,23 @@ import Carousel from "./Carousel";
 import Image from "next/image";
 
 const GridComponents = () => {
+	const carouselItems = [
+		{
+			Src: "/images/hero1.jpg",
+			Title: "hero1",
+		},
+		{
+			Src: "/images/hero4.jpg",
+			Title: "hero2",
+		},
+		{
+			Src: "/images/hero1.jpg",
+			Title: "hero3",
+		},
+	];
 	return (
-		<section className='flex gap-3 w-full h-full'>
-			<div className='space-y-4 rounded-3xl w-1/5 h-full'>
+		<section className='flex gap-3 w-full h-full flex-col lg:flex-row'>
+			<div className='space-y-4 rounded-3xl w-full lg:w-1/5 h-full'>
 				<div className='border h-36 w-full row-span-2 rounded-3xl bg-slate-400/10'></div>
 				<div className='  rounded-3xl bg-purple-800/20 py-5 h-full'>
 					<h2 className='text-primary opacity-90 text-2xl text-center font-bold'>
@@ -15,11 +29,13 @@ const GridComponents = () => {
 						Your exclusive price
 					</p>
 					<div className='mt-4 rounded-3xl p-2'>
-						<Carousel />
+						<Carousel
+							carouselItems={carouselItems}
+						/>
 					</div>
 				</div>
 			</div>
-			<div className='border w-[30%] rounded-3xl bg-purple-800/20 py-2'>
+			<div className='border w-full lg:w-[30%] rounded-3xl bg-purple-800/20 py-2'>
 				<h2 className='text-stone-950 text-center font-bold text-3xl opacity-80'>
 					Super
 					<span className='text-primary opacity-90'>
@@ -48,8 +64,8 @@ const GridComponents = () => {
 							</p>
 						</div>
 					</div>
-					<div className='flex gap-3  mt-4 w-full border border-red-500 p-2'>
-						<div className='flex flex-col gap-2 border'>
+					<div className='flex gap-3  mt-4 w-full  p-2'>
+						<div className='flex flex-col gap-2 '>
 							<div className=' h-32 w-full rounded-lg relative'>
 								<Image
 									src={
@@ -72,7 +88,7 @@ const GridComponents = () => {
 								</p>
 							</div>
 						</div>
-						<div className='flex flex-col gap-3  border'>
+						<div className='flex flex-col gap-3 '>
 							<div className=' h-32 w-full rounded-lg relative'>
 								<Image
 									src={
@@ -98,7 +114,7 @@ const GridComponents = () => {
 					</div>
 				</div>
 			</div>
-			<div className=' col-span-2 space-y-2 rounded-3xl w-[50%]'>
+			<div className=' col-span-2 space-y-2 rounded-3xl w-full lg:w-[50%]'>
 				<div className='border  w-full row-span-2 rounded-3xl bg-slate-400/10 px-4 py-2'>
 					<h2 className='text-stone-950 text-left font-bold text-3xl opacity-80'>
 						New
@@ -161,7 +177,7 @@ const GridComponents = () => {
 						</div>
 					</div>
 				</div>
-				<div className=' w-full row-span-2 rounded-3xl bg-purple-900/50 saturate-150 px-5 py-5'>
+				<div className=' w-full row-span-2 rounded-3xl cursor-pointer shadow-md shadow-purple-300 bg-purple-900/50 saturate-150 px-5 py-5'>
 					<div className=' h-40 w-full rounded-lg relative ml-10'>
 						<Image
 							src={"/speaker.png"}

@@ -17,8 +17,8 @@ import Link from "next/link";
 
 const Menubar = () => {
 	return (
-		<nav className='bg-primary w-full h-10 flex gap-6 items-center'>
-			<div className='max-w-7xl mx-auto flex justify-between items-center gap-6 h-full w-full'>
+		<nav className='bg-primary py-8  w-full h-10 flex gap-6 items-center'>
+			<div className='max-w-7xl mx-auto py-8 flex justify-between items-center gap-6 h-full w-full'>
 				<NavigationMenu>
 					<NavigationMenuList>
 						<NavigationMenuItem>
@@ -38,7 +38,7 @@ const Menubar = () => {
 						</NavigationMenuItem>
 					</NavigationMenuList>
 				</NavigationMenu>
-				<ul className=' flex gap-3 w-full justify-evenly'>
+				<ul className=' hidden lg:flex gap-3 w-full justify-evenly'>
 					{NAVLINKS.map((link) => (
 						<Link
 							href={link.href}
@@ -52,7 +52,7 @@ const Menubar = () => {
 						</Link>
 					))}
 				</ul>
-				<NavigationMenu>
+				<NavigationMenu className='mr-4'>
 					<NavigationMenuList>
 						<NavigationMenuItem>
 							<NavigationMenuTrigger>
