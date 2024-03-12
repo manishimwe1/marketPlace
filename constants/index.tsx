@@ -48,3 +48,30 @@ export const ABOUTUS = [
 		text: "Dowload Gura Gurish app on playStore and Goole play store",
 	},
 ];
+
+export const DEALers = [
+	{
+		image: "/deals/computer.png",
+		desc: "Apple iPhone 12 64GB Unlocked Smartphone - Very Good",
+	},
+	{
+		image: "/deals/computer2.png",
+		desc: "Acer Aspire 3 15.6 Touchscreen AMD Ryzen 5 7520U 2.8GHz 16GB RAM 512GB SSD W11H",
+	},
+	{
+		image: "/deals/mouse (2).png",
+		desc: "Bose QuietComfort II Noise Cancelling Headphones, Certified Refurbished",
+	},
+	{
+		image: "/deals/mouse.png",
+		desc: "Apple AirPods 3 White In Ear Headphones MPNY3AM/A",
+	},
+	{
+		image: "/deals/mouse3.png",
+		desc: "lates mouse of 2024",
+	},
+	{
+		image: "/speaker.png",
+		desc: "Fell the beat with amzing speakers",
+	},
+];

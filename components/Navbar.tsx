@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 const Navbar = () => {
 	return (
-		<header className='bg-primary w-full h-10 py-3 lg:h-20'>
+		<header className='bg-primary w-full h-10 py-3 lg:h-20 sticky top-0 z-20'>
 			<div className='md:max-w-7xl w-full mx-auto flex  justify-between items-center gap-6 h-full py-4 lg:py-8'>
 				<div className='relative h-14 w-20 '>
 					<Image

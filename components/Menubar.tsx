@@ -41,6 +41,7 @@ const Menubar = () => {
 				<ul className=' hidden lg:flex gap-3 w-full justify-evenly'>
 					{NAVLINKS.map((link) => (
 						<Link
+							key={link.href}
 							href={link.href}
 							className={cn(
 								link.label === "SuperDeals"

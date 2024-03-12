@@ -8,7 +8,7 @@ function page() {
 	return (
 		<>
 			<Menubar />
-			<main className='max-w-7xl overflow-x-hidden mx-auto py-10 px-5 flex flex-col gap-10'>
+			<main className='max-w-7xl overflow-x-hidden mx-auto py-10 px-5 flex flex-col gap-10 select-none'>
 				<AboutUs />
 				<GridComponents />
 				<PopularCategory />
