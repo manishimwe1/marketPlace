@@ -11,7 +11,10 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 import { DEALers } from "@/constants";
+import { truncateString } from "@/lib/utils";
 import { HeartIcon } from "@heroicons/react/24/outline";
+import { StarIcon } from "@heroicons/react/24/solid";
+import { Star } from "lucide-react";
 import Image from "next/image";
 
 const SuperDeals = () => {
@@ -44,10 +47,46 @@ const SuperDeals = () => {
 										</div>
 									</Card>
 								</CarouselItem>
-								<div className='flex flex-col gap-2  overflow-hidden line-clamp-2'>
-									<p className='line-clamp-2 py-2 leading-6 text-stone-950 capitalize px-2'>
-										{items.desc}
+								<div className='flex flex-col gap-2  overflow-hidden line-clamp-2 h-full'>
+									<p className=' py-2 leading-6 text-stone-950 capitalize px-2'>
+										{truncateString(
+											items.desc,
+											50,
+										)}
 									</p>
+									<div className='flex  h-full items-center px-2'>
+										{Array.from({
+											length: items.star,
+										}).map(
+											(items, i) => {
+												console.log(
+													items,
+												);
+
+												return (
+													<Image
+														src={
+															"/star.svg"
+														}
+														width={
+															20
+														}
+														height={
+															20
+														}
+														alt='star'
+													/>
+												);
+											},
+										)}
+										<p className='text-stone-700 text-xs ml-4'>
+											200+ solid
+										</p>
+									</div>
+									<div className=' flex gap-1 py-2 px-3 font-bold text-left text-lg bg-secondary text-stone-500 w-fit rounded-full'>
+										<p>{items.price}</p>
+										Rwf
+									</div>
 								</div>
 							</div>
 						))}

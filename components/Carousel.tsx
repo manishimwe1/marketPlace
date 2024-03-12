@@ -15,6 +15,7 @@ const CarouselPage = ({ carouselItems }: Props) => {
 			autoPlay
 			infiniteLoop
 			showIndicators={false}
+			showThumbs={false}
 			showStatus={false}>
 			{carouselItems.map((items) => (
 				<>
