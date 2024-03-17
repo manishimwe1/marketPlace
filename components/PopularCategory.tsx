@@ -9,7 +9,7 @@ const PopularCategory = () => {
 				Explore Popular Categories
 			</h3>
 			<div className=' px-8 w-full grid grid-cols-5 gap-10 mt-4'>
-				{arr((items) => (
+				{arr.map((items) => (
 					<div className=' w-full h-full group cursor-pointer  flex flex-col gap-2 items-center justify-center '>
 						<div className='relative w-36 h-36 bg-slate-400/20 rounded-full'>
 							<Image

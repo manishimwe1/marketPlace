@@ -21,7 +21,7 @@ const SuperDeals = () => {
 	return (
 		<section className='mt-10 '>
 			<h3 className='text-2xl font-semibold text-stone-950 hover:underline hover:underline-offset-2 hover:cursor-pointer duration-100 hover:delay-100  w-fit select-none'>
-				Today's Deals – All With Free Shipping
+				Today &apos;s Deals – All With Free Shipping
 			</h3>
 			<div className='mt-4 p-6  rounded-3xl mx-2 select-none'>
 				<Carousel className='w-full px-2 '>
