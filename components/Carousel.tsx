@@ -21,6 +21,7 @@ const CarouselPage = ({ carouselItems }: Props) => {
 				<>
 					<div className='rounded-xl flex flex-col gap-3'>
 						<Image
+							key={items.Title}
 							src={items.Src}
 							alt={items.Title}
 							width={200}

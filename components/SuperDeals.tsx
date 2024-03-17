@@ -59,12 +59,15 @@ const SuperDeals = () => {
 											length: items.star,
 										}).map(
 											(items, i) => {
-												console.log(
-													items,
-												);
+												// console.log(
+												// 	items,
+												// );
 
 												return (
 													<Image
+														key={
+															i
+														}
 														src={
 															"/star.svg"
 														}
