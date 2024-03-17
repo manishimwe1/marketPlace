@@ -27,7 +27,9 @@ const SuperDeals = () => {
 				<Carousel className='w-full px-2 '>
 					<CarouselContent className=' p2  w-full gap-3'>
 						{DEALers.map((items, index) => (
-							<div className='flex flex-col gap-4 justify-center items-center h-full p-3'>
+							<div
+								key={index}
+								className='flex flex-col gap-4 justify-center items-center h-full p-3'>
 								<CarouselItem
 									key={index}
 									className=' md:basis-1/2 lg:basis-1/5'>
