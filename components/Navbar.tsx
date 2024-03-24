@@ -7,7 +7,15 @@ import {
 	UserIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-const Navbar = () => {
+import { auth, signIn } from "@/lib/auth";
+import { Button } from "./ui/button";
+import { AuthError } from "next-auth";
+import { handleSignIn } from "@/lib/actions/actions";
+import UserButton from "./UserButton";
+const Navbar = async () => {
+	const user = await auth();
+	console.log(user);
+
 	return (
 		<header className='bg-primary w-full h-10 py-3 lg:h-20 sticky top-0 z-20'>
 			<div className='md:max-w-7xl w-full mx-auto flex  justify-between items-center gap-6 h-full py-4 lg:py-8'>
@@ -31,15 +39,26 @@ const Navbar = () => {
 						search
 					</button>
 				</form>
-				<div className='lg:flex items-center gap-1 hidden'>
-					<UserIcon className='w-8 h-8' />
-					<div className='font-semibold flex flex-col'>
-						<p>Welcome</p>
-						<Link href='/sign-in'>
-							Sign in / Register
-						</Link>
+				{user ? (
+					<UserButton />
+				) : (
+					<div className='lg:flex items-center gap-1 hidden'>
+						<UserIcon className='w-8 h-8' />
+
+						<div className='font-semibold flex flex-col'>
+							<p>Welcome</p>
+							<form
+								action={handleSignIn}
+								className=' !p-0'>
+								<Button
+									variant={"link"}
+									className='!p-0 text-slate-800'>
+									Sign in
+								</Button>
+							</form>
+						</div>
 					</div>
-				</div>
+				)}
 				<div className='flex items-center hover:bg-purple-500 px-4 py-2 rounded-full cursor-pointer'>
 					<ShoppingCartIcon className='w-6 lg:w-8 h-6 lg:h-8' />
 					<div className='flex flex-col'>
