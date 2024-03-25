@@ -24,7 +24,9 @@ const nextAuthConfig: NextAuthConfig = {
 			clientId: process.env.GOOGLE_CLIENT_ID,
 		}),
 	],
-	adapter: MongoDBAdapter(clientPromise),
+	adapter: MongoDBAdapter(clientPromise, {
+		databaseName: "Users",
+	}),
 	callbacks: {
 		async jwt({ token, trigger, session }) {
 			try {
