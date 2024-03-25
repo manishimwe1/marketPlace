@@ -10,6 +10,7 @@
 		"appwrite": "appwrite"
 	},
 	"dependencies": {
+		"@auth/mongodb-adapter": "^2.5.0",
 		"@heroicons/react": "^2.1.1",
 		"@hookform/resolvers": "^3.3.4",
 		"@radix-ui/react-avatar": "^1.0.4",
@@ -27,6 +28,8 @@
 		"jsonwebtoken": "^9.0.2",
 		"lucide": "^0.354.0",
 		"lucide-react": "^0.331.0",
+		"mongodb": "^6.5.0",
+		"mongoose": "^8.2.3",
 		"next": "14.1.0",
 		"next-auth": "^5.0.0-beta.15",
 		"react": "^18",
@@ -38,7 +41,7 @@
 		"tailwind-merge": "^2.2.1",
 		"tailwindcss-animate": "^1.0.7",
 		"zod": "^3.22.4",
-		"zustand": "^4.5.1"
+		"zustand": "^4.5.2"
 	},
 	"devDependencies": {
 		"@types/node": "^20",

@@ -1,19 +1,17 @@
 import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuLabel,
-	DropdownMenuSeparator,
-	DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
 	Avatar,
 	AvatarFallback,
 	AvatarImage,
 } from "@/components/ui/avatar";
-import { auth, signOut } from "@/lib/auth";
-import { Button } from "./ui/button";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { handleSignout } from "@/lib/actions/actions";
+import { auth } from "@/lib/auth";
+import { Button } from "./ui/button";
 
 const UserButton = async () => {
 	const session = await auth();
@@ -23,7 +21,7 @@ const UserButton = async () => {
 		<>
 			{session ? (
 				<DropdownMenu>
-					<DropdownMenuTrigger>
+					<DropdownMenuTrigger className='flex gap-2 items-center'>
 						<Avatar>
 							<AvatarImage
 								src={
@@ -31,6 +29,7 @@ const UserButton = async () => {
 									""
 								}
 							/>
+
 							<AvatarFallback>
 								{session?.user?.name?.substring(
 									0,
@@ -38,6 +37,9 @@ const UserButton = async () => {
 								)}
 							</AvatarFallback>
 						</Avatar>
+						<p className='text-white text-sm font-semibold text-left md:inline-block hidden'>
+							{session.user.name}
+						</p>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent>
 						{/* <DropdownMenuSeparator /> */}

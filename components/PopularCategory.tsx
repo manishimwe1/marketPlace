@@ -8,7 +8,7 @@ const PopularCategory = () => {
 			<h3 className='text-2xl font-bold text-stone-950 hover:underline hover:underline-offset-2 hover:cursor-pointer duration-100 hover:delay-100  w-fit'>
 				Explore Popular Categories
 			</h3>
-			<div className=' px-8 w-full grid grid-cols-5 gap-10 mt-4'>
+			<div className=' px-8 w-full grid grid-cols-1 md:grid-cols-5 gap-10 mt-4'>
 				{arr.map((items) => (
 					<div
 						key={items}

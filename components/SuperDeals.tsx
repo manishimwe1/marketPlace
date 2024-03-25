@@ -16,6 +16,7 @@ import { HeartIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { Star } from "lucide-react";
 import Image from "next/image";
+import HeartComponent from "./HeartComponent";
 
 const SuperDeals = () => {
 	return (
@@ -44,9 +45,9 @@ const SuperDeals = () => {
 												className='object-contain p-6 rounded-3xl'
 											/>
 										</CardContent>
-										<div className='absolute h-8 w-8 rounded-full bg-[#ffffff] top-4 left-2 p-1 flex justify-center items-center cursor-pointer'>
-											<HeartIcon className='w-10 h-10 text-stone-400' />
-										</div>
+										<HeartComponent
+											items={items}
+										/>
 									</Card>
 								</CarouselItem>
 								<div className='flex flex-col gap-2  overflow-hidden line-clamp-2 h-full'>

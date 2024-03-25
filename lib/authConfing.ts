@@ -1,5 +1,7 @@
+import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import { NextAuthConfig } from "next-auth";
 import Google from "next-auth/providers/google";
+import clientPromise from "./database/db.config";
 
 declare module "next-auth" {
 	interface Session {
@@ -22,7 +24,7 @@ const nextAuthConfig: NextAuthConfig = {
 			clientId: process.env.GOOGLE_CLIENT_ID,
 		}),
 	],
-
+	adapter: MongoDBAdapter(clientPromise),
 	callbacks: {
 		async jwt({ token, trigger, session }) {
 			try {
