@@ -4,6 +4,10 @@ export const NAVLINKS = [
 		href: "/deals",
 	},
 	{
+		label: "Sale",
+		href: "/saler",
+	},
+	{
 		label: "Home & Garden",
 		href: "/home&garden",
 	},

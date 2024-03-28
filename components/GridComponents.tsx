@@ -1,6 +1,8 @@
 import React from "react";
 import Carousel from "./Carousel";
 import Image from "next/image";
+import GridCard from "./shared/GridCard";
+import PurpleCard from "./shared/PurpleCard";
 
 const GridComponents = () => {
 	const carouselItems = [
@@ -35,7 +37,7 @@ const GridComponents = () => {
 					</div>
 				</div>
 			</div>
-			<div className='border w-full lg:w-[30%] rounded-3xl bg-purple-800/20 py-2'>
+			<div className='border w-full lg:w-[35%] rounded-3xl bg-purple-800/20 py-2'>
 				<h2 className='text-stone-950 text-center font-bold text-3xl opacity-80'>
 					Super
 					<span className='text-primary opacity-90'>
@@ -64,53 +66,13 @@ const GridComponents = () => {
 							</p>
 						</div>
 					</div>
-					<div className='flex gap-3  mt-4 w-full  p-2'>
-						<div className='flex flex-col gap-2 '>
-							<div className=' h-32 w-full rounded-lg relative'>
-								<Image
-									src={
-										"/images/camera.webp"
-									}
-									fill
-									alt='isaha'
-									className='object-cover rounded-lg'
-								/>
-							</div>
-							<div className=' flex items-center justify-center gap-4'>
-								<p className='text-sm text-primary font-bold whitespace-nowrap'>
-									10,000{" "}
-									<span className='text-xs '>
-										rwf
-									</span>
-								</p>
-								<p className='bg-primary rounded-full text-sm font-semibold px-3 py-0.5 whitespace-nowrap'>
-									-20% off
-								</p>
-							</div>
-						</div>
-						<div className='flex flex-col gap-3 '>
-							<div className=' h-32 w-full rounded-lg relative'>
-								<Image
-									src={
-										"/images/jewly.webp"
-									}
-									fill
-									alt='isaha'
-									className='object-cover rounded-lg'
-								/>
-							</div>
-							<div className='w-full flex items-center justify-center gap-4'>
-								<p className='text-sm text-primary font-bold whitespace-nowrap'>
-									10,000{" "}
-									<span className='text-xs '>
-										rwf
-									</span>
-								</p>
-								<p className='bg-primary rounded-full text-sm font-semibold px-3 py-0.5 whitespace-nowrap'>
-									-20% off
-								</p>
-							</div>
-						</div>
+					<div className='flex justify-around gap-2 mt-4 w-full '>
+						<GridCard
+							imageSrc={"/images/camera.webp"}
+						/>
+						<GridCard
+							imageSrc={"/images/jewly.webp"}
+						/>
 					</div>
 				</div>
 			</div>
@@ -177,27 +139,7 @@ const GridComponents = () => {
 						</div>
 					</div>
 				</div>
-				<div className=' w-full row-span-2 rounded-3xl  cursor-pointer shadow-md shadow-purple-300 bg-purple-900/50 saturate-150 px-5 py-5 '>
-					<div className=' h-40 w-full relative ml-10 rounded-3xl '>
-						<Image
-							src={"/speaker.png"}
-							fill
-							alt='isaha'
-							className='object-contain rounded-lg '
-						/>
-						<h3 className='text-2xl  rounded-t-3xl font-bold text-stone-950 absolute  top-8 -left-12 backdrop-blur-sm bg-white/20 px-4 py-2 '>
-							Immersive Audio Excellence
-						</h3>
-						<p className='text-left text-xs absolute backdrop-blur-sm bg-white/20  rounded-b-3xl px-4 py-2 bottom-4 font-semibold text-stone-700 -left-12 -z-10'>
-							Elevate your listening
-							<br />
-							experience with our unparalleled
-							<br />
-							selection of high-fidelity audio
-							products
-						</p>
-					</div>
-				</div>
+				<PurpleCard />
 			</div>
 		</section>
 	);

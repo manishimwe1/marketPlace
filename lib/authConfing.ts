@@ -27,6 +27,13 @@ const nextAuthConfig: NextAuthConfig = {
 	adapter: MongoDBAdapter(clientPromise, {
 		databaseName: "Users",
 	}),
+	theme: {
+		logo: "/logo1.svg",
+		brandColor: "red",
+
+		buttonText: "red",
+	},
+
 	callbacks: {
 		async jwt({ token, trigger, session }) {
 			try {

@@ -20,7 +20,7 @@ const HeartComponent = ({ items }: Props) => {
 	const itemsInStore = useItemstore(
 		(state) => state.items,
 	);
-	console.log(items);
+	// console.log(items);
 
 	return (
 		<div className='absolute h-8 w-8 rounded-full bg-[#ffffff] top-4 left-2 p-1 flex justify-center items-center cursor-pointer'>

@@ -62,4 +62,7 @@
 	body {
 		@apply bg-background text-foreground;
 	}
+	.max-container {
+		@apply max-w-7xl overflow-x-hidden mx-auto py-10 px-5 flex flex-col gap-10 select-none;
+	}
 }
