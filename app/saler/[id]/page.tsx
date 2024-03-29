@@ -1,5 +1,6 @@
 import Loader from "@/components/shared/Loader";
 import CountdownTimer from "@/components/shared/counterDown";
+import { Badge } from "@/components/ui/badge";
 import {
 	Button,
 	buttonVariants,
@@ -37,32 +38,57 @@ const page = async ({ params: { id } }: Props) => {
 						)}>
 						<Pencil className='text-stone-500' />
 					</Link>
-					<div className='w-[100px] h-full'>
-						<div className='h-96 w-full relative'>
+
+					<div className=' bg-purple-500/10 flex-1 rounded-3xl flex gap-3 p-5 bg-purple-50 shadow-sm shadow-purple-500/30 '>
+						<div className='w-[100px] h-full flex flex-col px-3 gap-4 bg-purple-50'>
+							<div className='h-40 w-full relative'>
+								<Image
+									src={product.image}
+									alt={product.title}
+									fill
+									className='object-contain'
+								/>
+							</div>
+							<div className='h-40 w-full relative'>
+								<Image
+									src={product.image}
+									alt={product.title}
+									fill
+									className='object-contain'
+								/>
+							</div>
+							<div className='h-40 w-full relative'>
+								<Image
+									src={product.image}
+									alt={product.title}
+									fill
+									className='object-contain'
+								/>
+							</div>
+						</div>
+						<div className='h-[100%] w-full relative border'>
 							<Image
 								src={product.image}
 								alt={product.title}
 								fill
-								className='object-contain'
-							/>
-						</div>
-						L
-					</div>
-					<div className=' bg-purple-500/10 flex-1 rounded-3xl flex gap-3'>
-						<div className='h-96 w-full relative'>
-							<Image
-								src={product.image}
-								alt={product.title}
-								fill
-								className='object-contain'
+								className='object-contain rounded-3xl '
 							/>
 						</div>
 					</div>
-					<div className=' flex flex-col gap-1 w-1/3 p-4 pl-0'>
+					<div className=' flex flex-col gap-1 w-[40%] p-4 '>
 						<div className='flex flex-col py-5 justify-center items-center gap-3'>
-							<p className='text-xl text-muted-foreground font-semibold'>
-								{product.category}
-							</p>
+							<Link
+								className={cn(
+									buttonVariants({
+										variant: "link",
+									}),
+									"self-start !px-0",
+								)}
+								href={`/category/${product.category}`}>
+								<Badge className='text-base text-muted-foreground font-semibold  cursor-pointer hover:underline hover:!bg-purple-500/50 transition-all delay-150 duration-150 ease-in-out bg-purple-500/30'>
+									{product.category}
+								</Badge>
+							</Link>
 							<h2 className='text-3xl font-bold text-stone-700 '>
 								{product.title}
 							</h2>
@@ -75,7 +101,10 @@ const page = async ({ params: { id } }: Props) => {
 							</div>
 							<div>
 								<p className='text-muted-foreground'>
-									{product.description}
+									{`${product.description.substring(
+										0,
+										150,
+									)}...`}
 								</p>
 							</div>
 						</div>

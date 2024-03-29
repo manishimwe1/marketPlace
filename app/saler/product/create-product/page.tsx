@@ -52,21 +52,25 @@ const CreteProductPage = () => {
 	// 2. Define a submit handler.
 	function onSubmit(values: z.infer<typeof formSchema>) {
 		// setIsSubmiting(true);
+		console.log("===here");
+
 		try {
 			const data = {
 				...values,
 				image: image ? image : "",
 				sellerId: "",
 			};
+			console.log("===here2");
+
 			const results = createProduct(data);
 			results.then((res: IProduct) => {
 				// return res;
-				setProduct(res);
+				return router.push(`/saler/${res._id}`);
 			});
 			// setIsSubmiting(false);
-			console.log("here");
 			if (product) {
-				router.push(`/saler/${product._id}`);
+				console.log(product);
+				return router.push(`/saler/${product._id}`);
 			}
 		} catch (error) {
 			console.log(error);

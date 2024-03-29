@@ -34,7 +34,9 @@ const PopularCategory = ({
 					))}
 				</div>
 			) : (
-				<Loader />
+				<div className='border w-full h-full'>
+					<Loader />
+				</div>
 			)}
 		</section>
 	);
