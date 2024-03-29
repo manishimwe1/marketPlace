@@ -23,7 +23,7 @@ import { createProduct } from "@/lib/actions/product.actions";
 import { IProduct } from "@/lib/database/models/product.model";
 import { useRouter } from "next/navigation";
 
-const page = () => {
+const CreteProductPage = () => {
 	const [image, setImage] = useState<string>();
 	const [product, setProduct] = useState<IProduct | null>(
 		null,
@@ -307,4 +307,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default CreteProductPage;
