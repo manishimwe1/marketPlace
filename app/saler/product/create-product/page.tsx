@@ -28,7 +28,7 @@ const page = () => {
 	const [product, setProduct] = useState<IProduct | null>(
 		null,
 	);
-	const [isSubmiting, setIsSubmiting] = useState(false);
+	// const [isSubmiting, setIsSubmiting] = useState(false);
 	const router = useRouter();
 
 	const form = useForm<z.infer<typeof formSchema>>({
@@ -47,11 +47,11 @@ const page = () => {
 	});
 
 	// if (!image) return;
-	console.log(isSubmiting);
+	// console.log(isSubmiting);
 
 	// 2. Define a submit handler.
 	function onSubmit(values: z.infer<typeof formSchema>) {
-		setIsSubmiting(true);
+		// setIsSubmiting(true);
 		try {
 			const data = {
 				...values,
@@ -63,7 +63,7 @@ const page = () => {
 				// return res;
 				setProduct(res);
 			});
-			setIsSubmiting(false);
+			// setIsSubmiting(false);
 			console.log("here");
 			if (product) {
 				router.push(`/saler/${product._id}`);
@@ -71,7 +71,7 @@ const page = () => {
 		} catch (error) {
 			console.log(error);
 		} finally {
-			setIsSubmiting(false);
+			// setIsSubmiting(false);
 		}
 	}
 	return (
@@ -274,11 +274,8 @@ const page = () => {
 
 							<Button
 								type='submit'
-								className='w-full'
-								disabled={isSubmiting}>
-								{isSubmiting
-									? "Creating..."
-									: "Create product"}
+								className='w-full'>
+								create
 							</Button>
 						</form>
 					</Form>
