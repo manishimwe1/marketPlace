@@ -20,31 +20,43 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
 import DropZone from "@/components/DropZone";
+import { createProduct } from "@/lib/actions/product.actions";
+import { IProduct } from "@/lib/database/models/product.model";
+import { useRouter } from "next/navigation";
 
 const page = () => {
 	const [image, setImage] = useState<string>();
+	const router = useRouter();
+
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			title: "",
 			description: "",
-			price: 0,
+			price: "",
 			image: "",
 			category: "",
-			stock: 0,
+			stock: "",
 			location: "",
 			freeDelivery: false,
-			deliveryFee: 0,
+			deliveryFee: "",
 		},
 	});
 
+	// if (!image) return;
 	// 2. Define a submit handler.
 	function onSubmit(values: z.infer<typeof formSchema>) {
 		// Do something with the form values.
 		// ✅ This will be type-safe and validated.
 		console.log(image, "image");
+		const data = {
+			...values,
+			image: image ? image : "",
+		};
+		const product = createProduct(data);
 
-		console.log(values);
+		router.back();
+		console.log(product);
 	}
 	return (
 		<div className='max-container '>
@@ -109,7 +121,6 @@ const page = () => {
 											</FormLabel>
 											<FormControl>
 												<Input
-													type='number'
 													placeholder='price'
 													{...field}
 												/>
@@ -129,7 +140,6 @@ const page = () => {
 											</FormLabel>
 											<FormControl>
 												<Input
-													type='number'
 													placeholder='shadcn'
 													{...field}
 												/>
@@ -162,6 +172,24 @@ const page = () => {
 							<div className='flex justify-between'>
 								<FormField
 									control={form.control}
+									name='category'
+									render={({ field }) => (
+										<FormItem className='flex flex-col'>
+											<FormLabel>
+												Category
+											</FormLabel>
+											<FormControl>
+												<Input
+													{...field}
+												/>
+											</FormControl>
+
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={form.control}
 									name='freeDelivery'
 									render={({ field }) => (
 										<FormItem className='flex flex-col'>
@@ -184,6 +212,7 @@ const page = () => {
 										</FormItem>
 									)}
 								/>
+
 								<FormField
 									control={form.control}
 									name='deliveryFee'
@@ -194,7 +223,6 @@ const page = () => {
 											</FormLabel>
 											<FormControl>
 												<Input
-													type='number'
 													placeholder='Location'
 													{...field}
 												/>
@@ -205,11 +233,28 @@ const page = () => {
 									)}
 								/>
 							</div>
-							<div className='w-full cursor-pointer'>
-								<DropZone
-									setImage={setImage}
-								/>
-							</div>
+							<FormField
+								control={form.control}
+								name='image'
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>
+											Images
+										</FormLabel>
+										<FormControl>
+											<div className='w-full cursor-pointer'>
+												<DropZone
+													setImage={
+														setImage
+													}
+												/>
+											</div>
+										</FormControl>
+
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
 
 							<Button
 								type='submit'
@@ -219,6 +264,7 @@ const page = () => {
 						</form>
 					</Form>
 				</div>
+
 				{!image ? (
 					<div className='relative border w-1/2 bg-purple-500/20 rounded-r-3xl hidden lg:flex'>
 						<Image
@@ -229,13 +275,15 @@ const page = () => {
 						/>
 					</div>
 				) : (
-					<div className='relative border w-1/2 bg-purple-500/20 rounded-r-3xl hidden lg:flex'>
-						<Image
-							src={image}
-							alt='speaker'
-							fill
-							className='object-contain'
-						/>
+					<div className='relative border w-1/2 bg-purple-500/20 rounded-r-3xl hidden lg:flex  items-center justify-center'>
+						<div className='relative h-40 w-full '>
+							<Image
+								src={image}
+								alt='product'
+								fill
+								className='object-contain'
+							/>
+						</div>
 					</div>
 				)}
 			</div>

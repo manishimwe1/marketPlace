@@ -1,4 +1,4 @@
-import { handleSignIn } from "@/lib/actions/actions";
+import { handleSignIn } from "@/lib/actions/user.actions";
 import { UserIcon } from "@heroicons/react/24/outline";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { useSession } from "next-auth/react";

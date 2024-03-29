@@ -9,7 +9,7 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { handleSignout } from "@/lib/actions/actions";
+import { handleSignout } from "@/lib/actions/user.actions";
 import { auth } from "@/lib/auth";
 import { Button } from "./ui/button";
 
