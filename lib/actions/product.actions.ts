@@ -1,11 +1,10 @@
 "use server";
 
-import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
+import { auth } from "../auth";
 import { connectToDB } from "../database/db.config";
 import { Product } from "../database/models/product.model";
-import User from "../database/models/user.model";
 import { getUserById } from "./user.actions";
-import { auth } from "../auth";
 
 export type IProduct = {
 	image: string;
@@ -54,6 +53,24 @@ export const createProduct = async (product: IProduct) => {
 		);
 
 		return results;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export const getAllProduct = async () => {
+	try {
+		await connectToDB();
+
+		const product = await Product.find();
+
+		if (!product) {
+			console.log("error in getting Product");
+			return;
+		}
+
+		revalidatePath("/");
+		return JSON.parse(JSON.stringify(product));
 	} catch (error) {
 		console.log(error);
 	}

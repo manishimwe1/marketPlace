@@ -3,15 +3,24 @@ import GridComponents from "@/components/GridComponents";
 import Menubar from "@/components/Menubar";
 import PopularCategory from "@/components/PopularCategory";
 import SuperDeals from "@/components/SuperDeals";
+import {
+	IProduct,
+	getAllProduct,
+} from "@/lib/actions/product.actions";
 
-function page() {
+async function page() {
+	const allProduct: IProduct[] = await getAllProduct();
+	console.log(allProduct, "this is all product");
+
+	allProduct;
+
 	return (
 		<>
 			<Menubar />
 			<main className='max-container'>
 				<AboutUs />
 				<GridComponents />
-				<PopularCategory />
+				<PopularCategory allProduct={allProduct} />
 				<SuperDeals />
 			</main>
 		</>
