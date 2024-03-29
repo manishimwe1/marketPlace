@@ -25,6 +25,7 @@ const PopularCategory = ({
 									src={product.image}
 									fill
 									alt='speaker'
+									className='object-contain'
 								/>
 							</div>
 							<h4 className='text-xl group-hover:underline group-hover:underline-offset-4 font-bold text-stone-950/80'>
