@@ -1,4 +1,5 @@
 import { Document, Schema, model, models } from "mongoose";
+import User from "./user.model";
 
 export interface IProduct extends Document {
 	title: string;
@@ -12,7 +13,20 @@ export interface IProduct extends Document {
 	freeDelivery: boolean;
 	deliveryFee: number;
 	stock: number;
+	sellerId: {
+		_id: string;
+		email: string;
+		name: string;
+		image: string;
+	};
 }
+
+const populateUser = (query: any) =>
+	query.populate({
+		path: "author",
+		model: User,
+		select: "_id email name image",
+	});
 
 const ProductSchema = new Schema({
 	title: {
@@ -40,7 +54,8 @@ const ProductSchema = new Schema({
 	freeDelivery: { type: Boolean },
 	deliveryFee: { type: Number },
 	stock: { type: Number },
+	sellerId: { type: Schema.Types.ObjectId, ref: "users" },
 });
 
 export const Product =
-	models.Product || model("Product", ProductSchema);
+	models.products || model("products", ProductSchema);

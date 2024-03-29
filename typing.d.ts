@@ -26,3 +26,11 @@ export type ISavedUser = {
 	profile: string;
 	userId: string;
 };
+
+interface userProps {
+	userId: string;
+	name: string;
+	email: string;
+	image: string;
+	emailVerified?: boolean | null; // Assuming emailVerified can be boolean or null
+}

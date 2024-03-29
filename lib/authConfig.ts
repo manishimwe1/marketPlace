@@ -2,6 +2,10 @@ import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import { NextAuthConfig } from "next-auth";
 import Google from "next-auth/providers/google";
 import clientPromise from "./database/db.config";
+import {
+	createUser,
+	getUserById,
+} from "./actions/user.actions";
 
 declare module "next-auth" {
 	interface Session {
@@ -24,13 +28,31 @@ const nextAuthConfig: NextAuthConfig = {
 			clientId: process.env.GOOGLE_CLIENT_ID,
 		}),
 	],
-	adapter: MongoDBAdapter(clientPromise, {
-		databaseName: "Users",
-	}),
+	// adapter: MongoDBAdapter(clientPromise, {
+	// 	databaseName: "User",
+	// }),
 
 	callbacks: {
 		async jwt({ token, trigger, session }) {
 			try {
+				const userExist = await getUserById(
+					token.email || "",
+				);
+
+				if (trigger === "signIn" && !userExist) {
+					const data = {
+						userId: token.sub || "",
+						email: token.email || "",
+						name: token.name || "",
+						image: token.picture || "",
+					};
+					await createUser(data);
+					if (!userExist) {
+						console.log(
+							"error in checking if user is Exist",
+						);
+					}
+				}
 				if (
 					trigger === "update" &&
 					session?.user?.name

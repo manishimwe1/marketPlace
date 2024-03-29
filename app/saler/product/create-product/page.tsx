@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import {
 	Form,
 	FormControl,
-	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
@@ -26,6 +25,10 @@ import { useRouter } from "next/navigation";
 
 const page = () => {
 	const [image, setImage] = useState<string>();
+	const [product, setProduct] = useState<IProduct | null>(
+		null,
+	);
+	const [isSubmiting, setIsSubmiting] = useState(false);
 	const router = useRouter();
 
 	const form = useForm<z.infer<typeof formSchema>>({
@@ -44,19 +47,32 @@ const page = () => {
 	});
 
 	// if (!image) return;
+	console.log(isSubmiting);
+
 	// 2. Define a submit handler.
 	function onSubmit(values: z.infer<typeof formSchema>) {
-		// Do something with the form values.
-		// ✅ This will be type-safe and validated.
-		console.log(image, "image");
-		const data = {
-			...values,
-			image: image ? image : "",
-		};
-		const product = createProduct(data);
-
-		router.back();
-		console.log(product);
+		setIsSubmiting(true);
+		try {
+			const data = {
+				...values,
+				image: image ? image : "",
+				sellerId: "",
+			};
+			const results = createProduct(data);
+			results.then((res: IProduct) => {
+				// return res;
+				setProduct(res);
+			});
+			setIsSubmiting(false);
+			console.log("here");
+			if (product) {
+				router.push(`/saler/${product._id}`);
+			}
+		} catch (error) {
+			console.log(error);
+		} finally {
+			setIsSubmiting(false);
+		}
 	}
 	return (
 		<div className='max-container '>
@@ -258,8 +274,11 @@ const page = () => {
 
 							<Button
 								type='submit'
-								className='w-full'>
-								Submit
+								className='w-full'
+								disabled={isSubmiting}>
+								{isSubmiting
+									? "Creating..."
+									: "Create product"}
 							</Button>
 						</form>
 					</Form>

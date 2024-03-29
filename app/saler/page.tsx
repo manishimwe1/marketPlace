@@ -1,24 +1,10 @@
-import {
-	Button,
-	buttonVariants,
-} from "@/components/ui/button";
-import { getAllProductById } from "@/lib/actions/product.actions";
+import { buttonVariants } from "@/components/ui/button";
 import { auth } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import React from "react";
 
 const page = async () => {
-	const session = await auth();
-	console.log(session);
-
-	if (!session) {
-		redirect("/sign-in");
-	}
-	const userId = session.user.id || undefined;
-	const product = await getAllProductById(userId);
 	return (
 		<section className='flex flex-col w-full max-container'>
 			<div className='w-full flex justify-end'>
