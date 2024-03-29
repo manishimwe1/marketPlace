@@ -17,3 +17,10 @@ export const formSchema = z.object({
 	stock: z.string(),
 	category: z.string(),
 });
+export const signInSchema = z.object({
+	Email: z.string().email(),
+	password: z
+		.string()
+		.min(8, "Must contains 8 characters")
+		.max(50),
+});

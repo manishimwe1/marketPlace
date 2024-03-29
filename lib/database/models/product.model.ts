@@ -1,5 +1,4 @@
 import { Document, Schema, model, models } from "mongoose";
-import { number } from "zod";
 
 export interface IProduct extends Document {
 	title: string;

@@ -1,5 +1,6 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { connectToDB } from "../database/db.config";
 import { Product } from "../database/models/product.model";
 
@@ -29,4 +30,18 @@ export const createProduct = async (product: IProduct) => {
 	} catch (error) {
 		console.log(error);
 	}
+};
+
+export const getAllProductById = async (
+	userId: string | undefined,
+) => {
+	if (!userId) {
+		return redirect("/sign-in");
+	}
+
+	try {
+		await connectToDB();
+
+		const product = await Product.findById({});
+	} catch (error) {}
 };

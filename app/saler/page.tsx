@@ -2,11 +2,23 @@ import {
 	Button,
 	buttonVariants,
 } from "@/components/ui/button";
+import { getAllProductById } from "@/lib/actions/product.actions";
+import { auth } from "@/lib/auth";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
 
-const page = () => {
+const page = async () => {
+	const session = await auth();
+	console.log(session);
+
+	if (!session) {
+		redirect("/sign-in");
+	}
+	const userId = session.user.id || undefined;
+	const product = await getAllProductById(userId);
 	return (
 		<section className='flex flex-col w-full max-container'>
 			<div className='w-full flex justify-end'>
@@ -16,9 +28,29 @@ const page = () => {
 					Create product
 				</Link>
 			</div>
-			<p className='text-muted-foreground'>
-				no product
-			</p>
+			<div className='flex flex-col gap-4'>
+				<div className='relative w-full h-96'>
+					<Image
+						src={"/images/no_result.gif"}
+						alt='no product'
+						fill
+						className='object-contain'
+					/>
+				</div>
+				<div className='w-full flex justify-center text-stone-400'>
+					<Link
+						href={
+							"/saler/product/create-product"
+						}
+						className={cn(
+							buttonVariants({
+								variant: "ghost",
+							}),
+						)}>
+						Create product
+					</Link>
+				</div>
+			</div>
 		</section>
 	);
 };
