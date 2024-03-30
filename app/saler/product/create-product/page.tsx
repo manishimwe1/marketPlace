@@ -17,7 +17,7 @@ import Image from "next/image";
 import { formSchema } from "@/lib/validation";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DropZone from "@/components/DropZone";
 import { createProduct } from "@/lib/actions/product.actions";
 import { IProduct } from "@/lib/database/models/product.model";
@@ -29,6 +29,8 @@ const CreteProductPage = () => {
 	const [product, setProduct] = useState<IProduct | null>(
 		null,
 	);
+	const [switcherState, setSwitcherState] =
+		useState(false);
 	// const [isSubmiting, setIsSubmiting] = useState(false);
 	const router = useRouter();
 	const { startUpload } = useUploadThing("imageUploader");
@@ -48,10 +50,16 @@ const CreteProductPage = () => {
 		},
 	});
 
-	// if (!image) return;
-	// console.log(isSubmiting);
+	const handleSwitch = (e: boolean) => {
+		form.setValue("freeDelivery", e);
+		setSwitcherState(
+			form.control._formValues.freeDelivery,
+		);
+	};
+	useEffect(() => {
+		console.log(switcherState);
+	}, [switcherState]);
 
-	// 2. Define a submit handler.
 	async function onSubmit(
 		values: z.infer<typeof formSchema>,
 	) {
@@ -241,7 +249,7 @@ const CreteProductPage = () => {
 														field.value
 													}
 													onCheckedChange={
-														field.onChange
+														handleSwitch
 													}
 												/>
 											</FormControl>
@@ -261,10 +269,22 @@ const CreteProductPage = () => {
 											</FormLabel>
 											<FormControl>
 												<Input
-													placeholder='Location'
+													disabled={
+														switcherState ===
+														true
+													}
+													placeholder='Delivery Fee'
 													{...field}
 												/>
 											</FormControl>
+											{switcherState && (
+												<p className='text-xs text-red-900 text-muted-foreground font-semibold'>
+													This
+													product
+													is Free
+													delivery
+												</p>
+											)}
 
 											<FormMessage />
 										</FormItem>

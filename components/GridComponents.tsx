@@ -3,8 +3,14 @@ import Carousel from "./Carousel";
 import Image from "next/image";
 import GridCard from "./shared/GridCard";
 import PurpleCard from "./shared/PurpleCard";
+import NewCollectionCard from "./NewCollectionCard";
+import { IProduct } from "@/lib/actions/product.actions";
 
-const GridComponents = () => {
+const GridComponents = ({
+	allProduct,
+}: {
+	allProduct: IProduct[];
+}) => {
 	const carouselItems = [
 		{
 			Src: "/images/hero1.jpg",
@@ -20,7 +26,7 @@ const GridComponents = () => {
 		},
 	];
 	return (
-		<section className='flex gap-3 w-full h-full flex-col lg:flex-row'>
+		<section className='flex gap-3 w-full h-full flex-col lg:flex-row items-center justify-between'>
 			<div className='space-y-4 rounded-3xl w-full lg:w-1/5 h-full'>
 				<div className='border h-36 w-full row-span-2 rounded-3xl bg-slate-400/10'></div>
 				<div className='  rounded-3xl bg-purple-800/20 py-5 h-full'>
@@ -77,68 +83,9 @@ const GridComponents = () => {
 				</div>
 			</div>
 			<div className=' col-span-2 space-y-2 rounded-3xl w-full lg:w-[50%]'>
-				<div className='border  w-full row-span-2 rounded-3xl bg-slate-400/10 px-4 py-2'>
-					<h2 className='text-stone-950 text-left font-bold text-3xl opacity-80'>
-						New
-					</h2>
-					<p className='text-stone-600 text-left text-lg '>
-						Launched in the last 30 days
-					</p>
-					<div className='flex gap-4 items-center justify-center py-10'>
-						<div className='flex flex-col gap-3 w-full'>
-							<div className=' h-40 w-full rounded-lg relative'>
-								<Image
-									src={"/images/bed.webp"}
-									fill
-									alt='isaha'
-									className='object-cover rounded-lg'
-								/>
-							</div>
-							<p className='text-sm text-primary font-bold whitespace-nowrap'>
-								10,000{" "}
-								<span className='text-xs '>
-									rwf
-								</span>
-							</p>
-						</div>
-
-						<div className='flex flex-col gap-3 w-full'>
-							<div className=' h-40 w-full rounded-lg relative'>
-								<Image
-									src={
-										"/images/shirt.webp"
-									}
-									fill
-									alt='isaha'
-									className='object-cover rounded-lg'
-								/>
-							</div>
-							<p className='text-sm text-primary font-bold whitespace-nowrap'>
-								10,000{" "}
-								<span className='text-xs '>
-									rwf
-								</span>
-							</p>
-						</div>
-
-						<div className='flex flex-col gap-3 w-full'>
-							<div className=' h-40 w-full rounded-lg relative'>
-								<Image
-									src={"/images/bed.webp"}
-									fill
-									alt='isaha'
-									className='object-cover rounded-lg'
-								/>
-							</div>
-							<p className='text-sm text-primary font-bold whitespace-nowrap'>
-								10,000{" "}
-								<span className='text-xs '>
-									rwf
-								</span>
-							</p>
-						</div>
-					</div>
-				</div>
+				<NewCollectionCard
+					allProduct={allProduct}
+				/>
 				<PurpleCard />
 			</div>
 		</section>

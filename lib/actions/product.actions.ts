@@ -52,6 +52,7 @@ export const createProduct = async (product: IProduct) => {
 			JSON.stringify(newProduct),
 		);
 
+		revalidatePath("/");
 		return results;
 	} catch (error) {
 		console.log(error);
@@ -62,7 +63,9 @@ export const getAllProduct = async () => {
 	try {
 		await connectToDB();
 
-		const product = await Product.find();
+		const product = await Product.find().sort({
+			createdAt: "desc",
+		});
 
 		if (!product) {
 			console.log("error in getting Product");

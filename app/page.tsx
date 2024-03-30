@@ -19,7 +19,7 @@ async function page() {
 			<Menubar />
 			<main className='max-container'>
 				<AboutUs />
-				<GridComponents />
+				<GridComponents allProduct={allProduct} />
 				<PopularCategory allProduct={allProduct} />
 				<SuperDeals />
 			</main>
