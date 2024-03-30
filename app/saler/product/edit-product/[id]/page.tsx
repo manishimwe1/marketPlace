@@ -24,8 +24,13 @@ import { IProduct } from "@/lib/database/models/product.model";
 import { useRouter } from "next/navigation";
 import { useUploadThing } from "@/lib/uploadthing/uploadThing";
 import { useProductStore } from "@/store";
+import Loader from "@/components/shared/Loader";
 
-const CreteProductPage = () => {
+type Props = {
+	params: { id: string };
+};
+
+const EditProductPage = ({ params: { id } }: Props) => {
 	const [image, setImage] = useState<File[]>([]);
 	const [product, setProduct] = useState<IProduct | null>(
 		null,
@@ -35,24 +40,35 @@ const CreteProductPage = () => {
 	// const [isSubmiting, setIsSubmiting] = useState(false);
 	const router = useRouter();
 	const { startUpload } = useUploadThing("imageUploader");
-	const saveproductInStore = useProductStore(
-		(state) => state.allProducts,
+	const [savedProduct, ProductById] = useProductStore(
+		(state) => [state.product, state.ProductById],
 	);
-	// const savedProduct = useProductStore(
-	// 	(state) => state.product,
-	// );
+
+	useEffect(() => {
+		ProductById(id);
+	}, []);
+
+	if (!savedProduct) {
+		return <Loader />;
+	}
+
+	console.log(
+		savedProduct,
+		"this is saved product======",
+	);
+
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			title: "",
-			description: "",
-			price: "",
-			image: "",
-			category: "",
-			stock: "",
-			location: "",
-			freeDelivery: false,
-			deliveryFee: "",
+			title: savedProduct.title,
+			description: savedProduct.description,
+			price: savedProduct.price,
+			image: savedProduct.image,
+			category: savedProduct.category,
+			stock: savedProduct.stock,
+			location: savedProduct.location,
+			freeDelivery: savedProduct.freeDelivery,
+			deliveryFee: savedProduct.deliveryFee,
 		},
 	});
 
@@ -62,6 +78,9 @@ const CreteProductPage = () => {
 			form.control._formValues.freeDelivery,
 		);
 	};
+	useEffect(() => {
+		console.log(switcherState);
+	}, [switcherState]);
 
 	async function onSubmit(
 		values: z.infer<typeof formSchema>,
@@ -69,6 +88,7 @@ const CreteProductPage = () => {
 		// setIsSubmiting(true);
 
 		let uploadedImageUrl = values.image;
+		console.log(image, "this image =======");
 
 		try {
 			if (image.length > 0) {
@@ -77,27 +97,29 @@ const CreteProductPage = () => {
 				);
 				if (!uploadedImages) return;
 				uploadedImageUrl = uploadedImages[0].url;
+
+				console.log("===here2");
 			}
 			const data = {
 				...values,
 				image: uploadedImageUrl,
 				sellerId: "",
 			};
+			console.log(
+				uploadedImageUrl,
+				"this is uploaded image url",
+			);
 
 			const results = createProduct(data);
-			results.then((Item: IProduct) => {
-				// return Item;
-				setProduct(Item);
-				saveproductInStore();
-
-				// console.log(
-				// 	savedProduct,
-				// 	"this is saved product from store",
-				// );
-
-				return router.push(`/saler/${Item._id}`);
+			results.then((res: IProduct) => {
+				// return res;
+				return router.push(`/saler/${res._id}`);
 			});
 			// setIsSubmiting(false);
+			if (product) {
+				console.log(product);
+				return router.push(`/saler/${product._id}`);
+			}
 		} catch (error) {
 			console.log(error);
 		} finally {
@@ -352,4 +374,4 @@ const CreteProductPage = () => {
 	);
 };
 
-export default CreteProductPage;
+export default EditProductPage;

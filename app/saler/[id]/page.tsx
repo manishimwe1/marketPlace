@@ -29,7 +29,7 @@ const page = async ({ params: { id } }: Props) => {
 			{product ? (
 				<div className='w-full relative h-full flex text-stone-900 border rounded-3xl bg-purple-500/30 py-4'>
 					<Link
-						href={`/saler/product/${id}/edit-product`}
+						href={`/saler/product/edit-product/${id}`}
 						className={cn(
 							"absolute top-4 right-4 ring-2 ring-purple-500/30 hover:!bg-purple-500/30 !px-2",
 							buttonVariants({
@@ -39,7 +39,7 @@ const page = async ({ params: { id } }: Props) => {
 						<Pencil className='text-stone-500' />
 					</Link>
 
-					<div className=' bg-purple-500/10 flex-1 rounded-3xl flex gap-3 p-5 bg-purple-50 shadow-sm shadow-purple-500/30 '>
+					<div className=' bg-purple-500/10 flex-1 relative rounded-3xl flex  p-5 bg-purple-50 shadow-sm shadow-purple-500/30 '>
 						<div className='w-[100px] h-full flex flex-col px-3 gap-4 bg-purple-50'>
 							<div className='h-40 w-full relative'>
 								<Image
@@ -66,7 +66,8 @@ const page = async ({ params: { id } }: Props) => {
 								/>
 							</div>
 						</div>
-						<div className='h-[100%] w-full relative border'>
+						<div className='h-[100%] w-full relative  bg-purple-50 rounded-r-3xl'>
+							<div className='absolute -top-0 right-0 bg-purple-500/50 brightness-95 saturate-200 h-20 w-20 rounded-3xl z-20   flex  p-5  shadow-sm shadow-purple-500/30 ' />
 							<Image
 								src={product.image}
 								alt={product.title}

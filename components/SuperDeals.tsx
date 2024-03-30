@@ -1,8 +1,4 @@
-import {
-	Card,
-	CardContent,
-	CardDescription,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
 	Carousel,
 	CarouselContent,
@@ -12,9 +8,6 @@ import {
 } from "@/components/ui/carousel";
 import { DEALers } from "@/constants";
 import { truncateString } from "@/lib/utils";
-import { HeartIcon } from "@heroicons/react/24/outline";
-import { StarIcon } from "@heroicons/react/24/solid";
-import { Star } from "lucide-react";
 import Image from "next/image";
 import HeartComponent from "./HeartComponent";
 
