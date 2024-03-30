@@ -22,14 +22,16 @@ import DropZone from "@/components/DropZone";
 import { createProduct } from "@/lib/actions/product.actions";
 import { IProduct } from "@/lib/database/models/product.model";
 import { useRouter } from "next/navigation";
+import { useUploadThing } from "@/lib/uploadthing/uploadThing";
 
 const CreteProductPage = () => {
-	const [image, setImage] = useState<string>();
+	const [image, setImage] = useState<File[]>([]);
 	const [product, setProduct] = useState<IProduct | null>(
 		null,
 	);
 	// const [isSubmiting, setIsSubmiting] = useState(false);
 	const router = useRouter();
+	const { startUpload } = useUploadThing("imageUploader");
 
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
@@ -50,17 +52,33 @@ const CreteProductPage = () => {
 	// console.log(isSubmiting);
 
 	// 2. Define a submit handler.
-	function onSubmit(values: z.infer<typeof formSchema>) {
+	async function onSubmit(
+		values: z.infer<typeof formSchema>,
+	) {
 		// setIsSubmiting(true);
-		console.log("===here");
+
+		let uploadedImageUrl = values.image;
+		console.log(image, "this image =======");
 
 		try {
+			if (image.length > 0) {
+				const uploadedImages = await startUpload(
+					image,
+				);
+				if (!uploadedImages) return;
+				uploadedImageUrl = uploadedImages[0].url;
+
+				console.log("===here2");
+			}
 			const data = {
 				...values,
-				image: image ? image : "",
+				image: uploadedImageUrl,
 				sellerId: "",
 			};
-			console.log("===here2");
+			console.log(
+				uploadedImageUrl,
+				"this is uploaded image url",
+			);
 
 			const results = createProduct(data);
 			results.then((res: IProduct) => {
@@ -267,6 +285,9 @@ const CreteProductPage = () => {
 													setImage={
 														setImage
 													}
+													onFieldChange={
+														field.onChange
+													}
 												/>
 											</div>
 										</FormControl>
@@ -296,14 +317,14 @@ const CreteProductPage = () => {
 					</div>
 				) : (
 					<div className='relative border w-1/2 bg-purple-500/20 rounded-r-3xl hidden lg:flex  items-center justify-center'>
-						<div className='relative h-40 w-full '>
+						{/* <div className='relative h-40 w-full '>
 							<Image
 								src={image}
 								alt='product'
 								fill
 								className='object-contain'
 							/>
-						</div>
+						</div> */}
 					</div>
 				)}
 			</div>

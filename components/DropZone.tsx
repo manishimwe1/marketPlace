@@ -1,31 +1,40 @@
 "use client ";
 
-import { cn } from "@/lib/utils";
+import { cn, convertFileToUrl } from "@/lib/utils";
 import { SquaresPlusIcon } from "@heroicons/react/24/outline";
-import { Dispatch, SetStateAction } from "react";
-import Dropzone from "react-dropzone";
+import {
+	Dispatch,
+	SetStateAction,
+	useCallback,
+} from "react";
+import Dropzone, {
+	FileWithPath,
+	useDropzone,
+} from "react-dropzone";
+import { generateClientDropzoneAccept } from "uploadthing/client";
 
 type Props = {
-	setImage: Dispatch<SetStateAction<string | undefined>>;
+	setImage: Dispatch<SetStateAction<File[]>>;
+	onFieldChange: (url: string) => void;
 };
 
-const DropZone = ({ setImage }: Props) => {
-	const onDrop = (acceptedFiles: File[]) => {
-		acceptedFiles.forEach((file) => {
-			const reader = new FileReader();
-			reader.onabort = () =>
-				console.log("file reader was aborted");
-			reader.onerror = () =>
-				console.log("file reader has failed");
-			reader.onload = async () => {
-				const Url = URL.createObjectURL(file);
+const DropZone = ({ setImage, onFieldChange }: Props) => {
+	const onDrop = useCallback(
+		(acceptedFiles: FileWithPath[]) => {
+			setImage(acceptedFiles);
+			onFieldChange(
+				convertFileToUrl(acceptedFiles[0]),
+			);
+		},
+		[],
+	);
 
-				setImage(Url);
-				console.log("===>on load", file);
-			};
-			reader.readAsArrayBuffer(file);
-		});
-	};
+	const { getRootProps, getInputProps } = useDropzone({
+		onDrop,
+		accept: "image/*"
+			? generateClientDropzoneAccept(["image/*"])
+			: undefined,
+	});
 	return (
 		<Dropzone onDrop={onDrop}>
 			{({
