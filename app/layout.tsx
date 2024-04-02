@@ -26,7 +26,7 @@ export default function RootLayout({
 			<body
 				className={cn(
 					poppins.variable,
-					"text-white ",
+					"text-white bg-gray-100 ",
 				)}>
 				<Navbar />
 				{children}

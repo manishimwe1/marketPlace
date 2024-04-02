@@ -16,6 +16,7 @@ export const formSchema = z.object({
 	deliveryFee: z.string(),
 	stock: z.string(),
 	category: z.string(),
+	SuperDeals: z.string(),
 });
 export const signInSchema = z.object({
 	Email: z.string().email(),

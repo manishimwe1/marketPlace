@@ -16,13 +16,21 @@ import { generateClientDropzoneAccept } from "uploadthing/client";
 type Props = {
 	setImage: Dispatch<SetStateAction<File[]>>;
 	onFieldChange: (url: string) => void;
+	setShowProductImage: Dispatch<SetStateAction<string>>;
 };
 
-const DropZone = ({ setImage, onFieldChange }: Props) => {
+const DropZone = ({
+	setImage,
+	onFieldChange,
+	setShowProductImage,
+}: Props) => {
 	const onDrop = useCallback(
 		(acceptedFiles: FileWithPath[]) => {
 			setImage(acceptedFiles);
 			onFieldChange(
+				convertFileToUrl(acceptedFiles[0]),
+			);
+			setShowProductImage(
 				convertFileToUrl(acceptedFiles[0]),
 			);
 		},

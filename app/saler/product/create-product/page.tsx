@@ -32,12 +32,14 @@ const CreteProductPage = () => {
 	);
 	const [switcherState, setSwitcherState] =
 		useState(false);
-	// const [isSubmiting, setIsSubmiting] = useState(false);
+	const [isSubmiting, setIsSubmiting] = useState(false);
 	const router = useRouter();
 	const { startUpload } = useUploadThing("imageUploader");
 	const saveproductInStore = useProductStore(
 		(state) => state.allProducts,
 	);
+	const [showProductImage, setShowProductImage] =
+		useState<string>("");
 	// const savedProduct = useProductStore(
 	// 	(state) => state.product,
 	// );
@@ -53,6 +55,7 @@ const CreteProductPage = () => {
 			location: "",
 			freeDelivery: false,
 			deliveryFee: "",
+			SuperDeals: "",
 		},
 	});
 
@@ -66,11 +69,13 @@ const CreteProductPage = () => {
 	async function onSubmit(
 		values: z.infer<typeof formSchema>,
 	) {
-		// setIsSubmiting(true);
+		setIsSubmiting(true);
 
 		let uploadedImageUrl = values.image;
 
 		try {
+			console.log(values.image);
+
 			if (image.length > 0) {
 				const uploadedImages = await startUpload(
 					image,
@@ -97,11 +102,11 @@ const CreteProductPage = () => {
 
 				return router.push(`/saler/${Item._id}`);
 			});
-			// setIsSubmiting(false);
+			setIsSubmiting(false);
 		} catch (error) {
 			console.log(error);
 		} finally {
-			// setIsSubmiting(false);
+			setIsSubmiting(false);
 		}
 	}
 	return (
@@ -197,11 +202,11 @@ const CreteProductPage = () => {
 								/>
 								<FormField
 									control={form.control}
-									name='location'
+									name='SuperDeals'
 									render={({ field }) => (
 										<FormItem>
 											<FormLabel>
-												Location
+												Deals(-20%OFF)
 											</FormLabel>
 											<FormControl>
 												<Input
@@ -234,6 +239,26 @@ const CreteProductPage = () => {
 										</FormItem>
 									)}
 								/>
+								<FormField
+									control={form.control}
+									name='location'
+									render={({ field }) => (
+										<FormItem className='flex flex-col'>
+											<FormLabel>
+												Location
+											</FormLabel>
+											<FormControl>
+												<Input
+													{...field}
+												/>
+											</FormControl>
+
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+							</div>
+							<div className=' flex items-center justify-between'>
 								<FormField
 									control={form.control}
 									name='freeDelivery'
@@ -308,6 +333,10 @@ const CreteProductPage = () => {
 													onFieldChange={
 														field.onChange
 													}
+													{...field}
+													setShowProductImage={
+														setShowProductImage
+													}
 												/>
 											</div>
 										</FormControl>
@@ -319,32 +348,51 @@ const CreteProductPage = () => {
 
 							<Button
 								type='submit'
-								className='w-full'>
-								create
+								className='w-full'
+								disabled={isSubmiting}>
+								{isSubmiting ? (
+									<div className='flex items-center gap-4'>
+										<Image
+											src='/loader.svg'
+											alt='loader'
+											width={40}
+											height={40}
+										/>
+										<p>
+											"Creating
+											product "
+										</p>
+									</div>
+								) : (
+									"Create"
+								)}
 							</Button>
 						</form>
 					</Form>
 				</div>
 
-				{!image ? (
+				{showProductImage ? (
+					<div className='relative border w-1/2 bg-purple-500/20 rounded-r-3xl hidden lg:flex  items-center justify-center'>
+						<div className='relative h-80 w-full '>
+							<Image
+								src={showProductImage}
+								alt='product'
+								fill
+								className='object-contain'
+							/>
+						</div>
+					</div>
+				) : (
 					<div className='relative border w-1/2 bg-purple-500/20 rounded-r-3xl hidden lg:flex'>
+						<h3 className='text-lg font-bold text-stone-950 absolute top-10 inset-x-0'>
+							Create beatifuly selling product
+						</h3>
 						<Image
 							src={"/speaker.png"}
 							alt='speaker'
 							fill
 							className='object-contain'
 						/>
-					</div>
-				) : (
-					<div className='relative border w-1/2 bg-purple-500/20 rounded-r-3xl hidden lg:flex  items-center justify-center'>
-						{/* <div className='relative h-40 w-full '>
-							<Image
-								src={image}
-								alt='product'
-								fill
-								className='object-contain'
-							/>
-						</div> */}
 					</div>
 				)}
 			</div>

@@ -29,7 +29,7 @@ export const createProduct = async (product: IProduct) => {
 		);
 		if (!seller) {
 			throw new Error(
-				"there is error in finding sellerId",
+				"Unthorized please log in!!!!!",
 			);
 		}
 		// console.log(sellerId._id);

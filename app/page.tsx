@@ -10,9 +10,7 @@ import {
 
 async function page() {
 	const allProduct: IProduct[] = await getAllProduct();
-	// console.log(allProduct, "this is all product");
-
-	allProduct;
+	console.log(allProduct, "this is all product");
 
 	return (
 		<>

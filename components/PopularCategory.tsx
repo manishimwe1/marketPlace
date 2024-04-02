@@ -20,12 +20,12 @@ const PopularCategory = ({
 						<div
 							key={`product.title${i}`}
 							className=' w-full h-full group cursor-pointer  flex flex-col gap-2 items-center justify-center '>
-							<div className='relative w-36 h-36 bg-slate-400/20 rounded-full'>
+							<div className='relative w-36 h-36 bg-white rounded-full overflow-hidden'>
 								<Image
 									src={product.image}
 									fill
 									alt='speaker'
-									className='object-contain'
+									className='object-contain  p-2'
 								/>
 							</div>
 							<h4 className='text-xl group-hover:underline group-hover:underline-offset-4 font-bold text-stone-950/80'>
