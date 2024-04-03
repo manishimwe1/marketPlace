@@ -24,6 +24,7 @@ import { IProduct } from "@/lib/database/models/product.model";
 import { useRouter } from "next/navigation";
 import { useUploadThing } from "@/lib/uploadthing/uploadThing";
 import { useProductStore } from "@/store";
+import SelectField from "@/components/shared/SelectField";
 
 const CreteProductPage = () => {
 	const [image, setImage] = useState<File[]>([]);
@@ -220,22 +221,21 @@ const CreteProductPage = () => {
 									)}
 								/>
 							</div>
-							<div className='flex justify-between'>
+							<div className='flex justify-between items-center gap-3'>
 								<FormField
 									control={form.control}
 									name='category'
 									render={({ field }) => (
-										<FormItem className='flex flex-col'>
+										<FormItem className='flex flex-col w-full'>
 											<FormLabel>
 												Category
 											</FormLabel>
-											<FormControl>
-												<Input
-													{...field}
-												/>
-											</FormControl>
-
-											<FormMessage />
+											<SelectField
+												onFieldChange={
+													field.onChange
+												}
+												{...field}
+											/>
 										</FormItem>
 									)}
 								/>
@@ -243,7 +243,7 @@ const CreteProductPage = () => {
 									control={form.control}
 									name='location'
 									render={({ field }) => (
-										<FormItem className='flex flex-col'>
+										<FormItem className='flex flex-col w-full'>
 											<FormLabel>
 												Location
 											</FormLabel>
@@ -353,10 +353,10 @@ const CreteProductPage = () => {
 								{isSubmiting ? (
 									<div className='flex items-center gap-4'>
 										<Image
-											src='/loader.svg'
+											src='/loader-white.svg'
 											alt='loader'
-											width={40}
-											height={40}
+											width={20}
+											height={20}
 										/>
 										<p>
 											"Creating

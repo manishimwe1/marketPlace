@@ -41,9 +41,9 @@ const UserButton = async () => {
 							{session.user.name}
 						</p>
 					</DropdownMenuTrigger>
-					<DropdownMenuContent>
+					<DropdownMenuContent className='!w-full'>
 						{/* <DropdownMenuSeparator /> */}
-						<DropdownMenuItem className='cursor-pointer'>
+						<DropdownMenuItem className='cursor-pointer w-full'>
 							Profile
 						</DropdownMenuItem>
 						<DropdownMenuItem>

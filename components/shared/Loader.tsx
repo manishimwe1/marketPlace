@@ -1,13 +1,19 @@
 import Image from "next/image";
 
-const Loader = () => {
+const Loader = ({
+	w = 40,
+	h = 40,
+}: {
+	w?: number;
+	h?: number;
+}) => {
 	return (
 		<div className='flex justify-center items-center w-full'>
 			<Image
 				src='/loader.svg'
 				alt='loader'
-				width={40}
-				height={40}
+				width={w}
+				height={h}
 			/>
 		</div>
 	);

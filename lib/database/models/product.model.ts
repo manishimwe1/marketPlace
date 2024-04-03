@@ -46,8 +46,8 @@ const ProductSchema = new Schema({
 		type: String,
 	},
 	category: {
-		type: String,
-		required: true,
+		type: Schema.Types.ObjectId,
+		ref: "categories",
 	},
 	createdAt: { type: Date, default: Date.now() },
 	updateAt: { type: Date, default: Date.now() },
