@@ -25,8 +25,11 @@ import { useRouter } from "next/navigation";
 import { useUploadThing } from "@/lib/uploadthing/uploadThing";
 import { useProductStore } from "@/store";
 import SelectField from "@/components/shared/SelectField";
+import { getSession, useSession } from "next-auth/react";
 
 const CreteProductPage = () => {
+	const [CategoryId, setCategoryId] = useState("");
+	const [user, setUser] = useState({});
 	const [image, setImage] = useState<File[]>([]);
 	const [product, setProduct] = useState<IProduct | null>(
 		null,
@@ -59,6 +62,11 @@ const CreteProductPage = () => {
 			SuperDeals: "",
 		},
 	});
+	useEffect(() => {
+		if (CategoryId) {
+			console.log(CategoryId, "this is cate id");
+		}
+	}, [CategoryId]);
 
 	const handleSwitch = (e: boolean) => {
 		form.setValue("freeDelivery", e);
@@ -75,8 +83,6 @@ const CreteProductPage = () => {
 		let uploadedImageUrl = values.image;
 
 		try {
-			console.log(values.image);
-
 			if (image.length > 0) {
 				const uploadedImages = await startUpload(
 					image,
@@ -86,8 +92,8 @@ const CreteProductPage = () => {
 			}
 			const data = {
 				...values,
+
 				image: uploadedImageUrl,
-				sellerId: "",
 			};
 
 			const results = createProduct(data);
@@ -96,10 +102,10 @@ const CreteProductPage = () => {
 				setProduct(Item);
 				saveproductInStore();
 
-				// console.log(
-				// 	savedProduct,
-				// 	"this is saved product from store",
-				// );
+				console.log(
+					results,
+					"this is saved product from store",
+				);
 
 				return router.push(`/saler/${Item._id}`);
 			});
@@ -235,6 +241,9 @@ const CreteProductPage = () => {
 													field.onChange
 												}
 												{...field}
+												setCategoryId={
+													setCategoryId
+												}
 											/>
 										</FormItem>
 									)}

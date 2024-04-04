@@ -9,8 +9,8 @@ import { revalidatePath } from "next/cache";
 export const saveCategory = async (
 	categoryName: string,
 ) => {
-	const path = "saler/product/create-product";
 	const session = await auth();
+	const path = "saler/product/create-product";
 	try {
 		await connectToDB();
 
@@ -57,6 +57,24 @@ export const getAllCategories = async () => {
 		);
 
 		return results;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export const getCategoryByName = async (
+	categoryName: string,
+) => {
+	try {
+		await connectToDB();
+
+		const category = await Category.findOne({
+			categoryName,
+		});
+		if (!category) {
+			throw new Error("I cant find any Category");
+		}
+		return JSON.parse(JSON.stringify(category));
 	} catch (error) {
 		console.log(error);
 	}

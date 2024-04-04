@@ -14,13 +14,15 @@ import { NAVLINKS } from "@/constants";
 import { cn } from "@/lib/utils";
 import { Bars4Icon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Menubar = () => {
 	const [scoll, setScoll] = useState();
-	// if (scrollY) {
-	// 	console.log(window.scrollY.toFixed());
-	// }
+	useEffect(() => {
+		document.addEventListener("scroll", () => {
+			console.log(scrollY.toLocaleString());
+		});
+	}, []);
 
 	return (
 		<nav className='bg-primary py-8  w-full h-10 flex gap-6 items-center'>

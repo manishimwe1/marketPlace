@@ -8,12 +8,6 @@ const NewCollectionCard = ({
 }: {
 	allProduct: IProduct[];
 }) => {
-	const arr = [1, 2, 3, 4, 5];
-	console.log(
-		arr.splice(0, 3).length,
-		"this is a splice",
-	);
-
 	return (
 		<div className='border  w-full row-span-2 rounded-3xl bg-slate-400/10 px-4 py-2'>
 			<h2 className='text-stone-950 text-left font-bold text-3xl opacity-80 mt-2'>

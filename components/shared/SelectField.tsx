@@ -23,6 +23,8 @@ import {
 	MouseEvent,
 	useState,
 	useEffect,
+	Dispatch,
+	SetStateAction,
 } from "react";
 import { Input } from "../ui/input";
 import { saveCategory } from "@/lib/actions/category.actions";
@@ -33,8 +35,10 @@ import { unstable_noStore } from "next/cache";
 
 function SelectField({
 	onFieldChange,
+	setCategoryId,
 }: {
 	onFieldChange: () => void;
+	setCategoryId: Dispatch<SetStateAction<string>>;
 }) {
 	const [newCategory, setNewCategory] = useState("");
 	const [Category, setCategory] = useState<ICategory[]>();
@@ -52,19 +56,20 @@ function SelectField({
 		};
 		getCategories();
 	}, [newCategory]);
-
-	console.log(Category);
 	const handlechange = (
 		e: MouseEvent<HTMLButtonElement>,
 	) => {
 		setIsSubmiting(true);
 		e.preventDefault();
 
-		saveCategory(newCategory).then((category) => {
-			setIsSubmiting(false);
-			setNewCategory(category);
-			setIsOpen(!isOpen);
-		});
+		saveCategory(newCategory).then(
+			(category: ICategory) => {
+				setIsSubmiting(false);
+				setNewCategory(category._id);
+				setIsOpen(!isOpen);
+				setCategoryId(category._id);
+			},
+		);
 	};
 	const handleOpen = () => {
 		setIsOpen(!isOpen);
@@ -106,6 +111,7 @@ function SelectField({
 									className='input-field mt-3'
 									placeholder='Category name'
 									type='text'
+									value={newCategory}
 									onChange={(e) =>
 										setNewCategory(
 											e.target.value,

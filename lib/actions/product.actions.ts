@@ -5,6 +5,8 @@ import { auth } from "../auth";
 import { connectToDB } from "../database/db.config";
 import { Product } from "../database/models/product.model";
 import { getUserById } from "./user.actions";
+import { getCategoryByName } from "./category.actions";
+import { ICategory } from "../database/models/category.model";
 
 export type IProduct = {
 	image: string;
@@ -16,7 +18,7 @@ export type IProduct = {
 	freeDelivery: boolean;
 	deliveryFee: string;
 	stock: string;
-	sellerId: string;
+	sellerId?: string;
 };
 
 export const createProduct = async (product: IProduct) => {
@@ -34,9 +36,15 @@ export const createProduct = async (product: IProduct) => {
 		}
 		// console.log(sellerId._id);
 
+		const categoryId: ICategory =
+			await getCategoryByName(product.category);
+		if (categoryId) {
+			console.log("no product id");
+		}
 		const data = {
 			...product,
-			sellerId: seller._id,
+			category: categoryId._id as string,
+			sellerId: seller._id as string,
 		};
 
 		// console.log(data);

@@ -1,8 +1,9 @@
+import Navbar from "@/components/Navbar";
+import { auth } from "@/lib/auth";
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-import Navbar from "@/components/Navbar";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 		"Better prices | better choices | Fast delivery",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
