@@ -38,31 +38,31 @@ export const useItemstore = create<ItemStoreState>(
 	}),
 );
 
-export const useProductStore = create<ProductType>(
-	(set) => ({
-		product: {
-			image: "",
-			title: "",
-			description: "",
-			price: "",
-			category: "",
-			location: "",
-			freeDelivery: false,
-			deliveryFee: "",
-			stock: "",
-			sellerId: "",
-		},
-		// allProducts: () =>
-		// 	set((state) => ({ product: state.product })),
-		allProducts: async () => {
-			const response: IProduct =
-				await getAllProduct();
-			set({ product: response });
-		},
-		ProductById: async (id: string) => {
-			const response: IProduct =
-				await getAllProductById(id);
-			set({ product: response });
-		},
-	}),
-);
+// export const useProductStore = create<ProductType>(
+// 	(set) => ({
+// 		product: {
+// 			image: "",
+// 			title: "",
+// 			description: "",
+// 			price: "",
+// 			category: "",
+// 			location: "",
+// 			freeDelivery: false,
+// 			deliveryFee: "",
+// 			stock: "",
+// 			sellerId: "",
+// 		},
+// 		// allProducts: () =>
+// 		// 	set((state) => ({ product: state.product })),
+// 		// allProducts: async () => {
+// 		// 	const response: IProduct =
+// 		// 		await getAllProduct();
+// 		// 	set({ product: response });
+// 		// },
+// 		// ProductById: async (id: string) => {
+// 		// 	const response: IProduct =
+// 		// 		await getAllProductById(id);
+// 		// 	set({ product: response });
+// 		// },
+// 	}),
+// );

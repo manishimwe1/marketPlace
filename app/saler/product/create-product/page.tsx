@@ -1,8 +1,7 @@
 "use client";
 
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import DropZone from "@/components/DropZone";
+import SelectField from "@/components/shared/SelectField";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -13,19 +12,18 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import Image from "next/image";
-import { formSchema } from "@/lib/validation";
-import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
-import { useState, useEffect } from "react";
-import DropZone from "@/components/DropZone";
+import { Textarea } from "@/components/ui/textarea";
 import { createProduct } from "@/lib/actions/product.actions";
 import { IProduct } from "@/lib/database/models/product.model";
-import { useRouter } from "next/navigation";
 import { useUploadThing } from "@/lib/uploadthing/uploadThing";
-import { useProductStore } from "@/store";
-import SelectField from "@/components/shared/SelectField";
-import { getSession, useSession } from "next-auth/react";
+import { formSchema } from "@/lib/validation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 const CreteProductPage = () => {
 	const [CategoryId, setCategoryId] = useState("");
@@ -39,9 +37,7 @@ const CreteProductPage = () => {
 	const [isSubmiting, setIsSubmiting] = useState(false);
 	const router = useRouter();
 	const { startUpload } = useUploadThing("imageUploader");
-	const saveproductInStore = useProductStore(
-		(state) => state.allProducts,
-	);
+
 	const [showProductImage, setShowProductImage] =
 		useState<string>("");
 	// const savedProduct = useProductStore(
@@ -100,7 +96,6 @@ const CreteProductPage = () => {
 			results.then((Item: IProduct) => {
 				// return Item;
 				setProduct(Item);
-				saveproductInStore();
 
 				console.log(
 					results,

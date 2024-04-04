@@ -1,13 +1,6 @@
 "use client";
 
 import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select";
-import {
 	AlertDialog,
 	AlertDialogAction,
 	AlertDialogCancel,
@@ -19,19 +12,27 @@ import {
 	AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import {
-	FormEvent,
-	MouseEvent,
-	useState,
-	useEffect,
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/components/ui/select";
+import {
+	getAllCategories,
+	saveCategory,
+} from "@/lib/actions/category.actions";
+import { ICategory } from "@/lib/database/models/category.model";
+import { unstable_noStore } from "next/cache";
+import {
 	Dispatch,
+	MouseEvent,
 	SetStateAction,
+	useEffect,
+	useState,
 } from "react";
 import { Input } from "../ui/input";
-import { saveCategory } from "@/lib/actions/category.actions";
-import { getAllCategories } from "@/lib/actions/category.actions";
-import { ICategory } from "@/lib/database/models/category.model";
 import Loader from "./Loader";
-import { unstable_noStore } from "next/cache";
 
 function SelectField({
 	onFieldChange,
