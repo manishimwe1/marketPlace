@@ -6,11 +6,11 @@ import SuperDeals from "@/components/SuperDeals";
 import {
 	IProduct,
 	getAllProduct,
+	getSuperDeals,
 } from "@/lib/actions/product.actions";
 
 async function page() {
 	const allProduct: IProduct[] = await getAllProduct();
-	// console.log(allProduct, "this is all product");
 
 	return (
 		<>

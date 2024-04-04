@@ -19,4 +19,5 @@ const categorySchema = new Schema({
 });
 
 export const Category =
-	models.Category || model("Category", categorySchema);
+	models.categories ||
+	model("categories", categorySchema);

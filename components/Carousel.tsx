@@ -3,45 +3,52 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
+import { IProduct } from "@/lib/actions/product.actions";
 type Props = {
-	carouselItems: {
-		Src: string;
-		Title: string;
-	}[];
+	carouselItems: IProduct[];
 };
 const CarouselPage = ({ carouselItems }: Props) => {
+	console.log(carouselItems, "this is superdeals");
+
 	return (
 		<Carousel
 			autoPlay
 			infiniteLoop
 			showIndicators={false}
 			showThumbs={false}
-			showStatus={false}>
-			{carouselItems.map((items) => (
-				<div
-					className='rounded-xl flex flex-col gap-3'
-					key={items.Title}>
-					<Image
-						key={items.Title}
-						src={items.Src}
-						alt={items.Title}
-						width={200}
-						height={200}
-						className='object-contain rounded-xl'
-					/>
-					<div className='w-full flex items-center justify-center gap-4'>
-						<p className='text-lg text-primary font-bold'>
-							10,000{" "}
-							<span className='text-xs '>
-								rwf
-							</span>
-						</p>
-						<p className='bg-primary rounded-full text-base font-semibold px-3 py-0.5'>
-							-20% off
-						</p>
+			showStatus={false}
+			className=' max-h-[250px] relative items-center flex justify-center'>
+			{carouselItems ? (
+				carouselItems.map((items) => (
+					<div
+						className='flex justify-center items-center h-full p-2'
+						key={items.title}>
+						<Image
+							key={items.title}
+							src={items.image}
+							alt={items.title}
+							width={200}
+							height={150}
+							className='object-contain rounded-xl '
+						/>
+						<div className='w-full flex items-center justify-center gap-4 absolute -bottom-0 inset-x-0'>
+							<p className='text-lg text-primary font-bold'>
+								{items.price}{" "}
+								<span className='text-xs '>
+									rwf
+								</span>
+							</p>
+							{items.SuperDeals && (
+								<p className='bg-primary rounded-full text-base font-semibold px-3 py-0.5'>
+									-{items.SuperDeals}% off
+								</p>
+							)}
+						</div>
 					</div>
-				</div>
-			))}
+				))
+			) : (
+				<div>no</div>
+			)}
 		</Carousel>
 	);
 };

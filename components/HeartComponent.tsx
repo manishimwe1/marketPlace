@@ -1,19 +1,15 @@
 "use client";
 
+import { IProduct } from "@/lib/actions/product.actions";
 import { useItemstore } from "@/store";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import React from "react";
 
 type Props = {
-	items: {
-		image: string;
-		desc: string;
-		star: number;
-		price: number;
-	};
+	product: IProduct;
 };
 
-const HeartComponent = ({ items }: Props) => {
+const HeartComponent = ({ product }: Props) => {
 	const increaseItems = useItemstore(
 		(state) => state.increaseItems,
 	);

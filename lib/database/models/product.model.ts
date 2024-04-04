@@ -47,10 +47,10 @@ const ProductSchema = new Schema({
 	},
 	category: {
 		type: Schema.Types.ObjectId,
-		ref: "Category",
+		ref: "categories",
 	},
-	createdAt: { type: Date, default: Date.now() },
-	updateAt: { type: Date, default: Date.now() },
+	createdAt: { type: Date, default: new Date() },
+	updatedAt: { type: Date, default: new Date() },
 	location: { type: String },
 	freeDelivery: { type: Boolean },
 	deliveryFee: { type: Number },

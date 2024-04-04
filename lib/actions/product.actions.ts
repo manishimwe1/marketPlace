@@ -5,21 +5,35 @@ import { auth } from "../auth";
 import { connectToDB } from "../database/db.config";
 import { Product } from "../database/models/product.model";
 import { getUserById } from "./user.actions";
-import { getCategoryByName } from "./category.actions";
-import { ICategory } from "../database/models/category.model";
+import {
+	getCategoryByID,
+	getCategoryByName,
+} from "./category.actions";
+import {
+	Category,
+	ICategory,
+} from "../database/models/category.model";
 
 export type IProduct = {
 	image: string;
 	title: string;
 	description: string;
 	price: string;
-	category: string;
+	category?: string;
 	location: string;
 	freeDelivery: boolean;
 	deliveryFee: string;
 	stock: string;
 	sellerId?: string;
+	SuperDeals?: string;
 };
+
+const populatecategory = (query: any) =>
+	query.populate({
+		path: "category",
+		model: Category,
+		select: "_id categoryName",
+	});
 
 export const createProduct = async (product: IProduct) => {
 	const user = await auth();
@@ -34,16 +48,24 @@ export const createProduct = async (product: IProduct) => {
 				"Unthorized please log in!!!!!",
 			);
 		}
+		if (!product.category) {
+			console.log(product);
+
+			return console.log("there is no product");
+		}
 		// console.log(sellerId._id);
 
-		const categoryId: ICategory =
-			await getCategoryByName(product.category);
-		if (categoryId) {
-			console.log("no product id");
+		const category: ICategory = await getCategoryByID(
+			product.category,
+		);
+		if (!category) {
+			return console.log(
+				"no category found try again",
+			);
 		}
 		const data = {
 			...product,
-			category: categoryId._id as string,
+			category: category._id as string,
 			sellerId: seller._id as string,
 		};
 
@@ -71,9 +93,11 @@ export const getAllProduct = async () => {
 	try {
 		await connectToDB();
 
-		const product = await Product.find().sort({
-			createdAt: "desc",
-		});
+		const product = await Product.find()
+			.populate("category")
+			.sort({
+				_id: "desc",
+			});
 
 		if (!product) {
 			console.log("error in getting Product");
@@ -111,6 +135,23 @@ export const getAllProductById = async (Id: string) => {
 		// 		"error in getting product by seller id",
 		// 	);
 		// }
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export const getSuperDeals = async () => {
+	const superDealAmount = 20;
+	try {
+		await connectToDB();
+
+		const superDeals = await Product.find({
+			SuperDeals: superDealAmount,
+		}).sort({ _id: "descending" });
+		if (!superDeals) {
+			console.log("can't find any superdeals ");
+		}
+		return JSON.parse(JSON.stringify(superDeals));
 	} catch (error) {
 		console.log(error);
 	}

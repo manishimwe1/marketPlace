@@ -104,7 +104,9 @@ const CreteProductPage = () => {
 
 				return router.push(`/saler/${Item._id}`);
 			});
+			setSwitcherState(!switcherState);
 			setIsSubmiting(false);
+			form.reset();
 		} catch (error) {
 			console.log(error);
 		} finally {

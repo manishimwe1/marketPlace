@@ -65,6 +65,8 @@ export const getAllCategories = async () => {
 export const getCategoryByName = async (
 	categoryName: string,
 ) => {
+	console.log("this is categoryName", categoryName);
+
 	try {
 		await connectToDB();
 
@@ -73,6 +75,25 @@ export const getCategoryByName = async (
 		});
 		if (!category) {
 			throw new Error("I cant find any Category");
+		}
+		return JSON.parse(JSON.stringify(category));
+	} catch (error) {
+		console.log(error);
+	}
+};
+export const getCategoryByID = async (
+	categoryName: string,
+) => {
+	console.log(categoryName);
+
+	try {
+		await connectToDB();
+
+		const category = await Category.findOne({
+			categoryName,
+		});
+		if (!category) {
+			throw new Error("I cant find any  CategoryId");
 		}
 		return JSON.parse(JSON.stringify(category));
 	} catch (error) {
