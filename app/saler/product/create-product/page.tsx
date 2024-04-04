@@ -368,12 +368,11 @@ const CreteProductPage = () => {
 											height={20}
 										/>
 										<p>
-											"Creating
-											product "
+											Creating product
 										</p>
 									</div>
 								) : (
-									"Create"
+									<p>Create</p>
 								)}
 							</Button>
 						</form>
