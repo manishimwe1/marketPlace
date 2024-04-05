@@ -8,8 +8,6 @@ type Props = {
 	carouselItems: IProduct[];
 };
 const CarouselPage = ({ carouselItems }: Props) => {
-	console.log(carouselItems, "this is superdeals");
-
 	return (
 		<Carousel
 			autoPlay
@@ -19,11 +17,9 @@ const CarouselPage = ({ carouselItems }: Props) => {
 			showStatus={false}
 			showArrows={false}
 			className=' w-full h-full gap-2  items-center flex justify-center '>
-			{carouselItems.map((items) => (
-				<>
-					<div
-						className='flex relative justify-center items-center p-2  h-48 lg:h-[250px]  w-full'
-						key={items.title}>
+			{carouselItems.map((items, i) => (
+				<section key={`${items.title}++${i}`}>
+					<div className='flex relative justify-center items-center p-2  h-48 lg:h-[250px]  w-full'>
 						<Image
 							key={items.title}
 							src={items.image}
@@ -45,7 +41,7 @@ const CarouselPage = ({ carouselItems }: Props) => {
 							</p>
 						)}
 					</div>
-				</>
+				</section>
 			))}
 		</Carousel>
 	);

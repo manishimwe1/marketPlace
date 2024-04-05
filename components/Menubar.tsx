@@ -3,49 +3,41 @@
 import {
 	NavigationMenu,
 	NavigationMenuContent,
-	NavigationMenuIndicator,
 	NavigationMenuItem,
 	NavigationMenuLink,
 	NavigationMenuList,
 	NavigationMenuTrigger,
-	NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import { NAVLINKS } from "@/constants";
 import { cn } from "@/lib/utils";
 import { Bars4Icon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import MenuNavigation from "./shared/MenuNavigation";
 
 const Menubar = () => {
-	const [scoll, setScoll] = useState<[number, number]>([
-		0, 1,
-	]);
-	const [prevScroll, setprevScroll] = useState(0);
-	const [showMenu, setShowMenu] = useState(false);
-
-	useEffect(() => {
-		// console.log(scoll, "this is scoll", prevScroll);
-		document.addEventListener("scroll", () => {
-			setprevScroll(Number(scrollY.toFixed()));
-			setScoll([
-				prevScroll,
-				Number(scrollY.toFixed()),
-			]);
-		});
-		if (scoll[0] > scoll[1]) {
-			setShowMenu(true);
-		} else {
-			setShowMenu(false);
-		}
-		return () => {
-			document.removeEventListener("scroll", () => {
-				setScoll([
-					prevScroll,
-					Number(scrollY.toFixed()),
-				]);
-			});
-		};
-	}, [scrollY.toFixed()]);
+	// useEffect(() => {
+	// 	// console.log(scoll, "this is scoll", prevScroll);
+	// 	document.addEventListener("scroll", () => {
+	// 		setprevScroll(Number(scrollY.toFixed()));
+	// 		setScoll([
+	// 			prevScroll,
+	// 			Number(scrollY.toFixed()),
+	// 		]);
+	// 	});
+	// 	if (scoll[0] > scoll[1]) {
+	// 		setShowMenu(true);
+	// 	} else {
+	// 		setShowMenu(false);
+	// 	}
+	// 	return () => {
+	// 		document.removeEventListener("scroll", () => {
+	// 			setScoll([
+	// 				prevScroll,
+	// 				Number(scrollY.toFixed()),
+	// 			]);
+	// 		});
+	// 	};
+	// }, [scrollY.toFixed()]);
 
 	return (
 		<nav className='bg-primary py-8  w-full h-10 flex gap-6 items-center'>
@@ -84,22 +76,7 @@ const Menubar = () => {
 						</Link>
 					))}
 				</ul>
-				<NavigationMenu className='mr-4'>
-					<NavigationMenuList>
-						<NavigationMenuItem>
-							<NavigationMenuTrigger>
-								<p className='font-semibold text-lg'>
-									More
-								</p>
-							</NavigationMenuTrigger>
-							<NavigationMenuContent>
-								<NavigationMenuLink>
-									Link
-								</NavigationMenuLink>
-							</NavigationMenuContent>
-						</NavigationMenuItem>
-					</NavigationMenuList>
-				</NavigationMenu>
+				<MenuNavigation title='More' />
 			</div>
 		</nav>
 	);

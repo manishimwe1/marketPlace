@@ -19,8 +19,6 @@ import Loader from "./shared/Loader";
 const SuperDeals = async () => {
 	const allProduct: IProduct[] = await getAllProduct();
 
-	// console.log(allProduct, "this is all product");
-
 	return (
 		<section className='mt-10 '>
 			<h3 className='text-2xl font-bold text-stone-950 hover:underline hover:underline-offset-2 hover:cursor-pointer duration-100 hover:delay-100  w-fit'>
@@ -76,10 +74,6 @@ const SuperDeals = async () => {
 														items,
 														i,
 													) => {
-														// console.log(
-														// 	items,
-														// );
-
 														return (
 															<Image
 																key={

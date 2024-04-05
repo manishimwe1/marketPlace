@@ -8,6 +8,7 @@ import {
 	IProduct,
 	getSuperDeals,
 } from "@/lib/actions/product.actions";
+import Link from "next/link";
 
 const GridComponents = async ({
 	allProduct,
@@ -43,50 +44,58 @@ const GridComponents = async ({
 						</span>
 					</h2>
 					<div className='rounded-3xl bg-slate-400/30 mx-4 mt-4 gap-3 py-4 flex flex-col'>
-						<div className='px-9 gap-3 flex flex-col '>
-							<div className=' h-52 w-full rounded-3xl relative  '>
-								<Image
-									src={
-										superDealProduct[0]
-											.image
-									}
-									fill
-									alt={
-										superDealProduct[0]
-											.title
-									}
-									className='object-contain rounded-3xl'
-								/>
+						<Link
+							href={`/product/categrized/${superDealProduct[0].category}`}>
+							<div className='px-9 gap-3 flex flex-col  cursor-pointer'>
+								<div className=' h-52 w-full rounded-3xl relative  '>
+									<Image
+										src={
+											superDealProduct[0]
+												.image
+										}
+										fill
+										alt={
+											superDealProduct[0]
+												.title
+										}
+										className='object-contain rounded-3xl'
+									/>
+								</div>
+								<div className='w-full flex items-center justify-center gap-4'>
+									<p className='text-lg text-primary font-bold'>
+										{
+											superDealProduct[0]
+												.price
+										}{" "}
+										<span className='text-xs '>
+											rwf
+										</span>
+									</p>
+									<p className='bg-primary rounded-full text-base font-semibold px-3 py-0.5'>
+										-
+										{
+											superDealProduct[0]
+												.SuperDeals
+										}
+										% off
+									</p>
+								</div>
 							</div>
-							<div className='w-full flex items-center justify-center gap-4'>
-								<p className='text-lg text-primary font-bold'>
-									{
-										superDealProduct[0]
-											.price
-									}{" "}
-									<span className='text-xs '>
-										rwf
-									</span>
-								</p>
-								<p className='bg-primary rounded-full text-base font-semibold px-3 py-0.5'>
-									-
-									{
-										superDealProduct[0]
-											.SuperDeals
-									}
-									% off
-								</p>
-							</div>
-						</div>
+						</Link>
 						<div className='flex justify-around gap-2 mt-4 w-full px-2'>
 							{superDealProduct
-								.slice(0, 2)
+								.slice(1, 3)
 								.map((deal) => (
-									<GridCard
-										deal={deal}
-										key={deal.title}
-									/>
+									<Link
+										href={`/product/categrized/${deal.category}`}
+										className=' cursor-pointer'>
+										<GridCard
+											deal={deal}
+											key={deal.title}
+										/>
+									</Link>
 								))}
+							L
 						</div>
 					</div>
 				</div>

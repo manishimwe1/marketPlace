@@ -82,8 +82,6 @@ export const getCategoryByName = async (
 export const getCategoryByID = async (
 	categoryName: string,
 ) => {
-	console.log(categoryName);
-
 	try {
 		await connectToDB();
 

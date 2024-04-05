@@ -58,11 +58,6 @@ const CreteProductPage = () => {
 			SuperDeals: "",
 		},
 	});
-	useEffect(() => {
-		if (CategoryId) {
-			console.log(CategoryId, "this is cate id");
-		}
-	}, [CategoryId]);
 
 	const handleSwitch = (e: boolean) => {
 		form.setValue("freeDelivery", e);

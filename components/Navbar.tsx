@@ -11,7 +11,6 @@ import { auth } from "@/lib/auth";
 import Link from "next/link";
 const Navbar = async () => {
 	const user = await auth();
-	// console.log(user);
 
 	return (
 		<header className='bg-primary w-full lg:h-20 sticky top-0 z-20'>

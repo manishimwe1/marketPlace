@@ -3,16 +3,10 @@
 import { revalidatePath } from "next/cache";
 import { auth } from "../auth";
 import { connectToDB } from "../database/db.config";
+import { ICategory } from "../database/models/category.model";
 import { Product } from "../database/models/product.model";
+import { getCategoryByID } from "./category.actions";
 import { getUserById } from "./user.actions";
-import {
-	getCategoryByID,
-	getCategoryByName,
-} from "./category.actions";
-import {
-	Category,
-	ICategory,
-} from "../database/models/category.model";
 
 export type IProduct = {
 	image: string;
@@ -28,13 +22,6 @@ export type IProduct = {
 	SuperDeals?: string;
 };
 
-const populatecategory = (query: any) =>
-	query.populate({
-		path: "category",
-		model: Category,
-		select: "_id categoryName",
-	});
-
 export const createProduct = async (product: IProduct) => {
 	const user = await auth();
 	try {
@@ -49,11 +36,8 @@ export const createProduct = async (product: IProduct) => {
 			);
 		}
 		if (!product.category) {
-			console.log(product);
-
 			return console.log("there is no product");
 		}
-		// console.log(sellerId._id);
 
 		const category: ICategory = await getCategoryByID(
 			product.category,
@@ -68,8 +52,6 @@ export const createProduct = async (product: IProduct) => {
 			category: category._id as string,
 			sellerId: seller._id as string,
 		};
-
-		// console.log(data);
 
 		const newProduct = await Product.create(data);
 		if (!newProduct) {
@@ -122,19 +104,6 @@ export const getAllProductById = async (Id: string) => {
 		const product = await Product.findById({ _id: Id });
 
 		return JSON.parse(JSON.stringify(product));
-		// const seller = await User.findById(userId);
-		// if (!seller) {
-		// 	console.log("error in getting userId");
-		// 	return;
-		// }
-		// const sellerId = seller._id;
-		// const product = await Product.findOne({ sellerId });
-
-		// if (!product) {
-		// 	return console.log(
-		// 		"error in getting product by seller id",
-		// 	);
-		// }
 	} catch (error) {
 		console.log(error);
 	}
@@ -152,6 +121,24 @@ export const getSuperDeals = async () => {
 			console.log("can't find any superdeals ");
 		}
 		return JSON.parse(JSON.stringify(superDeals));
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export const getProductByCategory = async (
+	categoryId: string,
+) => {
+	try {
+		const product = await Product.find({
+			category: categoryId,
+		}).populate("category");
+		if (!product)
+			return console.log(
+				"there is no product by this category:",
+				categoryId,
+			);
+		return JSON.parse(JSON.stringify(product));
 	} catch (error) {
 		console.log(error);
 	}

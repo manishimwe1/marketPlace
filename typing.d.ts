@@ -34,3 +34,30 @@ interface userProps {
 	image: string;
 	emailVerified?: boolean | null; // Assuming emailVerified can be boolean or null
 }
+interface Category {
+	_id: string;
+	categoryName: string;
+	userId: string;
+	createdAt: string;
+	updateAt: string;
+	__v: number;
+}
+
+interface ProductType {
+	updatedAt: string;
+	_id: string;
+	title: string;
+	description: string;
+	price: number;
+	image: string;
+	category: Category;
+	createdAt: string;
+	updateAt: string;
+	location: string;
+	freeDelivery: boolean;
+	deliveryFee: null | number;
+	stock: number;
+	sellerId: string;
+	SuperDeals: number;
+	__v: number;
+}

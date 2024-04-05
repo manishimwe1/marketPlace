@@ -19,10 +19,9 @@ type Props = {
 	params: { id: string };
 };
 const page = async ({ params: { id } }: Props) => {
-	console.log(id);
+	// console.log(id);
 
 	const product: IProduct = await getAllProductById(id);
-	console.log(product, "this is product");
 
 	return (
 		<div className='max-container w-full p-20'>
