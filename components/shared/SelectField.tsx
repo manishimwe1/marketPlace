@@ -56,7 +56,7 @@ function SelectField({
 			}
 		};
 		getCategories();
-	}, [newCategory]);
+	}, [newCategory, onFieldChange]);
 	const handlechange = (
 		e: MouseEvent<HTMLButtonElement>,
 	) => {

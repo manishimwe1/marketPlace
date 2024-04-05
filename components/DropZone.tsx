@@ -34,7 +34,7 @@ const DropZone = ({
 				convertFileToUrl(acceptedFiles[0]),
 			);
 		},
-		[],
+		[setImage, onFieldChange, setShowProductImage],
 	);
 
 	const { getRootProps, getInputProps } = useDropzone({
