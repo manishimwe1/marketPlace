@@ -95,7 +95,6 @@ const GridComponents = async ({
 										/>
 									</Link>
 								))}
-							L
 						</div>
 					</div>
 				</div>

@@ -34,7 +34,7 @@ interface userProps {
 	image: string;
 	emailVerified?: boolean | null; // Assuming emailVerified can be boolean or null
 }
-interface Category {
+export interface CategoryType {
 	_id: string;
 	categoryName: string;
 	userId: string;
@@ -50,7 +50,7 @@ interface ProductType {
 	description: string;
 	price: number;
 	image: string;
-	category: Category;
+	category: CategoryType;
 	createdAt: string;
 	updateAt: string;
 	location: string;

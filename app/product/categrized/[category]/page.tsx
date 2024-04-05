@@ -1,15 +1,12 @@
 import Menubar from "@/components/Menubar";
 import StarWigets from "@/components/StarWigets";
 import MenuNavigation from "@/components/shared/MenuNavigation";
-import { Button } from "@/components/ui/button";
-import {
-	IProduct,
-	getProductByCategory,
-} from "@/lib/actions/product.actions";
-import { ProductType } from "@/typing";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import MenuTogler from "@/components/shared/MenuTogler";
+import { getAllCategories } from "@/lib/actions/category.actions";
+import { getProductByCategory } from "@/lib/actions/product.actions";
+import { truncateString } from "@/lib/utils";
+import { CategoryType, ProductType } from "@/typing";
 import Image from "next/image";
-import React from "react";
 type Props = {
 	params: {
 		category: string;
@@ -20,8 +17,17 @@ const page = async ({ params: { category } }: Props) => {
 
 	const product: ProductType[] =
 		await getProductByCategory(category);
-	console.log(product);
 
+	const allCategory: CategoryType[] =
+		await getAllCategories();
+	console.log(allCategory, "this is all category");
+
+	if (!product) {
+		return console.log(
+			"no pruct found ",
+			typeof category,
+		);
+	}
 	return (
 		<>
 			<Menubar />
@@ -45,7 +51,11 @@ const page = async ({ params: { category } }: Props) => {
 				</div>
 
 				<div className='flex gap-3 w-full'>
-					<div className='w-1/4'></div>
+					<div className='w-1/4 border border-t-0'>
+						<MenuTogler
+							allCategory={allCategory}
+						/>
+					</div>
 					<div className=' w-full flex flex-col gap-6'>
 						<div>
 							<h3 className='text-2xl font-bold text-stone-950/80   w-fit'>
@@ -73,9 +83,9 @@ const page = async ({ params: { category } }: Props) => {
 								</div>
 								<div className='w-full flex items-start flex-col mt-5 gap-3'>
 									<h3 className='text-2xl font-bold text-stone-950/80   w-fit'>
-										{product.title.substring(
-											0,
-											84,
+										{truncateString(
+											product.title,
+											80,
 										)}
 									</h3>
 									<StarWigets />

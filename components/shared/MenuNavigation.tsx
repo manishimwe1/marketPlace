@@ -12,9 +12,15 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
-const MenuNavigation = ({ title }: { title: string }) => {
+const MenuNavigation = ({
+	title,
+	className,
+}: {
+	title: string;
+	className?: string;
+}) => {
 	return (
-		<NavigationMenu className='mr-4'>
+		<NavigationMenu className=''>
 			<NavigationMenuList>
 				<NavigationMenuItem>
 					<NavigationMenuTrigger>
@@ -23,13 +29,16 @@ const MenuNavigation = ({ title }: { title: string }) => {
 								title === "Sort by" &&
 									"text-sm  font-medium",
 								"font-semibold text-lg",
+								className,
 							)}>
 							{title}
 						</p>
 					</NavigationMenuTrigger>
 					<NavigationMenuContent>
 						<NavigationMenuLink>
-							Link
+							<p className='!w-full border '>
+								Home kit
+							</p>
 						</NavigationMenuLink>
 					</NavigationMenuContent>
 				</NavigationMenuItem>

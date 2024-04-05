@@ -24,6 +24,7 @@ const UserButton = async () => {
 					<DropdownMenuTrigger className='flex gap-2 items-center'>
 						<Avatar>
 							<AvatarImage
+								className='bg-transparent'
 								src={
 									session?.user?.image ||
 									""
