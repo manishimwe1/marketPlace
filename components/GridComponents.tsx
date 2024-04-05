@@ -85,6 +85,7 @@ const GridComponents = async ({
 								.slice(1, 3)
 								.map((deal) => (
 									<Link
+										key={deal.title}
 										href={`/product/categrized/${deal.category}`}
 										className=' cursor-pointer'>
 										<GridCard

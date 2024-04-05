@@ -68,7 +68,6 @@ const page = async ({ params: { id } }: Props) => {
 							</div>
 						</div>
 						<div className='h-[100%] w-full relative  bg-purple-50 rounded-r-3xl'>
-							<div className='absolute -top-0 right-0 bg-purple-500/50 brightness-95 saturate-200 h-20 w-20 rounded-3xl z-20   flex  p-5  shadow-sm shadow-purple-500/30 ' />
 							<Image
 								src={product.image}
 								alt={product.title}

@@ -51,7 +51,9 @@ const MenuTogler = ({
 			{open && allCategory && (
 				<>
 					{allCategory.map((category) => (
-						<p className='text-base font-medium text-muted-foreground px-2 py-1 hover:text-purple-900 cursor-pointer hover:bg-purple-400/30'>
+						<p
+							className='text-base font-medium text-muted-foreground px-2 py-1 hover:text-purple-900 cursor-pointer hover:bg-purple-400/30'
+							key={category._id}>
 							{category.categoryName}
 						</p>
 					))}
@@ -66,7 +68,9 @@ const MenuTogler = ({
 			{priceOpen && (
 				<div className='px-4 flex flex-col gap-2'>
 					{PriceData.map((price) => (
-						<p className='text-sm hover:text-primary font-semibold text-muted-foreground cursor-pointer'>
+						<p
+							className='text-sm hover:text-primary font-semibold text-muted-foreground cursor-pointer'
+							key={price.label}>
 							{price.label}
 						</p>
 					))}
