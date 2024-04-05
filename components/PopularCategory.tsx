@@ -23,6 +23,7 @@ const PopularCategory = ({
 						.slice(0, 5)
 						.map((product: any, i: number) => (
 							<Link
+								key={product.title}
 								href={`/saler/category/${product.category.categoryName}`}>
 								<div
 									key={`product.title${i}`}
