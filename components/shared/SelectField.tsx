@@ -102,7 +102,7 @@ function SelectField({
 						className='font-semibold capitalize hover:bg-purple-500  rounded-lg py-2 hover:text-white w-full'>
 						Add New Category
 					</AlertDialogTrigger>
-					<AlertDialogContent className='bg-white text-stone-950'>
+					<AlertDialogContent className=' text-stone-950'>
 						<AlertDialogHeader>
 							<AlertDialogTitle>
 								New Category

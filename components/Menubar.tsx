@@ -20,7 +20,7 @@ const Menubar = () => {
 	const [scoll, setScoll] = useState();
 	useEffect(() => {
 		document.addEventListener("scroll", () => {
-			console.log(scrollY.toLocaleString());
+			console.log(scrollY.toFixed());
 		});
 	}, []);
 

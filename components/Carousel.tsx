@@ -17,20 +17,22 @@ const CarouselPage = ({ carouselItems }: Props) => {
 			showIndicators={false}
 			showThumbs={false}
 			showStatus={false}
-			className=' max-h-[250px] relative items-center flex justify-center'>
+			showArrows={false}
+			className=' w-full h-full gap-2  items-center flex justify-center '>
 			{carouselItems.map((items) => (
-				<div
-					className='flex justify-center items-center h-full p-2'
-					key={items.title}>
-					<Image
-						key={items.title}
-						src={items.image}
-						alt={items.title}
-						width={200}
-						height={150}
-						className='object-contain rounded-xl '
-					/>
-					<div className='w-full flex items-center justify-center gap-4 absolute -bottom-0 inset-x-0'>
+				<>
+					<div
+						className='flex relative justify-center items-center p-2  h-48 lg:h-[250px]  w-full'
+						key={items.title}>
+						<Image
+							key={items.title}
+							src={items.image}
+							alt={items.title}
+							fill
+							className='object-contain rounded-xl '
+						/>
+					</div>
+					<div className='w-full flex items-center justify-center gap-4 '>
 						<p className='text-lg text-primary font-bold'>
 							{items.price}{" "}
 							<span className='text-xs '>
@@ -43,7 +45,7 @@ const CarouselPage = ({ carouselItems }: Props) => {
 							</p>
 						)}
 					</div>
-				</div>
+				</>
 			))}
 		</Carousel>
 	);

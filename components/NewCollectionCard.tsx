@@ -23,7 +23,7 @@ const NewCollectionCard = ({
 						.map((product) => (
 							<div
 								key={product.title}
-								className='flex gap-4 items-center justify-center py-10 bg-white rounded-2xl shadow-md shadow-purple-500/20 p-3'>
+								className='flex gap-4 items-center justify-center py-10  rounded-2xl shadow-md shadow-purple-500/20 p-3'>
 								<div className='flex flex-col gap-3 w-full'>
 									<div className=' h-20 w-full rounded-lg relative'>
 										<Image

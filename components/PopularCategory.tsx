@@ -27,8 +27,8 @@ const PopularCategory = ({
 								href={`/saler/category/${product.category.categoryName}`}>
 								<div
 									key={`product.title${i}`}
-									className=' w-full h-full group cursor-pointer  flex flex-col gap-2 items-center justify-center '>
-									<div className='relative w-36 h-36 bg-white rounded-full overflow-hidden'>
+									className=' w-full h-full group cursor-pointer  flex flex-col gap-2 items-center justify-center p-2'>
+									<div className='relative shadow-sm shadow-purple-500/20 p-2 bg-slate-200/20 w-36 h-36  rounded-full overflow-hidden'>
 										<Image
 											src={
 												product.image
