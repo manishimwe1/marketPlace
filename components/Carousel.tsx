@@ -18,37 +18,33 @@ const CarouselPage = ({ carouselItems }: Props) => {
 			showThumbs={false}
 			showStatus={false}
 			className=' max-h-[250px] relative items-center flex justify-center'>
-			{carouselItems ? (
-				carouselItems.map((items) => (
-					<div
-						className='flex justify-center items-center h-full p-2'
-						key={items.title}>
-						<Image
-							key={items.title}
-							src={items.image}
-							alt={items.title}
-							width={200}
-							height={150}
-							className='object-contain rounded-xl '
-						/>
-						<div className='w-full flex items-center justify-center gap-4 absolute -bottom-0 inset-x-0'>
-							<p className='text-lg text-primary font-bold'>
-								{items.price}{" "}
-								<span className='text-xs '>
-									rwf
-								</span>
+			{carouselItems.map((items) => (
+				<div
+					className='flex justify-center items-center h-full p-2'
+					key={items.title}>
+					<Image
+						key={items.title}
+						src={items.image}
+						alt={items.title}
+						width={200}
+						height={150}
+						className='object-contain rounded-xl '
+					/>
+					<div className='w-full flex items-center justify-center gap-4 absolute -bottom-0 inset-x-0'>
+						<p className='text-lg text-primary font-bold'>
+							{items.price}{" "}
+							<span className='text-xs '>
+								rwf
+							</span>
+						</p>
+						{items.SuperDeals && (
+							<p className='bg-primary rounded-full text-base font-semibold px-3 py-0.5'>
+								-{items.SuperDeals}% off
 							</p>
-							{items.SuperDeals && (
-								<p className='bg-primary rounded-full text-base font-semibold px-3 py-0.5'>
-									-{items.SuperDeals}% off
-								</p>
-							)}
-						</div>
+						)}
 					</div>
-				))
-			) : (
-				<div>no</div>
-			)}
+				</div>
+			))}
 		</Carousel>
 	);
 };
