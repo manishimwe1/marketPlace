@@ -65,8 +65,6 @@ export const getAllCategories = async () => {
 export const getCategoryByName = async (
 	categoryName: string,
 ) => {
-	console.log("this is categoryName", categoryName);
-
 	try {
 		await connectToDB();
 

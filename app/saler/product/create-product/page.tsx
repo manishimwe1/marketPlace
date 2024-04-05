@@ -97,11 +97,6 @@ const CreteProductPage = () => {
 				// return Item;
 				setProduct(Item);
 
-				console.log(
-					results,
-					"this is saved product from store",
-				);
-
 				return router.push(`/saler/${Item._id}`);
 			});
 			setSwitcherState(!switcherState);

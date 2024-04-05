@@ -17,12 +17,35 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Menubar = () => {
-	const [scoll, setScoll] = useState();
+	const [scoll, setScoll] = useState<[number, number]>([
+		0, 1,
+	]);
+	const [prevScroll, setprevScroll] = useState(0);
+	const [showMenu, setShowMenu] = useState(false);
+
 	useEffect(() => {
+		// console.log(scoll, "this is scoll", prevScroll);
 		document.addEventListener("scroll", () => {
-			console.log(scrollY.toFixed());
+			setprevScroll(Number(scrollY.toFixed()));
+			setScoll([
+				prevScroll,
+				Number(scrollY.toFixed()),
+			]);
 		});
-	}, []);
+		if (scoll[0] > scoll[1]) {
+			setShowMenu(true);
+		} else {
+			setShowMenu(false);
+		}
+		return () => {
+			document.removeEventListener("scroll", () => {
+				setScoll([
+					prevScroll,
+					Number(scrollY.toFixed()),
+				]);
+			});
+		};
+	}, [scrollY.toFixed()]);
 
 	return (
 		<nav className='bg-primary py-8  w-full h-10 flex gap-6 items-center'>
