@@ -3,14 +3,11 @@ import GridComponents from "@/components/GridComponents";
 import Menubar from "@/components/Menubar";
 import PopularCategory from "@/components/PopularCategory";
 import SuperDeals from "@/components/SuperDeals";
-import {
-	IProduct,
-	getAllProduct,
-	getSuperDeals,
-} from "@/lib/actions/product.actions";
+import { getAllProduct } from "@/lib/actions/product.actions";
+import { ProductType } from "@/typing";
 
 async function page() {
-	const allProduct: IProduct[] = await getAllProduct();
+	const allProduct: ProductType[] = await getAllProduct();
 
 	return (
 		<>

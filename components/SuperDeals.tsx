@@ -6,18 +6,17 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "@/components/ui/carousel";
-import { DEALers } from "@/constants";
+import {
+	ProductType,
+	getAllProduct,
+} from "@/lib/actions/product.actions";
 import { truncateString } from "@/lib/utils";
 import Image from "next/image";
 import HeartComponent from "./HeartComponent";
-import {
-	IProduct,
-	getAllProduct,
-} from "@/lib/actions/product.actions";
 import Loader from "./shared/Loader";
 
 const SuperDeals = async () => {
-	const allProduct: IProduct[] = await getAllProduct();
+	const allProduct: ProductType[] = await getAllProduct();
 
 	return (
 		<section className='mt-10 '>
@@ -30,7 +29,7 @@ const SuperDeals = async () => {
 						<CarouselContent className=' p2  w-full gap-3'>
 							{allProduct.map(
 								(
-									product: IProduct,
+									product: ProductType,
 									index,
 								) => (
 									<div

@@ -7,6 +7,8 @@ import {
 import { useState } from "react";
 import { Checkbox } from "../ui/checkbox";
 import { CategoryType } from "@/typing";
+import { PriceData } from "@/constants";
+import CategoryDetailsHeader from "./CategoryDetailsHeader";
 
 const MenuTogler = ({
 	allCategory,
@@ -14,24 +16,32 @@ const MenuTogler = ({
 	allCategory: CategoryType[];
 }) => {
 	const [open, setOpen] = useState(false);
+	const [priceOpen, setPriceOpen] = useState(true);
+	const [discountOpen, setDiscountOpen] = useState(true);
+	const [technologyOpen, setTechntechnologyOpen] =
+		useState(true);
+
 	const handleTogler = () => {
 		setOpen(!open);
+		setPriceOpen(!priceOpen);
 	};
+	const handlePrice = () => {
+		setPriceOpen(!priceOpen);
+	};
+	const handleDiscount = () => {
+		setDiscountOpen(!discountOpen);
+	};
+	const handleTechnology = () => {
+		setTechntechnologyOpen(!technologyOpen);
+	};
+
 	return (
 		<div className='flex flex-col gap-3'>
-			<div
-				className='w-full flex pl-3 p-2 justify-between items-center cursor-pointer  bg-slate-200/20 shadow-sm shadow-purple-500/20'
-				onClick={handleTogler}>
-				<h4 className='text-lg font-medium text-purple-500  '>
-					All product
-				</h4>
-
-				{open ? (
-					<ChevronUpIcon className='text-purple-500 w-5 h-5' />
-				) : (
-					<ChevronDownIcon className='text-purple-500 w-5 h-5' />
-				)}
-			</div>
+			<CategoryDetailsHeader
+				title='All product'
+				handle={handleTogler}
+				Open={open}
+			/>
 			<div className='flex gap-3 items-center pl-2 transition-all duration-200 delay-100 ease-in-out'>
 				<Checkbox />
 				<p className='text-base font-medium text-muted-foreground'>
@@ -47,19 +57,60 @@ const MenuTogler = ({
 					))}
 				</>
 			)}
-			<div
-				className='w-full flex pl-3 p-2 justify-between items-center cursor-pointer  bg-slate-200/20 shadow-sm shadow-purple-500/20'
-				onClick={handleTogler}>
-				<h4 className='text-lg font-medium text-purple-500  '>
-					Price
-				</h4>
+			<CategoryDetailsHeader
+				title='Price'
+				handle={handlePrice}
+				Open={priceOpen}
+			/>
 
-				{open ? (
-					<ChevronUpIcon className='text-purple-500 w-5 h-5' />
-				) : (
-					<ChevronDownIcon className='text-purple-500 w-5 h-5' />
-				)}
-			</div>
+			{priceOpen && (
+				<div className='px-4 flex flex-col gap-2'>
+					{PriceData.map((price) => (
+						<p className='text-sm hover:text-primary font-semibold text-muted-foreground cursor-pointer'>
+							{price.label}
+						</p>
+					))}
+				</div>
+			)}
+			<CategoryDetailsHeader
+				title='Deals & Discount'
+				handle={handleDiscount}
+				Open={discountOpen}
+			/>
+			{discountOpen && (
+				<div className='px-4 flex flex-col gap-2'>
+					<p className='text-sm hover:text-primary font-semibold text-muted-foreground cursor-pointer'>
+						All discount
+					</p>
+				</div>
+			)}
+			<CategoryDetailsHeader
+				title='Technology'
+				handle={handleTechnology}
+				Open={technologyOpen}
+			/>
+			{technologyOpen && (
+				<>
+					<div className='flex gap-3 items-center pl-2 transition-all duration-200 delay-100 ease-in-out'>
+						<Checkbox />
+						<p className='text-base font-medium text-muted-foreground'>
+							Speakers
+						</p>
+					</div>
+					<div className='flex gap-3 items-center pl-2 transition-all duration-200 delay-100 ease-in-out'>
+						<Checkbox />
+						<p className='text-base font-medium text-muted-foreground'>
+							Phones
+						</p>
+					</div>
+					<div className='flex gap-3 items-center pl-2 transition-all duration-200 delay-100 ease-in-out'>
+						<Checkbox />
+						<p className='text-base font-medium text-muted-foreground'>
+							Wi-fi
+						</p>
+					</div>
+				</>
+			)}
 		</div>
 	);
 };

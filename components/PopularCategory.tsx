@@ -1,4 +1,3 @@
-import { IProduct } from "@/lib/actions/product.actions";
 import Image from "next/image";
 import React from "react";
 import Loader from "./shared/Loader";

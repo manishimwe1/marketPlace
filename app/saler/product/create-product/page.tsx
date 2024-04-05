@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { createProduct } from "@/lib/actions/product.actions";
-import { IProduct } from "@/lib/database/models/product.model";
+import { ProductType } from "@/lib/database/models/product.model";
 import { useUploadThing } from "@/lib/uploadthing/uploadThing";
 import { formSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -29,9 +29,8 @@ const CreteProductPage = () => {
 	const [CategoryId, setCategoryId] = useState("");
 	const [user, setUser] = useState({});
 	const [image, setImage] = useState<File[]>([]);
-	const [product, setProduct] = useState<IProduct | null>(
-		null,
-	);
+	const [product, setProduct] =
+		useState<ProductType | null>(null);
 	const [switcherState, setSwitcherState] =
 		useState(false);
 	const [isSubmiting, setIsSubmiting] = useState(false);
@@ -88,7 +87,7 @@ const CreteProductPage = () => {
 			};
 
 			const results = createProduct(data);
-			results.then((Item: IProduct) => {
+			results.then((Item: ProductType) => {
 				// return Item;
 				setProduct(Item);
 

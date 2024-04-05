@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
-	IProduct,
+	ProductType,
 	getAllProductById,
 } from "@/lib/actions/product.actions";
 import { cn } from "@/lib/utils";
@@ -21,7 +21,9 @@ type Props = {
 const page = async ({ params: { id } }: Props) => {
 	// console.log(id);
 
-	const product: IProduct = await getAllProductById(id);
+	const product: ProductType = await getAllProductById(
+		id,
+	);
 
 	return (
 		<div className='max-container w-full p-20'>

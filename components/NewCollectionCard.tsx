@@ -1,12 +1,12 @@
-import { IProduct } from "@/lib/actions/product.actions";
 import Image from "next/image";
 import React from "react";
 import Loader from "./shared/Loader";
+import { ProductType } from "@/typing";
 
 const NewCollectionCard = ({
 	allProduct,
 }: {
-	allProduct: IProduct[];
+	allProduct: ProductType[];
 }) => {
 	return (
 		<div className='border  w-full row-span-2 rounded-3xl bg-slate-400/10 px-4 py-2'>

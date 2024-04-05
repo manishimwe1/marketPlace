@@ -4,18 +4,16 @@ import Image from "next/image";
 import GridCard from "./shared/GridCard";
 import PurpleCard from "./shared/PurpleCard";
 import NewCollectionCard from "./NewCollectionCard";
-import {
-	IProduct,
-	getSuperDeals,
-} from "@/lib/actions/product.actions";
+import { getSuperDeals } from "@/lib/actions/product.actions";
 import Link from "next/link";
+import { ProductType } from "@/typing";
 
 const GridComponents = async ({
 	allProduct,
 }: {
-	allProduct: IProduct[];
+	allProduct: ProductType[];
 }) => {
-	const superDealProduct: IProduct[] =
+	const superDealProduct: ProductType[] =
 		await getSuperDeals();
 	return (
 		<section className='flex gap-3 w-full h-full flex-col lg:flex-row items-center justify-between'>

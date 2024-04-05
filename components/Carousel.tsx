@@ -3,9 +3,10 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
-import { IProduct } from "@/lib/actions/product.actions";
+import { ProductType } from "@/typing";
+
 type Props = {
-	carouselItems: IProduct[];
+	carouselItems: ProductType[];
 };
 const CarouselPage = ({ carouselItems }: Props) => {
 	return (

@@ -1,12 +1,12 @@
 "use client";
 
-import { IProduct } from "@/lib/actions/product.actions";
+import { ProductType } from "@/lib/actions/product.actions";
 import { useItemstore } from "@/store";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import React from "react";
 
 type Props = {
-	product: IProduct;
+	product: ProductType;
 };
 
 const HeartComponent = ({ product }: Props) => {

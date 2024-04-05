@@ -53,41 +53,17 @@ export const ABOUTUS = [
 	},
 ];
 
-export const DEALers = [
+export const PriceData = [
 	{
-		image: "/deals/computer.png",
-		desc: "Apple iPhone 12 64GB Unlocked Smartphone - Very Good",
-		star: 5,
-		price: 90000,
+		label: "Under 1000 rw",
 	},
 	{
-		image: "/deals/computer2.png",
-		desc: "Acer Aspire 3 15.6 Touchscreen AMD Ryzen 5 7520U 2.8GHz 16GB RAM 512GB SSD W11H",
-		star: 5,
-		price: 10000,
+		label: "1000rw - 10000rwf",
 	},
 	{
-		image: "/deals/mouse (2).png",
-		desc: "Bose QuietComfort II Noise Cancelling Headphones, Certified Refurbished",
-		star: 4,
-		price: 50000,
+		label: "10000 - 500000rw",
 	},
 	{
-		image: "/deals/mouse.png",
-		desc: "Apple AirPods 3 White In Ear Headphones MPNY3AM/A",
-		star: 5,
-		price: 30000,
-	},
-	{
-		image: "/deals/mouse3.png",
-		desc: "lates mouse of 2024",
-		star: 3,
-		price: 10000,
-	},
-	{
-		image: "/speaker.png",
-		desc: "Fell the beat with amzing speakers",
-		star: 5,
-		price: 10000,
+		label: "Over 50000 rwf",
 	},
 ];

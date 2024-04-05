@@ -8,7 +8,7 @@ import { Product } from "../database/models/product.model";
 import { getCategoryByID } from "./category.actions";
 import { getUserById } from "./user.actions";
 
-export type IProduct = {
+export type ProductType = {
 	image: string;
 	title: string;
 	description: string;
@@ -22,7 +22,9 @@ export type IProduct = {
 	SuperDeals?: string;
 };
 
-export const createProduct = async (product: IProduct) => {
+export const createProduct = async (
+	product: ProductType,
+) => {
 	const user = await auth();
 	try {
 		await connectToDB();

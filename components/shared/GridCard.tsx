@@ -1,8 +1,8 @@
-import { IProduct } from "@/lib/actions/product.actions";
+import { ProductType } from "@/typing";
 import Image from "next/image";
 
 type Props = {
-	deal: IProduct;
+	deal: ProductType;
 };
 
 const GridCard = ({ deal }: Props) => {

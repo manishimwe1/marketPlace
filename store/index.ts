@@ -1,15 +1,10 @@
-import {
-	IProduct,
-	getAllProduct,
-	getAllProductById,
-} from "@/lib/actions/product.actions";
 import { create } from "zustand";
 
 interface ItemStoreState {
 	items: number;
 	increaseItems: () => void;
 }
-export type TProduct = {
+type TProduct = {
 	image: string;
 	title: string;
 	description: string;
@@ -55,12 +50,12 @@ export const useItemstore = create<ItemStoreState>(
 // 		// allProducts: () =>
 // 		// 	set((state) => ({ product: state.product })),
 // 		// allProducts: async () => {
-// 		// 	const response: IProduct =
+// 		// 	const response: ProductType =
 // 		// 		await getAllProduct();
 // 		// 	set({ product: response });
 // 		// },
 // 		// ProductById: async (id: string) => {
-// 		// 	const response: IProduct =
+// 		// 	const response: ProductType =
 // 		// 		await getAllProductById(id);
 // 		// 	set({ product: response });
 // 		// },

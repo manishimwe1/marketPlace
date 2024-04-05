@@ -1,7 +1,9 @@
 import Menubar from "@/components/Menubar";
 import StarWigets from "@/components/StarWigets";
+import BrandinginCard from "@/components/shared/BrandinginCard";
 import MenuNavigation from "@/components/shared/MenuNavigation";
 import MenuTogler from "@/components/shared/MenuTogler";
+import { Button } from "@/components/ui/button";
 import { getAllCategories } from "@/lib/actions/category.actions";
 import { getProductByCategory } from "@/lib/actions/product.actions";
 import { truncateString } from "@/lib/utils";
@@ -50,7 +52,7 @@ const page = async ({ params: { category } }: Props) => {
 					<MenuNavigation title='Sort by' />
 				</div>
 
-				<div className='flex gap-3 w-full'>
+				<div className='flex gap-6 w-full'>
 					<div className='w-1/4 border border-t-0'>
 						<MenuTogler
 							allCategory={allCategory}
@@ -73,7 +75,7 @@ const page = async ({ params: { category } }: Props) => {
 							<div
 								key={product._id}
 								className='w-full flex justify-center  items-start gap-6 shadow-sm shadow-purple-400/20 rounded-lg  border'>
-								<div className='w-1/2 h-60 relative bg-slate-400/20'>
+								<div className='w-1/2 h-60 relative bg-slate-400/20 py-3'>
 									<Image
 										src={product.image}
 										alt={product.title}
@@ -82,7 +84,7 @@ const page = async ({ params: { category } }: Props) => {
 									/>
 								</div>
 								<div className='w-full flex items-start flex-col mt-5 gap-3'>
-									<h3 className='text-2xl font-bold text-stone-950/80   w-fit'>
+									<h3 className='text-xl font-bold text-stone-950/80   w-fit'>
 										{truncateString(
 											product.title,
 											80,
@@ -100,7 +102,14 @@ const page = async ({ params: { category } }: Props) => {
 							</div>
 						))}
 					</div>
-					<div className='w-1/4'></div>
+					<div className='w-1/4  flex items-center  flex-col'>
+						<h3 className='text-2xl font-bold text-stone-950/80   w-fit'>
+							Related Brands
+						</h3>
+
+						<BrandinginCard />
+						<BrandinginCard />
+					</div>
 				</div>
 			</section>
 		</>
