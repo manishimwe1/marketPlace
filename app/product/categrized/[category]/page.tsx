@@ -74,10 +74,9 @@ const page = async ({ params: { category } }: Props) => {
 						</div>
 						{product.map((product) => (
 							<Link
+								key={product._id}
 								href={`/saler/${product._id}`}>
-								<div
-									key={product._id}
-									className='w-full flex justify-center  items-start gap-6 shadow-sm shadow-purple-400/20 rounded-lg  border cursor-pointer hover:scale-105 transition-all ease-in-out duration-200'>
+								<div className='w-full flex justify-center  items-start gap-6 shadow-sm shadow-purple-400/20 rounded-lg  border cursor-pointer hover:scale-105 transition-all ease-in-out duration-200'>
 									<div className='w-1/2 h-60 relative bg-slate-400/20 py-3'>
 										<Image
 											src={
