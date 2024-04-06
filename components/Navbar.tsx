@@ -37,7 +37,7 @@ const Navbar = async () => {
 						search
 					</button>
 				</form>
-				{user ? (
+				{user?.user ? (
 					<UserButton />
 				) : (
 					<div className='flex items-center gap-1 '>

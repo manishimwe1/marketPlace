@@ -6,6 +6,7 @@ import {
 	createUser,
 	getUserById,
 } from "./actions/user.actions";
+import { signIn } from "./auth";
 
 declare module "next-auth" {
 	interface Session {
@@ -89,7 +90,7 @@ const nextAuthConfig: NextAuthConfig = {
 		},
 	},
 	basePath: "/auth",
-	// pages: { signIn: "/sign-in", newUser: "/" },
+	pages: { signIn: "/sign-in", newUser: "/" },
 };
 
 export default nextAuthConfig;

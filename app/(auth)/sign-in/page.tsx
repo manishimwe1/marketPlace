@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { handleSignIn } from "@/lib/actions/user.actions";
+import { signIn } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 import { signInSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -42,7 +43,7 @@ const SigninPage = () => {
 	}
 	return (
 		<section className='max-container'>
-			<div className='flex gap-2 bg-gradient-to-br from-purple-500/50  via-[#c850c0] h-screen text-stone-950 to-[#4158d0] saturate-100 brightness-75 shadow-md shadow-purple-950/20 rounded-3xl px-12 py-8'>
+			<div className='flex gap-2 text-stone-950  saturate-100 brightness-75 shadow-md shadow-purple-950/20 rounded-3xl px-12 py-8'>
 				<div className='flex flex-col gap-2  w-full h-full'>
 					<Link href={"/"}>
 						<div className='relative h-14 w-20 cursor-pointer'>
@@ -56,7 +57,7 @@ const SigninPage = () => {
 							Please Enter your Account
 							details
 						</p>
-						<div className='flex flex-col gap4'>
+						<div className='flex flex-col gap-4'>
 							<Form {...form}>
 								<form
 									onSubmit={form.handleSubmit(
@@ -117,12 +118,9 @@ const SigninPage = () => {
 									</Button>
 								</form>
 							</Form>
-							<form action=''>
+							<form action={handleSignIn}>
 								<Button
-									type='button'
-									onClick={() =>
-										handleSignIn()
-									}
+									type='submit'
 									className='w-full flex gap-4 saturate-200 brightness-100'>
 									<Image
 										src={"/google.svg"}

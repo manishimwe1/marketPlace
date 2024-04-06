@@ -66,6 +66,9 @@ const config = {
 				md: "calc(var(--radius) - 2px)",
 				sm: "calc(var(--radius) - 4px)",
 			},
+			backgroundImage: {
+				Image: "url('/png/sssurf1.svg')",
+			},
 			keyframes: {
 				"accordion-down": {
 					from: { height: "0" },
