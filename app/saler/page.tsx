@@ -14,27 +14,19 @@ const page = async () => {
 					Create product
 				</Link>
 			</div>
-			<div className='flex flex-col gap-4'>
-				<div className='relative w-full h-96'>
+			<div className='bg-slate-400/30 w-full rounded-3xl h-full flex items-center gap-4'>
+				<div className='w-1/2 border flex justify-center items-center text-center'>
+					<h1 className='text-stone-950 text-7xl font-bold tracking-wider'>
+						Start selling with Gura & Gurisha
+					</h1>
+				</div>
+				<div className='w-1/2 border relative h-96 py-10'>
 					<Image
-						src={"/images/no_result.gif"}
-						alt='no product'
+						src={"/png/kit.gif"}
+						alt='kit'
 						fill
 						className='object-contain'
 					/>
-				</div>
-				<div className='w-full flex justify-center text-stone-400'>
-					<Link
-						href={
-							"/saler/product/create-product"
-						}
-						className={cn(
-							buttonVariants({
-								variant: "ghost",
-							}),
-						)}>
-						Create product
-					</Link>
 				</div>
 			</div>
 		</section>

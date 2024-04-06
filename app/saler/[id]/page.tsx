@@ -10,7 +10,7 @@ import {
 	ProductType,
 	getAllProductById,
 } from "@/lib/actions/product.actions";
-import { cn } from "@/lib/utils";
+import { cn, truncateString } from "@/lib/utils";
 import { Pencil } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -91,7 +91,10 @@ const page = async ({ params: { id } }: Props) => {
 								</Badge>
 							</Link>
 							<h2 className='text-3xl font-bold text-stone-700 '>
-								{product.title}
+								{truncateString(
+									product.title,
+									50,
+								)}
 							</h2>
 
 							<div className='flex px-3 py-1 bg-purple-900/10 w-fit rounded-full gap-2 mt-4'>

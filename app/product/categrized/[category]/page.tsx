@@ -9,6 +9,7 @@ import { getProductByCategory } from "@/lib/actions/product.actions";
 import { truncateString } from "@/lib/utils";
 import { CategoryType, ProductType } from "@/typing";
 import Image from "next/image";
+import Link from "next/link";
 type Props = {
 	params: {
 		category: string;
@@ -72,43 +73,50 @@ const page = async ({ params: { category } }: Props) => {
 							</p>
 						</div>
 						{product.map((product) => (
-							<div
-								key={product._id}
-								className='w-full flex justify-center  items-start gap-6 shadow-sm shadow-purple-400/20 rounded-lg  border'>
-								<div className='w-1/2 h-60 relative bg-slate-400/20 py-3'>
-									<Image
-										src={product.image}
-										alt={product.title}
-										fill
-										className='object-contain'
-									/>
-								</div>
-								<div className='w-full flex items-start flex-col mt-5 gap-3'>
-									<h3 className='text-xl font-bold text-stone-950/80   w-fit'>
-										{truncateString(
-											product.title,
-											80,
-										)}
-									</h3>
-									<StarWigets />
+							<Link
+								href={`/saler/${product._id}`}>
+								<div
+									key={product._id}
+									className='w-full flex justify-center  items-start gap-6 shadow-sm shadow-purple-400/20 rounded-lg  border cursor-pointer hover:scale-105 transition-all ease-in-out duration-200'>
+									<div className='w-1/2 h-60 relative bg-slate-400/20 py-3'>
+										<Image
+											src={
+												product.image
+											}
+											alt={
+												product.title
+											}
+											fill
+											className='object-contain'
+										/>
+									</div>
+									<div className='w-full flex items-start flex-col mt-5 gap-3'>
+										<h3 className='text-xl font-bold text-stone-950/80   w-fit'>
+											{truncateString(
+												product.title,
+												80,
+											)}
+										</h3>
+										<StarWigets />
 
-									<p className='text-lg text-primary font-bold mt-4'>
-										{product.price}{" "}
-										<span className='text-xs '>
-											rwf
-										</span>
-									</p>
+										<p className='text-lg text-primary font-bold mt-4'>
+											{product.price}{" "}
+											<span className='text-xs '>
+												rwf
+											</span>
+										</p>
+									</div>
 								</div>
-							</div>
+							</Link>
 						))}
 					</div>
+
 					<div className='w-1/4  flex items-center  flex-col'>
 						<h3 className='text-2xl font-bold text-stone-950/80   w-fit'>
 							Related Brands
 						</h3>
-
 						<BrandinginCard />
-						<BrandinginCard />
+						<BrandinginCard />L
 					</div>
 				</div>
 			</section>
