@@ -110,7 +110,7 @@ const page = async ({ params: { category } }: Props) => {
 						))}
 					</div>
 
-					<div className='w-1/4  flex items-center  flex-col'>
+					<div className='w-1/4  lg:flex items-center  flex-col hidden '>
 						<h3 className='text-2xl font-bold text-stone-950/80   w-fit'>
 							Related Brands
 						</h3>

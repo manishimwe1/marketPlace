@@ -29,6 +29,7 @@
 		"@tanstack/react-query-devtools": "^5.21.5",
 		"@uploadthing/react": "^6.4.1",
 		"appwrite": "^13.0.1",
+		"axios": "^1.6.8",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.0",
 		"crypto-js": "^4.2.0",
