@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
+import Provider from "@/components/SessionProvide";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -24,25 +25,27 @@ export default async function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body
-				className={cn(
-					poppins.variable,
-					"text-white bg-gray-100 ",
-				)}>
-				<NextTopLoader
-					color='#2299DD'
-					initialPosition={0.08}
-					crawlSpeed={200}
-					height={3}
-					crawl={true}
-					showSpinner={true}
-					easing='ease'
-					speed={200}
-					shadow='0 0 10px #2299DD,0 0 5px #2299DD'
-				/>
-				<Navbar />
-				{children}
-			</body>
+			<Provider>
+				<body
+					className={cn(
+						poppins.variable,
+						"text-white bg-gray-100 ",
+					)}>
+					<NextTopLoader
+						color='#2299DD'
+						initialPosition={0.08}
+						crawlSpeed={200}
+						height={3}
+						crawl={true}
+						showSpinner={true}
+						easing='ease'
+						speed={200}
+						shadow='0 0 10px #2299DD,0 0 5px #2299DD'
+					/>
+					<Navbar />
+					{children}
+				</body>
+			</Provider>
 		</html>
 	);
 }

@@ -10,7 +10,11 @@ import {
 	NavigationMenuTrigger,
 	NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
+import { handleSignIn } from "@/lib/actions/user.actions";
 import { cn } from "@/lib/utils";
+import { useSession } from "next-auth/react";
+import { Button, buttonVariants } from "../ui/button";
+import Link from "next/link";
 
 const MenuNavigation = ({
 	title,
@@ -19,6 +23,7 @@ const MenuNavigation = ({
 	title: string;
 	className?: string;
 }) => {
+	const session = useSession();
 	return (
 		<NavigationMenu className=''>
 			<NavigationMenuList>
@@ -36,9 +41,31 @@ const MenuNavigation = ({
 					</NavigationMenuTrigger>
 					<NavigationMenuContent>
 						<NavigationMenuLink>
-							<p className='!w-full border '>
-								Home kit
-							</p>
+							{title === "Sort by" ? (
+								<></>
+							) : session.data?.user ? (
+								<Link
+									href={
+										"/saler/product/create-product"
+									}
+									className={cn(
+										buttonVariants(),
+									)}>
+									Create product
+								</Link>
+							) : (
+								<div>
+									<form
+										action={
+											handleSignIn
+										}
+										className=' !p-0'>
+										<Button className='rounded-full text-slate-100'>
+											Sign in
+										</Button>
+									</form>
+								</div>
+							)}
 						</NavigationMenuLink>
 					</NavigationMenuContent>
 				</NavigationMenuItem>
