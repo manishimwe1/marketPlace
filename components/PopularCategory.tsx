@@ -25,7 +25,7 @@ const PopularCategory = ({
 				Explore Popular Categories
 			</h3>
 			{allProduct ? (
-				<div className=' px-8 w-full grid grid-cols-1 md:grid-cols-5 gap-10 mt-4'>
+				<div className=' px-8 w-full grid grid-cols-2 md:grid-cols-5 gap-10 mt-4'>
 					{removeDuplicates(allProduct)
 						.slice(0, 5)
 						.map(
