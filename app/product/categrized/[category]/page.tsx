@@ -36,7 +36,7 @@ const page = async ({ params: { category } }: Props) => {
 			<section className='max-container text-stone-950'>
 				<div className='h-10 py-2 shadow-sm shadow-purple-950/10 w-full bg-slate-400/20 flex justify-between items-center px-3'>
 					<div>
-						<p className='font-semibold '>
+						<p className='font-semibold text-sm lg:text-base'>
 							1 page of {product.length}{" "}
 							Results for{" "}
 							<span className='text-primary font-bold underline underline-offset-2'>
@@ -53,7 +53,7 @@ const page = async ({ params: { category } }: Props) => {
 				</div>
 
 				<div className='flex gap-6 w-full'>
-					<div className='w-1/4 border border-t-0'>
+					<div className=' hidden lg:inline-block lg:w-1/4 border border-t-0 '>
 						<MenuTogler
 							allCategory={allCategory}
 						/>
