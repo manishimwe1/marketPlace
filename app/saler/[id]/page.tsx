@@ -26,7 +26,7 @@ const page = async ({ params: { id } }: Props) => {
 	);
 
 	return (
-		<div className='max-container w-full p-20'>
+		<div className='lg:max-container w-full p-20'>
 			{product ? (
 				<div className='w-full relative h-full flex text-stone-900 border rounded-3xl bg-purple-500/30 py-4'>
 					<Link
