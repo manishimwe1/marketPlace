@@ -17,7 +17,7 @@ const NewCollectionCard = ({
 				Launched in the last 7 days
 			</p>
 			{allProduct ? (
-				<div className='grid grid-cols-3 w-full gap-3 lg:mt-2 py-4'>
+				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-3 lg:mt-2 py-4'>
 					{allProduct
 						.splice(0, 3)
 						.map((product) => (
