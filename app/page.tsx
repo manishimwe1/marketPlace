@@ -23,6 +23,7 @@ async function page() {
 				<PopularCategory allProduct={allProduct} />
 				<SuperDeals />
 			</main>
+			<AboutUs />
 		</>
 	);
 }
