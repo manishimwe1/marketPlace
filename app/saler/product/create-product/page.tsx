@@ -105,7 +105,7 @@ const CreteProductPage = () => {
 	return (
 		<div className='max-container '>
 			<div className='flex gap-3 lg:flex-row flex-col w-full min-h-screen text-stone-600'>
-				<div className='w-1/2  px-4 '>
+				<div className='lg:w-1/2 w-full  px-4 '>
 					<h2 className='text-3xl font-bold text-slate-900 mb-6'>
 						Create Product
 					</h2>
@@ -377,7 +377,7 @@ const CreteProductPage = () => {
 						</div>
 					</div>
 				) : (
-					<div className='relative border w-1/2 bg-purple-500/20 rounded-r-3xl hidden lg:flex'>
+					<div className='relative border lg:w-1/2 w-full bg-purple-500/20 rounded-r-3xl hidden lg:flex'>
 						<h3 className='text-lg font-bold text-stone-950 absolute top-10 inset-x-0'>
 							Create beatifuly selling product
 						</h3>
