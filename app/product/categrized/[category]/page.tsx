@@ -3,7 +3,6 @@ import StarWigets from "@/components/StarWigets";
 import BrandinginCard from "@/components/shared/BrandinginCard";
 import MenuNavigation from "@/components/shared/MenuNavigation";
 import MenuTogler from "@/components/shared/MenuTogler";
-import { Button } from "@/components/ui/button";
 import { getAllCategories } from "@/lib/actions/category.actions";
 import { getProductByCategory } from "@/lib/actions/product.actions";
 import { truncateString } from "@/lib/utils";
