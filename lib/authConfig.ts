@@ -89,8 +89,8 @@ const nextAuthConfig: NextAuthConfig = {
 			}
 		},
 	},
-	basePath: "/auth",
-	pages: { signIn: "/sign-in", newUser: "/" },
+	basePath: "/api/auth",
+	// pages: { signIn: "/sign-in", newUser: "/" },
 };
 
 export default nextAuthConfig;
