@@ -1,21 +1,29 @@
 import AboutUs from "@/components/AboutUs";
 import GridComponents from "@/components/GridComponents";
+import ImageComponent from "@/components/ImageComponent";
 import Menubar from "@/components/Menubar";
 import PopularCategory from "@/components/PopularCategory";
 import SuperDeals from "@/components/SuperDeals";
 import { getAllProduct } from "@/lib/actions/product.actions";
-import { RemoveBgInImage } from "@/lib/actions/removeBgImage";
+import {
+	removeBackgroundImage,
+	removeBgFromPicsArt,
+	removeBgFromRapidApi,
+} from "@/lib/actions/removeBackgroundImage";
 import { ProductType } from "@/typing";
+import Image from "next/image";
 
 async function page() {
 	const allProduct: ProductType[] = await getAllProduct();
-	const removedImage = await RemoveBgInImage(
-		"https://utfs.io/f/bb2a8819-c4dd-40a5-b678-ca56c4339959-i4ezo1._AC_SX679_.jpg",
-	);
-	console.log(removedImage, "this is removed image");
+	removeBgFromPicsArt(
+		"https://utfs.io/f/913dee97-7e6f-4049-9786-8a4f40a1c498-ell9xm.jpg",
+	).then((image) => {
+		console.log("HERE++>", image);
+	});
 
 	return (
 		<>
+			{/* <ImageComponent removedImage={removedImage} /> */}
 			<Menubar />
 			<main className='max-container'>
 				<AboutUs />
