@@ -51,6 +51,7 @@ const GridComponents = async ({
 											superDealProduct[0]
 												.image
 										}
+										placeholder='blur'
 										fill
 										alt={
 											superDealProduct[0]

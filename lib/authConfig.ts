@@ -1,12 +1,9 @@
-import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import { NextAuthConfig } from "next-auth";
 import Google from "next-auth/providers/google";
-import clientPromise from "./database/db.config";
 import {
 	createUser,
 	getUserById,
 } from "./actions/user.actions";
-import { signIn } from "./auth";
 
 declare module "next-auth" {
 	interface Session {

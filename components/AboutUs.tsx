@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const AboutUs = () => {
 	return (
-		<section className=' py-2 lg:flex flex-col lg:flex-row hidden'>
+		<section className=' py-2 flex-col lg:hidden '>
 			<div className='flex flex-col w-full  lg:w-[250px] lg:items-start items-center justify-center select-none'>
 				<h3 className='title'>Better prices,</h3>
 				<h3 className='title'>Better choices</h3>

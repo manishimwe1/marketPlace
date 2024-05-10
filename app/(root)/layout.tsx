@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
-import "./globals.css";
+import "../globals.css";
 import Provider from "@/components/SessionProvide";
 
 const poppins = Poppins({

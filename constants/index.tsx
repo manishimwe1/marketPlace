@@ -25,6 +25,33 @@ export const NAVLINKS = [
 	},
 ];
 
+export const DASHBAORD_LINKS = [
+	{
+		image: "/heart.svg",
+		label: "Dashbaord",
+		link: "/dashboard",
+	},
+	{
+		image: "/heart.svg",
+		label: "Profile",
+		link: "/dashboard/profile",
+	},
+	{
+		image: "/star.svg",
+		label: "Shop",
+		link: "/dashboard/shop",
+	},
+	{
+		image: "/wallat.svg",
+		label: "Wallat",
+		link: "/dashboard/wallat",
+	},
+	{
+		image: "/sheild-check.svg",
+		label: "Setting",
+		link: "/dashboard/setting",
+	},
+];
 export const ABOUTUS = [
 	{
 		image: "/dollar.svg",
@@ -65,5 +92,28 @@ export const PriceData = [
 	},
 	{
 		label: "Over 50000 rwf",
+	},
+];
+
+export const DashbaordData = [
+	{
+		title: "Total Product",
+		total: 200,
+		imageUrl: "/truck.svg",
+	},
+	{
+		title: "Total Shop",
+		total: 20,
+		imageUrl: "/wallat.svg",
+	},
+	{
+		title: "Click on Product",
+		total: 10,
+		imageUrl: "/phone.svg",
+	},
+	{
+		title: "Total Orders",
+		total: 200,
+		imageUrl: "/heart.svg",
 	},
 ];
