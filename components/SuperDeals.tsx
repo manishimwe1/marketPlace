@@ -15,8 +15,12 @@ import Image from "next/image";
 import HeartComponent from "./HeartComponent";
 import Loader from "./shared/Loader";
 
-const SuperDeals = async () => {
-	const allProduct: ProductType[] = await getAllProduct();
+const SuperDeals = ({
+	allProduct,
+}: {
+	allProduct: ProductType[];
+}) => {
+	// const allProduct: ProductType[] = await getAllProduct();
 
 	return (
 		<section className='mt-10 '>

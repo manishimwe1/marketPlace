@@ -50,9 +50,17 @@ export const createProduct = async (
 			);
 		}
 		const data = {
-			...product,
+			image: product.image,
+			title: product.title,
+			description: product.description,
+			price: product.price,
+			location: product.location,
+			freeDelivery: product.freeDelivery,
+			deliveryFee: product.deliveryFee,
+			stock: product.stock,
 			category: category._id as string,
 			sellerId: seller._id as string,
+			provedByAdmin: false,
 		};
 
 		const newProduct = await Product.create(data);

@@ -48,7 +48,7 @@ interface ProductType {
 	_id: string;
 	title: string;
 	description: string;
-	price: number;
+	price: string;
 	image: string;
 	category: CategoryType;
 	createdAt: string;

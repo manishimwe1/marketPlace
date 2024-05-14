@@ -43,7 +43,7 @@ const GridComponents = async ({
 					</h2>
 					<div className='rounded-3xl bg-slate-400/30 mx-4 mt-4 gap-3 py-4 flex flex-col'>
 						<Link
-							href={`/product/categrized/${superDealProduct[0].category}`}>
+							href={`/product/categrized/${superDealProduct[0]?.category}`}>
 							<div className='px-9 gap-3 flex flex-col  cursor-pointer'>
 								<div className=' h-52 w-full rounded-3xl relative  '>
 									<Image

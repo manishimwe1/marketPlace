@@ -1,13 +1,9 @@
 "use client";
 
-import {
-	ChevronDownIcon,
-	ChevronUpIcon,
-} from "lucide-react";
+import { PriceData } from "@/constants";
+import { CategoryType } from "@/typing";
 import { useState } from "react";
 import { Checkbox } from "../ui/checkbox";
-import { CategoryType } from "@/typing";
-import { PriceData } from "@/constants";
 import CategoryDetailsHeader from "./CategoryDetailsHeader";
 
 const MenuTogler = ({
