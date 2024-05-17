@@ -48,7 +48,9 @@ export const getUserById = async (email: string) => {
 	try {
 		await connectToDB();
 
-		const user = await User.findOne({ email });
+		const user = await User.findOne({
+			email,
+		});
 		if (!user) {
 			console.log("error in creating user");
 			return;
