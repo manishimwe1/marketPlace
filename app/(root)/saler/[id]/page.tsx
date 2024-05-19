@@ -24,13 +24,13 @@ const page = async ({ params: { id } }: Props) => {
 	const product: ProductType = await getProductById(id);
 
 	return (
-		<div className='lg:max-container w-full p-20'>
+		<div className='lg:max-container w-full p-2 lg:p-20'>
 			{product ? (
-				<div className='w-full relative h-full flex text-stone-900 border rounded-3xl bg-purple-500/30 py-4'>
+				<div className='w-full relative h-full flex md:flex-row flex-col  text-stone-900 border border-red-500 rounded-3xl bg-purple-500/30 py-4'>
 					<Link
 						href={`/saler/product/edit-product/${id}`}
 						className={cn(
-							"absolute top-4 right-4 ring-2 ring-purple-500/30 hover:!bg-purple-500/30 !px-2",
+							"absolute top-4 right-4 ring-2 ring-purple-500/30 hover:!bg-purple-500/30 !px-2 z-20 bg-white/20 ",
 							buttonVariants({
 								variant: "ghost",
 							}),
@@ -38,8 +38,8 @@ const page = async ({ params: { id } }: Props) => {
 						<Pencil className='text-stone-500' />
 					</Link>
 
-					<div className=' bg-purple-500/10 flex-1 relative rounded-3xl flex  p-5 bg-purple-50 shadow-sm shadow-purple-500/30 '>
-						<div className='w-[100px] h-full flex flex-col px-3 gap-4 bg-purple-50'>
+					<div className=' bg-purple-500/10 border border-black  flex-1 relative rounded-3xl flex flex-col md:flex-row  p-5 bg-purple-50 shadow-sm shadow-purple-500/30 '>
+						<div className='w-[100px] h-full hidden lg:flex flex-col px-3 gap-4 bg-purple-50'>
 							<div className='h-40 w-full relative'>
 								<Image
 									src={product.image}
@@ -65,7 +65,7 @@ const page = async ({ params: { id } }: Props) => {
 								/>
 							</div>
 						</div>
-						<div className='h-[100%] w-full relative  bg-purple-50 rounded-r-3xl'>
+						<div className='lg:h-[100%] h-80 w-full relative  bg-purple-50 rounded-r-3xl'>
 							<Image
 								src={product.image}
 								alt={product.title}

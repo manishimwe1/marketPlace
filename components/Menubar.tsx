@@ -9,7 +9,7 @@ import {
 	NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { NAVLINKS } from "@/constants";
-import { cn } from "@/lib/utils";
+import { cn, removeDuplicates } from "@/lib/utils";
 import { Bars4Icon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import MenuNavigation from "./shared/MenuNavigation";
@@ -64,16 +64,18 @@ const Menubar = ({
 							<NavigationMenuContent className='py-4'>
 								<NavigationMenuLink>
 									{allProductCategory ? (
-										allProductCategory.map(
+										removeDuplicates(
+											allProductCategory,
+										).map(
 											(category) => (
 												<div className='flex flex-col gap-2 px-2 '>
 													<Link
 														key={
 															category._id
 														}
-														href={`/category/${category._id}`}
+														href={`/product/categrized/${category.category._id}`}
 														className={cn(
-															"hover:underline hover:underline-offset-2 text-lg font-bold",
+															"hover:underline hover:underline-offset-2 text-lg font-bold text-gray-500",
 														)}>
 														{
 															category

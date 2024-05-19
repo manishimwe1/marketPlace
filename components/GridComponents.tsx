@@ -12,13 +12,13 @@ const GridComponents = ({
 	superDealProduct,
 }: {
 	allProduct: ProductType[];
-	superDealProduct: ProductType;
+	superDealProduct: ProductType[];
 }) => {
 	// console.log(superDealProduct, "superDeals");
 
 	return (
-		<section className='flex gap-3 w-full h-full flex-col lg:flex-row items-center justify-between'>
-			<div className='space-y-4 rounded-3xl w-full lg:w-1/5 h-fit'>
+		<section className='flex gap-3 w-full h-full flex-col md:flex-row md:items-start items-center justify-between'>
+			<div className='space-y-4 rounded-3xl w-full md:hidden lg:inline-block  lg:w-1/5 h-fit'>
 				<div className='border h-36 w-full row-span-2 rounded-3xl bg-slate-400/10'></div>
 				<div className='  rounded-3xl bg-purple-800/20 py-5 pb-10 h-full '>
 					<h2 className='text-primary opacity-90 text-2xl text-center font-bold'>
@@ -34,8 +34,8 @@ const GridComponents = ({
 					</div>
 				</div>
 			</div>
-			{superDealProduct && (
-				<div className=' w-full lg:w-[35%] rounded-3xl bg-purple-800/20 py-2'>
+			{superDealProduct[0] && (
+				<div className=' w-full lg:w-[35%] rounded-3xl bg-purple-800/20 py-2 h-full'>
 					<h2 className='text-stone-950 text-center font-bold text-3xl opacity-80'>
 						Super
 						<span className='text-primary opacity-90'>
@@ -44,16 +44,18 @@ const GridComponents = ({
 					</h2>
 					<div className='rounded-3xl bg-slate-400/30 mx-4 mt-4 gap-3 py-4 flex flex-col'>
 						<Link
-							href={`/product/categrized/${superDealProduct?.category}`}>
+							href={`/product/categrized/${superDealProduct[0]?.category}`}>
 							<div className='px-9 gap-3 flex flex-col  cursor-pointer'>
 								<div className=' h-52 w-full rounded-3xl relative  '>
 									<Image
 										src={
-											superDealProduct.image
+											superDealProduct[0]
+												.image
 										}
 										fill
 										alt={
-											superDealProduct.title
+											superDealProduct[0]
+												.title
 										}
 										className='object-contain rounded-3xl'
 									/>
@@ -61,7 +63,8 @@ const GridComponents = ({
 								<div className='w-full flex items-center justify-center gap-4'>
 									<p className='text-lg text-primary font-bold'>
 										{
-											superDealProduct.price
+											superDealProduct[0]
+												.price
 										}{" "}
 										<span className='text-xs '>
 											rwf
@@ -70,7 +73,8 @@ const GridComponents = ({
 									<p className='bg-primary rounded-full text-base font-semibold px-3 py-0.5'>
 										-
 										{
-											superDealProduct.SuperDeals
+											superDealProduct[0]
+												.SuperDeals
 										}
 										% off
 									</p>
@@ -78,7 +82,7 @@ const GridComponents = ({
 							</div>
 						</Link>
 						<div className='flex justify-around gap-2 mt-4 w-full px-2'>
-							{allProduct
+							{superDealProduct
 								.slice(1, 3)
 								.map((deal) => (
 									<Link

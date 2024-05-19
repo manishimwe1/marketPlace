@@ -3,10 +3,10 @@
 import { revalidatePath } from "next/cache";
 import { auth } from "../auth";
 import { connectToDB } from "../database/db.config";
-import { ICategory } from "../database/models/category.model";
 import { Product } from "../database/models/product.model";
 import { getCategoryByID } from "./category.actions";
 import { getUserById } from "./user.actions";
+import { ICategory } from "@/typing";
 
 export type ProductType = {
 	image: string;
@@ -177,5 +177,25 @@ export const getProductByCategory = async (
 		return JSON.parse(JSON.stringify(product));
 	} catch (error) {
 		console.log(error);
+	}
+};
+
+export const getCategoryName = async (name: string) => {
+	console.log("Here!!!!!!!!");
+
+	const categoryNames: ICategory[] =
+		await getAllProductCategory();
+	if (categoryNames) {
+		const categoryName = categoryNames.filter(
+			(categoryName) =>
+				categoryName.category.categoryName ===
+				`${name}`,
+		);
+
+		if (categoryName)
+			return console.log(
+				"CATEGORYNAME",
+				categoryName,
+			);
 	}
 };

@@ -35,15 +35,19 @@ async function page() {
 				allProductCategory={allProductCategory}
 			/>
 			<main className='max-container'>
-				<AboutUs />
+				<div className='w-full h-full hidden lg:flex'>
+					<AboutUs />
+				</div>
 				<GridComponents
 					allProduct={allProduct}
-					superDealProduct={superDealProduct[0]}
+					superDealProduct={superDealProduct}
 				/>
 				<PopularCategory allProduct={allProduct} />
 				<SuperDeals />
 			</main>
-			<AboutUs />
+			<div className='w-full h-full lg:hidden flex'>
+				<AboutUs />
+			</div>
 		</>
 	);
 }

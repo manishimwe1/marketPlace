@@ -22,7 +22,6 @@ type Props = {
 	};
 };
 const page = async ({ params: { category } }: Props) => {
-	console.log(category);
 	const allProductCategory: ICategory[] =
 		await getAllProductCategory();
 	const product: ProductType[] =
@@ -62,7 +61,7 @@ const page = async ({ params: { category } }: Props) => {
 					<MenuNavigation title='Sort by' />
 				</div>
 
-				<div className='flex gap-6 w-full'>
+				<div className='flex gap-12 w-full'>
 					<div className=' hidden lg:inline-block lg:w-1/4 border border-t-0 '>
 						<MenuTogler
 							allCategory={allCategory}
@@ -124,7 +123,7 @@ const page = async ({ params: { category } }: Props) => {
 							Related Brands
 						</h3>
 						<BrandinginCard />
-						<BrandinginCard />L
+						<BrandinginCard />
 					</div>
 				</div>
 			</section>
