@@ -4,9 +4,16 @@ import BrandinginCard from "@/components/shared/BrandinginCard";
 import MenuNavigation from "@/components/shared/MenuNavigation";
 import MenuTogler from "@/components/shared/MenuTogler";
 import { getAllCategories } from "@/lib/actions/category.actions";
-import { getProductByCategory } from "@/lib/actions/product.actions";
+import {
+	getAllProductCategory,
+	getProductByCategory,
+} from "@/lib/actions/product.actions";
 import { truncateString } from "@/lib/utils";
-import { CategoryType, ProductType } from "@/typing";
+import {
+	CategoryType,
+	ICategory,
+	ProductType,
+} from "@/typing";
 import Image from "next/image";
 import Link from "next/link";
 type Props = {
@@ -16,13 +23,14 @@ type Props = {
 };
 const page = async ({ params: { category } }: Props) => {
 	console.log(category);
-
+	const allProductCategory: ICategory[] =
+		await getAllProductCategory();
 	const product: ProductType[] =
 		await getProductByCategory(category);
 
 	const allCategory: CategoryType[] =
 		await getAllCategories();
-	console.log(allCategory, "this is all category");
+	// console.log(allCategory, "this is all category");
 
 	if (!product) {
 		return console.log(
@@ -32,7 +40,9 @@ const page = async ({ params: { category } }: Props) => {
 	}
 	return (
 		<>
-			<Menubar />
+			<Menubar
+				allProductCategory={allProductCategory}
+			/>
 			<section className='max-container text-stone-950'>
 				<div className='h-10 py-2 shadow-sm shadow-purple-950/10 w-full bg-slate-400/20 flex justify-between items-center px-3'>
 					<div>

@@ -8,7 +8,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import {
 	ProductType,
-	getAllProductById,
+	getProductById,
 } from "@/lib/actions/product.actions";
 import { cn, truncateString } from "@/lib/utils";
 import { Pencil } from "lucide-react";
@@ -21,9 +21,7 @@ type Props = {
 const page = async ({ params: { id } }: Props) => {
 	// console.log(id);
 
-	const product: ProductType = await getAllProductById(
-		id,
-	);
+	const product: ProductType = await getProductById(id);
 
 	return (
 		<div className='lg:max-container w-full p-20'>

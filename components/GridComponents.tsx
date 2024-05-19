@@ -14,7 +14,7 @@ const GridComponents = ({
 	allProduct: ProductType[];
 	superDealProduct: ProductType;
 }) => {
-	console.log(superDealProduct, "superDeals");
+	// console.log(superDealProduct, "superDeals");
 
 	return (
 		<section className='flex gap-3 w-full h-full flex-col lg:flex-row items-center justify-between'>
@@ -83,7 +83,7 @@ const GridComponents = ({
 								.map((deal) => (
 									<Link
 										key={deal.title}
-										href={`/product/categrized/${deal.category}`}
+										href={`/product/categrized/${deal.category._id}`}
 										className=' cursor-pointer'>
 										<GridCard
 											deal={deal}

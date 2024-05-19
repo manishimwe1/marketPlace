@@ -10,7 +10,7 @@ const PurpleCard = () => {
 					alt='isaha'
 					className='object-contain rounded-lg '
 				/>
-				<h3 className='text-2xl  rounded-t-3xl font-bold text-stone-950 absolute  top-8 -left-32 backdrop-blur-sm /20 px-4 py-2 '>
+				<h3 className='text-2xl  rounded-t-3xl font-bold text-stone-950 absolute top-2 lg:top-8 left-0  lg:-left-32 backdrop-blur-sm /20 px-4 py-2 '>
 					Immersive Audio Excellence
 				</h3>
 				<p className='text-left text-xs absolute backdrop-blur-sm /20  rounded-b-3xl px-4 py-2 bottom-4 font-semibold text-stone-700 -left-32 -z-10 hidden lg:inline-block'>

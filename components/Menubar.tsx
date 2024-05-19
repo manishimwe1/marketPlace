@@ -13,8 +13,16 @@ import { cn } from "@/lib/utils";
 import { Bars4Icon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import MenuNavigation from "./shared/MenuNavigation";
+import { ICategory } from "@/typing";
+import Loader from "./shared/Loader";
 
-const Menubar = () => {
+const Menubar = ({
+	allProductCategory,
+}: {
+	allProductCategory: ICategory[];
+}) => {
+	console.log(allProductCategory);
+
 	// useEffect(() => {
 	// 	// console.log(scoll, "this is scoll", prevScroll);
 	// 	document.addEventListener("scroll", () => {
@@ -53,9 +61,32 @@ const Menubar = () => {
 									</p>
 								</div>
 							</NavigationMenuTrigger>
-							<NavigationMenuContent>
+							<NavigationMenuContent className='py-4'>
 								<NavigationMenuLink>
-									Link
+									{allProductCategory ? (
+										allProductCategory.map(
+											(category) => (
+												<div className='flex flex-col gap-2 px-2 '>
+													<Link
+														key={
+															category._id
+														}
+														href={`/category/${category._id}`}
+														className={cn(
+															"hover:underline hover:underline-offset-2 text-lg font-bold",
+														)}>
+														{
+															category
+																.category
+																.categoryName
+														}
+													</Link>
+												</div>
+											),
+										)
+									) : (
+										<Loader />
+									)}
 								</NavigationMenuLink>
 							</NavigationMenuContent>
 						</NavigationMenuItem>

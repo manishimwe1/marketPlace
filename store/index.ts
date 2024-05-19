@@ -56,7 +56,7 @@ export const useItemstore = create<ItemStoreState>(
 // 		// },
 // 		// ProductById: async (id: string) => {
 // 		// 	const response: ProductType =
-// 		// 		await getAllProductById(id);
+// 		// 		await getProductById(id);
 // 		// 	set({ product: response });
 // 		// },
 // 	}),

@@ -57,6 +57,7 @@ export const createProduct = async (
 			location: product.location,
 			freeDelivery: product.freeDelivery,
 			deliveryFee: product.deliveryFee,
+			SuperDeals: product.SuperDeals,
 			stock: product.stock,
 			category: category._id as string,
 			sellerId: seller._id as string,
@@ -90,6 +91,31 @@ export const getAllProduct = async () => {
 			.sort({
 				_id: "desc",
 			});
+		// console.log("PRODUCT", product);
+
+		if (!product) {
+			console.log("error in getting Product");
+			return;
+		}
+
+		revalidatePath("/");
+		return JSON.parse(JSON.stringify(product));
+	} catch (error) {
+		console.log(error);
+	}
+};
+export const getAllProductCategory = async () => {
+	try {
+		await connectToDB();
+
+		const product = await Product.find()
+			.populate("category")
+			.select("category")
+			.sort({
+				_id: "desc",
+			});
+
+		// console.log("PRODUCT", product);
 
 		if (!product) {
 			console.log("error in getting Product");
@@ -103,7 +129,7 @@ export const getAllProduct = async () => {
 	}
 };
 
-export const getAllProductById = async (Id: string) => {
+export const getProductById = async (Id: string) => {
 	if (!Id) {
 		return console.log("There is no id");
 	}

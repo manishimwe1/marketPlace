@@ -61,3 +61,8 @@ interface ProductType {
 	SuperDeals: number;
 	__v: number;
 }
+
+export type ICategory = {
+	_id: string;
+	category: CategoryType;
+};
