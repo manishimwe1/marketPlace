@@ -30,9 +30,11 @@ const DropZone = ({
 			onFieldChange(
 				convertFileToUrl(acceptedFiles[0]),
 			);
-			setShowProductImage(
-				convertFileToUrl(acceptedFiles[0]),
-			);
+			if (setShowProductImage) {
+				setShowProductImage(
+					convertFileToUrl(acceptedFiles[0]),
+				);
+			}
 		},
 		[setImage, onFieldChange, setShowProductImage],
 	);

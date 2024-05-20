@@ -2,7 +2,7 @@
 
 import { SessionProvider } from "next-auth/react";
 
-export default async function Provider({
+export default function Provider({
 	children,
 }: Readonly<{
 	children: React.ReactNode;

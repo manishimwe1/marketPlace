@@ -42,7 +42,7 @@ const DashBoardSideNav = () => {
 							<ul
 								key={link.label}
 								className={cn(
-									" mt-2 py-1  rounded-lg group w-fit",
+									" mt-2 py-1  rounded-lg group w-full",
 									isActive &&
 										" bg-purple-500",
 								)}>

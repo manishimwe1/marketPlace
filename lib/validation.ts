@@ -18,6 +18,18 @@ export const formSchema = z.object({
 	category: z.string(),
 	SuperDeals: z.string(),
 });
+export const createStoreSchema = z.object({
+	name: z
+		.string()
+		.min(4, "Must contains 4 characters")
+		.max(2200),
+	description: z
+		.string()
+		.min(4, "Must contains 20 characters")
+		.max(2200),
+	image: z.string().max(2200),
+	location: z.string().min(4),
+});
 export const signInSchema = z.object({
 	Email: z.string().email(),
 	password: z

@@ -39,7 +39,7 @@ export const DASHBAORD_LINKS = [
 	{
 		image: "/star.svg",
 		label: "Shop",
-		link: "/dashboard/shop",
+		link: "/dashboard/create-shop",
 	},
 	{
 		image: "/wallat.svg",
