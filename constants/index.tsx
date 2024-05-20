@@ -43,8 +43,13 @@ export const DASHBAORD_LINKS = [
 	},
 	{
 		image: "/wallat.svg",
-		label: "Wallat",
-		link: "/dashboard/wallat",
+		label: "Customers",
+		link: "/dashboard/customers",
+	},
+	{
+		image: "/dollar.svg",
+		label: "Coupons",
+		link: "/dashboard/coupons",
 	},
 	{
 		image: "/sheild-check.svg",
@@ -100,20 +105,24 @@ export const DashbaordData = [
 		title: "Total Product",
 		total: 200,
 		imageUrl: "/truck.svg",
+		desc: "Read to deliver",
 	},
 	{
 		title: "Total Shop",
 		total: 20,
 		imageUrl: "/wallat.svg",
+		desc: "Open",
 	},
 	{
-		title: "Click on Product",
-		total: 10,
+		title: "Toatal Revenue",
+		total: 1000000000,
 		imageUrl: "/phone.svg",
+		desc: "Earned ",
 	},
 	{
 		title: "Total Orders",
 		total: 200,
 		imageUrl: "/heart.svg",
+		desc: "We make",
 	},
 ];
