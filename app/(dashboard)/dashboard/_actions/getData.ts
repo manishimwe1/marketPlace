@@ -42,3 +42,17 @@ export const getStore = async () => {
 		return JSON.parse(JSON.stringify(store));
 	} catch (error) {}
 };
+
+export const getStoreById = async (id: string) => {
+	try {
+		await connectToDB();
+
+		const store: StoreType[] = await Store.find({
+			_id: id,
+		}).sort({
+			createAt: "asc",
+		});
+
+		return JSON.parse(JSON.stringify(store));
+	} catch (error) {}
+};
