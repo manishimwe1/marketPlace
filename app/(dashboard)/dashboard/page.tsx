@@ -1,7 +1,3 @@
-import SearchBox from "@/components/shared/SearchBox";
-import { DashbaordData } from "@/constants";
-import { MessageSquareIcon } from "lucide-react";
-import Image from "next/image";
 import DashboardCard from "./_components/DashboardCard";
 import RightSideCard from "./_components/RightSideCard";
 import { getStore } from "./_actions/getData";

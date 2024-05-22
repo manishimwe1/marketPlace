@@ -1,6 +1,5 @@
 "use client";
 
-import DropZone from "@/components/DropZone";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -12,8 +11,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ProductType } from "@/lib/database/models/product.model";
-import { useUploadThing } from "@/lib/uploadthing/uploadThing";
 import { createStoreSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";

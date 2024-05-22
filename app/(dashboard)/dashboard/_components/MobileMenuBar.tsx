@@ -1,18 +1,11 @@
 "use client";
 
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { DASHBAORD_LINKS } from "@/constants";
 import { cn } from "@/lib/utils";
 import { PlusIcon } from "@heroicons/react/24/outline";
-import { MoreVerticalIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
 import MoreButton from "./MoreButton";
 
 const MobileMenuBar = () => {

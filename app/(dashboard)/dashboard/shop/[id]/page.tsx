@@ -6,9 +6,11 @@ type Props = {
 const storePage = async ({ params: { id } }: Props) => {
 	const store = await getStoreById(id);
 
-	console.log("STORE", store);
-
-	return <div>storePage</div>;
+	return (
+		<div className='h-full py-20 items-center justify-center'>
+			storePage
+		</div>
+	);
 };
 
 export default storePage;

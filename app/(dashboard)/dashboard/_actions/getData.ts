@@ -3,13 +3,7 @@
 import { getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@/lib/auth";
 import { connectToDB } from "@/lib/database/db.config";
-import {
-	IStore,
-	Store,
-} from "@/lib/database/models/store.model";
-import { createStoreSchema } from "@/lib/validation";
-import { revalidatePath } from "next/cache";
-import { z } from "zod";
+import { Store } from "@/lib/database/models/store.model";
 
 type StoreType = {
 	_id: string;
