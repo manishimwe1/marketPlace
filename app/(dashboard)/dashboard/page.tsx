@@ -3,10 +3,17 @@ import RightSideCard from "./_components/RightSideCard";
 import { getStore } from "./_actions/getData";
 import { IStore } from "@/lib/database/models/store.model";
 import Link from "next/link";
+import notFoundPage from "@/components/shared/not-found";
 
 const DashboardPage = async () => {
 	const StoreData: IStore[] = await getStore();
 
+	if (!StoreData)
+		return (
+			<div>
+				<p>no data to show</p>
+			</div>
+		);
 	return (
 		<section className='flex-1 w-full h-full py-6 flex space-x-3'>
 			<div className='flex-1 w-full '>

@@ -62,7 +62,9 @@ export const createProduct = async (
 			JSON.stringify(newProduct),
 		);
 
-		revalidatePath(`/dashboard/shop/${product._id}`);
+		revalidatePath(
+			`/dashboard/shop/${product.sellerId}`,
+		);
 		return results;
 	} catch (error) {
 		console.log(error);

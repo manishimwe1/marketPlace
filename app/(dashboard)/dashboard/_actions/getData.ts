@@ -5,8 +5,6 @@ import { auth } from "@/lib/auth";
 import { connectToDB } from "@/lib/database/db.config";
 import { Product } from "@/lib/database/models/product.model";
 import { Store } from "@/lib/database/models/store.model";
-import { ICategory, ProductType } from "@/typing";
-import { revalidatePath } from "next/cache";
 
 export type StoreType = {
 	_id: string;
@@ -54,38 +52,23 @@ export const getStoreById = async (id: string) => {
 	} catch (error) {}
 };
 
-export const createProduct = async (
-	product: ProductType,
+export const getAllProductInStore = async (
+	storeId: string,
 ) => {
-	const user = await auth();
 	try {
+		if (!storeId) return;
 		await connectToDB();
+		const product = await Product.find({
+			storeId,
+		}).sort({
+			createdAt: "desc",
+		});
 
-		const seller = await getUserById(
-			user?.user.email || "",
-		);
-		if (!seller) {
-			throw new Error(
-				"Unthorized please log in!!!!!",
-			);
-		}
+		if (!product)
+			return console.log(":::No poduct found ");
 
-		const newProduct = await Product.create(product);
-		if (!newProduct) {
-			console.log(
-				"there is error in creating product",
-			);
-			return;
-		}
-		const results = JSON.parse(
-			JSON.stringify(newProduct),
-		);
-
-		revalidatePath(
-			`/dashboard/shop/${product.storeId}`,
-		);
-		return results;
-	} catch (error) {
+		return JSON.parse(JSON.stringify(product));
+	} catch (error: any) {
 		console.log(error);
 	}
 };

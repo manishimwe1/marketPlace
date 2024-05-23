@@ -14,6 +14,7 @@ import MobileMenuBar from "./dashboard/_components/MobileMenuBar";
 import Image from "next/image";
 import Link from "next/link";
 import Provider from "@/components/SessionProvide";
+import NextTopLoader from "nextjs-toploader";
 
 export default async function RootLayout({
 	children,
@@ -24,6 +25,17 @@ export default async function RootLayout({
 		<html lang='en'>
 			<Provider>
 				<body className='overflow-y-hidden'>
+					<NextTopLoader
+						color='purple'
+						initialPosition={0.08}
+						crawlSpeed={200}
+						height={3}
+						crawl={true}
+						showSpinner={true}
+						easing='ease'
+						speed={200}
+						shadow='0 0 10px #2299DD,0 0 5px #2299DD'
+					/>
 					<main className='flex w-full h-screen'>
 						<DashBoardSideNav />
 						<div className='p-4 flex flex-col  bg-[#FAf4f4] w-full h-screen overflow-y-auto flex-1 shadow-sm shadow-[#1c1636]'>

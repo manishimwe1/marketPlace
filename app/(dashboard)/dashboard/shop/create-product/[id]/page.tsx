@@ -3,7 +3,6 @@
 import DropZone from "@/components/DropZone";
 import SelectField from "@/components/shared/SelectField";
 import ShimmerButton from "@/components/ui/ShimmerBtn";
-import { Button } from "@/components/ui/button";
 import {
 	Form,
 	FormControl,
@@ -21,7 +20,7 @@ import { formSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { createProduct } from "../../../_actions/createStoreProduct";
@@ -96,7 +95,9 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 				// return Item;
 				setProduct(Item);
 
-				return router.push(`/saler/${Item._id}`);
+				return router.push(
+					`/dashboard/shop/${Item._id}`,
+				);
 			});
 			setSwitcherState(!switcherState);
 			setIsSubmiting(false);

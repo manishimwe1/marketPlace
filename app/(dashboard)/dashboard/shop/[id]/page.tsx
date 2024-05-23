@@ -1,27 +1,47 @@
 import { PinContainer } from "@/components/ui/3d-pin";
-import {
-	StoreType,
-	getStoreById,
-} from "../../_actions/getData";
+import ShimmerButton from "@/components/ui/ShimmerBtn";
+import { ProductType } from "@/typing";
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import ShimmerButton from "@/components/ui/ShimmerBtn";
+import { getAllProductInStore } from "../../_actions/getData";
 
 type Props = {
 	params: { id: string };
 };
 const storePage = async ({ params: { id } }: Props) => {
-	const store: StoreType[] = await getStoreById(id);
-	console.log(store);
+	const product: ProductType[] =
+		await getAllProductInStore(id);
+	// const store: StoreType[] = await getStoreById(id);
+
+	console.log(product, "PRODUCT");
 
 	return (
-		<section className='h-full py-20 items-center justify-center'>
-			{store ? (
+		<section className='h-full py-4 items-start justify-center'>
+			{product ? (
 				<div className='flex justify-between items-center w-full'>
-					<div></div>
+					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+						{product.map((product) => (
+							<div
+								key={product._id}
+								className=' '>
+								<PinContainer
+									title={product.title}>
+									<div className='h-[200px] w-[300px]'>
+										<Image
+											src={
+												product.image
+											}
+											alt={
+												product.title
+											}
+											fill
+											className='object-contain'
+										/>
+									</div>
+								</PinContainer>
+							</div>
+						))}
+					</div>
 					<div className='justify-end hidden lg:inline-block'>
 						<Link
 							href={`/dashboard/shop/create-product/${id}`}>
@@ -43,18 +63,11 @@ const storePage = async ({ params: { id } }: Props) => {
 						product
 					</p>
 					<Link
-						href={
-							"/saler/product/create-product"
-						}>
-						<ShimmerButton title='Create product' />
-
-						{/* <ArrowRight className='h-5 w-10 text-white' /> */}
+						href={`/dashboard/shop/create-product/${id}`}>
+						<ShimmerButton title='Create Store' />
 					</Link>
 				</div>
 			)}
-			{/* <PinContainer>
-				
-			</PinContainer> */}
 		</section>
 	);
 };
