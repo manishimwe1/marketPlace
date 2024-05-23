@@ -2,6 +2,7 @@
 
 import DropZone from "@/components/DropZone";
 import SelectField from "@/components/shared/SelectField";
+import ShimmerButton from "@/components/ui/ShimmerBtn";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -14,7 +15,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
-import { createProduct } from "@/lib/actions/product.actions";
 import { ProductType } from "@/lib/database/models/product.model";
 import { useUploadThing } from "@/lib/uploadthing/uploadThing";
 import { formSchema } from "@/lib/validation";
@@ -24,8 +24,12 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { createProduct } from "../../../_actions/createStoreProduct";
+type Props = {
+	params: { id: string };
+};
 
-const CreteProductPage = () => {
+const CreateProductPage = ({ params: { id } }: Props) => {
 	const [CategoryId, setCategoryId] = useState("");
 	const [user, setUser] = useState({});
 	const [image, setImage] = useState<File[]>([]);
@@ -42,19 +46,20 @@ const CreteProductPage = () => {
 	// const savedProduct = useProductStore(
 	// 	(state) => state.product,
 	// );
+
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			title: "",
 			description: "",
-			price: "",
+			price: 0,
 			image: "",
 			category: "",
-			stock: "",
+			stock: 0,
 			location: "",
 			freeDelivery: false,
-			deliveryFee: "",
-			SuperDeals: "",
+			deliveryFee: 0,
+			SuperDeals: 0,
 		},
 	});
 
@@ -82,7 +87,7 @@ const CreteProductPage = () => {
 			}
 			const data = {
 				...values,
-
+				_id: id,
 				image: uploadedImageUrl,
 			};
 
@@ -103,7 +108,7 @@ const CreteProductPage = () => {
 		}
 	}
 	return (
-		<div className='max-container '>
+		<div className='w-full h-full px-3 py-8 overflow-y-auto'>
 			<div className='flex gap-3 lg:flex-row flex-col w-full min-h-screen text-stone-600'>
 				<div className='lg:w-1/2 w-full  px-4 '>
 					<h2 className='text-3xl font-bold text-slate-900 mb-6'>
@@ -125,7 +130,7 @@ const CreteProductPage = () => {
 										</FormLabel>
 										<FormControl>
 											<Input
-												placeholder='shadcn'
+												placeholder='eg: Ai max pro'
 												{...field}
 											/>
 										</FormControl>
@@ -145,7 +150,7 @@ const CreteProductPage = () => {
 										<FormControl>
 											<Textarea
 												rows={5}
-												placeholder='Description'
+												placeholder='eg: Description'
 												{...field}
 											/>
 										</FormControl>
@@ -165,7 +170,7 @@ const CreteProductPage = () => {
 											</FormLabel>
 											<FormControl>
 												<Input
-													placeholder='price'
+													placeholder='eg: 1000'
 													{...field}
 												/>
 											</FormControl>
@@ -184,7 +189,7 @@ const CreteProductPage = () => {
 											</FormLabel>
 											<FormControl>
 												<Input
-													placeholder='shadcn'
+													placeholder='eg: 100'
 													{...field}
 												/>
 											</FormControl>
@@ -203,7 +208,7 @@ const CreteProductPage = () => {
 											</FormLabel>
 											<FormControl>
 												<Input
-													placeholder='Location'
+													placeholder='eg: 20'
 													{...field}
 												/>
 											</FormControl>
@@ -341,26 +346,16 @@ const CreteProductPage = () => {
 								)}
 							/>
 
-							<Button
-								type='submit'
+							<ShimmerButton
+								title={
+									isSubmiting
+										? "Creating..."
+										: "Create"
+								}
+								image='/loader-white.svg'
 								className='w-full'
-								disabled={isSubmiting}>
-								{isSubmiting ? (
-									<div className='flex items-center gap-4'>
-										<Image
-											src='/loader-white.svg'
-											alt='loader'
-											width={20}
-											height={20}
-										/>
-										<p>
-											Creating product
-										</p>
-									</div>
-								) : (
-									<p>Create</p>
-								)}
-							</Button>
+								showImage={isSubmiting}
+							/>
 						</form>
 					</Form>
 				</div>
@@ -394,4 +389,4 @@ const CreteProductPage = () => {
 	);
 };
 
-export default CreteProductPage;
+export default CreateProductPage;

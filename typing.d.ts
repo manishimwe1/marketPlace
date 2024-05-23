@@ -38,28 +38,29 @@ export interface CategoryType {
 	_id: string;
 	categoryName: string;
 	userId: string;
-	createdAt: string;
-	updateAt: string;
+	createdAt: Date;
+	updateAt: Date;
 	__v: number;
 }
 
 interface ProductType {
-	updatedAt: string;
-	_id: string;
 	title: string;
 	description: string;
-	price: string;
+	price: number;
 	image: string;
-	category: CategoryType;
-	createdAt: string;
-	updateAt: string;
+	category: string;
+	updatedAt?: string;
+	_id: string;
+	createdAt?: string;
+	updateAt?: string;
 	location: string;
 	freeDelivery: boolean;
+	provedByAdmin?: boolean;
 	deliveryFee: null | number;
 	stock: number;
-	sellerId: string;
+	sellerId?: string;
+	storeId?: string;
 	SuperDeals: number;
-	__v: number;
 }
 
 export type ICategory = {

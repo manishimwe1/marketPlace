@@ -1,5 +1,6 @@
 "use server";
 
+import { CategoryType } from "@/typing";
 import { auth } from "../auth";
 import { connectToDB } from "../database/db.config";
 import { Category } from "../database/models/category.model";
@@ -52,7 +53,7 @@ export const getAllCategories = async () => {
 		if (!categories) {
 			throw new Error("there is no categories");
 		}
-		const results = JSON.parse(
+		const results: CategoryType[] = JSON.parse(
 			JSON.stringify(categories),
 		);
 

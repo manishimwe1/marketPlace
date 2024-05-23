@@ -20,7 +20,15 @@ const storePage = async ({ params: { id } }: Props) => {
 	return (
 		<section className='h-full py-20 items-center justify-center'>
 			{store ? (
-				<div></div>
+				<div className='flex justify-between items-center w-full'>
+					<div></div>
+					<div className='justify-end hidden lg:inline-block'>
+						<Link
+							href={`/dashboard/shop/create-product/${id}`}>
+							<ShimmerButton title='Create Store' />
+						</Link>
+					</div>
+				</div>
 			) : (
 				<div className='flex items-center justify-center flex-col'>
 					<Image
@@ -38,7 +46,7 @@ const storePage = async ({ params: { id } }: Props) => {
 						href={
 							"/saler/product/create-product"
 						}>
-						<ShimmerButton title="Create product"/>
+						<ShimmerButton title='Create product' />
 
 						{/* <ArrowRight className='h-5 w-10 text-white' /> */}
 					</Link>

@@ -23,7 +23,7 @@ export default async function RootLayout({
 	return (
 		<html lang='en'>
 			<Provider>
-				<body>
+				<body className='overflow-y-hidden'>
 					<main className='flex w-full h-screen'>
 						<DashBoardSideNav />
 						<div className='p-4 flex flex-col  bg-[#FAf4f4] w-full h-screen overflow-y-auto flex-1 shadow-sm shadow-[#1c1636]'>

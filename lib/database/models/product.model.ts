@@ -15,6 +15,7 @@ export interface ProductType extends Document {
 	provedByAdmin: boolean;
 	deliveryFee: number;
 	stock: number;
+	storeId: string;
 	sellerId: {
 		_id: string;
 		email: string;
@@ -47,8 +48,7 @@ const ProductSchema = new Schema({
 		type: String,
 	},
 	category: {
-		type: Schema.Types.ObjectId,
-		ref: "categories",
+		type: String,
 	},
 	createdAt: { type: Date, default: new Date() },
 	updatedAt: { type: Date, default: new Date() },
@@ -61,6 +61,10 @@ const ProductSchema = new Schema({
 	},
 	deliveryFee: { type: Number },
 	stock: { type: Number },
+	storeId: {
+		type: Schema.Types.ObjectId,
+		ref: "stories",
+	},
 	sellerId: { type: Schema.Types.ObjectId, ref: "users" },
 	SuperDeals: { type: Number },
 });

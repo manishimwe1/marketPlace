@@ -62,11 +62,11 @@ const CreateStorePage = () => {
 		}
 	}
 	return (
-		<div className='max-w-7xl mx-auto mt-6 border'>
+		<div className='w-[50%] mx-auto mt-6'>
 			<div className='flex gap-3 lg:flex-row flex-col w-full min-h-screen text-stone-600'>
 				<div className='w-full  px-4 '>
 					<h2 className='text-3xl font-bold text-slate-900 mb-6'>
-						Create Product
+						Create Store
 					</h2>
 					<Form {...form}>
 						<form
@@ -84,7 +84,7 @@ const CreateStorePage = () => {
 										</FormLabel>
 										<FormControl>
 											<Input
-												placeholder='shadcn'
+												placeholder='Store Name'
 												{...field}
 											/>
 										</FormControl>
@@ -124,7 +124,7 @@ const CreateStorePage = () => {
 										</FormLabel>
 										<FormControl>
 											<Input
-												placeholder='shadcn'
+												placeholder='eg:Rwanda Kigali'
 												{...field}
 											/>
 										</FormControl>

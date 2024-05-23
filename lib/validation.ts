@@ -9,14 +9,14 @@ export const formSchema = z.object({
 		.string()
 		.min(4, "Must contains 4 characters")
 		.max(2200),
-	price: z.string().min(1),
+	price: z.coerce.number(),
 	image: z.string().max(2200),
 	location: z.string().min(4),
 	freeDelivery: z.boolean(),
-	deliveryFee: z.string(),
-	stock: z.string(),
+	deliveryFee: z.coerce.number(),
+	stock: z.coerce.number(),
 	category: z.string(),
-	SuperDeals: z.string(),
+	SuperDeals: z.coerce.number(),
 });
 export const createStoreSchema = z.object({
 	name: z

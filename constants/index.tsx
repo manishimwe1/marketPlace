@@ -27,17 +27,17 @@ export const NAVLINKS = [
 
 export const DASHBAORD_LINKS = [
 	{
-		image: "/heart.svg",
+		image: "/dashboard.svg",
 		label: "Dashbaord",
 		link: "/dashboard",
 	},
 	{
-		image: "/heart.svg",
+		image: "/user.svg",
 		label: "Profile",
 		link: "/dashboard/profile",
 	},
 	{
-		image: "/star.svg",
+		image: "/shop.svg",
 		label: "Shop",
 		link: "/dashboard/create-store",
 	},
