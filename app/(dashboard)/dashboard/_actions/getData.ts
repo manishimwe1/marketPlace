@@ -5,7 +5,7 @@ import { auth } from "@/lib/auth";
 import { connectToDB } from "@/lib/database/db.config";
 import { Store } from "@/lib/database/models/store.model";
 
-type StoreType = {
+export type StoreType = {
 	_id: string;
 	name: string;
 	description: string;
