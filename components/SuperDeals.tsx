@@ -6,14 +6,12 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-	ProductType,
-	getAllProduct,
-} from "@/lib/actions/product.actions";
+import { getAllProduct } from "@/lib/actions/product.actions";
 import { truncateString } from "@/lib/utils";
 import Image from "next/image";
 import HeartComponent from "./HeartComponent";
 import Loader from "./shared/Loader";
+import { ProductType } from "@/typing";
 
 const SuperDeals = async ({}: // allProduct,
 {

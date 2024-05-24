@@ -26,7 +26,7 @@ const NewCollectionCard = ({
 								key={product.title}
 								className='flex gap-4 items-center justify-center lg:py-10 py-4 rounded-2xl shadow-md shadow-purple-500/20 p-3'>
 								<Link
-									href={`/product/categrized/${product.category._id}`}>
+									href={`/product/categrized/${product.category}`}>
 									<div className='flex flex-col gap-3 w-full'>
 										<div className=' h-20 w-full border rounded-lg relative'>
 											<Image
