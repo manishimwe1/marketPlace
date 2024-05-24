@@ -7,6 +7,7 @@ import { Product } from "@/lib/database/models/product.model";
 import { ProductType } from "@/typing";
 import { revalidatePath } from "next/cache";
 import { StoreType, getStoreById } from "./getData";
+import { redirect } from "next/navigation";
 
 export const createProduct = async (
 	product: ProductType,
@@ -62,9 +63,7 @@ export const createProduct = async (
 			JSON.stringify(newProduct),
 		);
 
-		revalidatePath(
-			`/dashboard/shop/${product.sellerId}`,
-		);
+		redirect(`/dashboard/shop/${product._id}`);
 		return results;
 	} catch (error) {
 		console.log(error);

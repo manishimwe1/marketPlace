@@ -56,8 +56,8 @@ export const getAllProductInStore = async (
 	storeId: string,
 ) => {
 	try {
-		if (!storeId) return;
 		await connectToDB();
+		if (!storeId) return;
 		const product = await Product.find({
 			storeId,
 		}).sort({

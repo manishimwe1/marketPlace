@@ -9,6 +9,8 @@ import { Store } from "lucide-react";
 const DashboardShopPage = async () => {
 	const StoreData: IStore[] = await getStore();
 
+	console.log(StoreData, "DATA");
+
 	return (
 		<div className='flex-1 w-full h-full border flex items-start justify-center relative'>
 			<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full gap-6 lg:gap-4 lg:px-0 mt-12 px-8'>

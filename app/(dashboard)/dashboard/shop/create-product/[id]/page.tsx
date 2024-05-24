@@ -95,9 +95,9 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 				// return Item;
 				setProduct(Item);
 
-				return router.push(
-					`/dashboard/shop/${Item._id}`,
-				);
+				// return router.push(
+				// 	`/dashboard/shop/${Item._id}`,
+				// );
 			});
 			setSwitcherState(!switcherState);
 			setIsSubmiting(false);

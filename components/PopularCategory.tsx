@@ -1,19 +1,9 @@
-import Image from "next/image";
-import React from "react";
-import Loader from "./shared/Loader";
-import { getCategoryByID } from "@/lib/actions/category.actions";
-import Link from "next/link";
-import { removeDuplicates } from "@/lib/utils";
-import {
-	CategoryType,
-	ICategory,
-	ProductType,
-} from "@/typing";
+import { ProductType } from "@/typing";
 
 const PopularCategory = ({
 	allProduct,
 }: {
-	allProduct: ICategory[];
+	allProduct: ProductType[];
 }) => {
 	// console.log(allProduct, "this is product");
 
