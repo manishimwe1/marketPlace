@@ -87,7 +87,7 @@ const GridComponents = ({
 								.map((deal) => (
 									<Link
 										key={deal.title}
-										href={`/product/categrized/${deal.category._id}`}
+										href={`/product/categrized/${deal.category}`}
 										className=' cursor-pointer'>
 										<GridCard
 											deal={deal}
