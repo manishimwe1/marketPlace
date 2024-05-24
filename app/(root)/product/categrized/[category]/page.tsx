@@ -31,7 +31,7 @@ const page = async ({ params: { category } }: Props) => {
 		await getAllCategories();
 	// console.log(allCategory, "this is all category");
 
-	if (!product) {
+	if (!product || allCategory) {
 		return console.log(
 			"no pruct found ",
 			typeof category,
@@ -50,10 +50,7 @@ const page = async ({ params: { category } }: Props) => {
 							Results for{" "}
 							<span className='text-primary font-bold underline underline-offset-2'>
 								&#34;
-								{
-									product[0].category
-										.categoryName
-								}
+								{product[0].category}
 								&#34;
 							</span>
 						</p>

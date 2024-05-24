@@ -53,11 +53,8 @@ export const getAllCategories = async () => {
 		if (!categories) {
 			throw new Error("there is no categories");
 		}
-		const results: CategoryType[] = JSON.parse(
-			JSON.stringify(categories),
-		);
 
-		return results;
+		return JSON.parse(JSON.stringify(categories));
 	} catch (error) {
 		console.log(error);
 	}
