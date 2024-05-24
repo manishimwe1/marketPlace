@@ -68,7 +68,11 @@ const Menubar = ({
 											allProductCategory,
 										).map(
 											(category) => (
-												<div className='flex flex-col gap-2 px-2 '>
+												<div
+													key={
+														category._id
+													}
+													className='flex flex-col gap-2 px-2 '>
 													<Link
 														key={
 															category._id

@@ -59,7 +59,7 @@ const storePage = async ({ params: { id } }: Props) => {
 						className='object-contain'
 					/>
 					<p className='text-lg font-semibold tracking-wide'>
-						It look like you haven't create any
+						It look like you haven t create any
 						product
 					</p>
 					<Link
