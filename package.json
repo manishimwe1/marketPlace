@@ -50,6 +50,7 @@
 		"react-hook-form": "^7.51.2",
 		"react-hot-toast": "^2.4.1",
 		"react-responsive-carousel": "^3.2.23",
+		"recharts": "^2.12.7",
 		"remove.bg": "^1.3.0",
 		"tailwind-merge": "^2.3.0",
 		"tailwindcss-animate": "^1.0.7",

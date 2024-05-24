@@ -2,7 +2,7 @@ import { IStore } from "@/lib/database/models/store.model";
 import Image from "next/image";
 import React from "react";
 
-const DashbaordCard = ({ data }: { data: IStore[] }) => {
+const DashbaordCard = ({ data }: { data: any[] }) => {
 	return (
 		<div className='bg-[#F0F0F5] flex-grow p-2 rounded-sm shadow-sm shadow-purple-400 flex items-center justify-between  relative cursor-pointer'>
 			<div className='flex justify-start items-start flex-col gap-1 w-full'>
