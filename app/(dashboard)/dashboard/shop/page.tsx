@@ -12,7 +12,20 @@ const DashboardShopPage = async () => {
 	console.log(StoreData, "DATA");
 
 	return (
-		<div className='flex-1 w-full h-full border flex items-start justify-center relative'>
+		<div className='flex-1 w-full h-full lg:px-2 flex flex-col items-start'>
+			<div className=' w-full  flex justify-between items-center'>
+				<h2 className='title !text-purple-300'>
+					My Store
+				</h2>
+				<div className='justify-end lg:mr-20 hidden lg:inline-block'>
+					<Link
+						href={"/dashboard/create-store"}
+						className={cn(buttonVariants())}>
+						Create Store
+					</Link>
+				</div>
+			</div>
+
 			<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full gap-6 lg:gap-4 lg:px-0 mt-12 px-8'>
 				{StoreData.map((data) => (
 					<Link
@@ -52,13 +65,6 @@ const DashboardShopPage = async () => {
 						</div>
 					</Link>
 				))}
-			</div>
-			<div className='justify-end hidden lg:inline-block'>
-				<Link
-					href={"/dashboard/create-store"}
-					className={cn(buttonVariants())}>
-					Create Store
-				</Link>
 			</div>
 		</div>
 	);

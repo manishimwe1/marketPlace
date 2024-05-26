@@ -31,7 +31,7 @@ export const getStore = async () => {
 		const store: StoreType[] = await Store.find({
 			userId: user._id,
 		}).sort({
-			createAt: "asc",
+			createAt: -1,
 		});
 
 		return JSON.parse(JSON.stringify(store));
