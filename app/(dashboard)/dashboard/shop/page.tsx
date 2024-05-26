@@ -9,7 +9,7 @@ import { Store } from "lucide-react";
 const DashboardShopPage = async () => {
 	const StoreData: IStore[] = await getStore();
 
-	console.log(StoreData, "DATA");
+	// console.log(StoreData, "DATA");
 
 	return (
 		<div className='flex-1 w-full h-full lg:px-2 flex flex-col items-start'>

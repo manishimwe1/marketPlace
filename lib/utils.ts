@@ -1,8 +1,7 @@
-import { type ClassValue, clsx } from "clsx";
+import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-import { generateReactHelpers } from "@uploadthing/react/hooks";
-import { ICategory, ProductType } from "@/typing";
+import { ICategory } from "@/typing";
 
 // import type { OurFileRouter } from "@/app/api/uploadthing/core";
 
@@ -61,3 +60,11 @@ const shimmer = (w: number, h: number) => `
   <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
   <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
 </svg>`;
+
+export function getFirstWord(str: string) {
+	// Split the string into an array of words
+	const words = str.split(" ");
+
+	// Return the first word, or an empty string if the input is empty
+	return words.length > 0 ? words[0] : "";
+}

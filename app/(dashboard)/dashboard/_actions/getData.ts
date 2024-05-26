@@ -34,6 +34,8 @@ export const getStore = async () => {
 			createAt: -1,
 		});
 
+		// console.log("STORE", store);
+
 		return JSON.parse(JSON.stringify(store));
 	} catch (error) {}
 };
@@ -47,6 +49,8 @@ export const getStoreById = async (id: string) => {
 		}).sort({
 			createAt: "asc",
 		});
+
+		if (!store) return;
 
 		return JSON.parse(JSON.stringify(store));
 	} catch (error) {}

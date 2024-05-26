@@ -1,15 +1,30 @@
 import { IStore } from "@/lib/database/models/store.model";
 import Link from "next/link";
-import { getStore } from "./_actions/getData";
+import {
+	getAllProductInStore,
+	getStore,
+} from "./_actions/getData";
 import DashboardCard from "./_components/DashboardCard";
 import RightSideCard from "./_components/RightSideCard";
 import { ChartBar } from "./_components/shared/chartComponent";
+import { getFirstWord } from "@/lib/utils";
+import { Item } from "@radix-ui/react-dropdown-menu";
+
 const DashboardPage = async () => {
 	const StoreData: IStore[] = await getStore();
 	const store: any[] = [];
 	StoreData.map((data, i) =>
-		store.push({ name: data.name, index: i }),
+		store.push({
+			name: getFirstWord(data.name),
+			idx: data._id,
+		}),
 	);
+	const item = {
+		title: "Total Revenue",
+		amount: "1000",
+		imageUrl: "/dollar.svg",
+		desc: "Earned ",
+	};
 
 	if (!StoreData)
 		return (
@@ -25,12 +40,27 @@ const DashboardPage = async () => {
 				</h1>
 				<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full gap-6 lg:gap-3 lg:px-0 mt-4'>
 					<Link href={"/dashboard/shop"}>
-						<DashboardCard data={store} />
+						<DashboardCard
+							amount={store.length}
+							title='Total shop'
+						/>
+					</Link>
+					<Link href={"/dashboard/shop"}>
+						<DashboardCard
+							amount={1000}
+							title={item.title}
+						/>
+					</Link>
+					<Link href={"/dashboard/shop"}>
+						<DashboardCard
+							amount={100}
+							title='Total Order'
+						/>
 					</Link>
 				</div>
 
 				<div className=' h-full w-full mt-10'>
-					<ChartBar data={StoreData} />
+					<ChartBar data={store} />
 				</div>
 			</div>
 			{/* <div className='lg:flex hidden w-[30%] h-fit bg-[#17171F] py-2 rounded-sm'>

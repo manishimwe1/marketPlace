@@ -1,5 +1,6 @@
 "use client";
 import { IStore } from "@/lib/database/models/store.model";
+import { useEffect, useState } from "react";
 import {
 	BarChart,
 	Bar,
@@ -11,8 +12,33 @@ import {
 	ResponsiveContainer,
 	Rectangle,
 } from "recharts";
+import { getAllProductInStore } from "../../_actions/getData";
 
 const data = [
+	{
+		name: "Page A",
+		uv: 4000,
+		pv: 2400,
+		amt: 2400,
+	},
+	{
+		name: "Page A",
+		uv: 4000,
+		pv: 2400,
+		amt: 2400,
+	},
+	{
+		name: "Page A",
+		uv: 4000,
+		pv: 2400,
+		amt: 2400,
+	},
+	{
+		name: "Page A",
+		uv: 4000,
+		pv: 2400,
+		amt: 2400,
+	},
 	{
 		name: "Page A",
 		uv: 4000,
@@ -27,20 +53,27 @@ const data = [
 	},
 ];
 
-export const ChartBar = ({
-	data: store,
-}: {
-	data: IStore[];
-}) => {
-	console.log(data);
+export const ChartBar = ({ data }: { data: any[] }) => {
+	const [item, setItem] = useState("");
 
+	useEffect(() => {
+		data.forEach((it) => {
+			setItem(it.idx);
+		});
+		const getData = async () => {
+			await getAllProductInStore(item);
+		};
+		console.log(getData(), "ITS DATA");
+	}, [data]);
+
+	console.log(item, "...>>>ITEMs");
 	return (
 		<ResponsiveContainer
 			width='50%'
 			height='60%'
-			className='border bg-black/40'>
+			className='bg-black/40'>
 			<BarChart
-				width={500}
+				width={100}
 				height={300}
 				data={data}
 				margin={{
@@ -48,29 +81,18 @@ export const ChartBar = ({
 					right: 30,
 					left: 20,
 					bottom: 5,
-				}}>
-				<CartesianGrid strokeDasharray='3 3' />
+				}}
+				className=''>
 				<XAxis dataKey='name' />
-				<YAxis />
-				<Tooltip />
-				<Legend />
+				<YAxis dataKey={"i"} />
+
 				<Bar
-					dataKey='pv'
-					fill='#8884d8'
+					dataKey='amt'
+					fill='#ffff'
 					activeBar={
 						<Rectangle
 							fill='pink'
 							stroke='blue'
-						/>
-					}
-				/>
-				<Bar
-					dataKey='uv'
-					fill='#82ca9d'
-					activeBar={
-						<Rectangle
-							fill='gold'
-							stroke='purple'
 						/>
 					}
 				/>

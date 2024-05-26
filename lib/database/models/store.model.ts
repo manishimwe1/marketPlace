@@ -26,7 +26,6 @@ const StoreSchema = new Schema({
 		require: true,
 		unique: true,
 	},
-
 	userId: { type: Schema.Types.ObjectId, ref: "users" },
 	createdAt: { type: Date, default: Date.now() },
 	updateAt: { type: Date, default: Date.now() },
