@@ -4,7 +4,7 @@
 
 @layer components {
 	.title {
-		@apply lg:text-2xl text-4xl  font-bold tracking-widest text-stone-700;
+		@apply lg:text-2xl  font-bold tracking-widest text-stone-700;
 	}
 	.ScaleAnimation {
 		@apply hover:scale-110 transition-all ease-out hover:delay-500 duration-1000 cursor-pointer;

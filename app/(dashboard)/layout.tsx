@@ -15,6 +15,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Provider from "@/components/SessionProvide";
 import NextTopLoader from "nextjs-toploader";
+import DashboardNav from "./dashboard/_components/shared/DashboardNav";
 
 export default async function RootLayout({
 	children,
@@ -24,7 +25,7 @@ export default async function RootLayout({
 	return (
 		<html lang='en'>
 			<Provider>
-				<body className='overflow-y-hidden'>
+				<body className='overflow-y-hidden bg-[#8A006B]'>
 					<NextTopLoader
 						color='purple'
 						initialPosition={0.08}
@@ -36,35 +37,18 @@ export default async function RootLayout({
 						speed={200}
 						shadow='0 0 10px #2299DD,0 0 5px #2299DD'
 					/>
-					<main className='flex w-full h-screen'>
+					<main className='flex w-full h-screen bg-gradient-to-tr from-[#63175c] to-[#b43a80] saturate-100 overflow-hidden'>
 						<DashBoardSideNav />
-						<div className='p-4 flex flex-col  bg-[#FAf4f4] w-full h-screen overflow-y-auto flex-1 shadow-sm shadow-[#1c1636]'>
-							<nav className='w-full  flex justify-between items-center h-fit '>
-								<Link
-									href={"/"}
-									className='lg:hidden'>
-									<div className='relative h-14 w-20  cursor-pointer'>
-										<Image
-											src={
-												"/logo.svg"
-											}
-											fill
-											className='object-contain invert'
-											alt='logo'
-										/>
-									</div>
-								</Link>
-								<div className='flex-1   flex justify-end h-fit px-4'>
-									<SearchBox />
-								</div>
-								<div className=' hidden lg:flex items-center lg:w-[30%]  h-full  gap-4 justify-end'>
-									<LucideMessageSquareQuote className='h-6 w-6 text-primary cursor-pointer' />
-									<BellIcon className='h-6 w-6 text-primary cursor-pointer' />
-									<User2Icon className='h-6 w-6 text-primary cursor-pointer' />
-								</div>
-							</nav>
-							{children}
-							<MobileMenuBar />
+						<div className=' flex-col  w-full  overflow-hidden flex-1 shadow-sm shadow-[#6045a3] h-screen'>
+							<DashboardNav />
+							<section className=' w-full h-full overflow-y-scroll bg-black/80 p-4  flex flex-col relative '>
+								{children}
+								{/* bottom navbar */}
+
+								{/* <div className='border absolute  bottom-40 w-full h-fit inset-x-0'>
+									<MobileMenuBar />
+								</div> */}
+							</section>
 						</div>
 					</main>
 				</body>

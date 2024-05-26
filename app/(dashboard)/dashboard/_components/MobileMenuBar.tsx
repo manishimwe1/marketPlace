@@ -11,7 +11,7 @@ import MoreButton from "./MoreButton";
 const MobileMenuBar = () => {
 	const pathname = usePathname();
 	return (
-		<nav className='sm:hidden  w-full flex bg-white border-t-2 border-primary  rounded-lg gap-3  p-2'>
+		<nav className='sm:hidden  w-full flex bg-white border-t-2 border-primary  rounded-lg gap-3  p-2 relative'>
 			{DASHBAORD_LINKS.slice(0, 4).map(
 				(link, index) => {
 					const isActive = link.link === pathname;

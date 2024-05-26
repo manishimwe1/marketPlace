@@ -18,9 +18,12 @@ const DashboardPage = async () => {
 			</div>
 		);
 	return (
-		<section className='flex-1 w-full h-full py-6 flex space-x-3'>
+		<section className='w-full h-full flex-1 py-3 lg:py-6  flex space-x-3  lg:p-4'>
 			<div className='flex-1 w-full flex flex-col gap-2'>
-				<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full gap-6 lg:gap-3 px-4 lg:px-0'>
+				<h1 className='title !text-purple-200'>
+					Dashboard
+				</h1>
+				<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full gap-6 lg:gap-3 lg:px-0 mt-4'>
 					<Link href={"/dashboard/shop"}>
 						<DashboardCard data={store} />
 					</Link>
@@ -30,11 +33,11 @@ const DashboardPage = async () => {
 					<ChartBar data={StoreData} />
 				</div>
 			</div>
-			<div className='lg:flex hidden w-[30%] h-fit bg-[#17171F] py-2 rounded-sm'>
+			{/* <div className='lg:flex hidden w-[30%] h-fit bg-[#17171F] py-2 rounded-sm'>
 				<div className='flex gap-3 items-center justify-between w-full'>
 					<RightSideCard />
 				</div>
-			</div>
+			</div> */}
 		</section>
 	);
 };
