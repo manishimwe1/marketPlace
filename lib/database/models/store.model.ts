@@ -18,8 +18,9 @@ const StoreSchema = new Schema({
 		unique: true,
 	},
 	storeId: {
-		type: "UUID",
-		default: () => randomUUID(),
+		type: String,
+		require: true,
+		unique: true,
 	},
 	userId: { type: Schema.Types.ObjectId, ref: "users" },
 	createdAt: { type: Date, default: Date.now() },

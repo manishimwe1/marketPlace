@@ -109,7 +109,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 		}
 	}
 	return (
-		<div className='w-full h-full px-3 py-8 overflow-y-auto'>
+		<div className='w-full h-full px-3 py-8 overflow-y-auto mb-10'>
 			<div className='flex gap-3 lg:flex-row flex-col w-full min-h-screen text-stone-600'>
 				<div className='lg:w-1/2 w-full  px-4 '>
 					<h2 className='text-3xl font-bold text-slate-900 mb-6'>

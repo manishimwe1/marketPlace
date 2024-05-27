@@ -37,7 +37,7 @@ export const getStoreById = async (id: string) => {
 		await connectToDB();
 
 		const store: IStore[] = await Store.find({
-			_id: id,
+			storeId: id,
 		}).sort({
 			createAt: "asc",
 		});

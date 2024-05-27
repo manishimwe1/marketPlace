@@ -8,6 +8,7 @@ import { createStoreSchema } from "@/lib/validation";
 import { IStore } from "@/typing";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
+import { randomUUID } from "crypto";
 
 export const createStore = async (
 	dataProps: z.infer<typeof createStoreSchema>,
@@ -25,6 +26,7 @@ export const createStore = async (
 		}
 		const data: IStore = {
 			...dataProps,
+			storeId: randomUUID().toString(),
 			userId: user._id as string,
 		};
 		const store = await Store.create(data);

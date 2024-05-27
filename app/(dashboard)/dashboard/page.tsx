@@ -39,7 +39,7 @@ const DashboardPage = async () => {
 			</div>
 		);
 	return (
-		<section className='w-full h-full flex-1 py-3 lg:py-6  flex space-x-3  lg:p-4'>
+		<section className='w-full h-full flex-1 py-3 lg:py-6  flex space-x-3  lg:p-4 '>
 			<div className='flex-1 w-full flex flex-col gap-2'>
 				<h1 className='title !text-purple-200'>
 					Dashboard

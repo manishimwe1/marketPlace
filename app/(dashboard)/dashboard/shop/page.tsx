@@ -33,7 +33,7 @@ const DashboardShopPage = async () => {
 				{StoreData.map((data) => (
 					<Link
 						key={data._id}
-						href={`/dashboard/shop/${data._id}`}>
+						href={`/dashboard/shop/${data.storeId}`}>
 						<div className='bg-[#F0F0F5] flex-grow p-2 rounded-sm shadow-sm shadow-purple-400 flex items-center justify-between  relative cursor-pointer'>
 							<div className='flex justify-start items-start flex-col gap-1 w-full'>
 								<p className='font-bold text-lg text-stone-600 capitalize text-nowrap'>

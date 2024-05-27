@@ -1,20 +1,7 @@
 import DashBoardSideNav from "@/components/DashBoardSideNav";
-import "../globals.css";
-import SearchBox from "@/components/shared/SearchBox";
-import {
-	LucideMessageSquareQuote,
-	MessageSquare,
-	MessageSquareDot,
-	MessageSquareIcon,
-	User2Icon,
-} from "lucide-react";
-import { BellAlertIcon } from "@heroicons/react/24/solid";
-import { BellIcon } from "@heroicons/react/24/outline";
-import MobileMenuBar from "./dashboard/_components/MobileMenuBar";
-import Image from "next/image";
-import Link from "next/link";
 import Provider from "@/components/SessionProvide";
 import NextTopLoader from "nextjs-toploader";
+import "../globals.css";
 import DashboardNav from "./dashboard/_components/shared/DashboardNav";
 
 export default async function RootLayout({
@@ -37,11 +24,11 @@ export default async function RootLayout({
 						speed={200}
 						shadow='0 0 10px #2299DD,0 0 5px #2299DD'
 					/>
-					<main className='flex w-full h-screen bg-gradient-to-tr from-[#63175c] to-[#b43a80] saturate-100 overflow-hidden'>
+					<main className='flex w-full h-full bg-gradient-to-tr from-[#63175c] to-[#b43a80] saturate-100 overflow-hidden pb-10'>
 						<DashBoardSideNav />
-						<div className=' flex-col  w-full  overflow-hidden flex-1 shadow-sm shadow-[#6045a3] h-screen'>
+						<div className=' flex-col  w-full  h-full flex-1 shadow-sm shadow-[#6045a3]'>
 							<DashboardNav />
-							<section className=' w-full h-full overflow-y-scroll bg-black/80 p-4  flex flex-col relative '>
+							<section className=' w-full  h-screen bg-black/80 p-4 pb-10  flex flex-col relative '>
 								{children}
 								{/* bottom navbar */}
 

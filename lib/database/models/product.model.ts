@@ -62,8 +62,9 @@ const ProductSchema = new Schema({
 	deliveryFee: { type: Number },
 	stock: { type: Number },
 	storeId: {
-		type: Schema.Types.ObjectId,
-		ref: "stories",
+		type: String,
+		require: true,
+		unique: true,
 	},
 	sellerId: { type: Schema.Types.ObjectId, ref: "users" },
 	SuperDeals: { type: Number },
