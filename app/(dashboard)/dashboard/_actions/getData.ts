@@ -5,16 +5,8 @@ import { auth } from "@/lib/auth";
 import { connectToDB } from "@/lib/database/db.config";
 import { Product } from "@/lib/database/models/product.model";
 import { Store } from "@/lib/database/models/store.model";
+import { IStore } from "@/typing";
 
-export type StoreType = {
-	_id: string;
-	name: string;
-	description: string;
-	location: string;
-	image: string;
-	userId: string;
-	createdAt: string;
-};
 export const getStore = async () => {
 	const session = await auth();
 	try {
@@ -28,7 +20,7 @@ export const getStore = async () => {
 			);
 		}
 
-		const store: StoreType[] = await Store.find({
+		const store: IStore[] = await Store.find({
 			userId: user._id,
 		}).sort({
 			createAt: -1,
@@ -44,7 +36,7 @@ export const getStoreById = async (id: string) => {
 	try {
 		await connectToDB();
 
-		const store: StoreType[] = await Store.find({
+		const store: IStore[] = await Store.find({
 			_id: id,
 		}).sort({
 			createAt: "asc",

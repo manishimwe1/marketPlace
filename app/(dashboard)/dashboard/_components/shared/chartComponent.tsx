@@ -1,5 +1,5 @@
 "use client";
-import { IStore } from "@/lib/database/models/store.model";
+
 import { useEffect, useState } from "react";
 import {
 	BarChart,
@@ -54,17 +54,17 @@ const data = [
 ];
 
 export const ChartBar = ({ data }: { data: any[] }) => {
+	if (!data) return null;
+
 	const [item, setItem] = useState("");
 
-	useEffect(() => {
-		data.forEach((it) => {
-			setItem(it.idx);
-		});
-		const getData = async () => {
-			await getAllProductInStore(item);
-		};
-		console.log(getData(), "ITS DATA");
-	}, [data]);
+	// useEffect(() => {
+	// 	console.log(data[0].idx);
+
+	// 	const getData = async () => {
+	// 		await getAllProductInStore(data[0].idx);
+	// 	};
+	// }, [data]);
 
 	console.log(item, "...>>>ITEMs");
 	return (

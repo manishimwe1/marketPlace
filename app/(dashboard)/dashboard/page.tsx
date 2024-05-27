@@ -1,4 +1,3 @@
-import { IStore } from "@/lib/database/models/store.model";
 import Link from "next/link";
 import {
 	getAllProductInStore,
@@ -9,16 +8,23 @@ import RightSideCard from "./_components/RightSideCard";
 import { ChartBar } from "./_components/shared/chartComponent";
 import { getFirstWord } from "@/lib/utils";
 import { Item } from "@radix-ui/react-dropdown-menu";
+import { IStore } from "@/typing";
 
 const DashboardPage = async () => {
 	const StoreData: IStore[] = await getStore();
 	const store: any[] = [];
+	const product = await getAllProductInStore(
+		"66506276c5c5d98bf253ae04",
+	);
+	console.log(StoreData, "STORE DATA");
+
 	StoreData.map((data, i) =>
 		store.push({
 			name: getFirstWord(data.name),
 			idx: data._id,
 		}),
 	);
+
 	const item = {
 		title: "Total Revenue",
 		amount: "1000",

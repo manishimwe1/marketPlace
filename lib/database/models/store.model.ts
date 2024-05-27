@@ -1,14 +1,5 @@
 import { Schema, model, models } from "mongoose";
-
-export type IStore = {
-	name: string;
-	description: string;
-	location: string;
-	_id?: string;
-	createdAt?: Date;
-	updateAt?: Date;
-	userId: string;
-};
+import { randomUUID } from "crypto";
 
 const StoreSchema = new Schema({
 	name: {
@@ -25,6 +16,10 @@ const StoreSchema = new Schema({
 		type: String,
 		require: true,
 		unique: true,
+	},
+	storeId: {
+		type: "UUID",
+		default: () => randomUUID(),
 	},
 	userId: { type: Schema.Types.ObjectId, ref: "users" },
 	createdAt: { type: Date, default: Date.now() },

@@ -67,3 +67,14 @@ export type ICategory = {
 	_id: string;
 	category: CategoryType;
 };
+
+export type IStore = {
+	name: string;
+	description: string;
+	location: string;
+	_id?: string;
+	createdAt?: Date;
+	updateAt?: Date;
+	userId: string;
+	storeId?: string;
+};

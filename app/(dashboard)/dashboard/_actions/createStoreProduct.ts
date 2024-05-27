@@ -4,9 +4,9 @@ import { getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@/lib/auth";
 import { connectToDB } from "@/lib/database/db.config";
 import { Product } from "@/lib/database/models/product.model";
-import { ProductType } from "@/typing";
+import { IStore, ProductType } from "@/typing";
 import { revalidatePath } from "next/cache";
-import { StoreType, getStoreById } from "./getData";
+import { getStoreById } from "./getData";
 import { redirect } from "next/navigation";
 
 export const createProduct = async (
@@ -28,7 +28,7 @@ export const createProduct = async (
 			return console.log("there is no product");
 		}
 
-		const storeId: StoreType = await getStoreById(
+		const storeId: IStore = await getStoreById(
 			product._id,
 		);
 		if (!storeId) {

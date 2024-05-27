@@ -2,14 +2,13 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
-import { IStore } from "@/lib/database/models/store.model";
 import { getStore } from "../_actions/getData";
 import { Store } from "lucide-react";
+import { IStore } from "@/typing";
+import EmptyStatePage from "../_components/shared/emptyState";
 
 const DashboardShopPage = async () => {
 	const StoreData: IStore[] = await getStore();
-
-	// console.log(StoreData, "DATA");
 
 	return (
 		<div className='flex-1 w-full h-full lg:px-2 flex flex-col items-start'>
@@ -25,6 +24,10 @@ const DashboardShopPage = async () => {
 					</Link>
 				</div>
 			</div>
+
+			{StoreData.length <= 0 && (
+				<EmptyStatePage title='No store to found' />
+			)}
 
 			<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full gap-6 lg:gap-4 lg:px-0 mt-12 px-8'>
 				{StoreData.map((data) => (
