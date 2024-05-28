@@ -14,7 +14,7 @@ const DashboardNav = async () => {
 	const session = await auth();
 
 	return (
-		<nav className='w-full  flex justify-between items-center h-fit py-4 px-2 lg:px-3'>
+		<nav className='w-full  flex  justify-between items-center h-fit py-4 px-2 lg:px-3'>
 			<Link href={"/"} className='lg:hidden '>
 				<div className='relative h-14 w-14  cursor-pointer'>
 					<Image

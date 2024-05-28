@@ -39,7 +39,7 @@ const DashboardPage = async () => {
 			</div>
 		);
 	return (
-		<section className='w-full h-full flex-1 py-3 lg:py-6  flex space-x-3  lg:p-4 '>
+		<main className='w-full py-3 lg:py-6  flex space-x-3 flex-col  overflow-y-scroll  lg:p-4 '>
 			<div className='flex-1 w-full flex flex-col gap-2'>
 				<h1 className='title !text-purple-200'>
 					Dashboard
@@ -71,16 +71,13 @@ const DashboardPage = async () => {
 					</Link>
 				</div>
 
-				<div className=' h-full w-full mt-10'>
+				<div className=' h-[200px] w-full mt-10'>
 					<ChartBar data={store} />
 				</div>
-				<div className=' h-full w-full mt-10'>
+				<div className=' h-[200px] w-full mt-10'>
 					<ChartBar data={store} />
 				</div>
-				<div className=' h-full w-full mt-10'>
-					<ChartBar data={store} />
-				</div>
-				<div className=' h-full w-full mt-10'>
+				<div className=' h-[200px] w-full mt-10'>
 					<ChartBar data={store} />
 				</div>
 			</div>
@@ -89,7 +86,7 @@ const DashboardPage = async () => {
 					<RightSideCard />
 				</div>
 			</div> */}
-		</section>
+		</main>
 	);
 };
 

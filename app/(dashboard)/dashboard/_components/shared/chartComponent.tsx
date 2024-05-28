@@ -76,7 +76,7 @@ export const ChartBar = ({
 					}}>
 					{/* <CartesianGrid strokeDasharray='3 3' /> */}
 					<XAxis dataKey='name' />
-					<YAxis dataKey='product' />
+					<YAxis />
 					<Tooltip />
 					<Legend />
 					<Line

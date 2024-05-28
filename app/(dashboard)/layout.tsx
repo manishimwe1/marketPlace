@@ -12,7 +12,7 @@ export default async function RootLayout({
 	return (
 		<html lang='en'>
 			<Provider>
-				<body className='overflow-y-hidden bg-[#4d2c45]'>
+				<body className='min-h-screen bg-[#4d2c45] overflow-y-scroll'>
 					<NextTopLoader
 						color='purple'
 						initialPosition={0.08}
@@ -24,11 +24,11 @@ export default async function RootLayout({
 						speed={200}
 						shadow='0 0 10px #2299DD,0 0 5px #2299DD'
 					/>
-					<main className='flex w-full h-full bg-gradient-to-tr from-[#180916] to-[#1a010f] saturate-100 overflow-hidden pb-10'>
+					<main className='flex w-full  bg-gradient-to-tr from-[#180916] to-[#1a010f] saturate-100 overflow-hidden'>
 						<DashBoardSideNav />
-						<div className=' flex-col  w-full  min-h-screen flex-1 shadow-sm shadow-[#c7b7f0]'>
+						<div className='flex flex-col w-full shadow-sm shadow-[#c7b7f0] '>
 							<DashboardNav />
-							<section className=' w-full h-full overflow-y-auto bg-gradient-to-tr from-[#292727] to-[#1b1318] saturate-100 p-4 pb-10  flex flex-col relative '>
+							<section className='bg-gradient-to-tr from-[#292727] to-[#1b1318] saturate-100 p-4 pb-10 '>
 								{children}
 								{/* bottom navbar */}
 
