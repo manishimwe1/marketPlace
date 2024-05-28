@@ -64,7 +64,6 @@ const ProductSchema = new Schema({
 	storeId: {
 		type: String,
 		require: true,
-		unique: true,
 	},
 	sellerId: { type: Schema.Types.ObjectId, ref: "users" },
 	SuperDeals: { type: Number },

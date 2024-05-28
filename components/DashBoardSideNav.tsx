@@ -10,7 +10,7 @@ import React from "react";
 const DashBoardSideNav = () => {
 	const pathname = usePathname();
 	return (
-		<section className=' hidden sm:flex sm:w-20 lg:w-[200px]  bg-bli h-full py-4'>
+		<section className=' hidden sm:flex sm:w-20 lg:w-[200px] h-full py-4'>
 			<aside className='w-full p-2 text-center flex flex-col gap-4'>
 				<Link href={"/"}>
 					<h2 className='title !text-secondary cursor-pointer hidden lg:block'>

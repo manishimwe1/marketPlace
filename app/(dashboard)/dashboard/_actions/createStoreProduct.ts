@@ -28,14 +28,14 @@ export const createProduct = async (
 			return console.log("there is no product");
 		}
 
-		const storeId: IStore = await getStoreById(
-			product._id,
-		);
-		if (!storeId) {
-			return console.log(
-				">>>>> No store found try again",
-			);
-		}
+		// const storeId: IStore = await getStoreById(
+		// 	product._id,
+		// );
+		// if (!storeId) {
+		// 	return console.log(
+		// 		">>>>> No store found try again",
+		// 	);
+		// }
 		const data = {
 			image: product.image,
 			title: product.title,
@@ -62,10 +62,11 @@ export const createProduct = async (
 		const results = JSON.parse(
 			JSON.stringify(newProduct),
 		);
-
-		redirect(`/dashboard/shop/${product._id}`);
+		revalidatePath(`/dashboard/shop/${product._id}`);
 		return results;
 	} catch (error) {
 		console.log(error);
+	} finally {
+		redirect(`/dashboard/shop/${product._id}`);
 	}
 };

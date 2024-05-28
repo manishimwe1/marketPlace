@@ -12,7 +12,7 @@ export default async function RootLayout({
 	return (
 		<html lang='en'>
 			<Provider>
-				<body className='overflow-y-hidden bg-[#8A006B]'>
+				<body className='overflow-y-hidden bg-[#4d2c45]'>
 					<NextTopLoader
 						color='purple'
 						initialPosition={0.08}
@@ -24,7 +24,7 @@ export default async function RootLayout({
 						speed={200}
 						shadow='0 0 10px #2299DD,0 0 5px #2299DD'
 					/>
-					<main className='flex w-full h-full bg-gradient-to-tr from-[#63175c] to-[#b43a80] saturate-100 overflow-hidden pb-10'>
+					<main className='flex w-full h-full bg-gradient-to-tr from-[#180916] to-[#1a010f] saturate-100 overflow-hidden pb-10'>
 						<DashBoardSideNav />
 						<div className=' flex-col  w-full  h-full flex-1 shadow-sm shadow-[#6045a3]'>
 							<DashboardNav />

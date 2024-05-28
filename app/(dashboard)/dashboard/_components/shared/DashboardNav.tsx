@@ -34,7 +34,7 @@ const DashboardNav = async () => {
 					<BellAlertIcon className='h-6 w-6 text-purple-200  cursor-pointer' />
 					<UserIcon className='h-6 w-6 text-purple-200  cursor-pointer' />
 				</div>
-				<div className='bg-fuchsia-900 w-fit h-full p-2 rounded-full px-4'>
+				<div className='bg-gradient-to-tr from-[#0c040b] to-[#1a010f] shadow-md shadow-[#0c040b] w-fit h-full p-2 rounded-full px-4'>
 					<UserButton />
 				</div>
 			</div>

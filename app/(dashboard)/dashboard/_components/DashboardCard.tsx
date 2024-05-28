@@ -11,7 +11,7 @@ const DashbaordCard = ({
 	title?: string;
 }) => {
 	return (
-		<div className='bg-gradient-to-tl from-[#632c9e] via-[#532c5c] to-[#4a2852] flex-grow p-4 rounded-sm shadow-sm shadow-purple-400 flex items-center justify-between  relative cursor-pointer'>
+		<div className='bg-gradient-to-tr from-[#0c040b] to-[#1a010f] flex-grow p-4 rounded-sm shadow-sm shadow-[#000000] flex items-center justify-between  relative cursor-pointer'>
 			<div className='flex justify-start items-start flex-col gap-1 w-full '>
 				<div className='flex gap-2 items-center'>
 					<p className='font-bold text-lg text-blue-100 capitalize text-nowrap'>
