@@ -2,13 +2,18 @@ import {
 	BuildingStorefrontIcon,
 	TruckIcon,
 } from "@heroicons/react/24/solid";
+import Image from "next/image";
 
 const DashbaordCard = ({
 	amount,
 	title,
+	imageSrc,
+	subTitle,
 }: {
 	amount: number;
 	title?: string;
+	imageSrc?: string;
+	subTitle?: string;
 }) => {
 	return (
 		<div className='bg-gradient-to-tr from-[#0c040b] to-[#1a010f] flex-grow p-4 rounded-sm shadow-sm shadow-[#000000] flex items-center justify-between  relative cursor-pointer'>
@@ -17,15 +22,23 @@ const DashbaordCard = ({
 					<p className='font-bold text-lg text-blue-100 capitalize text-nowrap'>
 						{title}
 					</p>
-					<BuildingStorefrontIcon className='object-contain h-7 w-7  stroke-blue-500 fill-purple-300' />
+					<Image
+						src={imageSrc ?? ""}
+						width={30}
+						height={30}
+						alt='shop'
+						className='object-contain h-7 w-7  stroke-blue-500 fill-purple-300'
+					/>
 				</div>
 				<div className=' flex justify-between items-baseline w-full '>
 					<p className='title flex-1 !text-purple-100'>
 						{amount}
 					</p>
 					<div className='text-[13px] relative bg-purple-200/30 py-1 px-2  rounded-full font-semibold  shadow-sm shadow-black/20 text-stone-400'>
-						<p>Open</p>
-						<TruckIcon className='object-contain h-5 w-5 absolute -top-3 right-0  text-white' />
+						<p>{subTitle}</p>
+						{subTitle === "Open" && (
+							<TruckIcon className='object-contain h-5 w-5 absolute -top-3 right-0  text-white' />
+						)}
 					</div>
 				</div>
 			</div>

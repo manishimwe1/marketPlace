@@ -26,9 +26,9 @@ export default async function RootLayout({
 					/>
 					<main className='flex w-full h-full bg-gradient-to-tr from-[#180916] to-[#1a010f] saturate-100 overflow-hidden pb-10'>
 						<DashBoardSideNav />
-						<div className=' flex-col  w-full  h-full flex-1 shadow-sm shadow-[#6045a3]'>
+						<div className=' flex-col  w-full  min-h-screen flex-1 shadow-sm shadow-[#c7b7f0]'>
 							<DashboardNav />
-							<section className=' w-full  h-screen bg-black/80 p-4 pb-10  flex flex-col relative '>
+							<section className=' w-full h-full overflow-y-auto bg-gradient-to-tr from-[#292727] to-[#1b1318] saturate-100 p-4 pb-10  flex flex-col relative '>
 								{children}
 								{/* bottom navbar */}
 

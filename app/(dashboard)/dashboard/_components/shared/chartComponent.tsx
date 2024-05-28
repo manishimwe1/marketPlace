@@ -1,62 +1,56 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import React, { PureComponent } from "react";
 import {
-	BarChart,
-	Bar,
+	LineChart,
+	Line,
 	XAxis,
 	YAxis,
 	CartesianGrid,
 	Tooltip,
 	Legend,
 	ResponsiveContainer,
-	Rectangle,
 } from "recharts";
-import { getAllProductInStore } from "../../_actions/getData";
 
 const data = [
 	{
-		name: "Page A",
-		uv: 4000,
-		pv: 2400,
-		amt: 2400,
+		name: "Day 0",
+		day: "Day 0",
+		product: 0,
+		order: 0,
+		amt: 0,
 	},
 	{
-		name: "Page A",
-		uv: 4000,
-		pv: 2400,
-		amt: 2400,
+		name: "Day 1",
+		day: "Day 1",
+		product: 1,
+		order: 1,
+		amt: 100,
+	},
+
+	{
+		name: "Day 2",
+		day: "Day 2",
+		product: 5,
+		order: 6,
+		amt: 5000,
 	},
 	{
-		name: "Page A",
-		uv: 4000,
-		pv: 2400,
-		amt: 2400,
-	},
-	{
-		name: "Page A",
-		uv: 4000,
-		pv: 2400,
-		amt: 2400,
-	},
-	{
-		name: "Page A",
-		uv: 4000,
-		pv: 2400,
-		amt: 2400,
-	},
-	{
-		name: "Page B",
-		uv: 3000,
-		pv: 1398,
-		amt: 2210,
+		name: "Day 4",
+		day: "Day 4",
+		product: 3,
+		order: 0,
+		amt: 6000,
 	},
 ];
 
-export const ChartBar = ({ data }: { data: any[] }) => {
+export const ChartBar = ({
+	data: item,
+}: {
+	data: any[];
+}) => {
 	if (!data) return null;
 
-	const [item, setItem] = useState("");
+	// const [item, setItem] = useState("");
 
 	// useEffect(() => {
 	// 	console.log(data[0].idx);
@@ -66,37 +60,42 @@ export const ChartBar = ({ data }: { data: any[] }) => {
 	// 	};
 	// }, [data]);
 
-	console.log(item, "...>>>ITEMs");
+	// console.log(item, "...>>>ITEMs");
 	return (
-		<ResponsiveContainer
-			width='50%'
-			height='60%'
-			className='bg-black/40'>
-			<BarChart
-				width={100}
-				height={300}
-				data={data}
-				margin={{
-					top: 5,
-					right: 30,
-					left: 20,
-					bottom: 5,
-				}}
-				className=''>
-				<XAxis dataKey='name' />
-				<YAxis dataKey={"i"} />
-
-				<Bar
-					dataKey='amt'
-					fill='#ffff'
-					activeBar={
-						<Rectangle
-							fill='pink'
-							stroke='blue'
-						/>
-					}
-				/>
-			</BarChart>
-		</ResponsiveContainer>
+		<div className='w-1/2 h-full bg-gray-950/20 flex items-center justify-center rounded-3xl shadow-sm shadow-black'>
+			<ResponsiveContainer
+				height={"100%"}
+				width={"100%"}>
+				<LineChart
+					width={500}
+					height={300}
+					data={data}
+					margin={{
+						right: 10,
+						left: 10,
+					}}>
+					{/* <CartesianGrid strokeDasharray='3 3' /> */}
+					<XAxis dataKey='name' />
+					<YAxis dataKey='product' />
+					<Tooltip />
+					<Legend />
+					<Line
+						type='monotone'
+						dataKey='order'
+						stroke='#8884d8'
+					/>
+					<Line
+						type='monotone'
+						dataKey='product'
+						stroke='#82ca9d'
+					/>
+					<Line
+						type='monotone'
+						dataKey='amt'
+						stroke='#615EFC'
+					/>
+				</LineChart>
+			</ResponsiveContainer>
+		</div>
 	);
 };

@@ -16,7 +16,7 @@ const DashboardPage = async () => {
 	const product = await getAllProductInStore(
 		"66506276c5c5d98bf253ae04",
 	);
-	console.log(StoreData, "STORE DATA");
+	// console.log(StoreData, "STORE DATA");
 
 	StoreData.map((data, i) =>
 		store.push({
@@ -47,24 +47,39 @@ const DashboardPage = async () => {
 				<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full gap-6 lg:gap-3 lg:px-0 mt-4'>
 					<Link href={"/dashboard/shop"}>
 						<DashboardCard
+							subTitle='Open'
+							imageSrc={"/shop.svg"}
 							amount={store.length}
 							title='Total shop'
 						/>
 					</Link>
 					<Link href={"/dashboard/shop"}>
 						<DashboardCard
+							subTitle='Income'
+							imageSrc='/dollarSolid.svg'
 							amount={1000}
 							title={item.title}
 						/>
 					</Link>
 					<Link href={"/dashboard/shop"}>
 						<DashboardCard
+							subTitle='You make'
+							imageSrc='/shoppingBag.svg'
 							amount={100}
 							title='Total Order'
 						/>
 					</Link>
 				</div>
 
+				<div className=' h-full w-full mt-10'>
+					<ChartBar data={store} />
+				</div>
+				<div className=' h-full w-full mt-10'>
+					<ChartBar data={store} />
+				</div>
+				<div className=' h-full w-full mt-10'>
+					<ChartBar data={store} />
+				</div>
 				<div className=' h-full w-full mt-10'>
 					<ChartBar data={store} />
 				</div>
