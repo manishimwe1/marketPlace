@@ -12,7 +12,7 @@ const DashboardShopPage = async () => {
 	const StoreData: IStore[] = await getStore();
 
 	return (
-		<section className='flex-1 w-full h-full  lg:px-2 flex flex-col items-start lg:mt-8'>
+		<section className='flex-1 w-full h-full  lg:px-4 flex flex-col items-start py-4 bg-black/20'>
 			<div className=' w-full  flex justify-between items-center'>
 				<h2 className='title !text-purple-300'>
 					My Store

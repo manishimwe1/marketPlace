@@ -6,6 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const DashBoardSideNav = () => {
 	const pathname = usePathname();
@@ -44,16 +50,37 @@ const DashBoardSideNav = () => {
 								<Link
 									href={link.link}
 									className='flex items-center gap-4 p-2 px-4 font-bold text-white text-lg'>
-									<Image
-										src={link.image}
-										alt={link.label}
-										width={20}
-										height={20}
-										className='invert '
-									/>
-									<p className='hidden lg:flex'>
-										{link.label}
-									</p>
+									<TooltipProvider>
+										<Tooltip>
+											<TooltipTrigger>
+												<Image
+													src={
+														link.image
+													}
+													alt={
+														link.label
+													}
+													width={
+														20
+													}
+													height={
+														20
+													}
+													className='invert '
+												/>
+											</TooltipTrigger>
+											<p className='hidden lg:flex'>
+												{link.label}
+											</p>
+											<TooltipContent className='bg-black border-none ring-0 text-white'>
+												<p>
+													{
+														link.label
+													}
+												</p>
+											</TooltipContent>
+										</Tooltip>
+									</TooltipProvider>
 								</Link>
 							</ul>
 						);

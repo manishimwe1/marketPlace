@@ -4,6 +4,7 @@ import NextTopLoader from "nextjs-toploader";
 import "../globals.css";
 import DashboardNav from "./dashboard/_components/shared/DashboardNav";
 import { Toaster } from "@/components/ui/toaster";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default async function RootLayout({
 	children,
@@ -29,7 +30,9 @@ export default async function RootLayout({
 					<DashboardNav />
 					<main className='flex w-full gap-3  h-screen  px-2 lg:px-0 relative items-start justify-between overflow-hidden '>
 						<DashBoardSideNav />
-						{children}
+						<ScrollArea className=' bg-black/20 w-full h-full'>
+							{children}
+						</ScrollArea>
 						<Toaster />
 					</main>
 					{/* bottom navbar

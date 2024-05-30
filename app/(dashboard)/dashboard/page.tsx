@@ -40,7 +40,7 @@ const DashboardPage = async () => {
 			</div>
 		);
 	return (
-		<div className='w-full h-full flex-1 '>
+		<div className='w-full h-full flex-1 bg-black/20'>
 			<ScrollArea className='w-full h-full flex-1 gap-4 py-2 flex space-x-3 flex-col px-2 lg:px-4'>
 				<h1 className='title !text-purple-200'>
 					Dashboard
