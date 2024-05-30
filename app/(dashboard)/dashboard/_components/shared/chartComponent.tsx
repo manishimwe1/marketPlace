@@ -62,7 +62,7 @@ export const ChartBar = ({
 
 	// console.log(item, "...>>>ITEMs");
 	return (
-		<div className='w-1/2 h-full bg-gray-950/20 flex items-center justify-center rounded-3xl shadow-sm shadow-black'>
+		<div className='lg:w-1/2 w-full h-full bg-gray-950/20 flex items-center justify-center rounded-3xl shadow-sm shadow-black'>
 			<ResponsiveContainer
 				height={"100%"}
 				width={"100%"}>

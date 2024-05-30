@@ -26,7 +26,7 @@ export default async function RootLayout({
 					/>
 
 					<DashboardNav />
-					<main className='flex w-full gap-3  h-full lg:py-12 relative items-start justify-between overflow-hidden '>
+					<main className='flex w-full gap-3  h-screen  px-2 lg:px-0 relative items-start justify-between overflow-hidden '>
 						<DashBoardSideNav />
 						{children}
 					</main>
