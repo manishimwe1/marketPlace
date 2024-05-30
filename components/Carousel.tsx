@@ -20,8 +20,10 @@ const CarouselPage = ({ carouselItems }: Props) => {
 			className=' w-full h-full gap-2  items-center flex justify-center '>
 			{carouselItems &&
 				carouselItems.map((items, i) => (
-					<section key={`${items.title}++${i}`}>
-						<div className='flex relative justify-center items-center p-2  h-48 lg:h-[250px]  w-full'>
+					<section
+						key={`${items.title}+${i}`}
+						className='w-full h-full'>
+						<div className='flex relative justify-center items-center p-2  h-48 lg:h-[150px]  w-full'>
 							<Image
 								key={items.title}
 								src={items.image}

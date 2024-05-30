@@ -10,7 +10,7 @@ const NewCollectionCard = ({
 	allProduct: ProductType[];
 }) => {
 	return (
-		<div className='border  w-full row-span-2 rounded-3xl bg-slate-400/10 px-4 py-2'>
+		<div className='w-full h-full '>
 			<h2 className='text-stone-950 text-left font-bold text-3xl opacity-80 mt-2'>
 				New
 			</h2>
@@ -18,7 +18,7 @@ const NewCollectionCard = ({
 				Launched in the last 7 days
 			</p>
 			{allProduct ? (
-				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-3 lg:mt-2 py-1 lg:py-4 '>
+				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-3 '>
 					{allProduct
 						.splice(0, 3)
 						.map((product) => (
@@ -28,12 +28,13 @@ const NewCollectionCard = ({
 								<Link
 									href={`/product/categrized/${product.category}`}>
 									<div className='flex flex-col gap-3 w-full'>
-										<div className=' h-20 w-full border rounded-lg relative'>
+										<div className=' h-full w-full border rounded-lg relative'>
 											<Image
 												src={
 													product.image
 												}
-												fill
+												width={100}
+												height={100}
 												alt={
 													product.title
 												}

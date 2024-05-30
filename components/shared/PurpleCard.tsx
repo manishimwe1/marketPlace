@@ -4,14 +4,14 @@ import Image from "next/image";
 const PurpleCard = async () => {
 	await getCategoryName("Speaker");
 	return (
-		<div className=' w-full rounded-3xl  cursor-pointer shadow-md shadow-purple-300 bg-purple-900/50 saturate-150 px-5 py-5 overflow-hidden'>
+		<div className=' w-full rounded-3xl h-full cursor-pointer shadow-md shadow-purple-300 bg-purple-900/50 saturate-150 px-5 py-5 overflow-hidden'>
 			<div className=' h-40  w-full relative   lg:ml-32 rounded-3xl '>
 				<Image
 					src={"/speaker.png"}
 					width={200}
 					height={200}
 					alt='isaha'
-					className='object-contain rounded-lg sm:h-[250px] sm:w-[250px] absolute right-0 top-4 md:right-0 md:-top-10 lg:right-40'
+					className='object-contain rounded-lg sm:h-[250px] sm:w-[250px] absolute right-0 top-4 md:right-0 md:-top-10 lg:left-16'
 				/>
 				<h3 className='text-2xl  rounded-t-3xl text-nowrap font-bold text-stone-950 absolute top-2 lg:top-8 left-0  lg:-left-32 backdrop-blur-sm /20 px-4 py-2 '>
 					Immersive Audio{" "}
