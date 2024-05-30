@@ -14,16 +14,11 @@ const DashboardNav = async () => {
 	const session = await auth();
 
 	return (
-		<nav className='w-full  flex  justify-between items-center h-fit py-4 px-2 lg:px-3'>
-			<Link href={"/"} className='lg:hidden '>
-				<div className='relative h-14 w-14  cursor-pointer'>
-					<Image
-						src={"/logo.svg"}
-						fill
-						className='object-contain'
-						alt='logo'
-					/>
-				</div>
+		<nav className='w-full bg-[#0f050d] sticky top-0 flex py-2 justify-between items-center h-fit px-2 z-20'>
+			<Link href={"/"}>
+				<h2 className='title !text-secondary cursor-pointer hidden lg:block'>
+					GuraGurisha
+				</h2>
 			</Link>
 			<div className='flex-1   flex h-fit px-4'>
 				<SearchBox />
