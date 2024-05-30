@@ -72,15 +72,17 @@ const DashboardPage = async () => {
 					</Link>
 				</div>
 
-				<div className=' h-[200px] w-full mt-10'>
-					<ChartBar data={store} />
+				<div className=' h-[300px] w-full mt-10 flex justify-between items-center flex-col md:flex-row gap-4'>
+					<ChartBar
+						data={store}
+						title='Product'
+					/>
+					<ChartBar
+						data={store}
+						title='Revenue income'
+					/>
 				</div>
-				<div className=' h-[200px] w-full mt-10'>
-					<ChartBar data={store} />
-				</div>
-				<div className=' h-[200px] w-full mt-10'>
-					<ChartBar data={store} />
-				</div>
+
 				{/* <div className='lg:flex hidden w-[30%] h-fit bg-[#17171F] py-2 rounded-sm'>
 				<div className='flex gap-3 items-center justify-between w-full'>
 				<RightSideCard />

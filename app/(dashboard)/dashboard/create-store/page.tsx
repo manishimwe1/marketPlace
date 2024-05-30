@@ -1,5 +1,6 @@
 "use client";
 
+import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -21,6 +22,7 @@ import { z } from "zod";
 import { createStore } from "../_actions/createStoreActions";
 
 const CreateStorePage = () => {
+	const { toast } = useToast();
 	const [image, setImage] = useState<File[]>([]);
 	const [ShowProductImage, setShowProductImage] =
 		useState("");
@@ -47,7 +49,9 @@ const CreateStorePage = () => {
 		values: z.infer<typeof createStoreSchema>,
 	) {
 		setIsSubmiting(true);
-
+		toast({
+			title: "Creating store...",
+		});
 		try {
 			const data = {
 				...values,
@@ -59,6 +63,10 @@ const CreateStorePage = () => {
 			console.log(error);
 		} finally {
 			setIsSubmiting(false);
+			toast({
+				title: "Creating store successfully.",
+				description: "Your store has been created!",
+			});
 		}
 	}
 	return (

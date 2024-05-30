@@ -3,6 +3,7 @@ import Provider from "@/components/SessionProvide";
 import NextTopLoader from "nextjs-toploader";
 import "../globals.css";
 import DashboardNav from "./dashboard/_components/shared/DashboardNav";
+import { Toaster } from "@/components/ui/toaster";
 
 export default async function RootLayout({
 	children,
@@ -29,6 +30,7 @@ export default async function RootLayout({
 					<main className='flex w-full gap-3  h-screen  px-2 lg:px-0 relative items-start justify-between overflow-hidden '>
 						<DashBoardSideNav />
 						{children}
+						<Toaster />
 					</main>
 					{/* bottom navbar
 					{/* <div className='border absolute  bottom-40 w-full h-fit inset-x-0'>

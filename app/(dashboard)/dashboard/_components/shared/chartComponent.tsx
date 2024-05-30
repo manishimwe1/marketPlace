@@ -1,14 +1,14 @@
 "use client";
-import React, { PureComponent } from "react";
 import {
-	LineChart,
-	Line,
+	AreaChart,
+	Area,
 	XAxis,
 	YAxis,
 	CartesianGrid,
 	Tooltip,
-	Legend,
 	ResponsiveContainer,
+	LineChart,
+	Line,
 } from "recharts";
 
 const data = [
@@ -45,57 +45,83 @@ const data = [
 
 export const ChartBar = ({
 	data: item,
+	title,
 }: {
 	data: any[];
+	title: string;
 }) => {
 	if (!data) return null;
-
-	// const [item, setItem] = useState("");
-
-	// useEffect(() => {
-	// 	console.log(data[0].idx);
-
-	// 	const getData = async () => {
-	// 		await getAllProductInStore(data[0].idx);
-	// 	};
-	// }, [data]);
-
-	// console.log(item, "...>>>ITEMs");
 	return (
-		<div className='lg:w-1/2 w-full h-full bg-gray-950/20 flex items-center justify-center rounded-3xl shadow-sm shadow-black'>
-			<ResponsiveContainer
-				height={"100%"}
-				width={"100%"}>
-				<LineChart
-					width={500}
-					height={300}
-					data={data}
-					margin={{
-						right: 10,
-						left: 10,
-					}}>
-					{/* <CartesianGrid strokeDasharray='3 3' /> */}
-					<XAxis dataKey='name' />
-					<YAxis />
-					<Tooltip />
-					<Legend />
-					<Line
-						type='monotone'
-						dataKey='order'
-						stroke='#8884d8'
-					/>
-					<Line
-						type='monotone'
-						dataKey='product'
-						stroke='#82ca9d'
-					/>
-					<Line
-						type='monotone'
-						dataKey='amt'
-						stroke='#615EFC'
-					/>
-				</LineChart>
-			</ResponsiveContainer>
+		<div className='lg:w-1/2 w-full h-full pb-10 overflow-hidden bg-gray-950/20 flex items-center flex-col justify-center rounded-3xl shadow-sm shadow-black'>
+			<h1 className='font-semibold capitalize text-lg mt-10 !text-white'>
+				{title}
+			</h1>
+			{title === "Product" && (
+				<ResponsiveContainer
+					width='100%'
+					height='100%'>
+					<AreaChart
+						width={500}
+						height={400}
+						data={data}
+						margin={{
+							top: 0,
+							right: 30,
+							left: 0,
+							bottom: 0,
+						}}>
+						<CartesianGrid
+							strokeDasharray='3 3'
+							strokeOpacity={0.2}
+						/>
+						<XAxis dataKey='name' />
+						<YAxis />
+						<Tooltip />
+						<Area
+							type='monotone'
+							dataKey='product'
+							stroke='#8884d8'
+							fill='#8884d8'
+						/>
+					</AreaChart>
+				</ResponsiveContainer>
+			)}
+
+			{title === "Revenue income" && (
+				<ResponsiveContainer
+					width='100%'
+					height='100%'>
+					<LineChart
+						width={500}
+						height={300}
+						data={data}
+						margin={{
+							top: 0,
+							right: 30,
+							left: 20,
+							bottom: 5,
+						}}>
+						<CartesianGrid
+							strokeDasharray='3 3'
+							strokeOpacity={0.2}
+						/>
+						<XAxis dataKey='name' />
+						<YAxis />
+						<Tooltip />
+						<Line
+							type='monotone'
+							dataKey='product'
+							stroke='#8884d8'
+							activeDot={{ r: 8 }}
+						/>
+						<Line
+							type='monotone'
+							dataKey='amt'
+							stroke='#82ca9d'
+						/>
+					</LineChart>
+				</ResponsiveContainer>
+			)}
 		</div>
 	);
 };
