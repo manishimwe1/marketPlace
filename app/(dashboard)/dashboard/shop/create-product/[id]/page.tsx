@@ -24,6 +24,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { createProduct } from "../../../_actions/createStoreProduct";
+import CreateProductFormCard from "@/app/(root)/_components/shared/CreateProductFormCard";
 type Props = {
 	params: { id: string };
 };
@@ -111,7 +112,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 		}
 	}
 	return (
-		<div className='w-full h-full px-3 py-8 overflow-y-auto mb-10'>
+		<div className='max-w-4xl mx-auto h-full px-3 py-8 overflow-y-auto mb-10'>
 			<div className='flex gap-3 lg:flex-row flex-col w-full min-h-screen text-stone-600'>
 				<div className=' w-full  px-4 lg:px-12 '>
 					<h2 className='text-3xl w-full  font-bold text-purple-100 text-center text-balance capitalize mb-6'>
@@ -173,11 +174,38 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 								</div>
 								<div className='p-2 h-48 lg:h-[250px] w-full '>
 									<div className='grid grid-cols-5 gap-2 w-full h-full  items-start'>
-										<div className='bg-purple-400/20 h-32 w-full rounded-3xl'></div>
-										<div className='bg-purple-400/20 h-32 w-full rounded-3xl'></div>
-										<div className='bg-purple-400/20 h-32 w-full rounded-3xl'></div>
-										<div className='bg-purple-400/20 h-32 w-full rounded-3xl'></div>
-										<div className='bg-purple-400/20 h-32 w-full rounded-3xl'></div>
+										<CreateProductFormCard
+											imgsrc='/views/Front.png'
+											title='Front'
+										/>
+										<CreateProductFormCard
+											imgsrc='/views/Back.png'
+											title='Back'
+										/>
+										<CreateProductFormCard
+											imgsrc='/views/Top.png'
+											title='Top'
+										/>
+										<CreateProductFormCard
+											imgsrc='/views/Bottom.png'
+											title='Bottom'
+										/>
+										<CreateProductFormCard
+											imgsrc='/views/Sides.png'
+											title='Sides'
+										/>
+										<CreateProductFormCard
+											imgsrc=''
+											title=''
+										/>
+										<CreateProductFormCard
+											imgsrc=''
+											title=''
+										/>
+										<CreateProductFormCard
+											imgsrc=''
+											title=''
+										/>
 									</div>
 								</div>
 							</div>

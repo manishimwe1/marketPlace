@@ -30,6 +30,9 @@
 	.ScaleAnimation {
 		@apply hover:scale-110 transition-all ease-out hover:delay-500 duration-1000 cursor-pointer;
 	}
+	.bg-gradient {
+		@apply bg-gradient-to-tr from-[#180916] to-[#1a010f] backdrop:filter backdrop-saturate-150;
+	}
 }
 
 @layer base {

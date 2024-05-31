@@ -62,7 +62,7 @@ const DropZone = ({
 								" h-full w-full flex flex-col gap-4 justify-center items-center p-5 border border-dashed rounded-lg text-center",
 								isDragActive
 									? "bg-purple-500 text-white animate-pulse"
-									: "bg-purple-100/50 dark:bg-purple-800/80 text-slate-400",
+									: "bg-gradient text-slate-400",
 							)}>
 							<SquaresPlusIcon className='h-8 w-8' />
 
