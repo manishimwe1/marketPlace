@@ -30,9 +30,7 @@ const page = async () => {
 				</div>
 				{session?.user ? (
 					<Link
-						href={
-							"/saler/product/create-product"
-						}
+						href={"/dashboard/shop"}
 						className={cn(buttonVariants())}>
 						Create product
 					</Link>
@@ -59,9 +57,7 @@ const page = async () => {
 					</p>
 					<div className='w-full flex justify-center text-stone-400'>
 						<Link
-							href={
-								"/saler/product/create-product"
-							}
+							href={"/dashboard/shop"}
 							className={cn(
 								"!text-white !text-lg",
 								buttonVariants({

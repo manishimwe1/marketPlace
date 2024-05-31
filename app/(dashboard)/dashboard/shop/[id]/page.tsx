@@ -10,6 +10,8 @@ import {
 	columns,
 } from "../../_components/columns";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 
 type Props = {
 	params: { id: string };
@@ -236,10 +238,21 @@ const storePage = async ({ params: { id } }: Props) => {
 	// const store: StoreType[] = await getStoreById(id);
 
 	const data = await getData();
-	console.log(product, "PRODUCT");
 
 	return (
-		<section className='w-full h-full !mt-0 !py-10'>
+		<section className='w-full h-full !mt-0 !py-10 flex items-start justify-center flex-col gap-4'>
+			<div className=' w-full  flex justify-between items-center'>
+				<h2 className='title !text-purple-300'>
+					My product lists
+				</h2>
+				<div className='justify-end lg:mr-20 hidden lg:inline-block'>
+					<Link
+						href={`/dashboard/shop/create-product/${id}`}
+						className={cn(buttonVariants())}>
+						Create Product Listing
+					</Link>
+				</div>
+			</div>
 			<DataTable columns={columns} data={data} />
 		</section>
 		// <section className='h-full py-4 items-start justify-center'>

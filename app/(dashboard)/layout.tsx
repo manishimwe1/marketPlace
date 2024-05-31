@@ -14,7 +14,7 @@ export default async function RootLayout({
 	return (
 		<html lang='en'>
 			<Provider>
-				<body className='min-h-screen w-full relative h-full bg-gradient-to-tr from-[#180916] to-[#1a010f] saturate-100 overflow-y-hidden'>
+				<body className='min-h-screen w-full relative h-full bg-gradient-to-tr from-[#180916] to-[#1a010f] backdrop:filter backdrop-saturate-150 overflow-y-hidden'>
 					<NextTopLoader
 						color='blue'
 						initialPosition={0.08}

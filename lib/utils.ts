@@ -35,7 +35,7 @@ export function removeDuplicates(
 
 	// Iterate through each item
 	items.forEach((item: ICategory) => {
-		const categoryId = item.category._id;
+		const categoryId = item._id;
 
 		// If the category is not already in the map, add it
 		if (!categoriesMap.has(categoryId)) {

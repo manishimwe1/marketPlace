@@ -65,7 +65,7 @@ interface ProductType {
 
 export type ICategory = {
 	_id: string;
-	category: CategoryType;
+	category: string;
 };
 
 export type IStore = {

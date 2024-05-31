@@ -55,7 +55,7 @@ export const getAllProductCategory = async () => {
 				_id: "desc",
 			});
 
-		// console.log("PRODUCT", product);
+		console.log("PRODUCT>>>>>>>>>>>>>>>>", product);
 
 		if (!product) {
 			console.log("error in getting Product");
@@ -128,8 +128,7 @@ export const getCategoryName = async (name: string) => {
 	if (categoryNames) {
 		const categoryName = categoryNames.filter(
 			(categoryName) =>
-				categoryName.category.categoryName ===
-				`${name}`,
+				categoryName.category === `${name}`,
 		);
 
 		if (categoryName)

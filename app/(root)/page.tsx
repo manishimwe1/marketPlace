@@ -42,7 +42,9 @@ async function page() {
 					allProduct={allProduct}
 					superDealProduct={superDealProduct}
 				/>
-				<PopularCategory allProduct={allProduct} />
+				<PopularCategory
+					allProductCategory={allProductCategory}
+				/>
 				<SuperDeals />
 			</main>
 			<div className='w-full h-full lg:hidden flex'>
