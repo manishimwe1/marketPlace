@@ -33,6 +33,7 @@ import {
 } from "react";
 import { Input } from "../ui/input";
 import Loader from "./Loader";
+import CategoryModal from "@/app/(dashboard)/dashboard/_components/shared/CategoryModal";
 
 function SelectField({
 	onFieldChange,
@@ -45,6 +46,13 @@ function SelectField({
 	const [Category, setCategory] = useState<ICategory[]>();
 	const [isOpen, setIsOpen] = useState(false);
 	const [isSubmiting, setIsSubmiting] = useState(false);
+	const [showModal, setShowModal] = useState(false);
+	const [selectedCategory, setselectedCategory] =
+		useState<string | undefined>();
+
+	if (selectedCategory) {
+		console.log("selectedCategory", selectedCategory);
+	}
 
 	useEffect(() => {
 		const getCategories = async () => {
@@ -69,6 +77,7 @@ function SelectField({
 				setNewCategory(category._id);
 				setIsOpen(!isOpen);
 				setCategoryId(category._id);
+				setShowModal(true);
 			},
 		);
 	};
@@ -111,7 +120,6 @@ function SelectField({
 								<Input
 									className='input-field mt-3'
 									placeholder='Category name'
-									type='text'
 									value={newCategory}
 									onChange={(e) =>
 										setNewCategory(
@@ -136,6 +144,17 @@ function SelectField({
 						</AlertDialogFooter>
 					</AlertDialogContent>
 				</AlertDialog>
+
+				{showModal && (
+					<CategoryModal
+						showModal={showModal}
+						categoryId={newCategory}
+						setselectedCategory={
+							setselectedCategory
+						}
+						selectedCategory={selectedCategory}
+					/>
+				)}
 			</SelectContent>
 		</Select>
 	);

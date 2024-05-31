@@ -84,7 +84,7 @@ export const getCategoryByID = async (
 		await connectToDB();
 
 		const category = await Category.findOne({
-			categoryName,
+			_id: categoryName,
 		});
 		if (!category) {
 			throw new Error("I cant find any  CategoryId");

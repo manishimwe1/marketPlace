@@ -24,7 +24,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { createProduct } from "../../../_actions/createStoreProduct";
-import CreateProductFormCard from "@/app/(root)/_components/shared/CreateProductFormCard";
+import CreateProductFormCard from "@/app/(dashboard)/dashboard/_components/shared/CreateProductFormCard";
 type Props = {
 	params: { id: string };
 };
@@ -362,7 +362,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 									control={form.control}
 									name='category'
 									render={({ field }) => (
-										<FormItem className='flex flex-col w-full'>
+										<FormItem className='flex flex-col w-full bg-gradient'>
 											<FormLabel>
 												Category
 											</FormLabel>
