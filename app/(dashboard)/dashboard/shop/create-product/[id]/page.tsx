@@ -43,9 +43,27 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 
 	const [showProductImage, setShowProductImage] =
 		useState<string>("");
-	// const savedProduct = useProductStore(
-	// 	(state) => state.product,
-	// );
+
+	//smallCardImageView
+	const [frontView, setFrontView] = useState<
+		string | undefined
+	>();
+
+	const [backView, setBackView] = useState<
+		string | undefined
+	>();
+	const [sideView, setSideView] = useState<
+		string | undefined
+	>();
+
+	const [topView, setTopView] = useState<
+		string | undefined
+	>();
+	const [bottomView, setBottomView] = useState<
+		string | undefined
+	>();
+
+	console.log("FRONTVIEW>>>>>", frontView);
 
 	const form = useForm<
 		z.infer<typeof createProductSchemma>
@@ -124,13 +142,29 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 						</h4>
 						<p className=' text-xs lg:text-base text-muted-foreground'>
 							Add at least 5 photos. You can
-							add up to 24 photos and a
-							1-minute video. Buyers want to
-							see all details and angles.{" "}
+							add up to 24 photos. Buyers want
+							to see all details and angles.{" "}
 							<span className='underline underline-offset-4 cursor-pointer hover:text-purple-400 decoration-purple-500'>
 								Tips for taking pro photos
 							</span>
 						</p>
+
+						{frontView && (
+							<Image
+								src={frontView}
+								alt='kk'
+								width={40}
+								height={40}
+							/>
+						)}
+						{topView && (
+							<Image
+								src={topView}
+								alt='kk'
+								width={40}
+								height={40}
+							/>
+						)}
 					</div>
 
 					<Form {...form}>
@@ -177,22 +211,37 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 										<CreateProductFormCard
 											imgsrc='/views/Front.png'
 											title='Front'
+											setView={
+												setFrontView
+											}
 										/>
 										<CreateProductFormCard
 											imgsrc='/views/Back.png'
 											title='Back'
+											setView={
+												setBackView
+											}
 										/>
 										<CreateProductFormCard
 											imgsrc='/views/Top.png'
 											title='Top'
+											setView={
+												setTopView
+											}
 										/>
 										<CreateProductFormCard
 											imgsrc='/views/Bottom.png'
 											title='Bottom'
+											setView={
+												setBottomView
+											}
 										/>
 										<CreateProductFormCard
 											imgsrc='/views/Sides.png'
 											title='Sides'
+											setView={
+												setSideView
+											}
 										/>
 										<CreateProductFormCard
 											imgsrc=''
@@ -219,6 +268,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 										</FormLabel>
 										<FormControl>
 											<Input
+												className='bg-gradient'
 												placeholder='eg: Ai max pro'
 												{...field}
 											/>

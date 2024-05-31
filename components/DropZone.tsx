@@ -78,7 +78,7 @@ const DropZone = ({
 							{isDragReject &&
 								"File type not accepted, sorry!"}
 
-							<p className='text-sm font-semibold text-stone-500'>
+							<p className='text-sm font-semibold capitalize text-stone-500'>
 								click or drag and drop photo
 								here!
 							</p>
