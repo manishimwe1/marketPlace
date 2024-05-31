@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const formSchema = z.object({
+export const createProductSchemma = z.object({
 	title: z
 		.string()
 		.min(4, "Must contains 4 characters")

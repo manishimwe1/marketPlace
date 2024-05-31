@@ -16,7 +16,7 @@ import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { ProductType } from "@/lib/database/models/product.model";
 import { useUploadThing } from "@/lib/uploadthing/uploadThing";
-import { formSchema } from "@/lib/validation";
+import { createProductSchemma } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -46,8 +46,10 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 	// 	(state) => state.product,
 	// );
 
-	const form = useForm<z.infer<typeof formSchema>>({
-		resolver: zodResolver(formSchema),
+	const form = useForm<
+		z.infer<typeof createProductSchemma>
+	>({
+		resolver: zodResolver(createProductSchemma),
 		defaultValues: {
 			title: "",
 			description: "",
@@ -70,7 +72,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 	};
 
 	async function onSubmit(
-		values: z.infer<typeof formSchema>,
+		values: z.infer<typeof createProductSchemma>,
 	) {
 		setIsSubmiting(true);
 
@@ -111,16 +113,74 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 	return (
 		<div className='w-full h-full px-3 py-8 overflow-y-auto mb-10'>
 			<div className='flex gap-3 lg:flex-row flex-col w-full min-h-screen text-stone-600'>
-				<div className='lg:w-1/2 w-full  px-4 '>
-					<h2 className='text-3xl font-bold text-slate-900 mb-6'>
-						Create Product
+				<div className=' w-full  px-4 lg:px-12 '>
+					<h2 className='text-3xl w-full  font-bold text-purple-100 text-center text-balance capitalize mb-6'>
+						complete creating product
 					</h2>
+					<div className='flex flex-col w-full gap-2 mb-6'>
+						<h4 className='text-base lg:text-lg font-semibold text-purple-400 text-balance capitalize'>
+							PHOTOS & VIDEO
+						</h4>
+						<p className=' text-xs lg:text-base text-muted-foreground'>
+							Add at least 5 photos. You can
+							add up to 24 photos and a
+							1-minute video. Buyers want to
+							see all details and angles.{" "}
+							<span className='underline underline-offset-4 cursor-pointer hover:text-purple-400 decoration-purple-500'>
+								Tips for taking pro photos
+							</span>
+						</p>
+					</div>
+
 					<Form {...form}>
 						<form
 							onSubmit={form.handleSubmit(
 								onSubmit,
 							)}
 							className='space-y-8'>
+							<div className='flex w-full flex-col md:flex-row gap-4 items-center justify-between h-full border'>
+								<div className='lg:w-[400px] h-48 lg:h-[250px] w-full '>
+									<FormField
+										control={
+											form.control
+										}
+										name='image'
+										render={({
+											field,
+										}) => (
+											<FormItem className='h-full'>
+												<FormControl className='h-full'>
+													<div className='w-full cursor-pointer h-full'>
+														<DropZone
+															setImage={
+																setImage
+															}
+															onFieldChange={
+																field.onChange
+															}
+															{...field}
+															setShowProductImage={
+																setShowProductImage
+															}
+														/>
+													</div>
+												</FormControl>
+
+												<FormMessage />
+											</FormItem>
+										)}
+									/>
+								</div>
+								<div className='p-2 h-48 lg:h-[250px] w-full '>
+									<div className='grid grid-cols-5 gap-2 w-full h-full border items-start'>
+										<div className='bg-purple-400/20 h-32 w-full rounded-3xl'></div>
+										<div className='bg-purple-400 h-32 w-full rounded-3xl '></div>
+										<div className='bg-purple-400 h-32 w-full rounded-3xl '></div>
+										<div className='bg-purple-400 h-32 w-full rounded-3xl '></div>
+										<div className='bg-purple-400 h-32 w-full rounded-3xl '></div>
+									</div>
+								</div>
+							</div>
 							<FormField
 								control={form.control}
 								name='title'
@@ -317,35 +377,6 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 									)}
 								/>
 							</div>
-							<FormField
-								control={form.control}
-								name='image'
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>
-											Images
-										</FormLabel>
-										<FormControl>
-											<div className='w-full cursor-pointer'>
-												<DropZone
-													setImage={
-														setImage
-													}
-													onFieldChange={
-														field.onChange
-													}
-													{...field}
-													setShowProductImage={
-														setShowProductImage
-													}
-												/>
-											</div>
-										</FormControl>
-
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
 
 							<ShimmerButton
 								title={
@@ -361,7 +392,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 					</Form>
 				</div>
 
-				{showProductImage ? (
+				{/* {showProductImage ? (
 					<div className='relative border w-1/2 bg-purple-500/20 rounded-r-3xl hidden lg:flex  items-center justify-center'>
 						<div className='relative h-80 w-full '>
 							<Image
@@ -384,7 +415,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 							className='object-contain'
 						/>
 					</div>
-				)}
+				)} */}
 			</div>
 		</div>
 	);

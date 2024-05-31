@@ -55,11 +55,11 @@ const DropZone = ({
 				fileRejections,
 			}) => {
 				return (
-					<section className='w-full flex justify-center text-stone-700'>
+					<section className='w-full h-full flex justify-center text-stone-700'>
 						<div
 							{...getRootProps()}
 							className={cn(
-								" h-28 w-full flex flex-col gap-4 justify-center items-center p-5 border border-dashed rounded-lg text-center",
+								" h-full w-full flex flex-col gap-4 justify-center items-center p-5 border border-dashed rounded-lg text-center",
 								isDragActive
 									? "bg-purple-500 text-white animate-pulse"
 									: "bg-purple-100/50 dark:bg-purple-800/80 text-slate-400",
