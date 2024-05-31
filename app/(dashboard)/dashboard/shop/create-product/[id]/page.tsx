@@ -138,8 +138,8 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 								onSubmit,
 							)}
 							className='space-y-8'>
-							<div className='flex w-full flex-col md:flex-row gap-4 items-center justify-between h-full border'>
-								<div className='lg:w-[400px] h-48 lg:h-[250px] w-full '>
+							<div className='flex w-full flex-col md:flex-row gap-4 items-center justify-between h-full '>
+								<div className='lg:w-[500px] h-48 lg:h-[250px] w-full '>
 									<FormField
 										control={
 											form.control
@@ -172,12 +172,12 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 									/>
 								</div>
 								<div className='p-2 h-48 lg:h-[250px] w-full '>
-									<div className='grid grid-cols-5 gap-2 w-full h-full border items-start'>
+									<div className='grid grid-cols-5 gap-2 w-full h-full  items-start'>
 										<div className='bg-purple-400/20 h-32 w-full rounded-3xl'></div>
-										<div className='bg-purple-400 h-32 w-full rounded-3xl '></div>
-										<div className='bg-purple-400 h-32 w-full rounded-3xl '></div>
-										<div className='bg-purple-400 h-32 w-full rounded-3xl '></div>
-										<div className='bg-purple-400 h-32 w-full rounded-3xl '></div>
+										<div className='bg-purple-400/20 h-32 w-full rounded-3xl'></div>
+										<div className='bg-purple-400/20 h-32 w-full rounded-3xl'></div>
+										<div className='bg-purple-400/20 h-32 w-full rounded-3xl'></div>
+										<div className='bg-purple-400/20 h-32 w-full rounded-3xl'></div>
 									</div>
 								</div>
 							</div>
