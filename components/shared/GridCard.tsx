@@ -7,7 +7,7 @@ type Props = {
 
 const GridCard = ({ deal }: Props) => {
 	return (
-		<div className='flex flex-col gap-2 p-2  rounded-t-3xl rounded-b-md rounded-2xl shadow-md shadow-purple-500/20 bg-purple-400/20'>
+		<div className='flex flex-col gap-2 p-2 w-full rounded-t-3xl rounded-b-md rounded-2xl shadow-md shadow-purple-500/20 bg-purple-400/20'>
 			<div className=' h-20 lg:h-32 w-full rounded-lg relative '>
 				<Image
 					src={deal.image}

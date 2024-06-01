@@ -68,7 +68,7 @@ const GridOptions = ({
 											allProduct[0]
 												.title
 										}
-										className='object-contain rounded-3xl'
+										className='object-cover rounded-3xl'
 									/>
 								</div>
 								<div className='w-full flex items-center justify-center gap-4'>
@@ -92,14 +92,14 @@ const GridOptions = ({
 								</div>
 							</div>
 						</Link>
-						<div className='flex justify-around gap-2 mt-4 w-full px-2'>
+						<div className='flex justify-around gap-4 mt-4 w-full px-4 '>
 							{allProduct
 								.slice(1, 3)
 								.map((deal) => (
 									<Link
 										key={deal.title}
 										href={`/product/categrized/${deal.category}`}
-										className=' cursor-pointer'>
+										className=' cursor-pointer w-full'>
 										<GridCard
 											deal={deal}
 											key={deal.title}
