@@ -8,8 +8,10 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-	background: #888;
+	background: #888888;
 	border-radius: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 /* Handle */
