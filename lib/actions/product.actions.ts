@@ -128,7 +128,7 @@ export const getCategoryName = async (name: string) => {
 	if (categoryNames) {
 		const categoryName = categoryNames.filter(
 			(categoryName) =>
-				categoryName.category === `${name}`,
+				categoryName.categoryName === `${name}`,
 		);
 
 		if (categoryName)
