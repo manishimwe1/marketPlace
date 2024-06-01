@@ -5,6 +5,7 @@ import { Poppins } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import "../globals.css";
 import Provider from "@/components/SessionProvide";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -29,7 +30,7 @@ export default async function RootLayout({
 				<body
 					className={cn(
 						poppins.variable,
-						"text-white bg-gray-100 ",
+						"text-white bg-gray-100 overflow-hidden ",
 					)}>
 					<NextTopLoader
 						color='#2299DD'
@@ -43,7 +44,9 @@ export default async function RootLayout({
 						shadow='0 0 10px #2299DD,0 0 5px #2299DD'
 					/>
 					<Navbar />
-					{children}
+					<ScrollArea className='w-full  h-screen overflow-hidden'>
+						<main className=''>{children}</main>
+					</ScrollArea>
 				</body>
 			</Provider>
 		</html>

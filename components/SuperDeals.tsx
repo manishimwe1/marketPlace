@@ -20,12 +20,12 @@ const SuperDeals = async ({}: // allProduct,
 	const allProduct: ProductType[] = await getAllProduct();
 
 	return (
-		<section className='mt-10 '>
+		<section className='mt-10 w-full'>
 			<h3 className='text-2xl font-bold text-stone-950 hover:underline hover:underline-offset-2 hover:cursor-pointer duration-100 hover:delay-100  w-fit'>
 				Today &apos;s Deals – All With Free Shipping
 			</h3>
 			{allProduct ? (
-				<div className='mt-4 p-6  rounded-3xl mx-2 select-none'>
+				<div className='mt-4 p-6  rounded-3xl mx-2 select-none w-full '>
 					<Carousel className='w-full px-2 '>
 						<CarouselContent className=' p2  w-full gap-3'>
 							{allProduct

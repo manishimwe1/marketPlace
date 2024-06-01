@@ -29,7 +29,7 @@ async function page() {
 	// });
 
 	return (
-		<>
+		<div className='w-full h-full  overflow-y-auto absolute inset-0'>
 			{/* <ImageComponent removedImage={removedImage} /> */}
 			<Menubar
 				allProductCategory={allProductCategory}
@@ -50,7 +50,7 @@ async function page() {
 			<div className='w-full h-full lg:hidden flex'>
 				<AboutUs />
 			</div>
-		</>
+		</div>
 	);
 }
 

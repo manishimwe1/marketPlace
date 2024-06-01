@@ -13,10 +13,10 @@ const Navbar = async () => {
 	const user = await auth();
 
 	return (
-		<header className='bg-primary w-full lg:h-20 sticky top-0 z-20'>
-			<div className='md:max-w-7xl w-full mx-auto flex  justify-between items-center gap-6 h-full py-4 lg:py-8'>
+		<header className='bg-primary w-full lg:h-20 sticky top-0 z-20 h-full'>
+			<div className='md:max-w-7xl w-full mx-auto flex  justify-between items-center gap-6 h-full py-2 lg:py-4'>
 				<Link href={"/"}>
-					<div className='relative h-14 w-20 cursor-pointer'>
+					<div className='relative h-10 lg:h-14 w-10 lg:w-20 cursor-pointer'>
 						<Image
 							src={"/logo.svg"}
 							fill
@@ -25,13 +25,13 @@ const Navbar = async () => {
 						/>
 					</div>
 				</Link>
-				<form className=' flex items-center gap-2 bg-secondary rounded-full pr-2 py-1 px-2 flex-1'>
+				<form className=' flex items-center gap-2 bg-secondary rounded-full pr-2 px-2 flex-1'>
 					<Input
 						className='outline-none rounded-full  w-full bg-secondary border-none text-stone-950 font-semibold'
 						placeholder='Search everything at online and in store'
 					/>
-					<div className='bg-primary flex rounded-full p-0.5 cursor-pointer'>
-						<MagnifyingGlassIcon className='w-8 h-8 text-muted p-1' />
+					<div className='bg-primary flex rounded-full p-0 lg:p-0.5 cursor-pointer'>
+						<MagnifyingGlassIcon className='w-6 h-6 lg:w-8 lg:h-8 text-muted p-1' />
 					</div>
 					<button type='submit' hidden>
 						search

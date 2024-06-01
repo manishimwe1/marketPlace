@@ -48,20 +48,20 @@ const Menubar = ({
 	// }, [scrollY.toFixed()]);
 
 	return (
-		<nav className='bg-primary py-8  w-full h-10 flex gap-6 items-center'>
+		<nav className='bg-primary py-2 lg:py-6  w-full h-8 lg:h-10 flex gap-6 items-center'>
 			<div className='max-w-7xl mx-auto py-8 flex justify-between items-center gap-6 h-full w-full'>
 				<NavigationMenu>
 					<NavigationMenuList>
 						<NavigationMenuItem>
 							<NavigationMenuTrigger>
 								<div className='flex gap-4 items-center'>
-									<Bars4Icon className='w-7 h-7' />
-									<p className='font-semibold text-lg'>
+									<Bars4Icon className='w-5 h-5 lg:w-7 lg:h-7' />
+									<p className='font-semibold text-sm lg:text-lg'>
 										All Categories
 									</p>
 								</div>
 							</NavigationMenuTrigger>
-							<NavigationMenuContent className='py-4'>
+							<NavigationMenuContent className=' py-2 lg:py-4 mr-4'>
 								<NavigationMenuLink>
 									{allProductCategory ? (
 										removeDuplicates(
@@ -77,14 +77,12 @@ const Menubar = ({
 														key={
 															category._id
 														}
-														href={`/product/categrized/${category.category._id}`}
+														href={`/product/categrized/${category._id}`}
 														className={cn(
 															"hover:underline hover:underline-offset-2 text-lg font-bold text-gray-500",
 														)}>
 														{
-															category
-																.category
-																.categoryName
+															category.categoryName
 														}
 													</Link>
 												</div>
