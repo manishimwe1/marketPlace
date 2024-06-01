@@ -12,22 +12,27 @@ const DashboardShopPage = async () => {
 	const StoreData: IStore[] = await getStore();
 
 	return (
-		<section className='flex-1 w-full h-full  lg:px-4 flex flex-col items-start py-4 bg-black/20'>
+		<section className='flex-1 w-full h-screen  lg:px-4 flex flex-col items-start py-20 bg-black/20'>
 			<div className=' w-full  flex justify-between items-center'>
 				<h2 className='title !text-purple-300'>
 					My Store
 				</h2>
-				<div className='justify-end lg:mr-20 hidden lg:inline-block'>
-					<Link
-						href={"/dashboard/create-store"}
-						className={cn(buttonVariants())}>
-						Create Store
-					</Link>
-				</div>
 			</div>
 
 			{StoreData.length <= 0 && (
-				<EmptyStatePage title='No store to found' />
+				<div className='flex h-full w-full flex-col gap-4'>
+					<EmptyStatePage title='No store to found' />
+					<div className='w-full flex justify-center'>
+						<Link
+							href={"/dashboard/create-store"}
+							className={cn(
+								buttonVariants(),
+								"w-fit",
+							)}>
+							Create Store
+						</Link>
+					</div>
+				</div>
 			)}
 
 			<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full gap-6 lg:gap-4 lg:px-0 mt-12 px-8'>
