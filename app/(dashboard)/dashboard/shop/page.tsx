@@ -7,19 +7,23 @@ import { Store } from "lucide-react";
 import { IStore } from "@/typing";
 import EmptyStatePage from "../_components/shared/emptyState";
 import ShopCard from "../_components/shared/ShopCard";
+import ShimmerButton from "@/components/ui/ShimmerBtn";
 
 const DashboardShopPage = async () => {
 	const StoreData: IStore[] = await getStore();
 
 	return (
-		<section className='flex-1 w-full h-screen  lg:px-4 flex flex-col items-start py-20 bg-black/20'>
-			<div className=' w-full  flex justify-between items-center'>
+		<section className='flex-1 w-full h-screen  lg:px-4 flex flex-col items-start py-10 bg-black/20 '>
+			<div className=' w-full  flex justify-between items-center '>
 				<h2 className='title !text-purple-300'>
 					My Store
 				</h2>
+				<Link href={"/dashboard/create-store"}>
+					<ShimmerButton title='Create Store' />
+				</Link>
 			</div>
 
-			{StoreData.length <= 0 && (
+			{StoreData.length === 0 && (
 				<div className='flex h-full w-full flex-col gap-4'>
 					<EmptyStatePage title='No store to found' />
 					<div className='w-full flex justify-center'>

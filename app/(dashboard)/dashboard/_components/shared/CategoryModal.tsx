@@ -81,7 +81,7 @@ const CategoryModal = ({
 	return (
 		<Dialog open={showModal}>
 			{editcategory ? (
-				<DialogContent className='bg-gradient !border-white/10 !text-purple-300'>
+				<DialogContent className='bg-black !border-white/10 !text-purple-300'>
 					<div className='flex gap-2 px-2 items-center bg-black/20'>
 						<Search className='h-5 w-5 ' />
 						<Input
@@ -173,7 +173,7 @@ const CategoryModal = ({
 					</DialogDescription>
 				</DialogContent>
 			) : (
-				<DialogContent className='bg-gradient !border-white/10 '>
+				<DialogContent className='bg-black !border-white/10 '>
 					<DialogHeader>
 						<DialogTitle className='title !text-purple-200 flex w-full items-center justify-between'>
 							Item category{" "}

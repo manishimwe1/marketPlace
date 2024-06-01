@@ -9,6 +9,7 @@ import { IStore } from "@/typing";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { randomUUID } from "crypto";
+import { redirect } from "next/navigation";
 
 export const createStore = async (
 	dataProps: z.infer<typeof createStoreSchema>,
@@ -32,6 +33,9 @@ export const createStore = async (
 		const store = await Store.create(data);
 
 		revalidatePath("/dashboard/shop");
+		revalidatePath("/");
 		return JSON.stringify(JSON.parse(store));
-	} catch (error) {}
+	} catch (error) {
+		console.log(error);
+	}
 };

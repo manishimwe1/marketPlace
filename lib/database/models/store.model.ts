@@ -5,17 +5,14 @@ const StoreSchema = new Schema({
 	name: {
 		type: String,
 		require: true,
-		unique: true,
 	},
 	description: {
 		type: String,
 		require: true,
-		unique: true,
 	},
 	location: {
 		type: String,
 		require: true,
-		unique: true,
 	},
 	storeId: {
 		type: String,
@@ -28,4 +25,4 @@ const StoreSchema = new Schema({
 });
 
 export const Store =
-	models.stories || model("stories", StoreSchema);
+	models.Stores || model("Stores", StoreSchema);

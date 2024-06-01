@@ -11,8 +11,8 @@ const ShopCard = ({
 }) => {
 	return (
 		<div className='bg-gradient-to-tr from-[#0c040b] to-[#1a010f] flex-grow p-2 rounded-sm shadow-sm shadow-[#000000] flex items-center justify-between  relative cursor-pointer'>
-			<div className='flex justify-start items-start flex-col gap-1 w-full'>
-				<p className='font-bold text-lg text-stone-600 capitalize text-nowrap'>
+			<div className='flex justify-start items-start flex-col gap-1 w-full '>
+				<p className='font-bold text-lg text-purple-300 capitalize text-nowrap '>
 					{data.name.split(" ")[0]}
 				</p>
 				<p className='line-clamp-1 ml-4 font-medium text-xs text-muted-foreground capitalize text-nowrap'>
@@ -33,12 +33,12 @@ const ShopCard = ({
 					</div>
 				</div>
 			</div>
-			<div className='absolute top-2 right-4 flex flex-col gap2'>
-				<div className='flex gap-2 items-center w-full'>
-					<p className=' font-semibold text-right text-sm '>
+			<div className='absolute top-2 right-4 flex flex-col '>
+				<div className='flex gap-2 items-center w-full  justify-between'>
+					<p className=' font-semibold text-right text-sm text-stone-400'>
 						Location
 					</p>
-					<MoreVerticalIcon className='text-sm text-stone-500 h-4 ' />
+					<MoreVerticalIcon className='text-sm text-stone-500 h-4  w-4 ' />
 				</div>
 				<p className=' font-semibold text-right text-xs text-muted-foreground '>
 					{data.location}
