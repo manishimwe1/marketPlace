@@ -28,7 +28,7 @@ const PopularCategory = ({
 									<div className='relative shadow-sm shadow-purple-500/20 p-2 bg-slate-200/20 w-36 h-36  rounded-full flex justify-center items-center'>
 										<h4 className='text-sm lg:text-base capitalize group-hover:underline group-hover:underline-offset-4 font-bold text-stone-950/80'>
 											{
-												product.category
+												product.categoryName
 											}
 										</h4>
 									</div>
