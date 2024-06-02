@@ -118,7 +118,11 @@ const SigninPage = () => {
 									</Button>
 								</form>
 							</Form>
-							<form action={handleSignIn}>
+							<form
+								action={async () => {
+									"use server";
+									await signIn("google");
+								}}>
 								<Button
 									type='submit'
 									className='w-full flex gap-4 saturate-200 brightness-100'>

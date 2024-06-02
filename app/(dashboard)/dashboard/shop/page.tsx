@@ -12,6 +12,7 @@ import ShimmerButton from "@/components/ui/ShimmerBtn";
 const DashboardShopPage = async () => {
 	const StoreData: IStore[] = await getStore();
 
+	if (!StoreData) return;
 	return (
 		<section className='flex-1 w-full h-screen  lg:px-4 flex flex-col items-start py-10 bg-black/20 '>
 			<div className=' w-full  flex justify-between items-center '>

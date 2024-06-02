@@ -18,6 +18,12 @@ const DashboardPage = async () => {
 		"66506276c5c5d98bf253ae04",
 	);
 	// console.log(StoreData, "STORE DATA");
+	if (!StoreData)
+		return (
+			<div>
+				<p>no data to show</p>
+			</div>
+		);
 
 	StoreData.map((data, i) =>
 		store.push({
@@ -33,12 +39,6 @@ const DashboardPage = async () => {
 		desc: "Earned ",
 	};
 
-	if (!StoreData)
-		return (
-			<div>
-				<p>no data to show</p>
-			</div>
-		);
 	return (
 		<div className='w-full h-full flex-1 bg-black/20'>
 			<ScrollArea className='w-full h-full flex-1 gap-4 py-2 flex space-x-3 flex-col px-2 lg:px-4'>
