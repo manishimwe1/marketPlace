@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { DeleteStoreAction } from "../../_actions/deleteStoreAction";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const ActionButtonPage = ({
 	storeId,
@@ -28,9 +29,12 @@ const ActionButtonPage = ({
 					Actions
 				</DropdownMenuLabel>
 				<DropdownMenuSeparator className='bg-white/10' />
-				<DropdownMenuItem className='hover:bg-black/70 curson-pointer '>
-					Edit
-				</DropdownMenuItem>
+				<Link
+					href={`/dashboard/shop/${storeId}/edit-shop`}>
+					<DropdownMenuItem className='!hover:bg-black/70 cursor-pointer  mb-2'>
+						Edit
+					</DropdownMenuItem>
+				</Link>
 
 				<DropdownMenuItem
 					onClick={() =>

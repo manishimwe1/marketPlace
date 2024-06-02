@@ -1,5 +1,7 @@
+import { signIn } from "@/auth";
 import UserButton from "@/components/UserButton";
 import SearchBox from "@/components/shared/SearchBox";
+import { Button } from "@/components/ui/button";
 import { auth } from "@/lib/auth";
 import {
 	BellAlertIcon,
@@ -30,6 +32,20 @@ const DashboardNav = async () => {
 					<UserIcon className='h-6 w-6 text-purple-200  cursor-pointer' />
 				</div>
 				<div className='bg-gradient-to-tr from-[#0c040b] to-[#1a010f] shadow-md shadow-[#0c040b] w-fit h-full p-2 rounded-full px-4'>
+					{!session && (
+						<form
+							className='w-full'
+							action={async () => {
+								"use server";
+								await signIn("google");
+							}}>
+							<Button
+								variant={"link"}
+								className='text-purple-300'>
+								Sign out
+							</Button>
+						</form>
+					)}
 					<UserButton />
 				</div>
 			</div>

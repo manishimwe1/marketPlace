@@ -42,10 +42,14 @@ export const getStoreById = async (id: string) => {
 			createAt: "asc",
 		});
 
-		if (!store) return;
+		if (!store) {
+			console.log("there is no store found");
+		}
 
 		return JSON.parse(JSON.stringify(store));
-	} catch (error) {}
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 export const getAllProductInStore = async (
