@@ -7,7 +7,7 @@ import ActionButtonPage from "./actionButton";
 
 const ShopCard = ({
 	data,
-	total
+	total,
 }: {
 	total: number;
 	data: IStore;
@@ -42,7 +42,7 @@ const ShopCard = ({
 					<p className=' font-semibold text-right text-sm text-stone-400'>
 						Location
 					</p>
-					<ActionButtonPage>
+					<ActionButtonPage />
 				</div>
 				<p className=' font-semibold text-right text-xs text-muted-foreground '>
 					{data.location}
