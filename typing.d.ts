@@ -72,6 +72,7 @@ export type IStore = {
 	name: string;
 	description: string;
 	location: string;
+	phoneOfOwner: string;
 	_id?: string;
 	createdAt?: Date;
 	updateAt?: Date;

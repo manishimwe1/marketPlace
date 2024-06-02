@@ -14,6 +14,10 @@ const StoreSchema = new Schema({
 		type: String,
 		require: true,
 	},
+	phoneOfOwner: {
+		type: String,
+		require: true,
+	},
 	storeId: {
 		type: String,
 		require: true,

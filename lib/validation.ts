@@ -29,6 +29,7 @@ export const createStoreSchema = z.object({
 		.max(2200),
 	image: z.string().max(2200),
 	location: z.string().min(4),
+	phoneOfOwner: z.string(),
 });
 export const signInSchema = z.object({
 	Email: z.string().email(),

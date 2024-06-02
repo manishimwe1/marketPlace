@@ -41,6 +41,7 @@ const CreateStorePage = () => {
 				description: "",
 				image: "",
 				location: "",
+				phoneOfOwner: "",
 			},
 		},
 	);
@@ -71,7 +72,7 @@ const CreateStorePage = () => {
 	}
 	return (
 		<div className='w-[50%] mx-auto mt-6'>
-			<div className='flex gap-3 lg:flex-row flex-col w-full min-h-screen text-stone-600'>
+			<div className='flex gap-3 lg:flex-row flex-col w-full h-full text-stone-600'>
 				<div className='w-full  px-4 '>
 					<h2 className='text-3xl font-bold text-slate-900 mb-6'>
 						Create Store
@@ -133,6 +134,25 @@ const CreateStorePage = () => {
 										<FormControl>
 											<Input
 												placeholder='eg:Rwanda Kigali'
+												{...field}
+											/>
+										</FormControl>
+
+										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name='phoneOfOwner'
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>
+											Phone of Owner
+										</FormLabel>
+										<FormControl>
+											<Input
+												placeholder='eg:+250799399930'
 												{...field}
 											/>
 										</FormControl>

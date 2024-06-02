@@ -2,13 +2,17 @@ import { MoreVerticalIcon, Store } from "lucide-react";
 import React from "react";
 import { IStore } from "@/typing";
 
+import ActionsButtonPage from "./actionButton";
+import ActionButtonPage from "./actionButton";
+
 const ShopCard = ({
 	data,
-	total,
+	total
 }: {
 	total: number;
 	data: IStore;
 }) => {
+	console.log(data);
 	return (
 		<div className='bg-gradient-to-tr from-[#0c040b] to-[#1a010f] flex-grow p-2 rounded-sm shadow-sm shadow-[#000000] flex items-center justify-between  relative cursor-pointer'>
 			<div className='flex justify-start items-start flex-col gap-1 w-full '>
@@ -19,8 +23,8 @@ const ShopCard = ({
 					{data.description}
 				</p>
 				<div className=' flex justify-between items-baseline w-full '>
-					<p className='title flex-1 !text-stone-400'>
-						{total}
+					<p className='title flex-1 !text-stone-400 text-[11px]'>
+						{data.phoneOfOwner}
 					</p>
 					<div className='text-[11px] mr-1 relative bg-purple-200/30 py-1 px-2  rounded-full font-semibold  shadow-sm shadow-black/20 text-stone-400'>
 						<p>Open</p>
@@ -38,7 +42,7 @@ const ShopCard = ({
 					<p className=' font-semibold text-right text-sm text-stone-400'>
 						Location
 					</p>
-					<MoreVerticalIcon className='text-sm text-stone-500 h-4  w-4 ' />
+					<ActionButtonPage>
 				</div>
 				<p className=' font-semibold text-right text-xs text-muted-foreground '>
 					{data.location}
