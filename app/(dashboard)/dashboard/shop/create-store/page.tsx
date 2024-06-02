@@ -19,7 +19,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { createStore } from "../_actions/createStoreActions";
+import { createStore } from "../../_actions/createStoreActions";
 
 const CreateStorePage = () => {
 	const { toast } = useToast();
@@ -71,10 +71,10 @@ const CreateStorePage = () => {
 		}
 	}
 	return (
-		<div className='w-[50%] mx-auto mt-6'>
+		<div className='w-[50%] mx-auto mt-6 h-full '>
 			<div className='flex gap-3 lg:flex-row flex-col w-full h-full text-stone-600'>
 				<div className='w-full  px-4 '>
-					<h2 className='text-3xl font-bold text-slate-900 mb-6'>
+					<h2 className='text-3xl font-bold text-purple-300 mb-6'>
 						Create Store
 					</h2>
 					<Form {...form}>
@@ -93,6 +93,7 @@ const CreateStorePage = () => {
 										</FormLabel>
 										<FormControl>
 											<Input
+												className='input_field'
 												placeholder='Store Name'
 												{...field}
 											/>
@@ -113,6 +114,7 @@ const CreateStorePage = () => {
 										<FormControl>
 											<Textarea
 												rows={5}
+												className='input_field'
 												placeholder='Description'
 												{...field}
 											/>
@@ -133,6 +135,7 @@ const CreateStorePage = () => {
 										</FormLabel>
 										<FormControl>
 											<Input
+												className='input_field'
 												placeholder='eg:Rwanda Kigali'
 												{...field}
 											/>
@@ -152,6 +155,7 @@ const CreateStorePage = () => {
 										</FormLabel>
 										<FormControl>
 											<Input
+												className='input_field'
 												placeholder='eg:+250799399930'
 												{...field}
 											/>

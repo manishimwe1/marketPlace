@@ -35,6 +35,9 @@
 	.bg-gradient {
 		@apply bg-gradient-to-tr from-[#180916] to-[#1a010f] backdrop:filter backdrop-saturate-150;
 	}
+	.input_field {
+		@apply !bg-black/40 !text-purple-200 !border-white/10;
+	}
 }
 
 @layer base {

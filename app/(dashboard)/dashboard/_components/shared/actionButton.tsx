@@ -1,3 +1,5 @@
+"use client";
+
 import { MoreVerticalIcon, Store } from "lucide-react";
 
 import {
@@ -8,23 +10,34 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { DeleteStoreAction } from "../../_actions/deleteStoreAction";
+import { Button } from "@/components/ui/button";
 
-const ActionButtonPage = async () => {
+const ActionButtonPage = ({
+	storeId,
+}: {
+	storeId: string;
+}) => {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger>
 				<MoreVerticalIcon className='text-sm text-stone-500 h-4  w-4 ' />
 			</DropdownMenuTrigger>
-			<DropdownMenuContent>
+			<DropdownMenuContent className='bg-gradient border-white/10 hover:bg-black/60 text-purple-300 gap-2'>
 				<DropdownMenuLabel>
-					My Account
+					Actions
 				</DropdownMenuLabel>
-				<DropdownMenuSeparator />
-				<DropdownMenuItem>Profile</DropdownMenuItem>
-				<DropdownMenuItem>Billing</DropdownMenuItem>
-				<DropdownMenuItem>Team</DropdownMenuItem>
-				<DropdownMenuItem>
-					Subscription
+				<DropdownMenuSeparator className='bg-white/10' />
+				<DropdownMenuItem className='hover:bg-black/70 curson-pointer '>
+					Edit
+				</DropdownMenuItem>
+
+				<DropdownMenuItem
+					onClick={() =>
+						DeleteStoreAction(storeId)
+					}
+					className='hover:bg-black/70 curson-pointer bg-red-500'>
+					Delete
 				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>

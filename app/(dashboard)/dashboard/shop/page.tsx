@@ -14,12 +14,12 @@ const DashboardShopPage = async () => {
 
 	if (!StoreData) return;
 	return (
-		<section className='flex-1 w-full h-screen  lg:px-4 flex flex-col items-start py-10 bg-black/20 '>
+		<section className='flex-1 w-full h-screen  lg:px-4 flex flex-col items-start py-20 bg-black/20 '>
 			<div className=' w-full  flex justify-between items-center '>
 				<h2 className='title !text-purple-300'>
 					My Store
 				</h2>
-				<Link href={"/dashboard/create-store"}>
+				<Link href={"/dashboard/shop/create-store"}>
 					<ShimmerButton title='Create Store' />
 				</Link>
 			</div>
@@ -29,7 +29,9 @@ const DashboardShopPage = async () => {
 					<EmptyStatePage title='No store to found' />
 					<div className='w-full flex justify-center'>
 						<Link
-							href={"/dashboard/create-store"}
+							href={
+								"/dashboard/shop/create-store"
+							}
 							className={cn(
 								buttonVariants(),
 								"w-fit",
@@ -40,7 +42,7 @@ const DashboardShopPage = async () => {
 				</div>
 			)}
 
-			<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full gap-6 lg:gap-4 lg:px-0 mt-4 px-8'>
+			<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 w-full gap-6 lg:gap-4 lg:px-0 mt-4 px-8'>
 				{StoreData.map((data) => (
 					<Link
 						key={data._id}
