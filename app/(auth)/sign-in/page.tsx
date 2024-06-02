@@ -1,46 +1,11 @@
-"use client";
-
-import {
-	Button,
-	buttonVariants,
-} from "@/components/ui/button";
-import {
-	Form,
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { handleSignIn } from "@/lib/actions/user.actions";
-import { signIn } from "@/lib/auth";
-import { cn } from "@/lib/utils";
-import { signInSchema } from "@/lib/validation";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { signInActions } from "./_actions/signInAction";
+import SignInForm from "./_components/SignInForm";
+import { signIn } from "@/auth";
 
 const SigninPage = () => {
-	// useEffect(() => {
-	// 	handleSignIn();
-	// }, []);
-
-	const form = useForm<z.infer<typeof signInSchema>>({
-		resolver: zodResolver(signInSchema),
-		defaultValues: {
-			Email: "",
-			password: "",
-		},
-	});
-
-	function onSubmit(
-		values: z.infer<typeof signInSchema>,
-	) {
-		console.log(values);
-	}
 	return (
 		<section className='max-container'>
 			<div className='flex gap-2 text-stone-950  saturate-100 brightness-75 shadow-md shadow-purple-950/20 rounded-3xl px-12 py-8'>
@@ -58,66 +23,7 @@ const SigninPage = () => {
 							details
 						</p>
 						<div className='flex flex-col gap-4'>
-							<Form {...form}>
-								<form
-									onSubmit={form.handleSubmit(
-										onSubmit,
-									)}
-									className='space-y-8'>
-									<FormField
-										control={
-											form.control
-										}
-										name='Email'
-										render={({
-											field,
-										}) => (
-											<FormItem>
-												<FormLabel>
-													Email
-												</FormLabel>
-												<FormControl>
-													<Input
-														placeholder='johndoe@gmail.com'
-														{...field}
-													/>
-												</FormControl>
-
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
-									<FormField
-										control={
-											form.control
-										}
-										name='password'
-										render={({
-											field,
-										}) => (
-											<FormItem>
-												<FormLabel>
-													Password
-												</FormLabel>
-												<FormControl>
-													<Input
-														type='password'
-														{...field}
-													/>
-												</FormControl>
-
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
-
-									<Button
-										type='submit'
-										className='w-full'>
-										Sign in
-									</Button>
-								</form>
-							</Form>
+							<SignInForm />
 							<form
 								action={async () => {
 									"use server";
