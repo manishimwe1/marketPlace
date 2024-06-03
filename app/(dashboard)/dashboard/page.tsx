@@ -1,15 +1,12 @@
+import { getFirstWord } from "@/lib/utils";
+import { IStore } from "@/typing";
 import Link from "next/link";
 import {
 	getAllProductInStore,
 	getStore,
 } from "./_actions/getData";
 import DashboardCard from "./_components/DashboardCard";
-import RightSideCard from "./_components/RightSideCard";
 import { ChartBar } from "./_components/shared/chartComponent";
-import { getFirstWord } from "@/lib/utils";
-import { Item } from "@radix-ui/react-dropdown-menu";
-import { IStore } from "@/typing";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 const DashboardPage = async () => {
 	const StoreData: IStore[] = await getStore();

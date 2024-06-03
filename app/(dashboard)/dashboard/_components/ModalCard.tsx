@@ -1,10 +1,6 @@
 "use client";
 
 import {
-	Button,
-	buttonVariants,
-} from "@/components/ui/button";
-import {
 	Dialog,
 	DialogContent,
 	DialogDescription,
@@ -12,7 +8,6 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
 import { useState } from "react";
 
 const ModalCard = () => {

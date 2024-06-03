@@ -1,17 +1,13 @@
-import { PinContainer } from "@/components/ui/3d-pin";
-import ShimmerButton from "@/components/ui/ShimmerBtn";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { ProductType } from "@/typing";
-import Image from "next/image";
 import Link from "next/link";
 import { getAllProductInStore } from "../../_actions/getData";
-import { DataTable } from "../../_components/data-table";
 import {
 	Payment,
 	columns,
 } from "../../_components/columns";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { DataTable } from "../../_components/data-table";
 
 type Props = {
 	params: { id: string };
