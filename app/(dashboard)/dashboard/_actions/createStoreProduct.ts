@@ -4,9 +4,8 @@ import { getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@/lib/auth";
 import { connectToDB } from "@/lib/database/db.config";
 import { Product } from "@/lib/database/models/product.model";
-import { IStore, ProductType } from "@/typing";
+import { ProductType } from "@/typing";
 import { revalidatePath } from "next/cache";
-import { getStoreById } from "./getData";
 import { redirect } from "next/navigation";
 
 export const createProduct = async (
@@ -28,14 +27,6 @@ export const createProduct = async (
 			return console.log("there is no product");
 		}
 
-		// const storeId: IStore = await getStoreById(
-		// 	product._id,
-		// );
-		// if (!storeId) {
-		// 	return console.log(
-		// 		">>>>> No store found try again",
-		// 	);
-		// }
 		const data = {
 			image: product.image,
 			title: product.title,

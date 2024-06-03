@@ -1,7 +1,4 @@
-import {
-	BuildingStorefrontIcon,
-	TruckIcon,
-} from "@heroicons/react/24/solid";
+import { TruckIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 const DashbaordCard = ({
