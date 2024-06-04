@@ -22,12 +22,6 @@ async function page() {
 	const superDealProduct: ProductType[] =
 		await getSuperDeals();
 
-	// removeBgFromPicsArt(
-	// 	"https://utfs.io/f/913dee97-7e6f-4049-9786-8a4f40a1c498-ell9xm.jpg",
-	// ).then((image) => {
-	// 	console.log("HERE++>", image);
-	// });
-
 	return (
 		<div className='w-full h-full  overflow-y-auto absolute inset-0'>
 			{/* <ImageComponent removedImage={removedImage} /> */}

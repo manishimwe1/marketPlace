@@ -8,20 +8,6 @@ import { getCategoryByID } from "./category.actions";
 import { getUserById } from "./user.actions";
 import { ICategory, ProductType } from "@/typing";
 
-// export type ProductType = {
-// 	image: string;
-// 	title: string;
-// 	description: string;
-// 	price: string;
-// 	category?: string;
-// 	location: string;
-// 	freeDelivery: boolean;
-// 	deliveryFee: string;
-// 	stock: string;
-// 	sellerId?: string;
-// 	SuperDeals?: string;
-// };
-
 export const getAllProduct = async () => {
 	try {
 		await connectToDB();
