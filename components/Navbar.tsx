@@ -50,7 +50,8 @@ const Navbar = async () => {
 							}}>
 							<Button
 								variant={"link"}
-								type='submit'>
+								type='submit'
+								className='text-purple-100'>
 								Sign in
 							</Button>
 						</form>

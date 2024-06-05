@@ -11,7 +11,7 @@ import {
 	NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { Button, buttonVariants } from "../ui/button";
 import Link from "next/link";
 
@@ -55,8 +55,8 @@ const MenuNavigation = ({
 							) : (
 								<div>
 									<form
-										action={
-											handleSignIn
+										action={async () =>
+											signIn("google")
 										}
 										className=' !p-0'>
 										<Button className='rounded-full text-slate-100'>
