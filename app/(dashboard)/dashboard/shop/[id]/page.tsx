@@ -8,6 +8,7 @@ import {
 	columns,
 } from "../../_components/columns";
 import { DataTable } from "../../_components/data-table";
+import DashboardHeaderBox from "../../_components/shared/DashboardHeaderBox";
 
 type Props = {
 	params: { id: string };
@@ -236,20 +237,15 @@ const storePage = async ({ params: { id } }: Props) => {
 	const data = await getData();
 
 	return (
-		<section className='w-full h-full !mt-0 !py-10 flex items-start justify-center flex-col gap-4'>
-			<div className=' w-full  flex justify-between items-center'>
-				<h2 className='title !text-purple-300'>
-					My product lists
-				</h2>
-				<div className='justify-end lg:mr-20 hidden lg:inline-block'>
-					<Link
-						href={`/dashboard/shop/create-product/${id}`}
-						className={cn(buttonVariants())}>
-						Create Product Listing
-					</Link>
-				</div>
+		<section className='w-full min-h-screen max-wrapper  flex items-start justify-center flex-col gap-8 lg:gap-20'>
+			<DashboardHeaderBox
+				title='My product lists'
+				buttonText='Create Product Listing'
+				href={`/dashboard/shop/create-product/${id}`}
+			/>
+			<div className='h-full w-full '>
+				<DataTable columns={columns} data={data} />
 			</div>
-			<DataTable columns={columns} data={data} />
 		</section>
 		// <section className='h-full py-4 items-start justify-center'>
 		// 	{product ? (

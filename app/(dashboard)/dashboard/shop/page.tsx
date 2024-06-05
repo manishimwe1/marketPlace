@@ -8,6 +8,7 @@ import { IStore } from "@/typing";
 import EmptyStatePage from "../_components/shared/emptyState";
 import ShopCard from "../_components/shared/ShopCard";
 import ShimmerButton from "@/components/ui/ShimmerBtn";
+import DashboardHeaderBox from "../_components/shared/DashboardHeaderBox";
 
 const DashboardShopPage = async () => {
 	const StoreData: IStore[] = await getStore();
@@ -15,14 +16,11 @@ const DashboardShopPage = async () => {
 	if (!StoreData) return;
 	return (
 		<section className='flex-1 w-full h-screen  lg:px-4 flex flex-col items-start max-wrapper'>
-			<div className=' w-full  flex justify-between items-center lg:px-20 '>
-				<h2 className='title !text-purple-300'>
-					My Store
-				</h2>
-				<Link href={"/dashboard/shop/create-store"}>
-					<ShimmerButton title='Create Store' />
-				</Link>
-			</div>
+			<DashboardHeaderBox
+				title='My Store'
+				buttonText='Create Store'
+				href='/dashboard/shop/create-store'
+			/>
 
 			{StoreData.length === 0 && (
 				<div className='flex h-full w-full flex-col gap-4'>

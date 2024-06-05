@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { auth } from "../auth";
+import { auth } from "@/auth";
 import { connectToDB } from "../database/db.config";
 import { Product } from "../database/models/product.model";
 import { getCategoryByID } from "./category.actions";

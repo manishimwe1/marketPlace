@@ -30,7 +30,7 @@ export default async function RootLayout({
 					<DashboardNav />
 					<main className='flex w-full gap-3  h-screen relative items-start justify-between overflow-hidden '>
 						<DashBoardSideNav />
-						<ScrollArea className=' shadow-md shadow-purple-700/20 bg-black/20 w-full h-screen pb-32 !px-0'>
+						<ScrollArea className=' shadow-md shadow-purple-700/20 bg-black/20 w-full h-screen pb-8 !px-0'>
 							{children}
 						</ScrollArea>
 						<Toaster />

@@ -1,7 +1,7 @@
 "use server";
 
 import { CategoryType } from "@/typing";
-import { auth } from "../auth";
+import { auth } from "@/auth";
 import { connectToDB } from "../database/db.config";
 import { Category } from "../database/models/category.model";
 import { getUserById } from "./user.actions";
