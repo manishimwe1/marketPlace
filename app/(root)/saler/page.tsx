@@ -2,8 +2,7 @@ import {
 	Button,
 	buttonVariants,
 } from "@/components/ui/button";
-import { handleSignIn } from "@/lib/actions/user.actions";
-import { auth } from "@/lib/auth";
+import { auth } from "@/auth";
 import { cn } from "@/lib/utils";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { ArrowRight } from "lucide-react";
@@ -28,7 +27,7 @@ const page = async () => {
 						</span>
 					</p>
 				</div>
-				{session?.user ? (
+				{session?.user? ? (
 					<Link
 						href={"/dashboard/shop"}
 						className={cn(buttonVariants())}>

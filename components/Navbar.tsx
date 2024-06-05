@@ -1,4 +1,3 @@
-import { handleSignIn } from "@/lib/actions/user.actions";
 import { UserIcon } from "@heroicons/react/24/outline";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { useSession } from "next-auth/react";
@@ -7,7 +6,7 @@ import ShoppingCart from "./ShoppingCart";
 import UserButton from "./UserButton";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { auth } from "@/lib/auth";
+import { auth, signIn } from "@/auth";
 import Link from "next/link";
 const Navbar = async () => {
 	const user = await auth();
@@ -44,11 +43,14 @@ const Navbar = async () => {
 						<UserIcon className='lg:w-8  w-6 lg:h-8' />
 
 						<form
-							action={handleSignIn}
-							className=' !p-0'>
+							className='w-full'
+							action={async () => {
+								"use server";
+								await signIn("google");
+							}}>
 							<Button
 								variant={"link"}
-								className='!p-0 text-slate-100'>
+								type='submit'>
 								Sign in
 							</Button>
 						</form>

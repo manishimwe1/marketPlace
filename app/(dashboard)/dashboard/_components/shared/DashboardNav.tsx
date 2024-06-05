@@ -2,7 +2,7 @@ import { signIn } from "@/auth";
 import UserButton from "@/components/UserButton";
 import SearchBox from "@/components/shared/SearchBox";
 import { Button } from "@/components/ui/button";
-import { auth } from "@/lib/auth";
+import { auth } from "@/auth";
 import {
 	BellAlertIcon,
 	UserIcon,
@@ -41,8 +41,8 @@ const DashboardNav = async () => {
 							}}>
 							<Button
 								variant={"link"}
-								className='text-purple-300'>
-								Sign out
+								className='text-purple-300 hover:text-purple-200'>
+								Sign in
 							</Button>
 						</form>
 					)}

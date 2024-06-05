@@ -1,7 +1,7 @@
 "use server";
 
 import { getUserById } from "@/lib/actions/user.actions";
-import { auth } from "@/lib/auth";
+import { auth } from "@/auth";
 import { connectToDB } from "@/lib/database/db.config";
 import { Store } from "@/lib/database/models/store.model";
 import { createStoreSchema } from "@/lib/validation";
@@ -18,7 +18,7 @@ export const createStore = async (
 	try {
 		await connectToDB();
 		const user = await getUserById(
-			session?.user.email || "",
+			session?.user?.email || "",
 		);
 		if (!user) {
 			throw new Error(

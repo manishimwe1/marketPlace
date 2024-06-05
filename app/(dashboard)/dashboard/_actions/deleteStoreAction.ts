@@ -1,7 +1,7 @@
 "use server";
 
 import { getUserById } from "@/lib/actions/user.actions";
-import { auth } from "@/lib/auth";
+import { auth } from "@/auth";
 import { connectToDB } from "@/lib/database/db.config";
 import { Store } from "@/lib/database/models/store.model";
 import { revalidatePath } from "next/cache";
@@ -13,7 +13,7 @@ export const DeleteStoreAction = async (
 	try {
 		await connectToDB();
 		const user = await getUserById(
-			session?.user.email || "",
+			session?.user?.email || "",
 		);
 		if (!storeId) return;
 		if (!user) {

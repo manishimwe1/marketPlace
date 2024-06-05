@@ -38,6 +38,9 @@
 	.input_field {
 		@apply !bg-black/40 !text-purple-200 !border-white/10;
 	}
+	.max-wrapper {
+		@apply max-w-5xl mx-auto py-20;
+	}
 }
 
 @layer base {

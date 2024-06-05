@@ -14,8 +14,8 @@ const DashboardShopPage = async () => {
 
 	if (!StoreData) return;
 	return (
-		<section className='flex-1 w-full h-screen  lg:px-4 flex flex-col items-start py-20 bg-black/20 '>
-			<div className=' w-full  flex justify-between items-center '>
+		<section className='flex-1 w-full h-screen  lg:px-4 flex flex-col items-start max-wrapper'>
+			<div className=' w-full  flex justify-between items-center lg:px-20 '>
 				<h2 className='title !text-purple-300'>
 					My Store
 				</h2>
@@ -42,7 +42,7 @@ const DashboardShopPage = async () => {
 				</div>
 			)}
 
-			<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 w-full gap-6 lg:gap-4 lg:px-0 mt-4 px-8'>
+			<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 w-full gap-6 lg:gap-4 lg:px-0 mt-4 px-8'>
 				{StoreData.map((data) => (
 					<Link
 						key={data._id}

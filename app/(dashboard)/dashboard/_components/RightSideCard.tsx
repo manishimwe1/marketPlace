@@ -1,4 +1,4 @@
-import { auth } from "@/lib/auth";
+import { auth } from "@/auth";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -16,7 +16,7 @@ const RightSideCard = async () => {
 			{session && (
 				<div className='flex flex-col items-start justify-center p-3'>
 					<Image
-						src={session?.user?.image ?? ""}
+						src={session?.user??.image ?? ""}
 						alt='hand'
 						// placeholder="blur"
 						width={80}

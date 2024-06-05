@@ -16,7 +16,7 @@ export const saveCategory = async (
 		await connectToDB();
 
 		const user = await getUserById(
-			session?.user.email || "",
+			session?.user?.email || "",
 		);
 		if (!user) {
 			throw new Error(

@@ -10,7 +10,6 @@ import {
 	NavigationMenuTrigger,
 	NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
-import { handleSignIn } from "@/lib/actions/user.actions";
 import { cn } from "@/lib/utils";
 import { useSession } from "next-auth/react";
 import { Button, buttonVariants } from "../ui/button";

@@ -9,13 +9,12 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { handleSignout } from "@/lib/actions/user.actions";
-import { auth } from "@/lib/auth";
+import { auth, signIn, signOut } from "@/auth";
 import { Button } from "./ui/button";
 
 const UserButton = async () => {
 	const session = await auth();
-	// console.log(session?.user.name?);
+	// console.log(session?.user?.name?);
 
 	return (
 		<>
@@ -50,8 +49,13 @@ const UserButton = async () => {
 						<DropdownMenuItem>
 							<form
 								className='w-full'
-								action={handleSignout}>
-								<Button variant={"link"}>
+								action={async () => {
+									"use server";
+									await signOut();
+								}}>
+								<Button
+									variant={"link"}
+									type='submit'>
 									Sign out
 								</Button>
 							</form>
