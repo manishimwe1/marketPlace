@@ -77,7 +77,8 @@ function SelectField({
 				setNewCategory(category._id);
 				setIsOpen(!isOpen);
 				setCategoryId(category._id);
-				setShowModal(true);
+				//TODO:emplement this modal of coplex category
+				// setShowModal(true);
 			},
 		);
 	};
@@ -86,16 +87,19 @@ function SelectField({
 	};
 	return (
 		<Select onValueChange={onFieldChange}>
-			<SelectTrigger className='w-full'>
-				<SelectValue placeholder='Category' />
+			<SelectTrigger className='w-full bg-gradient border-white/10'>
+				<SelectValue
+					placeholder='Category'
+					className='!bg-gradient'
+				/>
 			</SelectTrigger>
-			<SelectContent>
+			<SelectContent className='bg-gradient border-white/20 text-purple-200'>
 				{Category?.length ? (
 					Category.map((items) => (
 						<SelectItem
 							key={items._id}
 							value={items.categoryName}
-							className='capitalize cursor-pointer hover:!bg-purple-500 font-semibold '>
+							className='capitalize cursor-pointer hover:!bg-purple-500 font-semibold  '>
 							{items.categoryName}
 						</SelectItem>
 					))

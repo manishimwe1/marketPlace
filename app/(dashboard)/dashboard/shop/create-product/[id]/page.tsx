@@ -25,6 +25,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { createProduct } from "../../../_actions/createStoreProduct";
 import CreateProductFormCard from "@/app/(dashboard)/dashboard/_components/shared/CreateProductFormCard";
+import { useToast } from "@/components/ui/use-toast";
 type Props = {
 	params: { id: string };
 };
@@ -40,9 +41,6 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 	const [isSubmiting, setIsSubmiting] = useState(false);
 	const router = useRouter();
 	const { startUpload } = useUploadThing("imageUploader");
-
-	const [showProductImage, setShowProductImage] =
-		useState<string>("");
 
 	//smallCardImageView
 	const [frontView, setFrontView] = useState<
@@ -62,6 +60,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 	const [bottomView, setBottomView] = useState<
 		string | undefined
 	>();
+	const { toast } = useToast();
 
 	console.log("FRONTVIEW>>>>>", frontView);
 
@@ -94,6 +93,9 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 		values: z.infer<typeof createProductSchemma>,
 	) {
 		setIsSubmiting(true);
+		toast({
+			title: "Creating product...",
+		});
 
 		let uploadedImageUrl = values.image;
 
@@ -123,17 +125,23 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 			setSwitcherState(!switcherState);
 			setIsSubmiting(false);
 			form.reset();
+			toast({
+				title: "Creating product successfully.",
+				description:
+					"Your product has been created!",
+			});
 		} catch (error) {
 			console.log(error);
 		} finally {
 			setIsSubmiting(false);
+			router.push(`/dashboard/shop/${id}`);
 		}
 	}
 	return (
 		<div className='max-w-4xl mx-auto h-full px-3 py-8 overflow-y-auto mb-10'>
 			<div className='flex gap-3 lg:flex-row flex-col w-full min-h-screen text-stone-600'>
 				<div className=' w-full  px-4 lg:px-12 '>
-					<h2 className='text-3xl w-full  font-bold text-purple-100 text-center text-balance capitalize mb-6'>
+					<h2 className='text-3xl w-full  font-bold text-purple-100 text-center lg:text-left  text-balance capitalize mb-6'>
 						complete creating product
 					</h2>
 					<div className='flex flex-col w-full gap-2 mb-6'>
@@ -148,23 +156,6 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 								Tips for taking pro photos
 							</span>
 						</p>
-
-						{frontView && (
-							<Image
-								src={frontView}
-								alt='kk'
-								width={40}
-								height={40}
-							/>
-						)}
-						{topView && (
-							<Image
-								src={topView}
-								alt='kk'
-								width={40}
-								height={40}
-							/>
-						)}
 					</div>
 
 					<Form {...form}>
@@ -194,9 +185,6 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 																field.onChange
 															}
 															{...field}
-															setShowProductImage={
-																setShowProductImage
-															}
 														/>
 													</div>
 												</FormControl>
@@ -268,7 +256,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 										</FormLabel>
 										<FormControl>
 											<Input
-												className='bg-gradient'
+												className='bg-gradient border-white/10 text-purple-200'
 												placeholder='eg: Ai max pro'
 												{...field}
 											/>
@@ -288,6 +276,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 										</FormLabel>
 										<FormControl>
 											<Textarea
+												className='bg-gradient border-white/10 text-purple-200'
 												rows={5}
 												placeholder='eg: Description'
 												{...field}
@@ -309,6 +298,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 											</FormLabel>
 											<FormControl>
 												<Input
+													className='bg-gradient border-white/10 text-purple-200'
 													placeholder='eg: 1000'
 													{...field}
 												/>
@@ -328,6 +318,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 											</FormLabel>
 											<FormControl>
 												<Input
+													className='bg-gradient border-white/10 text-purple-200'
 													placeholder='eg: 100'
 													{...field}
 												/>
@@ -347,6 +338,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 											</FormLabel>
 											<FormControl>
 												<Input
+													className='bg-gradient border-white/10 text-purple-200'
 													placeholder='eg: 20'
 													{...field}
 												/>
@@ -388,6 +380,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 											</FormLabel>
 											<FormControl>
 												<Input
+													className='bg-gradient border-white/10 text-purple-200'
 													{...field}
 												/>
 											</FormControl>
@@ -433,6 +426,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 											</FormLabel>
 											<FormControl>
 												<Input
+													className='bg-gradient border-white/10 text-purple-200'
 													disabled={
 														switcherState ===
 														true

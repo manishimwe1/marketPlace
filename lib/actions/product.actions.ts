@@ -1,12 +1,9 @@
 "use server";
 
+import { ICategory } from "@/typing";
 import { revalidatePath } from "next/cache";
-import { auth } from "@/auth";
 import { connectToDB } from "../database/db.config";
 import { Product } from "../database/models/product.model";
-import { getCategoryByID } from "./category.actions";
-import { getUserById } from "./user.actions";
-import { ICategory, ProductType } from "@/typing";
 
 export const getAllProduct = async () => {
 	try {
