@@ -62,7 +62,7 @@ const CategoryModal = ({
 			}
 		};
 		Promise.all([getAllCategory(), getCategories()]);
-	}, [selectedCategory]);
+	}, [allCategory, categoryId]);
 	const data = [
 		{
 			categoryName: "For men",

@@ -16,7 +16,7 @@ export const createProduct = async (
 		await connectToDB();
 
 		const seller = await getUserById(
-			user?.user.email || "",
+			user?.user?.email || "",
 		);
 		if (!seller) {
 			throw new Error(
