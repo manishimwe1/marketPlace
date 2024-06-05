@@ -16,7 +16,7 @@ const RightSideCard = async () => {
 			{session && (
 				<div className='flex flex-col items-start justify-center p-3'>
 					<Image
-						src={session?.user??.image ?? ""}
+						src={session?.user?.image ?? ""}
 						alt='hand'
 						// placeholder="blur"
 						width={80}
@@ -25,11 +25,11 @@ const RightSideCard = async () => {
 					/>
 					<div className='text-purple-300  flex cursor-pointer'>
 						<p className='font-semibold text-base mr-2'>
-							{session.user.name}
+							{session.user?.name}
 						</p>
 					</div>
 					<p className='text-muted-foreground  flex cursor-pointer'>
-						{session.user.email}
+						{session.user?.email}
 					</p>
 				</div>
 			)}
