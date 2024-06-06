@@ -3,238 +3,20 @@ import { cn } from "@/lib/utils";
 import { ProductType } from "@/typing";
 import Link from "next/link";
 import { getAllProductInStore } from "../../_actions/getData";
-import {
-	Payment,
-	columns,
-} from "../../_components/columns";
+import { columns } from "../../_components/columns";
 import { DataTable } from "../../_components/data-table";
 import DashboardHeaderBox from "../../_components/shared/DashboardHeaderBox";
 
 type Props = {
 	params: { id: string };
 };
-async function getData(): Promise<Payment[]> {
-	// Fetch data from your API here.
-	return [
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		{
-			id: "1",
-			amount: 100,
-			status: "pending",
-			email: "m@example.com",
-			name: "Manishimwe",
-		},
-		// ...
-	];
-}
+
 const storePage = async ({ params: { id } }: Props) => {
 	const product: ProductType[] =
 		await getAllProductInStore(id);
 	// const store: StoreType[] = await getStoreById(id);
 
-	const data = await getData();
+	console.log(product, "this is product>>>>");
 
 	return (
 		<section className='w-full min-h-screen max-wrapper  flex items-start justify-center flex-col gap-8 lg:gap-20'>
@@ -244,7 +26,12 @@ const storePage = async ({ params: { id } }: Props) => {
 				href={`/dashboard/shop/create-product/${id}`}
 			/>
 			<div className='h-full w-full '>
-				<DataTable columns={columns} data={data} />
+				{product && (
+					<DataTable
+						columns={columns}
+						data={product}
+					/>
+				)}
 			</div>
 		</section>
 		// <section className='h-full py-4 items-start justify-center'>

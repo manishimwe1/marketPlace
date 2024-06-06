@@ -14,6 +14,8 @@ const DashboardShopPage = async () => {
 	const StoreData: IStore[] = await getStore();
 
 	if (!StoreData) return;
+	console.log(StoreData[0].storeId, "ID>>>>>>>>>>>>>>>");
+
 	return (
 		<section className='flex-1 w-full h-screen  lg:px-4 flex flex-col items-start max-wrapper'>
 			<DashboardHeaderBox

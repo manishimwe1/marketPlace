@@ -15,16 +15,17 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
+import { ProductType } from "@/typing";
 
-interface DataTableProps<TData, TValue> {
-	columns: ColumnDef<TData, TValue>[];
-	data: TData[];
+interface DataTableProps<ProductType, TValue> {
+	columns: ColumnDef<ProductType, TValue>[];
+	data: ProductType[];
 }
 
-export function DataTable<TData, TValue>({
+export function DataTable<ProductType, TValue>({
 	columns,
 	data,
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<ProductType, TValue>) {
 	const table = useReactTable({
 		data,
 		columns,
@@ -57,7 +58,7 @@ export function DataTable<TData, TValue>({
 																.columnDef
 																.header,
 															header.getContext(),
-													  )}
+														)}
 											</TableHead>
 										);
 									},

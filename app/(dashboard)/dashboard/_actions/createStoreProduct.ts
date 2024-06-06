@@ -39,7 +39,7 @@ export const createProduct = async (
 			stock: product.stock,
 			category: product.category,
 			sellerId: seller._id as string,
-			storeId: product._id,
+			storeId: product.storeId,
 			provedByAdmin: false,
 		};
 

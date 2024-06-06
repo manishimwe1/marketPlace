@@ -63,6 +63,7 @@ export const getAllProductInStore = async (
 		}).sort({
 			createdAt: "desc",
 		});
+		// .select(["title", "description",]);
 
 		if (!product)
 			return console.log(":::No poduct found ");
