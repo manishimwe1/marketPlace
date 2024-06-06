@@ -7,14 +7,22 @@ import {
 } from "./_actions/getData";
 import DashboardCard from "./_components/DashboardCard";
 import { ChartBar } from "./_components/shared/chartComponent";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
 const DashboardPage = async () => {
+	const session = await auth();
 	const StoreData: IStore[] = await getStore();
 	const store: any[] = [];
 	const product = await getAllProductInStore(
 		"66506276c5c5d98bf253ae04",
 	);
 	// console.log(StoreData, "STORE DATA");
+
+	if (!session?.user) {
+		redirect("/sign-in");
+	}
+
 	if (!StoreData)
 		return (
 			<div>

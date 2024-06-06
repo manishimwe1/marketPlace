@@ -68,3 +68,38 @@ export function getFirstWord(str: string) {
 	// Return the first word, or an empty string if the input is empty
 	return words.length > 0 ? words[0] : "";
 }
+
+import * as crypto from "crypto";
+
+export function saltAndHashPassword(
+	password: string,
+	saltLen: number = 16,
+	iterations: number = 100000,
+	keyLen: number = 64,
+	digest: string = "sha512",
+): Promise<string> {
+	return new Promise<string>((resolve, reject) => {
+		try {
+			const salt = crypto
+				.randomBytes(saltLen)
+				.toString("base64");
+			crypto.pbkdf2(
+				password,
+				salt,
+				iterations,
+				keyLen,
+				digest,
+				(err, derivedKey) => {
+					if (err) {
+						reject(err);
+					} else {
+						const hash = `${digest}$${iterations}$${salt}$${derivedKey.toString("base64")}`;
+						resolve(hash);
+					}
+				},
+			);
+		} catch (err) {
+			reject(err);
+		}
+	});
+}

@@ -1,5 +1,6 @@
 "use client";
 
+import ShimmerButton from "@/components/ui/ShimmerBtn";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -33,7 +34,7 @@ const SignInForm = () => {
 		<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
-				className='space-y-8'>
+				className='space-y-8 text-purple-300'>
 				<FormField
 					control={form.control}
 					name='Email'
@@ -42,6 +43,7 @@ const SignInForm = () => {
 							<FormLabel>Email</FormLabel>
 							<FormControl>
 								<Input
+									className='input_field '
 									placeholder='johndoe@gmail.com'
 									{...field}
 								/>
@@ -59,6 +61,7 @@ const SignInForm = () => {
 							<FormLabel>Password</FormLabel>
 							<FormControl>
 								<Input
+									className='input_field'
 									type='password'
 									{...field}
 								/>
@@ -69,8 +72,11 @@ const SignInForm = () => {
 					)}
 				/>
 
-				<Button type='submit' className='w-full'>
-					Sign in
+				<Button
+					type='submit'
+					asChild
+					className='w-full '>
+					<ShimmerButton title='Sign in' />
 				</Button>
 			</form>
 		</Form>

@@ -3,11 +3,11 @@ import {
 	buttonVariants,
 } from "@/components/ui/button";
 import { auth, signIn } from "@/auth";
-import { cn } from "@/lib/utils";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const page = async () => {
 	const session = await auth();

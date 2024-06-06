@@ -36,7 +36,7 @@
 		@apply bg-gradient-to-tr from-[#180916] to-[#1a010f] backdrop:filter backdrop-saturate-150;
 	}
 	.input_field {
-		@apply !bg-black/40 !text-purple-200 !border-white/10;
+		@apply bg-gradient-to-tr from-[#000000] to-[#050104] focus-visible:bg-black/50  !border-white/10 text-purple-200;
 	}
 	.max-wrapper {
 		@apply max-w-5xl mx-auto py-20;
