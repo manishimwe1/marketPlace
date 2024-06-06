@@ -13,6 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { signInSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -78,6 +79,10 @@ const SignInForm = () => {
 					className='w-full '>
 					<ShimmerButton title='Sign in' />
 				</Button>
+
+				<div className="flex items-center justify-center  gap-4 ">
+					<p className="text-purple-200 tebase font-normal  cursor-pointer group">You dont&apos; have an account already? <span className="text-purple-400 font-semibold group-hover:underline decoration-purple-600 decoration-2 underline-offset-4 ScaleAnimation"><Link href={"/sign-up"}>Sign up</Link></span></p>
+				</div>
 			</form>
 		</Form>
 	);

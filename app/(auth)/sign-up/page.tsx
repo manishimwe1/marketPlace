@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { signInActions } from "./_actions/signInAction";
-import SignInForm from "./_components/SignInForm";
-import { signIn } from "@/auth";
 
-const SigninPage = () => {
+import { signIn } from "@/auth";
+import SignInForm from "../sign-in/_components/SignInForm";
+
+const SignupPage = () => {
 	return (
 		<section className='w-full h-screen  bg-SignImage bg-right  flex justify-start overflow-hidden  items-start'>
 			<div className='h-full w-[50%] bg-black rounded-r-3xl  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50  relative'>
@@ -69,4 +69,4 @@ const SigninPage = () => {
 	);
 };
 
-export default SigninPage;
+export default SignupPage;
