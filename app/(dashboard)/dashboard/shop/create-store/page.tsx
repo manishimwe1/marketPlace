@@ -71,7 +71,7 @@ const CreateStorePage = () => {
 		}
 	}
 	return (
-		<div className='w-[50%] mx-auto mt-6 h-full '>
+		<div className='w-[50%] mx-auto mt-6 h-full pb-20'>
 			<div className='flex gap-3 lg:flex-row flex-col w-full h-full text-stone-600'>
 				<div className='w-full  px-4 '>
 					<h2 className='text-3xl font-bold text-purple-300 mb-6'>

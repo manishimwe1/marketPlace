@@ -67,6 +67,14 @@ const DashboardPage = async () => {
 							title='Total Order'
 						/>
 					</Link>
+					<Link href={"/dashboard/shop"}>
+						<DashboardCard
+							subTitle='Pending...'
+							imageSrc='/solidTruck.svg'
+							amount={5}
+							title='Pending Delively'
+						/>
+					</Link>
 				</div>
 
 				<div className=' h-[300px] w-full mt-10 flex justify-between items-center flex-col md:flex-row gap-4'>

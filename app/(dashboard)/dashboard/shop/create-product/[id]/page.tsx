@@ -26,6 +26,7 @@ import { z } from "zod";
 import { createProduct } from "../../../_actions/createStoreProduct";
 import CreateProductFormCard from "@/app/(dashboard)/dashboard/_components/shared/CreateProductFormCard";
 import { useToast } from "@/components/ui/use-toast";
+import CustomField from "../../../_components/shared/CustomField";
 type Props = {
 	params: { id: string };
 };
@@ -246,110 +247,149 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 									</div>
 								</div>
 							</div>
-							<FormField
+
+							<CustomField
 								control={form.control}
-								name='title'
 								render={({ field }) => (
-									<FormItem>
-										<FormLabel>
-											Title
-										</FormLabel>
-										<FormControl>
+									<Input
+										className='bg-gradient border-white/10 text-purple-200'
+										placeholder='eg: Ai max pro'
+										{...field}
+									/>
+								)}
+								name={"title"}
+								formLabel={"Title"}
+								className={
+									"bg-gradient border-white/10 text-purple-200"
+								}
+							/>
+							<CustomField
+								control={form.control}
+								render={({ field }) => (
+									<Textarea
+										className='bg-gradient border-white/10 text-purple-200'
+										rows={5}
+										placeholder='eg: Description'
+										{...field}
+									/>
+								)}
+								name={"description"}
+								formLabel={
+									"Describe Your Product"
+								}
+								className={
+									"bg-gradient border-white/10 text-purple-200"
+								}
+							/>
+
+							<div className='flex justify-between w-full h-full items-center flex-col md:flex-row gap-4'>
+								<div className='w-full h-full flex flex-col items-center justify-between gap-2 md:flex-row'>
+									<CustomField
+										control={
+											form.control
+										}
+										render={({
+											field,
+										}) => (
 											<Input
 												className='bg-gradient border-white/10 text-purple-200'
-												placeholder='eg: Ai max pro'
+												placeholder='eg: 1000'
 												{...field}
 											/>
-										</FormControl>
-
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-							<FormField
-								control={form.control}
-								name='description'
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>
-											Description
-										</FormLabel>
-										<FormControl>
-											<Textarea
+										)}
+										name={"price"}
+										formLabel={
+											"Price (rwf)"
+										}
+										className={
+											"bg-gradient border-white/10 text-purple-200"
+										}
+									/>
+									<CustomField
+										control={
+											form.control
+										}
+										render={({
+											field,
+										}) => (
+											<Input
 												className='bg-gradient border-white/10 text-purple-200'
-												rows={5}
-												placeholder='eg: Description'
+												placeholder='eg: 100'
 												{...field}
 											/>
-										</FormControl>
+										)}
+										name={"stock"}
+										formLabel={"Stock"}
+										className={
+											"bg-gradient border-white/10 text-purple-200"
+										}
+									/>
+								</div>
+								<div className='w-full h-full  items-center flex justify-between gap-3 flex-col  md:flex-row '>
+									<FormField
+										control={
+											form.control
+										}
+										name='freeDelivery'
+										render={({
+											field,
+										}) => (
+											<FormItem className='flex flex-col'>
+												<FormLabel></FormLabel>
+												<FormControl>
+													<Switch
+														checked={
+															field.value
+														}
+														onCheckedChange={
+															handleSwitch
+														}
+													/>
+												</FormControl>
 
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-							<div className='flex justify-between w-full'>
-								<FormField
-									control={form.control}
-									name='price'
-									render={({ field }) => (
-										<FormItem>
-											<FormLabel>
-												Price (rwf)
-											</FormLabel>
-											<FormControl>
+												<FormMessage />
+											</FormItem>
+										)}
+									/>
+									<CustomField
+										control={
+											form.control
+										}
+										render={({
+											field,
+										}) => (
+											<>
 												<Input
 													className='bg-gradient border-white/10 text-purple-200'
-													placeholder='eg: 1000'
+													disabled={
+														switcherState ===
+														true
+													}
+													placeholder='Delivery Fee'
 													{...field}
 												/>
-											</FormControl>
-
-											<FormMessage />
-										</FormItem>
-									)}
-								/>
-								<FormField
-									control={form.control}
-									name='stock'
-									render={({ field }) => (
-										<FormItem>
-											<FormLabel>
-												Stock
-											</FormLabel>
-											<FormControl>
-												<Input
-													className='bg-gradient border-white/10 text-purple-200'
-													placeholder='eg: 100'
-													{...field}
-												/>
-											</FormControl>
-
-											<FormMessage />
-										</FormItem>
-									)}
-								/>
-								<FormField
-									control={form.control}
-									name='SuperDeals'
-									render={({ field }) => (
-										<FormItem>
-											<FormLabel>
-												Deals(-20%OFF)
-											</FormLabel>
-											<FormControl>
-												<Input
-													className='bg-gradient border-white/10 text-purple-200'
-													placeholder='eg: 20'
-													{...field}
-												/>
-											</FormControl>
-
-											<FormMessage />
-										</FormItem>
-									)}
-								/>
+												{switcherState && (
+													<p className='text-xs text-red-900 text-muted-foreground font-semibold'>
+														This
+														product
+														is
+														Free
+														delivery
+													</p>
+												)}
+											</>
+										)}
+										name={"price"}
+										formLabel={
+											"Delivery Fee"
+										}
+										className={
+											"bg-gradient border-white/10 text-purple-200"
+										}
+									/>
+								</div>
 							</div>
-							<div className='flex justify-between items-center gap-3'>
+							<div className='w-full h-full  items-center flex justify-between gap-3 flex-col  md:flex-row '>
 								<FormField
 									control={form.control}
 									name='category'
@@ -370,124 +410,39 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 										</FormItem>
 									)}
 								/>
-								<FormField
+
+								<CustomField
 									control={form.control}
-									name='location'
 									render={({ field }) => (
-										<FormItem className='flex flex-col w-full'>
-											<FormLabel>
-												Location
-											</FormLabel>
-											<FormControl>
-												<Input
-													className='bg-gradient border-white/10 text-purple-200'
-													{...field}
-												/>
-											</FormControl>
-
-											<FormMessage />
-										</FormItem>
+										<Input
+											placeholder='eg: Rwanda eastern province'
+											className='bg-gradient border-white/10 text-purple-200 w-full'
+											{...field}
+										/>
 									)}
-								/>
-							</div>
-							<div className=' flex items-center justify-between'>
-								<FormField
-									control={form.control}
-									name='freeDelivery'
-									render={({ field }) => (
-										<FormItem className='flex flex-col'>
-											<FormLabel>
-												Free
-												Delivery
-											</FormLabel>
-											<FormControl>
-												<Switch
-													checked={
-														field.value
-													}
-													onCheckedChange={
-														handleSwitch
-													}
-												/>
-											</FormControl>
-
-											<FormMessage />
-										</FormItem>
-									)}
-								/>
-
-								<FormField
-									control={form.control}
-									name='deliveryFee'
-									render={({ field }) => (
-										<FormItem>
-											<FormLabel>
-												Delivery Fee
-											</FormLabel>
-											<FormControl>
-												<Input
-													className='bg-gradient border-white/10 text-purple-200'
-													disabled={
-														switcherState ===
-														true
-													}
-													placeholder='Delivery Fee'
-													{...field}
-												/>
-											</FormControl>
-											{switcherState && (
-												<p className='text-xs text-red-900 text-muted-foreground font-semibold'>
-													This
-													product
-													is Free
-													delivery
-												</p>
-											)}
-
-											<FormMessage />
-										</FormItem>
-									)}
+									name={"location"}
+									formLabel={"Location"}
+									className={
+										"bg-gradient border-white/10 text-purple-200 w-full"
+									}
 								/>
 							</div>
 
-							<ShimmerButton
-								title={
-									isSubmiting
-										? "Creating..."
-										: "Create"
-								}
-								image='/loader-white.svg'
-								className='w-full'
-								showImage={isSubmiting}
-							/>
+							<div className='w-[60%] items-center flex justify-center mx-auto'>
+								<ShimmerButton
+									title={
+										isSubmiting
+											? "Creating..."
+											: "Create"
+									}
+									image='/loader-white.svg'
+									className='w-full'
+									showImage={isSubmiting}
+								/>
+							</div>
 						</form>
 					</Form>
 				</div>
-
-				{/* {showProductImage ? (
-					<div className='relative border w-1/2 bg-purple-500/20 rounded-r-3xl hidden lg:flex  items-center justify-center'>
-						<div className='relative h-80 w-full '>
-							<Image
-								src={showProductImage}
-								alt='product'
-								fill
-								className='object-contain'
-							/>
-						</div>
-					</div>
-				) : (
-					<div className='relative border lg:w-1/2 w-full bg-purple-500/20 rounded-r-3xl hidden lg:flex'>
-						<h3 className='text-lg font-bold text-stone-950 absolute top-10 inset-x-0'>
-							Create beatifuly selling product
-						</h3>
-						<Image
-							src={"/speaker.png"}
-							alt='speaker'
-							fill
-							className='object-contain'
-						/>
-					</div>
-				)} */}
 			</div>
 		</div>
 	);
