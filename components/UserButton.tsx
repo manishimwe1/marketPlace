@@ -51,7 +51,10 @@ const UserButton = async () => {
 								className='w-full'
 								action={async () => {
 									"use server";
-									await signOut();
+									await signOut({
+										redirect: true,
+										redirectTo: "/",
+									});
 								}}>
 								<Button
 									variant={"link"}
