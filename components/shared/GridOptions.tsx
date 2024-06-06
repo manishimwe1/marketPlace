@@ -68,7 +68,7 @@ const GridOptions = ({
 											allProduct[0]
 												.title
 										}
-										className='object-cover rounded-3xl'
+										className='object-contain rounded-3xl'
 									/>
 								</div>
 								<div className='w-full flex items-center justify-center gap-4'>

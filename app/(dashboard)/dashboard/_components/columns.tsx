@@ -5,10 +5,6 @@ import { ColumnDef } from "@tanstack/react-table";
 
 export const columns: ColumnDef<ProductType>[] = [
 	{
-		accessorKey: "id",
-		header: "Id",
-	},
-	{
 		accessorKey: "title",
 		header: "Title",
 	},
@@ -21,7 +17,15 @@ export const columns: ColumnDef<ProductType>[] = [
 		header: "Category",
 	},
 	{
+		accessorKey: "freeDelivery",
+		header: "Free Delivery",
+	},
+	{
 		accessorKey: "price",
-		header: "Amount",
+		header: "Price",
+	},
+	{
+		accessorKey: "provedByAdmin",
+		header: "Proved",
 	},
 ];

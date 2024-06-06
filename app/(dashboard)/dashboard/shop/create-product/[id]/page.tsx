@@ -93,6 +93,14 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 	async function onSubmit(
 		values: z.infer<typeof createProductSchemma>,
 	) {
+		if (image.length <= 0) {
+			return toast({
+				title: "Image is required",
+				description:
+					"Please add an image and continue",
+				variant: "destructive",
+			});
+		}
 		setIsSubmiting(true);
 		toast({
 			title: "Creating product...",
