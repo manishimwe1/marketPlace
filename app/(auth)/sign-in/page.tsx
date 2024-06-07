@@ -7,9 +7,9 @@ import { signIn } from "@/auth";
 
 const SigninPage = () => {
 	return (
-		<section className='w-full h-screen  bg-SignImage bg-right  flex justify-start overflow-hidden  items-start'>
-			<div className='h-full w-[50%] bg-black rounded-r-3xl px-20 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50  relative'>
-				<div className='flex flex-col gap-2  w-full h-full py-20'>
+		<section className='w-full h-screen px-4 py-8  bg-SignImage bg-right  flex flex-col lg:flex-row justify-start overflow-hidden  items-start'>
+			<div className='h-full w-full lg:w-[50%]  bg-black lg:rounded-r-3xl rounded-3xl px-10 lg:px-20 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50  relative'>
+				<div className='flex flex-col gap-2  w-full h-full py-10 lg:py-20'>
 					<Link href={"/"}>
 						<div className='relative h-14 w-20 cursor-pointer'>
 							<h2 className='font-bold  text-3xl text-nowrap  text-center text-purple-200'>
@@ -22,9 +22,9 @@ const SigninPage = () => {
 							Please Enter your Account
 							details
 						</p>
-						<div className='flex flex-col gap-4'>
+						<div className='flex flex-col gap-4 w-full'>
 							<SignInForm />
-							<div className='w-full h-full flex justify-between gap-4'>
+							<div className='w-full h-full flex justify-between gap-4 flex-wrap'>
 								<form
 									action={async () => {
 										"use server";

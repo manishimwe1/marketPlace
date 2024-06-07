@@ -12,11 +12,19 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { signInSchema } from "@/lib/validation";
+import {
+	EyeDropperIcon,
+	EyeIcon,
+	EyeSlashIcon,
+} from "@heroicons/react/24/solid";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Eye, EyeOffIcon } from "lucide-react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const SignInForm = () => {
+	const [showPassword, setShowPassword] = useState(false);
 	const form = useForm<z.infer<typeof signInSchema>>({
 		resolver: zodResolver(signInSchema),
 		defaultValues: {
@@ -34,7 +42,7 @@ const SignInForm = () => {
 		<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
-				className='space-y-8 text-purple-300'>
+				className=' space-y-6 text-purple-300'>
 				<FormField
 					control={form.control}
 					name='Email'
@@ -60,11 +68,38 @@ const SignInForm = () => {
 						<FormItem>
 							<FormLabel>Password</FormLabel>
 							<FormControl>
-								<Input
-									className='input_field'
-									type='password'
-									{...field}
-								/>
+								<div className='relative h-fit w-full'>
+									<Input
+										className='input_field transition-all duration-500 ease-in-out'
+										type={
+											showPassword
+												? "text"
+												: "password"
+										}
+										{...field}
+									/>
+									<div className='absolute h-full w-fit right-0 top-0 rounded-r-lg bg-black overflow-hidden flex items-center justify-center px-1'>
+										{showPassword ? (
+											<EyeIcon
+												className='h-4 w-4  cursor-pointer text-pink-300'
+												onClick={() => {
+													setShowPassword(
+														!showPassword,
+													);
+												}}
+											/>
+										) : (
+											<EyeSlashIcon
+												className='h-4 w-4  cursor-pointer text-pink-300'
+												onClick={() => {
+													setShowPassword(
+														!showPassword,
+													);
+												}}
+											/>
+										)}
+									</div>
+								</div>
 							</FormControl>
 
 							<FormMessage />
