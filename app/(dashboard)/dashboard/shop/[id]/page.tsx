@@ -26,7 +26,7 @@ const storePage = async ({ params: { id } }: Props) => {
 		await getAllProductInStore(id);
 
 	return (
-		<section className='w-full h-full max-wrapper relative px-3 lg:px0 flex items-start justify-center flex-col gap-8 lg:gap-20 overflow-x-auto'>
+		<section className=' h-full max-wrapper relative px-3 lg:px0 flex items-start justify-center flex-col gap-8 lg:gap-20'>
 			<DashboardHeaderBox
 				title='My product lists'
 				buttonText='Create Product Listing'

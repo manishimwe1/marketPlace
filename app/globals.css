@@ -27,7 +27,7 @@
 
 @layer components {
 	.title {
-		@apply lg:text-2xl  font-bold tracking-widest text-stone-700;
+		@apply lg:text-2xl text-sm max-md:text-lg font-bold tracking-widest text-stone-700;
 	}
 	.ScaleAnimation {
 		@apply hover:scale-110 transition-all ease-out hover:delay-500 duration-1000 cursor-pointer;
@@ -39,7 +39,7 @@
 		@apply bg-gradient-to-tr from-[#000000] to-[#050104] focus-visible:bg-black/50  !border-white/10 text-purple-200;
 	}
 	.max-wrapper {
-		@apply max-w-5xl mx-auto py-20;
+		@apply max-w-5xl mx-auto py-10 lg:py-20;
 	}
 }
 
