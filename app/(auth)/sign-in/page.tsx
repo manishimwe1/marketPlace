@@ -8,8 +8,8 @@ import { signIn } from "@/auth";
 const SigninPage = () => {
 	return (
 		<section className='w-full h-screen  bg-SignImage bg-right  flex justify-start overflow-hidden  items-start'>
-			<div className='h-full w-[50%] bg-black rounded-r-3xl  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50  relative'>
-				<div className='flex flex-col gap-2  w-full h-full p-20 shadow-md shadow-black rounded-r-3xl'>
+			<div className='h-full w-[50%] bg-black rounded-r-3xl px-20 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50  relative'>
+				<div className='flex flex-col gap-2  w-full h-full py-20'>
 					<Link href={"/"}>
 						<div className='relative h-14 w-20 cursor-pointer'>
 							<h2 className='font-bold  text-3xl text-nowrap  text-center text-purple-200'>
