@@ -52,7 +52,7 @@ export const ChartBar = ({
 }) => {
 	if (!data) return null;
 	return (
-		<div className='lg:w-1/2 w-full h-full pb-10 overflow-hidden bg-gray-950/20 flex items-center flex-col justify-center rounded-3xl shadow-sm shadow-black'>
+		<div className='lg:w-1/2 w-full h-[200px] lg:h-[300px] lg:pb-10 overflow-hidden bg-gray-950/20 flex items-center flex-col justify-center rounded-3xl shadow-sm shadow-black'>
 			<h1 className='font-semibold capitalize text-lg mt-10 !text-white'>
 				{title}
 			</h1>
@@ -62,7 +62,7 @@ export const ChartBar = ({
 					height='100%'>
 					<AreaChart
 						width={500}
-						height={400}
+						height={300}
 						data={data}
 						margin={{
 							top: 0,

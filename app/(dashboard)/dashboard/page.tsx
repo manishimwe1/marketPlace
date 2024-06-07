@@ -85,7 +85,7 @@ const DashboardPage = async () => {
 					</Link>
 				</div>
 
-				<div className=' h-[300px] w-full mt-10 flex justify-between items-center flex-col md:flex-row gap-4'>
+				<div className=' h-full lg:h-[300px] w-full mt-10 flex justify-between items-center flex-col md:flex-row gap-4'>
 					<ChartBar
 						data={store}
 						title='Product'
