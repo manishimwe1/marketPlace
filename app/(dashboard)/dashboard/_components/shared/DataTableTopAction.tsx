@@ -21,7 +21,7 @@ const DataTableTopAction = ({
 		<DropdownMenu>
 			<DropdownMenuTrigger>
 				{position === "left" && (
-					<div className='flex items-center justify-center p-2 text-purple-200/80 ring-2 ring-purple-50/20 rounded-lg bg-black/50 '>
+					<div className=' items-center hidden lg:flex justify-center p-2 text-purple-200/80 ring-2 ring-purple-50/20 rounded-lg bg-black/50 '>
 						<LucideTable className='h-4 w-4 lg:h-6 lg:w-6' />
 					</div>
 				)}

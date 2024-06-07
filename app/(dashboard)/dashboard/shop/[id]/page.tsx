@@ -32,35 +32,37 @@ const storePage = async ({ params: { id } }: Props) => {
 				buttonText='Create Product Listing'
 				href={`/dashboard/shop/create-product/${id}`}
 			/>
-			<div className='h-full w-full flex flex-col gap-3 items-center justify-center'>
-				<div className='w-full h-10 gap-2 lg:gap-20  py-2 flex items-center justify-center lg:justify-between  rounded-t-lg '>
+			<div className='h-full w-full flex flex-col gap-3 items-center justify-center px-2 lg:px-0'>
+				<div className='w-full h-10 gap-2 lg:gap-20  py-2 flex items-center  justify-between  rounded-t-lg '>
 					<DataTableTopAction position={"left"} />
-					<form className='w-fit lg:w-full lg:py-1 bg-black/50 rounded-lg'>
-						<Select>
-							<SelectTrigger className='w-full border-none bg-transparent text-purple-200 focus-visible:ring-0 focus-visible:border-none'>
-								<Input
-									className='w-full h-full bg-transparent focus-visible:ring-0 border-none placeholder:text-purple-100/30'
-									placeholder='200 total product found..'
-								/>
-							</SelectTrigger>
-							<SelectContent className='bg-gradient text-purple-200 border-white/10'>
-								<SelectItem
-									value='light'
-									className='hover:!bg-black/50 hover:!text-purple-100 cursor-pointer'>
-									Light
-								</SelectItem>
-								<SelectItem
-									value='dark'
-									className='hover:!bg-black/50 hover:!text-purple-100 cursor-pointer'>
-									Dark
-								</SelectItem>
-								<SelectItem
-									value='system'
-									className='hover:!bg-black/50 hover:!text-purple-100 cursor-pointer'>
-									System
-								</SelectItem>
-							</SelectContent>
-						</Select>
+					<form className='w-[260px] sm:w-[400px] lg:w-full relative py-1 bg-black/50 rounded-lg h-10'>
+						<div className='absolute top-0 inset-0'>
+							<Select>
+								<SelectTrigger className='w-full border-none bg-transparent text-purple-200 focus-visible:ring-0 focus-visible:border-none'>
+									<Input
+										className='w-full h-full bg-transparent focus-visible:ring-0 border-none placeholder:text-purple-100/30'
+										placeholder='200 total product found..'
+									/>
+								</SelectTrigger>
+								<SelectContent className='bg-gradient text-purple-200 border-white/10'>
+									<SelectItem
+										value='light'
+										className='hover:!bg-black/50 hover:!text-purple-100 cursor-pointer'>
+										Light
+									</SelectItem>
+									<SelectItem
+										value='dark'
+										className='hover:!bg-black/50 hover:!text-purple-100 cursor-pointer'>
+										Dark
+									</SelectItem>
+									<SelectItem
+										value='system'
+										className='hover:!bg-black/50 hover:!text-purple-100 cursor-pointer'>
+										System
+									</SelectItem>
+								</SelectContent>
+							</Select>
+						</div>
 					</form>
 					<DataTableTopAction
 						position={"right"}

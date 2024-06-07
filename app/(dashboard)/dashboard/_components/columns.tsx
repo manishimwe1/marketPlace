@@ -1,5 +1,6 @@
 "use client";
 
+import { truncateString } from "@/lib/utils";
 import { ProductType } from "@/typing";
 import { ColumnDef } from "@tanstack/react-table";
 
@@ -7,6 +8,15 @@ export const columns: ColumnDef<ProductType>[] = [
 	{
 		accessorKey: "_id",
 		header: "Id",
+		cell: ({ row }) => {
+			const id = row.getValue("_id") as string;
+
+			return (
+				<div className='text-right'>
+					{truncateString(id, 8)}
+				</div>
+			);
+		},
 	},
 	{
 		accessorKey: "title",

@@ -35,11 +35,9 @@ export function DataTable<ProductType, TValue>({
 		getCoreRowModel: getCoreRowModel(),
 	});
 
-	console.log(data, ">>>>>>>>>");
-
 	return (
-		<div className='rounded-md w-full h-full  border border-white/10 border-t-0 '>
-			<Table>
+		<div className='rounded-md lg:w-full h-full px-2  w-[400px] sm:w-[450px]   border-white/10 border-t-0 '>
+			<Table className='w-full h-full'>
 				<TableHeader>
 					{table
 						.getHeaderGroups()

@@ -2,6 +2,7 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 import { ICategory } from "@/typing";
+import * as crypto from "crypto";
 
 // import type { OurFileRouter } from "@/app/api/uploadthing/core";
 
@@ -69,8 +70,6 @@ export function getFirstWord(str: string) {
 	return words.length > 0 ? words[0] : "";
 }
 
-import * as crypto from "crypto";
-
 export function saltAndHashPassword(
 	password: string,
 	saltLen: number = 16,
@@ -93,7 +92,9 @@ export function saltAndHashPassword(
 					if (err) {
 						reject(err);
 					} else {
-						const hash = `${digest}$${iterations}$${salt}$${derivedKey.toString("base64")}`;
+						const hash = `${digest}$${iterations}$${salt}$${derivedKey.toString(
+							"base64",
+						)}`;
 						resolve(hash);
 					}
 				},
