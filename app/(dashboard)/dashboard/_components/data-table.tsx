@@ -15,7 +15,8 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
-import { ProductType } from "@/typing";
+import { useState } from "react";
+import InfoProductPage from "./shared/InfoProductPage";
 
 interface DataTableProps<ProductType, TValue> {
 	columns: ColumnDef<ProductType, TValue>[];
@@ -26,11 +27,15 @@ export function DataTable<ProductType, TValue>({
 	columns,
 	data,
 }: DataTableProps<ProductType, TValue>) {
+	const [IsOpen, setIsOpen] = useState(false);
+	const [idOfProduct, setIdOfProduct] = useState("");
 	const table = useReactTable({
 		data,
 		columns,
 		getCoreRowModel: getCoreRowModel(),
 	});
+
+	console.log(data, ">>>>>>>>>");
 
 	return (
 		<div className='rounded-md w-full h-full  border border-white/10 border-t-0 '>
@@ -77,7 +82,16 @@ export function DataTable<ProductType, TValue>({
 										row.getIsSelected() &&
 										"selected"
 									}
-									className='!border-white/10 !h-6 cursor-pointer hover:bg-black/30'>
+									className='!border-white/10 !h-6 cursor-pointer hover:bg-black/30'
+									onClick={() => {
+										setIsOpen(!IsOpen);
+										const productId =
+											row.original
+												._id as string;
+										setIdOfProduct(
+											productId,
+										);
+									}}>
 									{row
 										.getVisibleCells()
 										.map((cell) => (
@@ -85,7 +99,7 @@ export function DataTable<ProductType, TValue>({
 												key={
 													cell.id
 												}
-												className='text-purple-100  border-white/20 !h-6'>
+												className='text-purple-100   border-white/20 !h-6'>
 												{flexRender(
 													cell
 														.column
@@ -108,6 +122,12 @@ export function DataTable<ProductType, TValue>({
 					)}
 				</TableBody>
 			</Table>
+
+			<InfoProductPage
+				id={idOfProduct}
+				IsOpen={IsOpen}
+				setIsOpen={setIsOpen}
+			/>
 		</div>
 	);
 }

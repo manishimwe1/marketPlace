@@ -5,7 +5,7 @@ import { auth } from "@/auth";
 import { connectToDB } from "@/lib/database/db.config";
 import { Product } from "@/lib/database/models/product.model";
 import { Store } from "@/lib/database/models/store.model";
-import { IStore } from "@/typing";
+import { IStore, ProductType } from "@/typing";
 
 export const getStore = async () => {
 	const session = await auth();
@@ -63,6 +63,28 @@ export const getAllProductInStore = async (
 		}).sort({
 			createdAt: "desc",
 		});
+		// .select(["title", "description",]);
+
+		if (!product)
+			return console.log(":::No poduct found ");
+
+		return JSON.parse(JSON.stringify(product));
+	} catch (error: any) {
+		console.log(error);
+	}
+};
+export const getProductByIdAction = async (id: string) => {
+	try {
+		await connectToDB();
+		if (!id) return;
+		console.log(id, "string");
+
+		const product: ProductType[] =
+			await Product.findOne({
+				_id: id,
+			}).sort({
+				createdAt: "asc",
+			});
 		// .select(["title", "description",]);
 
 		if (!product)

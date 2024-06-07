@@ -50,7 +50,7 @@ interface ProductType {
 	image: string;
 	category: string;
 	updatedAt?: string;
-	_id?: string;
+	_id: string;
 	createdAt?: string;
 	updateAt?: string;
 	location: string;

@@ -16,7 +16,7 @@ const DashboardNav = async () => {
 	const session = await auth();
 
 	return (
-		<nav className='w-full bg-[#0f050d] sticky top-0 flex py-2 justify-between items-center h-fit px-2 z-20'>
+		<nav className='w-full bg-[#0f050d] sticky z-50 top-0 flex py-2 justify-between items-center h-fit px-2'>
 			<Link href={"/"}>
 				<h2 className='title !text-secondary cursor-pointer hidden lg:block'>
 					GuraGurisha
