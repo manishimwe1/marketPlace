@@ -33,7 +33,7 @@ export function DataTable<ProductType, TValue>({
 	});
 
 	return (
-		<div className='rounded-md w-full h-full px-4 py-4 border border-white/10 '>
+		<div className='rounded-md w-full h-full  border border-white/10 border-t-0 '>
 			<Table>
 				<TableHeader>
 					{table
@@ -41,7 +41,7 @@ export function DataTable<ProductType, TValue>({
 						.map((headerGroup) => (
 							<TableRow
 								key={headerGroup.id}
-								className='!border-white/30 !py-0'>
+								className='!border-white/0 !py-0 hover:!bg-transparent'>
 								{headerGroup.headers.map(
 									(header) => {
 										return (
@@ -49,7 +49,7 @@ export function DataTable<ProductType, TValue>({
 												key={
 													header.id
 												}
-												className='!border-white/30 hover:!bg-none'>
+												className='!border-white/30  hover:!bg-transparent cursor-pointer'>
 												{header.isPlaceholder
 													? null
 													: flexRender(
@@ -58,7 +58,7 @@ export function DataTable<ProductType, TValue>({
 																.columnDef
 																.header,
 															header.getContext(),
-														)}
+													  )}
 											</TableHead>
 										);
 									},
@@ -77,7 +77,7 @@ export function DataTable<ProductType, TValue>({
 										row.getIsSelected() &&
 										"selected"
 									}
-									className='!border-white/10 !h-10'>
+									className='!border-white/10 !h-6 cursor-pointer hover:bg-black/30'>
 									{row
 										.getVisibleCells()
 										.map((cell) => (
@@ -85,7 +85,7 @@ export function DataTable<ProductType, TValue>({
 												key={
 													cell.id
 												}
-												className='text-white  border-white/20 !h-10'>
+												className='text-purple-100  border-white/20 !h-6'>
 												{flexRender(
 													cell
 														.column
@@ -101,7 +101,7 @@ export function DataTable<ProductType, TValue>({
 						<TableRow>
 							<TableCell
 								colSpan={columns.length}
-								className='h-12 text-center'>
+								className='h-6 text-center text-purple-300'>
 								No results.
 							</TableCell>
 						</TableRow>

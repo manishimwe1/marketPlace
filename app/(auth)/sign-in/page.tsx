@@ -30,6 +30,10 @@ const SigninPage = () => {
 										"use server";
 										await signIn(
 											"google",
+											{
+												redirectTo:
+													"/dashboard",
+											},
 										);
 									}}
 									className='w-full'>

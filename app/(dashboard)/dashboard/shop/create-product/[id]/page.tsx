@@ -110,8 +110,9 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 
 		try {
 			if (image.length > 0) {
-				const uploadedImages =
-					await startUpload(image);
+				const uploadedImages = await startUpload(
+					image,
+				);
 				if (!uploadedImages) return;
 				uploadedImageUrl = uploadedImages[0].url;
 			}
@@ -435,7 +436,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 								/>
 							</div>
 
-							<div className='w-[60%] items-center flex justify-center mx-auto'>
+							<div className='w-full items-center flex justify-center mx-auto'>
 								<ShimmerButton
 									title={
 										isSubmiting
