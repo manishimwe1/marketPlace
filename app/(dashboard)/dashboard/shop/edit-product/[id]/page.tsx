@@ -263,7 +263,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 								control={form.control}
 								render={({ field }) => (
 									<Input
-										className='input_field border-white/10 text-purple-200'
+										className='!input_field border-white/10 text-purple-200'
 										placeholder='eg: Ai max pro'
 										{...field}
 									/>

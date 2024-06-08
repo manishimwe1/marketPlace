@@ -35,7 +35,7 @@ const CustomField = ({
 					{formLabel && (
 						<FormLabel>{formLabel}</FormLabel>
 					)}
-					<FormControl>
+					<FormControl className={className}>
 						{render({ field })}
 					</FormControl>
 					<FormMessage />
