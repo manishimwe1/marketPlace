@@ -28,17 +28,13 @@ export default async function RootLayout({
 					/>
 
 					<DashboardNav />
-					<main className='flex w-full gap-3 bg-bgImg  h-screen relative items-start justify-between overflow-hidden '>
+					<main className='flex w-full gap-3 bg-bgImg  h-[calc(h-full-20px)]  relative items-start justify-between overflow-hidden'>
 						<DashBoardSideNav />
-						<ScrollArea className=' shadow-md shadow-purple-700/20  h-screen pb-8 !px-0 w-full'>
+						<ScrollArea className=' shadow-md shadow-purple-700/20  h-screen !px-3 w-full pb-5'>
 							{children}
 						</ScrollArea>
-						<Toaster />
 					</main>
-					{/* bottom navbar
-					{/* <div className='border absolute  bottom-40 w-full h-fit inset-x-0'>
-									<MobileMenuBar />
-								</div> */}
+					<div className='absolute bg-red-500 py-4 w-20 h-20 top-0 lg:bottom-0 inset-0 lg:right-2'></div>
 				</body>
 			</Provider>
 		</html>

@@ -54,14 +54,14 @@ const ShopCard = ({
 					</p>
 				</div>
 			</div>
-			<div className='border w-full h-[200px] py-4 relative bg-purple-100 rounded-b-md shadow-md shadow-black/20'>
+			<div className='border w-full h-[120px] py-4 relative bg-purple-100 rounded-b-md shadow-md shadow-black/20'>
 				<Image
 					src='/images/map.jpg'
 					alt='map'
 					fill
 					className='object-cover'
 				/>
-				<MapPinIcon className='absolute bottom-12 left-[110px] h-4 w-5 animate-ping transition-all delay-150 ease-in-out ' />
+				<MapPinIcon className='absolute bottom-6 left-[71px] h-4 w-5 animate-ping transition-all delay-150 ease-in-out ' />
 			</div>
 		</section>
 	);

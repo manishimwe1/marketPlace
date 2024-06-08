@@ -16,7 +16,7 @@ const DashboardShopPage = async () => {
 	if (!StoreData) return;
 
 	return (
-		<section className='flex-1  w-full h-[calc(100vh)] mt-10  lg:px-4 flex flex-col items-start max-wrapper'>
+		<section className='flex-1  w-full h-[calc(100vh)] lg:px-4 flex flex-col items-start max-wrapper'>
 			<DashboardHeaderBox
 				title='My Store'
 				buttonText='Create Store'
@@ -41,7 +41,7 @@ const DashboardShopPage = async () => {
 				</div>
 			)}
 
-			<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 w-full gap-6 lg:gap-4 lg:px-0 mt-4 px-8'>
+			<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 w-full gap-6 lg:gap-4 lg:px-0 mt-4 px-8'>
 				{StoreData.map((data) => (
 					<Link
 						key={data._id}

@@ -1,7 +1,6 @@
 "use client";
 
-import { useToast } from "@/components/ui/use-toast";
-import { Button } from "@/components/ui/button";
+import ShimmerButton from "@/components/ui/ShimmerBtn";
 import {
 	Form,
 	FormControl,
@@ -12,15 +11,14 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
 import { createStoreSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { createStore } from "../../_actions/createStoreActions";
-import ShimmerButton from "@/components/ui/ShimmerBtn";
 
 const CreateStorePage = () => {
 	const { toast } = useToast();
@@ -31,9 +29,6 @@ const CreateStorePage = () => {
 	const [isSubmiting, setIsSubmiting] = useState(false);
 	const router = useRouter();
 
-	// const savedProduct = useProductStore(
-	// 	(state) => state.product,
-	// );
 	const form = useForm<z.infer<typeof createStoreSchema>>(
 		{
 			resolver: zodResolver(createStoreSchema),
@@ -42,7 +37,7 @@ const CreateStorePage = () => {
 				description: "",
 				image: "",
 				location: "",
-				phoneOfOwner: "",
+				phoneOfOwner: undefined,
 			},
 		},
 	);

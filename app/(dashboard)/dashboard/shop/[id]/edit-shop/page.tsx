@@ -53,7 +53,7 @@ const CreateStorePage = ({ params: { id } }: Props) => {
 				description: product?.description,
 				image: "",
 				location: product?.location,
-				phoneOfOwner: product?.phoneOfOwner,
+				phoneOfOwner: Number(product?.phoneOfOwner),
 			},
 		},
 	);
