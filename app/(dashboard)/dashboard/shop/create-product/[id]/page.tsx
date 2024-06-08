@@ -62,14 +62,14 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 		defaultValues: {
 			title: "",
 			description: "",
-			price: 0,
+			price: undefined,
 			image: "",
 			category: "",
-			stock: 0,
+			stock: undefined,
 			location: "",
 			freeDelivery: false,
-			deliveryFee: 0,
-			SuperDeals: 0,
+			deliveryFee: undefined,
+			SuperDeals: undefined,
 		},
 	});
 
@@ -371,7 +371,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 												)}
 											</>
 										)}
-										name={"price"}
+										name={"deliveryFee"}
 										formLabel={
 											"Delivery Fee"
 										}
