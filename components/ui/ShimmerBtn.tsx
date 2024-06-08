@@ -27,7 +27,7 @@ export default function ShimmerButton({
 						height={20}
 					/>
 				) : null}
-				<p className='text-sm lg:text-base'>
+				<p className='text-sm lg:text-base text-purple-200'>
 					{title}
 				</p>
 			</div>

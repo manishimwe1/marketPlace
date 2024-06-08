@@ -18,7 +18,7 @@ const MobileNavBar = () => {
 	return (
 		<Sheet>
 			<SheetTrigger>
-				<div className='w-fit cursor-pointer lg:hidden hover:text-purple-400 h-full '>
+				<div className='w-fit cursor-pointer lg:hidden hover:text-purple-400 h-full mr-2'>
 					<Bars4Icon className='h-8 w-8 text-purple-200' />
 				</div>
 			</SheetTrigger>

@@ -33,10 +33,10 @@
 		@apply hover:scale-110 transition-all ease-out hover:delay-500 duration-1000 cursor-pointer;
 	}
 	.bg-gradient {
-		@apply bg-gradient-to-tr from-[#180916] to-[#1a010f] backdrop:filter backdrop-saturate-150;
+		@apply bg-gradient-to-bl from-slate-500 via-gray-700 to-zinc-900 backdrop:filter backdrop-saturate-150;
 	}
 	.input_field {
-		@apply bg-gradient-to-tr from-[#000000] to-[#050104] focus-visible:bg-black/50  !border-white/10 text-purple-200;
+		@apply w-full bg-gradient-to-tr from-[#000000] to-[#050104] focus-visible:bg-black/50  !border-white/10 text-purple-200;
 	}
 	.max-wrapper {
 		@apply max-w-5xl mx-auto py-10 lg:py-20;

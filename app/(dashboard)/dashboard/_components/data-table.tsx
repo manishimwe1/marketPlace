@@ -36,7 +36,7 @@ export function DataTable<ProductType, TValue>({
 	});
 
 	return (
-		<div className='rounded-md lg:w-full h-full px-2  w-[400px] sm:w-[450px]   border-white/10 border-t-0 '>
+		<div className='rounded-md lg:w-full flex items-center justify-center mx-auto h-full px-2  w-[350px] sm:w-[450px]   border-white/10 border-t-0 '>
 			<Table className='w-full h-full'>
 				<TableHeader>
 					{table
