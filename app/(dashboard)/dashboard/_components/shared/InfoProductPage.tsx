@@ -89,7 +89,7 @@ const InfoProductPage = ({
 								</Link>
 
 								<div className=' border border-black lg:flex-1 relative rounded-3xl flex lg:p-5 bg-gradient shadow-sm shadow-purple-500/30 h-fit'>
-									<div className='lg:h-[100%] h-[200px] w-full relative  bg-purple-50/20 rounded-r-3xl'>
+									<div className='lg:h-[100%] h-[200px] w-full relative  bg-purple-50/20 rounded-3xl'>
 										<Image
 											src={
 												product.image

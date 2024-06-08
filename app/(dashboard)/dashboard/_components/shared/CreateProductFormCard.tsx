@@ -17,7 +17,7 @@ const CreateProductFormCard = ({
 }: {
 	imgsrc?: string;
 	title?: string;
-	setView?: Dispatch<SetStateAction<string | undefined>>;
+	setView?: Dispatch<SetStateAction<File[]>>;
 }) => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const [frontView, setFrontView] = useState<string>();

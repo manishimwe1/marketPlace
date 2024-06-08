@@ -44,23 +44,15 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 	const { startUpload } = useUploadThing("imageUploader");
 
 	//smallCardImageView
-	const [frontView, setFrontView] = useState<
-		string | undefined
-	>();
+	const [frontView, setFrontView] = useState<File[]>([]);
 
-	const [backView, setBackView] = useState<
-		string | undefined
-	>();
-	const [sideView, setSideView] = useState<
-		string | undefined
-	>();
+	const [backView, setBackView] = useState<File[]>([]);
+	const [sideView, setSideView] = useState<File[]>([]);
 
-	const [topView, setTopView] = useState<
-		string | undefined
-	>();
-	const [bottomView, setBottomView] = useState<
-		string | undefined
-	>();
+	const [topView, setTopView] = useState<File[]>([]);
+	const [bottomView, setBottomView] = useState<File[]>(
+		[],
+	);
 	const { toast } = useToast();
 
 	console.log("FRONTVIEW>>>>>", frontView);
@@ -80,6 +72,11 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 			freeDelivery: false,
 			deliveryFee: 0,
 			SuperDeals: 0,
+			frontView: "",
+			backView: "",
+			sideView: "",
+			topView: "",
+			bottomView: "",
 		},
 	});
 
@@ -107,6 +104,12 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 		});
 
 		let uploadedImageUrl = values.image;
+		let uploadedFrontViewUrl = values.frontView;
+
+		console.log(
+			uploadedFrontViewUrl,
+			"FRONTview>>>>>>",
+		);
 
 		try {
 			if (image.length > 0) {
@@ -115,6 +118,14 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 				);
 				if (!uploadedImages) return;
 				uploadedImageUrl = uploadedImages[0].url;
+			}
+			if (frontView.length > 0) {
+				const uploadedFrontView = await startUpload(
+					frontView,
+				);
+				if (!uploadedFrontView) return;
+				uploadedFrontViewUrl =
+					uploadedFrontView[0].url;
 			}
 			const data = {
 				...values,
@@ -204,7 +215,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 									/>
 								</div>
 								<div className='p-2 h-48 lg:h-[250px] w-full '>
-									<div className='grid grid-cols-5 gap-2 w-full h-full  items-start'>
+									<div className='grid grid-cols-3 md:grid-cols-5 gap-2 w-full h-full  items-start'>
 										<CreateProductFormCard
 											imgsrc='/views/Front.png'
 											title='Front'
@@ -244,14 +255,6 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 											imgsrc=''
 											title=''
 										/>
-										<CreateProductFormCard
-											imgsrc=''
-											title=''
-										/>
-										<CreateProductFormCard
-											imgsrc=''
-											title=''
-										/>
 									</div>
 								</div>
 							</div>
@@ -260,22 +263,19 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 								control={form.control}
 								render={({ field }) => (
 									<Input
-										className='bg-gradient border-white/10 text-purple-200'
+										className='input_field border-white/10 text-purple-200'
 										placeholder='eg: Ai max pro'
 										{...field}
 									/>
 								)}
 								name={"title"}
 								formLabel={"Title"}
-								className={
-									"bg-gradient border-white/10 text-purple-200"
-								}
 							/>
 							<CustomField
 								control={form.control}
 								render={({ field }) => (
 									<Textarea
-										className='bg-gradient border-white/10 text-purple-200'
+										className='input_field border-white/10 text-purple-200'
 										rows={5}
 										placeholder='eg: Description'
 										{...field}
@@ -285,14 +285,12 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 								formLabel={
 									"Describe Your Product"
 								}
-								className={
-									"bg-gradient border-white/10 text-purple-200"
-								}
 							/>
 
-							<div className='flex justify-between w-full h-full items-center flex-col md:flex-row gap-4'>
-								<div className='w-full h-full flex flex-col items-center justify-between gap-2 md:flex-row'>
+							<div className='flex   justify-between w-full h-full items-center flex-col md:flex-row gap-4'>
+								<div className='w-full h-full  flex flex-col items-center justify-between gap-2 md:flex-row'>
 									<CustomField
+										className='!w-full '
 										control={
 											form.control
 										}
@@ -300,7 +298,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 											field,
 										}) => (
 											<Input
-												className='bg-gradient border-white/10 text-purple-200'
+												className='input_field border-white/10 text-purple-200 w-full'
 												placeholder='eg: 1000'
 												{...field}
 											/>
@@ -309,11 +307,9 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 										formLabel={
 											"Price (rwf)"
 										}
-										className={
-											"bg-gradient border-white/10 text-purple-200"
-										}
 									/>
 									<CustomField
+										className='w-full'
 										control={
 											form.control
 										}
@@ -321,19 +317,16 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 											field,
 										}) => (
 											<Input
-												className='bg-gradient border-white/10 text-purple-200'
+												className='input_field border-white/10 text-purple-200 w-full'
 												placeholder='eg: 100'
 												{...field}
 											/>
 										)}
 										name={"stock"}
 										formLabel={"Stock"}
-										className={
-											"bg-gradient border-white/10 text-purple-200"
-										}
 									/>
 								</div>
-								<div className='w-full h-full  items-center flex justify-between gap-3 flex-col  md:flex-row '>
+								<div className='w-full h-full  items-center flex justify-between gap-3 '>
 									<FormField
 										control={
 											form.control
@@ -343,9 +336,14 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 											field,
 										}) => (
 											<FormItem className='flex flex-col'>
-												<FormLabel></FormLabel>
+												<FormLabel>
+													Turn on
+													free
+													delivery
+												</FormLabel>
 												<FormControl>
 													<Switch
+														className='input_field'
 														checked={
 															field.value
 														}
@@ -368,7 +366,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 										}) => (
 											<>
 												<Input
-													className='bg-gradient border-white/10 text-purple-200'
+													className='input_field border-white/10 text-purple-200'
 													disabled={
 														switcherState ===
 														true
@@ -387,12 +385,9 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 												)}
 											</>
 										)}
-										name={"price"}
+										name={"deliveryFee"}
 										formLabel={
 											"Delivery Fee"
-										}
-										className={
-											"bg-gradient border-white/10 text-purple-200"
 										}
 									/>
 								</div>
@@ -402,7 +397,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 									control={form.control}
 									name='category'
 									render={({ field }) => (
-										<FormItem className='flex flex-col w-full bg-gradient'>
+										<FormItem className='flex flex-col w-full'>
 											<FormLabel>
 												Category
 											</FormLabel>
@@ -420,19 +415,17 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 								/>
 
 								<CustomField
+									className='w-full'
 									control={form.control}
 									render={({ field }) => (
 										<Input
 											placeholder='eg: Rwanda eastern province'
-											className='bg-gradient border-white/10 text-purple-200 w-full'
+											className='input_field border-white/10 text-purple-200 w-full'
 											{...field}
 										/>
 									)}
 									name={"location"}
 									formLabel={"Location"}
-									className={
-										"bg-gradient border-white/10 text-purple-200 w-full"
-									}
 								/>
 							</div>
 

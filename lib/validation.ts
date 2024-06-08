@@ -17,6 +17,11 @@ export const createProductSchemma = z.object({
 	stock: z.coerce.number(),
 	category: z.string(),
 	SuperDeals: z.coerce.number(),
+	frontView: z.string().max(2200),
+	backView: z.string().max(2200),
+	sideView: z.string().max(2200),
+	topView: z.string().max(2200),
+	bottomView: z.string().max(2200),
 });
 export const createStoreSchema = z.object({
 	name: z

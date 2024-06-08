@@ -87,13 +87,13 @@ function SelectField({
 	};
 	return (
 		<Select onValueChange={onFieldChange}>
-			<SelectTrigger className='w-full bg-gradient border-white/10'>
+			<SelectTrigger className='w-full input_field border-white/10'>
 				<SelectValue
 					placeholder='Category'
-					className='!bg-gradient'
+					className='!input_field'
 				/>
 			</SelectTrigger>
-			<SelectContent className='bg-gradient border-white/20 text-purple-200'>
+			<SelectContent className='!input_field border-white/20 text-purple-200'>
 				{Category?.length ? (
 					Category.map((items) => (
 						<SelectItem

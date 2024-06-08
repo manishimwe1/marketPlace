@@ -44,13 +44,9 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 	const { startUpload } = useUploadThing("imageUploader");
 
 	//smallCardImageView
-	const [frontView, setFrontView] = useState<
-		string | undefined
-	>();
+	const [frontView, setFrontView] = useState<File[]>([]);
 
-	const [backView, setBackView] = useState<
-		string | undefined
-	>();
+	const [backView, setBackView] = useState<File[]>([]);
 	const [sideView, setSideView] = useState<
 		string | undefined
 	>();
@@ -62,8 +58,6 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 		string | undefined
 	>();
 	const { toast } = useToast();
-
-	console.log("FRONTVIEW>>>>>", frontView);
 
 	const form = useForm<
 		z.infer<typeof createProductSchemma>
@@ -113,6 +107,14 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 				const uploadedImages = await startUpload(
 					image,
 				);
+				if (!uploadedImages) return;
+				uploadedImageUrl = uploadedImages[0].url;
+			}
+			if (frontView || backView || sideView) {
+				const [uploadedImages] = await Promise.all([
+					startUpload(frontView),
+					startUpload(backView),
+				]);
 				if (!uploadedImages) return;
 				uploadedImageUrl = uploadedImages[0].url;
 			}
