@@ -1,24 +1,24 @@
-import { signIn } from "@/auth";
+import { auth, signIn } from "@/auth";
 import UserButton from "@/components/UserButton";
 import SearchBox from "@/components/shared/SearchBox";
 import { Button } from "@/components/ui/button";
-import { auth } from "@/auth";
 import {
 	BellAlertIcon,
-	UserIcon,
 	ChatBubbleLeftEllipsisIcon,
+	UserIcon,
 } from "@heroicons/react/24/solid";
-import { LucideMessageSquareQuote } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import MobileNavBar from "./MobileNavBar";
 
 const DashboardNav = async () => {
 	const session = await auth();
 
 	return (
-		<nav className='w-full bg-[#0f050d] sticky z-50 top-0 flex py-2 justify-between items-center h-fit px-2'>
-			<Link href={"/"}>
-				<h2 className='title !text-secondary cursor-pointer hidden lg:block'>
+		<nav className='w-full bg-[#0f050d] sticky z-50 top-0 flex py-3 justify-between items-center h-fit px-3'>
+			<Link
+				href={"/"}
+				className='w-fit h-full  cursor-pointer'>
+				<h2 className='md:title !text-secondary text-xs '>
 					GuraGurisha
 				</h2>
 			</Link>
@@ -49,6 +49,8 @@ const DashboardNav = async () => {
 					<UserButton />
 				</div>
 			</div>
+
+			<MobileNavBar />
 		</nav>
 	);
 };

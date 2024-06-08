@@ -14,7 +14,7 @@ const DashboardHeaderBox = ({
 	href,
 }: Props) => {
 	return (
-		<div className=' w-full  flex justify-between items-center lg:pr-20 '>
+		<div className=' w-full  flex justify-between items-center lg:pr-20 lg:px-0 px-4'>
 			<h2 className='title !text-purple-300'>
 				{title}
 			</h2>

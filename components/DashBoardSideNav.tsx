@@ -16,7 +16,7 @@ import {
 const DashBoardSideNav = () => {
 	const pathname = usePathname();
 	return (
-		<section className=' hidden sm:flex sm:w-20 lg:w-[200px] h-full sticky top-0 left-0'>
+		<section className=' hidden sm:flex sm:w-20 lg:w-[200px] h-full sticky top-0 left-0 py-2'>
 			<aside className='w-full p-2 text-center flex flex-col gap-4'>
 				<nav className=' py-5 '>
 					<div className=' pb-4 px-2 flex w-full justify-between items-center relative'>

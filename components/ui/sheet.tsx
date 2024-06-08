@@ -68,6 +68,7 @@ const SheetContent = React.forwardRef<
 		ref,
 	) => (
 		<SheetPortal>
+			<SheetOverlay />
 			<SheetPrimitive.Content
 				ref={ref}
 				className={cn(
