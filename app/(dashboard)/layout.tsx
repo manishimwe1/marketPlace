@@ -28,7 +28,7 @@ export default async function RootLayout({
 					/>
 
 					<DashboardNav />
-					<main className='flex w-full gap-3 bg-black/20   h-screen relative items-start justify-between overflow-hidden '>
+					<main className='flex w-full gap-3 bg-bgImg  h-screen relative items-start justify-between overflow-hidden '>
 						<DashBoardSideNav />
 						<ScrollArea className=' shadow-md shadow-purple-700/20  h-screen pb-8 !px-0 w-full'>
 							{children}

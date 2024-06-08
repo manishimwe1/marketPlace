@@ -2,6 +2,7 @@
 
 import {
 	Sheet,
+	SheetClose,
 	SheetContent,
 	SheetTrigger,
 } from "@/components/ui/sheet";
@@ -72,9 +73,11 @@ const MobileNavBar = () => {
 											className='invert '
 										/>
 
-										<p className='text-sm font-semibold '>
-											{link.label}
-										</p>
+										<SheetClose>
+											<p className='text-sm font-semibold '>
+												{link.label}
+											</p>
+										</SheetClose>
 									</Link>
 								</ul>
 							);

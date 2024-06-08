@@ -73,6 +73,8 @@ const config = {
 			backgroundImage: {
 				Image: "url('/png/sssurf1.svg')",
 				SignImage: "url('/images/media.png')",
+				bgImg: "url('/images/bgGr.svg')",
+				bgWhite: "url('/images/whitebg.svg')",
 			},
 			keyframes: {
 				"accordion-down": {
