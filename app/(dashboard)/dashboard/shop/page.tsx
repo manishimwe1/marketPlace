@@ -41,16 +41,12 @@ const DashboardShopPage = async () => {
 				</div>
 			)}
 
-			<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 w-full gap-6 lg:gap-4 lg:px-0 mt-4 px-8'>
+			<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 w-full gap-6 lg:gap-4 lg:px-0 mt-4 px-3'>
 				{StoreData.map((data) => (
-					<Link
-						key={data._id}
-						href={`/dashboard/shop/${data.storeId}`}>
-						<ShopCard
-							data={data}
-							total={StoreData.length}
-						/>
-					</Link>
+					<ShopCard
+						data={data}
+						total={StoreData.length}
+					/>
 				))}
 			</div>
 		</section>

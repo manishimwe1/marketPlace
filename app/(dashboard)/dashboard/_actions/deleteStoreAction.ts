@@ -27,6 +27,9 @@ export const DeleteStoreAction = async (
 			userId: user._id,
 		});
 		revalidatePath("/dashboard/shop");
+		return JSON.parse(
+			JSON.stringify({ Success: true, status: 200 }),
+		);
 	} catch (error) {
 		console.log(error);
 	} finally {

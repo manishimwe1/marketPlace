@@ -72,7 +72,7 @@ export type IStore = {
 	name: string;
 	description: string;
 	location: string;
-	phoneOfOwner: string;
+	phoneOfOwner: number;
 	_id?: string;
 	createdAt?: Date;
 	updateAt?: Date;

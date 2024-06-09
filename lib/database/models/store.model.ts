@@ -1,5 +1,4 @@
 import { Schema, model, models } from "mongoose";
-import { randomUUID } from "crypto";
 
 const StoreSchema = new Schema({
 	name: {
@@ -22,6 +21,10 @@ const StoreSchema = new Schema({
 		type: String,
 		require: true,
 		unique: true,
+	},
+	provedByAdmin: {
+		type: Boolean,
+		require,
 	},
 	userId: { type: Schema.Types.ObjectId, ref: "users" },
 	createdAt: { type: Date, default: Date.now() },

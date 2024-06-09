@@ -34,7 +34,9 @@ export default async function RootLayout({
 							{children}
 						</ScrollArea>
 					</main>
-					<div className='absolute bg-red-500 py-4 w-20 h-20 top-0 lg:bottom-0 inset-0 lg:right-2'></div>
+					<div className='absolute  py-4 w-full h-20 top-0 lg:bottom-0 inset-x-0 lg:right-2 flex items-center justify-center'>
+						<Toaster />
+					</div>
 				</body>
 			</Provider>
 		</html>

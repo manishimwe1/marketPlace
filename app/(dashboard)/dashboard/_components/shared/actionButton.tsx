@@ -13,12 +13,14 @@ import {
 import { DeleteStoreAction } from "../../_actions/deleteStoreAction";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const ActionButtonPage = ({
 	storeId,
 }: {
 	storeId: string;
 }) => {
+	const router = useRouter();
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger>
@@ -38,7 +40,11 @@ const ActionButtonPage = ({
 
 				<DropdownMenuItem
 					onClick={() =>
-						DeleteStoreAction(storeId)
+						DeleteStoreAction(storeId).then(
+							() => {
+								router.refresh();
+							},
+						)
 					}
 					className='hover:bg-black/70 curson-pointer bg-red-500'>
 					Delete
