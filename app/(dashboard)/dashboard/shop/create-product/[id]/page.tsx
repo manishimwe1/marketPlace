@@ -106,14 +106,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 				if (!uploadedImages) return;
 				uploadedImageUrl = uploadedImages[0].url;
 			}
-			if (frontView || backView || sideView) {
-				const [uploadedImages] = await Promise.all([
-					startUpload(frontView),
-					startUpload(backView),
-				]);
-				if (!uploadedImages) return;
-				uploadedImageUrl = uploadedImages[0].url;
-			}
+
 			const data = {
 				...values,
 				storeId: id,
