@@ -20,6 +20,7 @@ const GridOptions = ({
 	allProduct,
 	subTitle,
 }: Props) => {
+	if (!allProduct) return null;
 	return (
 		<section className={cn("h-full w-full", className)}>
 			{title === "Unknown" && (
@@ -30,7 +31,7 @@ const GridOptions = ({
 				</div>
 			)}
 			{title === "Welcome Deal" && (
-				<div className='w-full flex flex-col items-center justify-start  rounded-3xl bg-purple-800/20 py-5 h-full '>
+				<div className='w-full flex flex-col items-center justify-center lg:justify-start  rounded-3xl bg-purple-800/20 py-5 h-full '>
 					<h2 className='text-primary opacity-90 text-2xl text-center font-bold'>
 						{title}
 					</h2>
@@ -57,7 +58,7 @@ const GridOptions = ({
 						<Link
 							href={`/product/categrized/${allProduct[0]?.category}`}>
 							<div className='px-9 gap-3 flex flex-col  cursor-pointer'>
-								<div className=' h-48 border md:h-52 w-full rounded-3xl relative  '>
+								<div className=' h-48  md:h-52 w-full rounded-3xl relative  '>
 									<Image
 										src={
 											allProduct[0]

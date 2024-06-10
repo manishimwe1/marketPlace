@@ -13,7 +13,7 @@ const DashbaordCard = ({
 	subTitle?: string;
 }) => {
 	return (
-		<div className='bg-gradient-to-tr from-[#0c040b] to-[#1a010f] flex-grow p-4 rounded-sm shadow-sm shadow-[#000000] flex items-center justify-between  relative cursor-pointer'>
+		<section className='bg-gradient-to-tr from-[#0c040b] to-[#1a010f] flex-grow p-4 rounded-sm shadow-sm shadow-[#000000] flex items-center justify-between  relative cursor-pointer'>
 			<div className='flex justify-start items-start flex-col gap-1 w-full '>
 				<div className='flex gap-2 items-center'>
 					<p className='font-bold text-lg text-blue-100 capitalize text-nowrap'>
@@ -28,9 +28,15 @@ const DashbaordCard = ({
 					/>
 				</div>
 				<div className=' flex justify-between items-baseline w-full '>
-					<p className='title flex-1 !text-purple-100'>
-						{amount}
-					</p>
+					{subTitle === "Income" ? (
+						<p className='title flex-1 !text-purple-100'>
+							${amount}
+						</p>
+					) : (
+						<p className='title flex-1 !text-purple-100'>
+							{amount}
+						</p>
+					)}
 					<div className='text-[13px] relative bg-purple-200/30 py-1 px-2  rounded-full font-semibold  shadow-sm shadow-black/20 text-stone-400'>
 						<p>{subTitle}</p>
 						{subTitle === "Open" && (
@@ -39,7 +45,7 @@ const DashbaordCard = ({
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 
