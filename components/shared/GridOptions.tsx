@@ -47,7 +47,7 @@ const GridOptions = ({
 
 			{title === "Super Deals" && (
 				<div className=' w-full rounded-3xl bg-purple-800/20 py-2 h-full'>
-					<h2 className='text-stone-950 text-center font-bold text-3xl opacity-80'>
+					<h2 className='text-stone-950 text-center font-bold text-3xl opacity-80 py-2'>
 						Super
 						<span className='text-primary opacity-90'>
 							Deals
@@ -57,7 +57,7 @@ const GridOptions = ({
 						<Link
 							href={`/product/categrized/${allProduct[0]?.category}`}>
 							<div className='px-9 gap-3 flex flex-col  cursor-pointer'>
-								<div className=' h-52 w-full rounded-3xl relative  '>
+								<div className=' h-48 border md:h-52 w-full rounded-3xl relative  '>
 									<Image
 										src={
 											allProduct[0]
@@ -68,7 +68,7 @@ const GridOptions = ({
 											allProduct[0]
 												.title
 										}
-										className='object-contain rounded-3xl'
+										className='object- rounded-3xl  aspect-square'
 									/>
 								</div>
 								<div className='w-full flex items-center justify-center gap-4'>

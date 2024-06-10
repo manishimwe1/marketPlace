@@ -38,8 +38,6 @@ export const getAllProductCategory = async () => {
 				_id: "desc",
 			});
 
-		console.log("PRODUCT>>>>>>>>>>>>>>>>", product);
-
 		if (!product) {
 			console.log("error in getting Product");
 			return;

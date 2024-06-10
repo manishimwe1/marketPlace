@@ -7,8 +7,8 @@ import { signIn } from "@/auth";
 
 const SigninPage = () => {
 	return (
-		<section className='w-full h-screen px-4 py-8  bg-SignImage bg-right  flex flex-col lg:flex-row justify-start overflow-hidden  items-start'>
-			<div className='h-full w-full lg:w-[50%]  bg-black lg:rounded-r-3xl rounded-3xl px-10 lg:px-20 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50  relative'>
+		<section className='w-full h-screen px-4 py-8 lg:py-0 lg:px-0 bg-SignImage bg-right  flex flex-col lg:flex-row justify-start overflow-hidden  items-start'>
+			<div className='h-full w-full lg:w-[50%]  bg-black lg:rounded-r-3xl lg:rounded-l-none px-10 lg:px-20 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50  relative'>
 				<div className='flex flex-col gap-2  w-full h-full py-10 lg:py-20'>
 					<Link href={"/"}>
 						<div className='relative h-14 w-20 cursor-pointer'>

@@ -36,7 +36,7 @@
 		@apply bg-gradient-to-bl from-slate-500 via-gray-700 to-zinc-900 backdrop:filter backdrop-saturate-150;
 	}
 	.input_field {
-		@apply w-full bg-gradient-to-tr from-[#000000] to-[#050104] focus-visible:bg-black/50  !border-white/10 text-purple-200;
+		@apply w-full bg-gradient-to-tr from-[#000000] to-[#050104] focus-visible:bg-black/50  !border-white/10 text-purple-200 py-2;
 	}
 	.max-wrapper {
 		@apply max-w-6xl mx-auto py-7 lg:py-14;
@@ -98,6 +98,6 @@
 		@apply bg-background text-foreground;
 	}
 	.max-container {
-		@apply lg:max-w-7xl  flex-wrap  mx-auto mt-4 relative py-4 px-5 flex flex-col gap-10 select-none;
+		@apply lg:max-w-7xl  flex-wrap  mx-auto mt-4 relative py-4 px-2 lg:px-5 flex flex-col gap-10 select-none;
 	}
 }
