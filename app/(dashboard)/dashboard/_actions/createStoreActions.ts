@@ -25,7 +25,7 @@ export const createStore = async (
 				"Unthorized please log in!!!!!",
 			);
 		}
-		const data: IStore = {
+		const data = {
 			...dataProps,
 			storeId: randomUUID().toString(),
 			userId: user._id as string,
