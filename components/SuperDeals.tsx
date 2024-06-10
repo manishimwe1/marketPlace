@@ -12,6 +12,7 @@ import Image from "next/image";
 import HeartComponent from "./HeartComponent";
 import Loader from "./shared/Loader";
 import { ProductType } from "@/typing";
+import CarouselCard from "./shared/CarouselCard";
 
 const SuperDeals = async ({}: // allProduct,
 {
@@ -41,23 +42,11 @@ const SuperDeals = async ({}: // allProduct,
 											<CarouselItem
 												key={index}
 												className=' md:basis-1/2 lg:basis-1/5'>
-												<Card className=' w-[220px] h-full relative rounded-3xl !border-none bg-slate-200/20'>
-													<CardContent className='flex aspect-square items-center justify-center p-6 relative'>
-														<Image
-															src={
-																product.image
-															}
-															fill
-															alt='isaha'
-															className='object-contain p-6 rounded-3xl'
-														/>
-													</CardContent>
-													<HeartComponent
-														product={
-															product
-														}
-													/>
-												</Card>
+												<CarouselCard
+													product={
+														product
+													}
+												/>
 											</CarouselItem>
 											<div className='flex flex-col gap-2  overflow-hidden line-clamp-2 h-full'>
 												<p className=' py-2 leading-6 text-stone-950 capitalize px-2'>

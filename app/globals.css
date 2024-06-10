@@ -97,6 +97,6 @@
 		@apply bg-background text-foreground;
 	}
 	.max-container {
-		@apply lg:max-w-7xl w-full flex-wrap  mx-auto mt-4 relative py-4 lg:px-5 flex flex-col gap-10 select-none;
+		@apply lg:max-w-7xl w-full flex-wrap  mx-auto mt-4 relative px-2 py-4 lg:px-5 flex flex-col gap-10 select-none;
 	}
 }

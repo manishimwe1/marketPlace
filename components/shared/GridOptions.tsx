@@ -69,7 +69,7 @@ const GridOptions = ({
 											allProduct[0]
 												.title
 										}
-										className='object- rounded-3xl  aspect-square'
+										className='object-contain rounded-3xl  aspect-square'
 									/>
 								</div>
 								<div className='w-full flex items-center justify-center gap-4'>
@@ -114,6 +114,8 @@ const GridOptions = ({
 			{title === "New" && (
 				<div className='w-full h-full flex items-center justify-center flex-col gap-4 rounded-3xl bg-slate-400/10 px-4'>
 					<NewCollectionCard
+						title='New'
+						subTitle='Launched in the last 7 days'
 						allProduct={allProduct}
 					/>
 					<PurpleCard />

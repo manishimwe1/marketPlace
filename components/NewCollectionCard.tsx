@@ -6,16 +6,20 @@ import Link from "next/link";
 
 const NewCollectionCard = ({
 	allProduct,
+	title,
+	subTitle,
 }: {
 	allProduct: ProductType[];
+	title: string;
+	subTitle: string;
 }) => {
 	return (
 		<div className='w-full h-full '>
 			<h2 className='text-stone-950 text-left font-bold text-3xl opacity-80 mt-2'>
-				New
+				{title}
 			</h2>
 			<p className='text-stone-600 text-left text-lg '>
-				Launched in the last 7 days
+				{subTitle}
 			</p>
 			{allProduct ? (
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-3 '>
