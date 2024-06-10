@@ -33,6 +33,7 @@ const CarouselCard = ({
 			</Card>
 			{open && (
 				<ShoppingModal
+					product={product}
 					open={open}
 					setOpen={setOpen}
 				/>
