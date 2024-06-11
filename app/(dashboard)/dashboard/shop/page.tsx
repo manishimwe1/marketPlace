@@ -44,6 +44,7 @@ const DashboardShopPage = async () => {
 			<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 w-full gap-6 lg:gap-4 lg:px-0 mt-4 px-3'>
 				{StoreData.map((data) => (
 					<ShopCard
+						key={data._id}
 						data={data}
 						total={StoreData.length}
 					/>
