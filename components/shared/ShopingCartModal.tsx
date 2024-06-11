@@ -37,10 +37,10 @@ export function ShoppingModal({
 	product: ProductType;
 	setOpen: Dispatch<SetStateAction<boolean>>;
 }) {
+	const isDesktop = useMediaQuery("(min-width: 768px)");
 	if (!product) {
 		return <Loader />;
 	}
-	const isDesktop = useMediaQuery("(min-width: 768px)");
 
 	if (isDesktop) {
 		const data = [1, 2, 3, 4, 5, 6];
@@ -52,7 +52,7 @@ export function ShoppingModal({
 					</div>
 				</DialogTrigger>
 				<DialogContent
-					className='sm:max-w-[80%] h-fit py-10 bg-slate-200 !border-white/10
+					className=' hidden md:flex sm:max-w-[80%] h-fit py-10 bg-slate-200 !border-white/10
 				'>
 					<div className='grid grid-cols-3 gap-4 h-full w-full'>
 						<div className='w-full h-full'>
@@ -177,7 +177,7 @@ export function ShoppingModal({
 	return (
 		<Drawer open={open} onOpenChange={setOpen}>
 			<DrawerTrigger asChild></DrawerTrigger>
-			<DrawerContent className='w-full h-fit bg-gradient-to-tl from-purple-100 via-fuchsia-100 to-violet-100 flex items-center justify-center flex-col'>
+			<DrawerContent className='w-full h-fit bg-gradient-to-tl md:hidden from-purple-100 via-fuchsia-100 to-violet-100 flex items-center justify-center flex-col'>
 				<div className='flex justify-between gap-2 w-full h-full'>
 					<div className=' flex flex-col gap-3 items-center justify-center'>
 						<Image
