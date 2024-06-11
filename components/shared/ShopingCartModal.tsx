@@ -1,44 +1,32 @@
-import { cn } from "@/lib/utils";
-import { useMediaQuery } from "@react-hook/media-query";
-import { Button } from "@/components/ui/button";
-import {
-	Dialog,
-	DialogContent,
-	DialogDescription,
-	DialogHeader,
-	DialogTitle,
-	DialogTrigger,
-} from "@/components/ui/dialog";
-import {
-	Drawer,
-	DrawerClose,
-	DrawerContent,
-	DrawerDescription,
-	DrawerFooter,
-	DrawerHeader,
-	DrawerTitle,
-	DrawerTrigger,
-} from "@/components/ui/drawer";
 import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+	Dialog,
+	DialogContent,
+	DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+	Drawer,
+	DrawerContent,
+	DrawerHeader,
+	DrawerTrigger,
+} from "@/components/ui/drawer";
+import { useMediaQuery } from "usehooks-ts";
 
-import { Dispatch, SetStateAction } from "react";
 import { ProductType } from "@/typing";
-import { Loader2, Star, X } from "lucide-react";
-import Image from "next/image";
-import Loader from "./Loader";
 import { TicketIcon } from "@heroicons/react/24/outline";
 import {
 	StarIcon,
 	TagIcon,
 } from "@heroicons/react/24/solid";
+import { Loader2, X } from "lucide-react";
+import Image from "next/image";
+import { Dispatch, SetStateAction } from "react";
 import { Separator } from "../ui/separator";
-import { ScrollArea } from "../ui/scroll-area";
+import Loader from "./Loader";
 
 export function ShoppingModal({
 	open,

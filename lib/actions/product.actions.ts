@@ -102,8 +102,6 @@ export const getProductByCategory = async (
 };
 
 export const getCategoryName = async (name: string) => {
-	console.log("Here!!!!!!!!");
-
 	const categoryNames: ICategory[] =
 		await getAllProductCategory();
 	if (categoryNames) {
@@ -112,10 +110,10 @@ export const getCategoryName = async (name: string) => {
 				categoryName.categoryName === `${name}`,
 		);
 
-		if (categoryName)
-			return console.log(
-				"CATEGORYNAME",
-				categoryName,
-			);
+		// if (categoryName)
+		// 	return console.log(
+		// 		"CATEGORYNAME",
+		// 		categoryName,
+		// 	);
 	}
 };
