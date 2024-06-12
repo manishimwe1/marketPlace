@@ -8,16 +8,18 @@ import React, {
 	useRef,
 	useState,
 } from "react";
-import { cn } from "@/lib/utils";
+import { cn, convertFileToUrl } from "@/lib/utils";
 
 const CreateProductFormCard = ({
 	imgsrc,
 	title,
 	setView,
+	onFieldChange,
 }: {
 	imgsrc?: string;
 	title?: string;
-	setView?: Dispatch<SetStateAction<File[]>>;
+	setView: Dispatch<SetStateAction<File | undefined>>;
+	onFieldChange: (url: string) => void;
 }) => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const [frontView, setFrontView] = useState<string>();
@@ -26,6 +28,7 @@ const CreateProductFormCard = ({
 		e: React.ChangeEvent<HTMLInputElement>,
 	) => {
 		if (!e.target?.files) return;
+		setView(e.target.files[0]);
 		if (e.target?.files[0]) {
 			const file = e.target.files[0];
 			const reader = new FileReader();
@@ -34,7 +37,7 @@ const CreateProductFormCard = ({
 				//@ts-ignore
 				setFrontView(readerEvent.target.result);
 				//@ts-ignore
-				setView(readerEvent.target.result);
+				onFieldChange(readerEvent.target.result);
 			};
 		}
 	};
@@ -65,7 +68,7 @@ const CreateProductFormCard = ({
 					/>
 				)
 			)}
-			<p className='font-semibold text-xs text-purple-500 '>
+			<p className='font-semibold text-xs text-purple-500 capitalize'>
 				{title}
 			</p>
 			<Input

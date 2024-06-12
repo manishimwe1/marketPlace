@@ -16,12 +16,12 @@ export const createProductSchemma = z.object({
 	deliveryFee: z.coerce.number(),
 	stock: z.coerce.number(),
 	category: z.string(),
-	SuperDeals: z.coerce.number(),
-	frontView: z.string().max(2200),
-	backView: z.string().max(2200),
-	sideView: z.string().max(2200),
-	topView: z.string().max(2200),
-	bottomView: z.string().max(2200),
+
+	// frontView: z.string(),
+	// backView: z.string(),
+	// sideView: z.string(),
+	// topView: z.string(),
+	// bottomView: z.string(),
 });
 export const createStoreSchema = z.object({
 	name: z

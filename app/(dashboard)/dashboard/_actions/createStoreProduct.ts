@@ -35,7 +35,6 @@ export const createProduct = async (
 			location: product.location,
 			freeDelivery: product.freeDelivery,
 			deliveryFee: product.deliveryFee,
-			SuperDeals: product.SuperDeals,
 			stock: product.stock,
 			category: product.category,
 			sellerId: seller._id as string,

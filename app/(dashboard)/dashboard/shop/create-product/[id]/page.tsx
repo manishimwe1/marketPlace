@@ -27,6 +27,7 @@ import { createProduct } from "../../../_actions/createStoreProduct";
 import CreateProductFormCard from "@/app/(dashboard)/dashboard/_components/shared/CreateProductFormCard";
 import { useToast } from "@/components/ui/use-toast";
 import CustomField from "../../../_components/shared/CustomField";
+import ViewCard from "@/components/shared/ViewCard";
 type Props = {
 	params: { id: string };
 };
@@ -37,23 +38,40 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 	const [image, setImage] = useState<File[]>([]);
 	const [product, setProduct] =
 		useState<ProductType | null>(null);
-	const [switcherState, setSwitcherState] =
-		useState(false);
 	const [isSubmiting, setIsSubmiting] = useState(false);
 	const router = useRouter();
-	const { startUpload } = useUploadThing("imageUploader");
 
 	//smallCardImageView
-	const [frontView, setFrontView] = useState<File[]>([]);
+	const [frontView, setFrontView] = useState<
+		File | undefined
+	>();
 
-	const [backView, setBackView] = useState<File[]>([]);
-	const [sideView, setSideView] = useState<File[]>([]);
+	const [backView, setBackView] = useState<
+		File | undefined
+	>();
+	const [sideView, setSideView] = useState<
+		File | undefined
+	>();
 
-	const [topView, setTopView] = useState<File[]>([]);
-	const [bottomView, setBottomView] = useState<File[]>(
-		[],
-	);
+	const [topView, setTopView] = useState<
+		File | undefined
+	>();
+	const [bottomView, setBottomView] = useState<
+		File | undefined
+	>();
+
+	const { startUpload } = useUploadThing("imageUploader");
 	const { toast } = useToast();
+	const [switcherState, setSwitcherState] =
+		useState(false);
+
+	const handleSwitch = (e: boolean) => {
+		form.setValue("freeDelivery", e);
+		setSwitcherState(
+			form.control._formValues.freeDelivery,
+		);
+		form.setValue("deliveryFee", 0);
+	};
 
 	const form = useForm<
 		z.infer<typeof createProductSchemma>
@@ -61,24 +79,23 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 		resolver: zodResolver(createProductSchemma),
 		defaultValues: {
 			title: "",
+			image: "",
+			// frontViewImage: "",
+			// backViewImage: "",
+			// topViewImage: "",
+			// bottomViewImage: "",
+			// sideViewImage: "",
+
 			description: "",
 			price: undefined,
-			image: "",
+
 			category: "",
 			stock: undefined,
 			location: "",
 			freeDelivery: false,
-			deliveryFee: undefined,
-			SuperDeals: undefined,
+			deliveryFee: switcherState ? 0 : undefined,
 		},
 	});
-
-	const handleSwitch = (e: boolean) => {
-		form.setValue("freeDelivery", e);
-		setSwitcherState(
-			form.control._formValues.freeDelivery,
-		);
-	};
 
 	async function onSubmit(
 		values: z.infer<typeof createProductSchemma>,
@@ -95,9 +112,10 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 		toast({
 			title: "Creating product...",
 		});
-
 		let uploadedImageUrl = values.image;
-
+		if (values.freeDelivery === true) {
+			values.deliveryFee = 0;
+		}
 		try {
 			if (image.length > 0) {
 				const uploadedImages = await startUpload(
@@ -106,18 +124,15 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 				if (!uploadedImages) return;
 				uploadedImageUrl = uploadedImages[0].url;
 			}
-
 			const data = {
 				...values,
 				storeId: id,
 				image: uploadedImageUrl,
 			};
-
 			const results = createProduct(data);
 			results.then((Item: ProductType) => {
 				// return Item;
 				setProduct(Item);
-
 				// return router.push(
 				// 	`/dashboard/shop/${Item._id}`,
 				// );
@@ -130,11 +145,11 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 				description:
 					"Your product has been created!",
 			});
+			router.push(`/dashboard/shop/${id}`);
 		} catch (error) {
 			console.log(error);
 		} finally {
 			setIsSubmiting(false);
-			router.push(`/dashboard/shop/${id}`);
 		}
 	}
 	return (
@@ -194,46 +209,67 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 										)}
 									/>
 								</div>
-								<div className='p-2 h-48 lg:h-[250px] w-full '>
+								<div className='p-2 h-full flex flex-col items-center justify-center gap-20 w-full '>
 									<div className='grid grid-cols-4 lg:grid-cols-5 gap-2 w-full h-full  items-start'>
-										<CreateProductFormCard
-											imgsrc='/views/Front.png'
-											title='Front'
+										<ViewCard
 											setView={
 												setFrontView
 											}
-										/>
-										<CreateProductFormCard
-											imgsrc='/views/Back.png'
-											title='Back'
-											setView={
-												setBackView
+											view={"front"}
+											control={
+												form.control
 											}
 										/>
-										<CreateProductFormCard
-											imgsrc='/views/Top.png'
-											title='Top'
+										<ViewCard
 											setView={
-												setTopView
+												setFrontView
+											}
+											view={"back"}
+											control={
+												form.control
 											}
 										/>
-										<CreateProductFormCard
-											imgsrc='/views/Bottom.png'
-											title='Bottom'
+										<ViewCard
 											setView={
-												setBottomView
+												setFrontView
+											}
+											view={"top"}
+											control={
+												form.control
 											}
 										/>
-										<CreateProductFormCard
-											imgsrc='/views/Sides.png'
-											title='Sides'
+										<ViewCard
 											setView={
-												setSideView
+												setFrontView
+											}
+											view={"bottom"}
+											control={
+												form.control
 											}
 										/>
-										<CreateProductFormCard
-											imgsrc=''
-											title=''
+										<ViewCard
+											setView={
+												setFrontView
+											}
+											view={"side"}
+											control={
+												form.control
+											}
+										/>
+									</div>
+									<div className='w-full items-center flex justify-center mx-auto'>
+										<ShimmerButton
+											type='button'
+											title={
+												isSubmiting
+													? "Creating..."
+													: "Create"
+											}
+											image='/loader-white.svg'
+											className='w-full'
+											showImage={
+												isSubmiting
+											}
 										/>
 									</div>
 								</div>
@@ -410,6 +446,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 
 							<div className='w-full items-center flex justify-center mx-auto'>
 								<ShimmerButton
+									type='submit'
 									title={
 										isSubmiting
 											? "Creating..."

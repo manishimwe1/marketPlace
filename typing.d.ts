@@ -60,7 +60,6 @@ interface ProductType {
 	stock: number;
 	sellerId?: string;
 	storeId: string;
-	SuperDeals: number;
 }
 
 export type ICategory = {
