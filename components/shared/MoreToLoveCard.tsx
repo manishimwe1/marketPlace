@@ -24,46 +24,72 @@ const MoreToLoveCard = ({
 					fill
 					className='object-contain'
 				/>
-				<div
-					className='absolute bottom-4 right-2 bg-purple-100 flex items-center justify-center rounded-full p-1'
-					onClick={() => {
-						setOpen(!open);
-					}}>
-					<ShoppingCartIcon className='h-7 w-7  text-primary' />
-				</div>
+				{admin ? null : (
+					<div
+						className='absolute bottom-4 right-2 bg-purple-100 flex items-center justify-center rounded-full p-1'
+						onClick={() => {
+							setOpen(!open);
+						}}>
+						<ShoppingCartIcon className='h-7 w-7  text-primary' />
+					</div>
+				)}
 			</div>
 			<p className=' py-2 leading-6 text-stone-950 capitalize px-2'>
-				{truncateString(product.title, 50)}
+				{product.title}
 			</p>
-			<p className='text-lg font-normal fon'></p>
-			<div className='flex gap-1 items-center '>
-				{Array.from({
-					length: 5,
-				}).map((items, i) => {
-					return (
-						<Image
-							key={i}
-							src={"/star.svg"}
-							width={14}
-							height={14}
-							alt='star'
-						/>
-					);
-				})}
-				<p className='font-thin text-xs text-muted-foreground'>
-					146 sold{" "}
-					<span className='bg-purple-400/20 text-black text-[10px] rounded-md px-2 text-nowrap'>
-						Top selling 7days
-					</span>
+			{admin ? (
+				<p className='text-sm text-stone-500'>
+					{product.description}
 				</p>
-			</div>
-			<p className='text-lg text-primary font-bold whitespace-nowrap'>
-				<span className='text-xs '>rwf</span>
-				{product.price}
-			</p>
-			<p className=' py-2 leading-6 text-stone-950 capitalize text-sm'>
-				{product.freeDelivery && "Free derively"}
-			</p>
+			) : (
+				<p className='text-sm text-stone-500'>
+					{truncateString(
+						product.description,
+						30,
+					)}
+				</p>
+			)}
+			{admin ? null : (
+				<div className='flex gap-1 items-center '>
+					{Array.from({
+						length: 5,
+					}).map((items, i) => {
+						return (
+							<Image
+								key={i}
+								src={"/star.svg"}
+								width={14}
+								height={14}
+								alt='star'
+							/>
+						);
+					})}
+					<p className='font-thin text-xs text-muted-foreground'>
+						146 sold{" "}
+						<span className='bg-purple-400/20 text-black text-[10px] rounded-md px-2 text-nowrap'>
+							Top selling 7days
+						</span>
+					</p>
+				</div>
+			)}
+
+			{admin ? (
+				<p className='text-sm text-primary font-bold whitespace-nowrap'>
+					<span className='text-xs '>rwf</span>
+					{product.price}
+				</p>
+			) : (
+				<p className='text-lg text-primary font-bold whitespace-nowrap'>
+					<span className='text-xs '>rwf</span>
+					{product.price}
+				</p>
+			)}
+			{admin ? null : (
+				<p className=' py-2 leading-6 text-stone-950 capitalize text-sm'>
+					{product.freeDelivery &&
+						"Free derively"}
+				</p>
+			)}
 			{open && (
 				<ShoppingModal
 					product={product}

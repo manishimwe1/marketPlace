@@ -9,7 +9,9 @@ export const getAllProduct = async () => {
 	try {
 		await connectToDB();
 
-		const product = await Product.find()
+		const product = await Product.find({
+			provedByAdmin: true,
+		})
 			.populate("category")
 			.sort({
 				_id: "desc",
