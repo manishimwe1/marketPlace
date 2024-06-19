@@ -30,7 +30,7 @@ const MobileNavBar = () => {
 						<Link
 							href={"/"}
 							className='w-fit h-full  cursor-pointer mb-6'>
-							<h2 className='font-bold text-left text-3xl  text-black-2  '>
+							<h2 className='font-bold text-left text-3xl  text-dark-2  '>
 								GuraGurisha
 							</h2>
 						</Link>
@@ -43,7 +43,7 @@ const MobileNavBar = () => {
 									height={20}
 									className=''
 								/>
-								<p className='flex items-center gap-4 p-2 px-4 font-bold text-black-2 text-sm lg:text-lg'>
+								<p className='flex items-center gap-4 p-2 px-4 font-bold text-dark-2 text-sm lg:text-lg'>
 									Activity
 								</p>
 							</div>
@@ -64,7 +64,7 @@ const MobileNavBar = () => {
 									)}>
 									<Link
 										href={link.link}
-										className='flex items-center gap-4 p-2 px-4 font-bold text-black-2 text-lg'>
+										className='flex items-center gap-4 p-2 px-4 font-bold text-dark-2 text-lg'>
 										<Image
 											src={link.image}
 											alt={link.label}

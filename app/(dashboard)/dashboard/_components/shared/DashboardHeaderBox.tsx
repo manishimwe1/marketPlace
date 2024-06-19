@@ -15,7 +15,7 @@ const DashboardHeaderBox = ({
 }: Props) => {
 	return (
 		<div className=' w-full  flex justify-between items-center lg:pr-20 lg:px-0 px-4'>
-			<h2 className='title !text-black-2'>{title}</h2>
+			<h2 className='title !text-dark-2'>{title}</h2>
 			<Link href={href}>
 				<ShimmerButton title={buttonText} />
 			</Link>

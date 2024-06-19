@@ -52,8 +52,8 @@ export const ChartBar = ({
 }) => {
 	if (!data) return null;
 	return (
-		<div className='lg:w-1/2 w-full h-[200px] lg:h-[300px] lg:pb-10 overflow-hidden bg-white-2  flex items-center flex-col justify-center rounded-3xl shadow-sm shadow-black'>
-			<h1 className='font-semibold capitalize text-lg mt-10 !text-black-2'>
+		<div className='lg:w-1/2 w-full h-[200px] lg:h-[300px] lg:pb-10 overflow-hidden text-light-2  flex items-center flex-col justify-center rounded-3xl shadow-sm shadow-black'>
+			<h1 className='font-semibold capitalize text-lg mt-10 !text-dark-2'>
 				{title}
 			</h1>
 			{title === "Product" && (

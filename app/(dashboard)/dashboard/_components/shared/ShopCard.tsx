@@ -22,7 +22,7 @@ const ShopCard = ({
 					href={`/dashboard/shop/${data.storeId}`}
 					className='w-full h-full flex justify-between items-center'>
 					<div className='flex justify-start items-start flex-col gap-3 w-full '>
-						<p className='font-bold text-lg text-black-2 capitalize text-nowrap '>
+						<p className='font-bold text-lg text-dark-2 capitalize text-nowrap '>
 							{data.name.split(" ")[0]}
 						</p>
 						<p className='line-clamp-1 ml-4 font-medium text-xs text-muted-foreground capitalize text-nowrap'>

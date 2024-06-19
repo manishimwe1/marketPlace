@@ -85,7 +85,7 @@ const CreateStorePage = ({ params: { id } }: Props) => {
 		<div className=' w-full md:w-[70%] px-10 lg:px-0 mx-auto mt-6 h-full pb-20'>
 			<div className='flex gap-3 lg:flex-row flex-col w-full h-full text-stone-600'>
 				<div className='w-full  px-4 '>
-					<h2 className='text-3xl font-bold text-black-2 mb-6'>
+					<h2 className='text-3xl font-bold text-dark-2 mb-6'>
 						Edit Store
 					</h2>
 					{product ? (

@@ -24,7 +24,7 @@ const MobileMenuBar = () => {
 							)}>
 							<Link
 								href={link.link}
-								className='flex items-center gap-4 p-2 px-4 font-bold text-black-2 text-lg relative'>
+								className='flex items-center gap-4 p-2 px-4 font-bold text-dark-2 text-lg relative'>
 								{index === 2 ? (
 									<div className='absolute -top-10 inset-x-0   '>
 										<div className='relative rounded-full w-14 h-14  border border-purple-950 bg-primary p-2 shadow-md  shadow-purple-500'>

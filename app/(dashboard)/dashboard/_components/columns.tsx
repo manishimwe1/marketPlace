@@ -3,6 +3,7 @@
 import { truncateString } from "@/lib/utils";
 import { ProductType } from "@/typing";
 import { ColumnDef } from "@tanstack/react-table";
+import { Check, X } from "lucide-react";
 
 export const columns: ColumnDef<ProductType>[] = [
 	{
@@ -12,7 +13,7 @@ export const columns: ColumnDef<ProductType>[] = [
 			const id = row.getValue("_id") as string;
 
 			return (
-				<div className='text-right'>
+				<div className='text-left'>
 					{truncateString(id, 8)}
 				</div>
 			);
@@ -60,5 +61,28 @@ export const columns: ColumnDef<ProductType>[] = [
 	{
 		accessorKey: "provedByAdmin",
 		header: "Proved",
+		cell: ({ row }) => {
+			const proved = row.getValue("provedByAdmin");
+
+			if (proved === false) {
+				return (
+					<div className='text-right flex gap-1 items-center justify-between'>
+						<p className='font-semibold text-red-500 '>
+							False
+						</p>
+						<X className='h-4 w-4 rounded-full text-red-500 border border-red-500' />
+					</div>
+				);
+			} else {
+				return (
+					<div className='text-right flex gap-1 items-center justify-between'>
+						<p className='font-semibold text-red-500 '>
+							True
+						</p>
+						<Check className='h-4 w-4 rounded-full text-red-500 border border-red-500' />
+					</div>
+				);
+			}
+		},
 	},
 ];

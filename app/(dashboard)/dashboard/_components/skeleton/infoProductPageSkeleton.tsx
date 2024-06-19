@@ -6,7 +6,7 @@ const InfoProductPageSkeleton = () => {
 		<>
 			<Skeleton className='w-full p-4 h-40 hidden lg:flex flex-col px-3 gap-4 bg-purple-50/40' />
 
-			<div className=' flex flex-col gap-1 w-full px-4 text-black-2 mt-7'>
+			<div className=' flex flex-col gap-1 w-full px-4 text-dark-2 mt-7'>
 				<Skeleton className=' w-20 h-5' />
 
 				<Skeleton className=' w-20 h-5' />

@@ -16,10 +16,10 @@ import {
 const DashBoardSideNav = () => {
 	const pathname = usePathname();
 	return (
-		<section className=' hidden sm:flex sm:w-20 lg:w-[200px] h-screen sticky top-0 left-0 py-2 bg-white-2'>
+		<section className=' hidden sm:flex sm:w-20 lg:w-[200px] h-screen sticky top-0 left-0 py-2 bg-white'>
 			<aside className='w-full p-2 text-center flex flex-col gap-4'>
 				<nav className=' py-5 '>
-					<div className=' pb-4 px-2 flex w-full justify-between items-center relative'>
+					{/* <div className=' pb-4 px-2 flex w-full justify-between items-center relative'>
 						<div className=' hidden lg:flex items-center gap-1 cursor-pointer'>
 							<Image
 								src={"/chart.svg"}
@@ -28,14 +28,14 @@ const DashBoardSideNav = () => {
 								height={20}
 								className=''
 							/>
-							<p className='flex items-center gap-4 p-2 px-4 font-bold text-black-2 text-lg'>
+							<p className='flex items-center gap-4 p-2 px-4 font-bold text-dark-2 text-lg'>
 								Activity
 							</p>
 						</div>
 						<p className='bg-purple-500 h-7 hidden  lg:flex text-center justify-center font-bold text-purple-100 w-7 rounded-full absolute top-0 right-4 cursor-pointer ScaleAnimation'>
 							10
 						</p>
-					</div>
+					</div> */}
 					{DASHBAORD_LINKS.map((link) => {
 						const isActive =
 							link.link === pathname;
@@ -49,7 +49,7 @@ const DashBoardSideNav = () => {
 								)}>
 								<Link
 									href={link.link}
-									className='flex items-center gap-4 p-2 px-4 font-bold text-black-2 text-lg'>
+									className='flex items-center gap-4 p-2 px-4 font-bold text-dark-2 text-lg'>
 									<TooltipProvider>
 										<Tooltip>
 											<TooltipTrigger>
@@ -72,7 +72,7 @@ const DashBoardSideNav = () => {
 											<p className='hidden lg:flex'>
 												{link.label}
 											</p>
-											<TooltipContent className='bg-black border-none ring-0 text-black-2'>
+											<TooltipContent className='bg-black border-none ring-0 text-dark-2'>
 												<p>
 													{
 														link.label

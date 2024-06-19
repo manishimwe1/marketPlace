@@ -26,14 +26,14 @@ const storePage = async ({ params: { id } }: Props) => {
 		await getAllProductInStore(id);
 
 	return (
-		<section className=' h-full max-wrapper w-full mx-auto relative px-3 mt-10 lg:px0 flex items-start justify-center flex-col gap-8 lg:gap-20'>
+		<section className=' h-full max-wrapper w-full mx-auto relative px-3 lg:px0 flex items-start justify-center flex-col gap-8 lg:gap-20'>
 			<DashboardHeaderBox
 				title='My product lists'
 				buttonText='Create Product '
 				href={`/dashboard/shop/create-product/${id}`}
 			/>
 			<div className='h-full w-full flex flex-col gap-3 items-center justify-center px-2 lg:px-0'>
-				<div className='w-full h-10 gap-2 lg:gap-20  py-2 flex items-center  justify-between  rounded-t-lg '>
+				{/* <div className='w-full h-10 gap-2 lg:gap-20  py-2 flex items-center  justify-between  rounded-t-lg '>
 					<DataTableTopAction position={"left"} />
 					<form className='w-[260px] sm:w-[400px] lg:w-full relative py-1 bg-black/50 rounded-lg h-10'>
 						<div className='absolute top-0 inset-0'>
@@ -47,17 +47,17 @@ const storePage = async ({ params: { id } }: Props) => {
 								<SelectContent className='bg-gradient text-purple-200 border-white/10'>
 									<SelectItem
 										value='light'
-										className='hover:!bg-black/50 hover:text-black-2 cursor-pointer'>
+										className='hover:!bg-black/50 hover:text-dark-2 cursor-pointer'>
 										Light
 									</SelectItem>
 									<SelectItem
 										value='dark'
-										className='hover:!bg-black/50 hover:text-black-2 cursor-pointer'>
+										className='hover:!bg-black/50 hover:text-dark-2 cursor-pointer'>
 										Dark
 									</SelectItem>
 									<SelectItem
 										value='system'
-										className='hover:!bg-black/50 hover:text-black-2 cursor-pointer'>
+										className='hover:!bg-black/50 hover:text-dark-2 cursor-pointer'>
 										System
 									</SelectItem>
 								</SelectContent>
@@ -67,7 +67,7 @@ const storePage = async ({ params: { id } }: Props) => {
 					<DataTableTopAction
 						position={"right"}
 					/>
-				</div>
+				</div> */}
 				{product && (
 					<DataTable
 						columns={columns}

@@ -102,7 +102,7 @@ const InfoProductPage = ({
 										/>
 									</div>
 								</div>
-								<div className=' flex flex-col gap-1 w-full px-4 text-black-2'>
+								<div className=' flex flex-col gap-1 w-full px-4 text-dark-2'>
 									<div className='flex py-5 justify-between  items-center gap-3  w-full'>
 										<h2 className='text-3xl font-bold text-purple-200 capitalize'>
 											{truncateString(
@@ -130,7 +130,7 @@ const InfoProductPage = ({
 									</div>
 									<Separator className='h-1 w-full mt-5 mb-4 rounded-r-lg bg-purple-500/10' />
 									<div className='w-full flex flex-col justify-between  rounded-r-3xl px-3 items-start  overflow-hidden'>
-										<p className=' font-medium text-black-2  text-sm text-nowrap'>
+										<p className=' font-medium text-dark-2  text-sm text-nowrap'>
 											Aproval time for
 											publishing your
 											product
