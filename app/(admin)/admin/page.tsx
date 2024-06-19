@@ -6,6 +6,13 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import EmptyStatePage from "@/app/(dashboard)/dashboard/_components/shared/emptyState";
+import {
+	Button,
+	buttonVariants,
+} from "@/components/ui/button";
+import { ArrowDownLeftFromCircleIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { ArrowUturnLeftIcon } from "@heroicons/react/24/solid";
 
 type Props = {};
 
@@ -18,8 +25,17 @@ async function AdminPage({}: Props) {
 
 	if (!allProduct)
 		return (
-			<div>
-				<EmptyStatePage title='unthorized' />
+			<div className='mt-10 flex flex-col gap-4 items-center justify-center'>
+				<EmptyStatePage title='unthorized You are not allowed to be here' />
+				<Link
+					href='/'
+					className={cn(
+						buttonVariants(),
+						"w-fit px-10",
+					)}>
+					<ArrowUturnLeftIcon className='h4 w-4 mr-4' />
+					Go back
+				</Link>
 			</div>
 		);
 	console.log(allProduct);
