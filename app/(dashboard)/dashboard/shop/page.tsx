@@ -16,7 +16,7 @@ const DashboardShopPage = async () => {
 	if (!StoreData) return;
 
 	return (
-		<section className='flex-1  w-full h-[calc(100vh)] lg:px-4 flex flex-col items-start max-wrapper'>
+		<section className='flex-1  w-full  lg:px-4 flex flex-col items-start max-wrapper'>
 			<DashboardHeaderBox
 				title='My Store'
 				buttonText='Create Store'

@@ -23,7 +23,7 @@ export default async function RootLayout({
 	return (
 		<html lang='en'>
 			<Provider>
-				<body className='min-h-screen w-full relative h-full bg-gradient-to-tr from-[#180916] to-[#1a010f] backdrop:filter backdrop-saturate-150 overflow-hidden'>
+				<body className='min-h-screen w-full relative h-full overflow-hidden bg-white-1'>
 					<NextTopLoader
 						color='blue'
 						initialPosition={0.08}
@@ -36,11 +36,11 @@ export default async function RootLayout({
 						shadow='0 0 10px #2299DD,0 0 5px #2299DD'
 					/>
 
-					<Toaster />
 					<DashboardNav />
-					<main className='flex w-full gap-3 bg-bgImg   relative items-start justify-between overflow-hidden'>
+					<main className='flex w-full gap-3 bg-gray-50  relative items-start justify-between overflow-hidden'>
 						<DashBoardSideNav />
 						<ScrollArea className=' shadow-md shadow-purple-700/20  h-screen !px-3 w-full pb-5'>
+							<Toaster />
 							{children}
 						</ScrollArea>
 					</main>

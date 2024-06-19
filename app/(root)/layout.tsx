@@ -33,7 +33,7 @@ export default async function RootLayout({
 				<body
 					className={cn(
 						poppins.variable,
-						"text-white bg-gray-100 overflow-hidden ",
+						"text-black-2 bg-gray-100 overflow-hidden ",
 					)}>
 					<NextTopLoader
 						color='#2299DD'

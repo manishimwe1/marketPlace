@@ -67,7 +67,7 @@ const DropZone = ({ setImage, onFieldChange }: Props) => {
 		<section className='w-full h-full flex justify-center text-stone-700 relative'>
 			<div
 				className={cn(
-					" h-full w-full flex flex-col gap-4 justify-center items-center p-5 border border-dashed rounded-lg text-center text-white animate-pulse",
+					" h-full w-full flex flex-col gap-4 justify-center items-center p-5 border border-dashed rounded-lg text-center text-black-2 animate-pulse",
 				)}>
 				{/* <input
 					{...getInputProps()}

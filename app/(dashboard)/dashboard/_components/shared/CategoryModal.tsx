@@ -81,7 +81,7 @@ const CategoryModal = ({
 	return (
 		<Dialog open={showModal}>
 			{editcategory ? (
-				<DialogContent className='bg-black !border-white/10 !text-purple-300'>
+				<DialogContent className='bg-black !border-white/10 !text-black-2'>
 					<div className='flex gap-2 px-2 items-center bg-black/20'>
 						<Search className='h-5 w-5 ' />
 						<Input
@@ -90,7 +90,7 @@ const CategoryModal = ({
 						/>
 					</div>
 					<DialogDescription className='flex items-start justify-between flex-col'>
-						<p className='title !text-purple-200 text-base'>
+						<p className='title text-black-2 text-base'>
 							selected category
 						</p>
 						{category ? (
@@ -175,7 +175,7 @@ const CategoryModal = ({
 			) : (
 				<DialogContent className='bg-black !border-white/10 '>
 					<DialogHeader>
-						<DialogTitle className='title !text-purple-200 flex w-full items-center justify-between'>
+						<DialogTitle className='title text-black-2 flex w-full items-center justify-between'>
 							Item category{" "}
 							<Button className='!bg-gradient hover:text-purple-200 bg-black'>
 								Done

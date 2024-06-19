@@ -113,7 +113,7 @@ export function DataTable<ProductType, TValue>({
 						<TableRow>
 							<TableCell
 								colSpan={columns.length}
-								className='h-6 text-center text-purple-300'>
+								className='h-6 text-center text-black-2'>
 								No results.
 							</TableCell>
 						</TableRow>

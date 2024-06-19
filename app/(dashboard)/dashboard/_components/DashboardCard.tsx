@@ -13,10 +13,10 @@ const DashbaordCard = ({
 	subTitle?: string;
 }) => {
 	return (
-		<section className='bg-gradient-to-tr from-[#0c040b] to-[#1a010f] flex-grow p-4 rounded-sm shadow-sm shadow-[#000000] flex items-center justify-between  relative cursor-pointer'>
+		<section className='bg-gradient-to-tr from-[#ffffff] to-[#F4F5F7] flex-grow p-4 rounded-sm shadow-sm shadow-[#c4c2c2] flex items-center justify-between  relative cursor-pointer'>
 			<div className='flex justify-start items-start flex-col gap-1 w-full '>
 				<div className='flex gap-2 items-center'>
-					<p className='font-bold text-lg text-blue-100 capitalize text-nowrap'>
+					<p className='font-bold text-lg text-black-2 capitalize text-nowrap'>
 						{title}
 					</p>
 					<Image
@@ -29,18 +29,18 @@ const DashbaordCard = ({
 				</div>
 				<div className=' flex justify-between items-baseline w-full '>
 					{subTitle === "Income" ? (
-						<p className='title flex-1 !text-purple-100'>
+						<p className='title flex-1 text-black-2'>
 							${amount}
 						</p>
 					) : (
-						<p className='title flex-1 !text-purple-100'>
+						<p className='title flex-1 text-black-2'>
 							{amount}
 						</p>
 					)}
 					<div className='text-[13px] relative bg-purple-200/30 py-1 px-2  rounded-full font-semibold  shadow-sm shadow-black/20 text-stone-400'>
 						<p>{subTitle}</p>
 						{subTitle === "Open" && (
-							<TruckIcon className='object-contain h-5 w-5 absolute -top-3 right-0  text-white' />
+							<TruckIcon className='object-contain h-5 w-5 absolute -top-3 right-0  text-black-2' />
 						)}
 					</div>
 				</div>

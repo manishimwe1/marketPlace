@@ -61,14 +61,14 @@ const page = async () => {
 						<Link
 							href={"/dashboard/shop"}
 							className={cn(
-								"!text-white !text-lg",
+								"!text-black-2 !text-lg",
 								buttonVariants({
 									variant: "link",
 									size: "lg",
 								}),
 							)}>
 							Create product{" "}
-							<ArrowRight className='h-5 w-10 text-white' />
+							<ArrowRight className='h-5 w-10 text-black-2' />
 						</Link>
 					</div>
 				</div>

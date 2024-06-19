@@ -26,17 +26,14 @@ const ActionButtonPage = ({
 			<DropdownMenuTrigger>
 				<MoreVerticalIcon className='text-sm text-stone-500 h-4  w-4 ' />
 			</DropdownMenuTrigger>
-			<DropdownMenuContent className='bg-gradient border-white/10 hover:bg-black/60 text-purple-300 gap-2'>
-				<DropdownMenuLabel>
-					Actions
-				</DropdownMenuLabel>
-				<DropdownMenuSeparator className='bg-white/10' />
+			<DropdownMenuContent className='bg-white-2 border-white/10 hover:bg-black/60 text-black-2 gap-2'>
 				<Link
 					href={`/dashboard/shop/${storeId}/edit-shop`}>
-					<DropdownMenuItem className='!hover:bg-black/70 cursor-pointer  mb-2'>
+					<DropdownMenuItem className='hover:!bg-white-1 cursor-pointer  mb-2'>
 						Edit
 					</DropdownMenuItem>
 				</Link>
+				<DropdownMenuSeparator className='bg-white/10' />
 
 				<DropdownMenuItem
 					onClick={() =>

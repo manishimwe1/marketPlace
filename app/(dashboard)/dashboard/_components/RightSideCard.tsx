@@ -23,7 +23,7 @@ const RightSideCard = async () => {
 						height={80}
 						className='rounded-full bg-purple-300 '
 					/>
-					<div className='text-purple-300  flex cursor-pointer'>
+					<div className='text-black-2  flex cursor-pointer'>
 						<p className='font-semibold text-base mr-2'>
 							{session.user?.name}
 						</p>

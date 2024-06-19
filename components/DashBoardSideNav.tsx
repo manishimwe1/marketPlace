@@ -16,7 +16,7 @@ import {
 const DashBoardSideNav = () => {
 	const pathname = usePathname();
 	return (
-		<section className=' hidden sm:flex sm:w-20 lg:w-[200px] h-screen sticky top-0 left-0 py-2 bg-[#0f050d] '>
+		<section className=' hidden sm:flex sm:w-20 lg:w-[200px] h-screen sticky top-0 left-0 py-2 bg-white-2'>
 			<aside className='w-full p-2 text-center flex flex-col gap-4'>
 				<nav className=' py-5 '>
 					<div className=' pb-4 px-2 flex w-full justify-between items-center relative'>
@@ -28,7 +28,7 @@ const DashBoardSideNav = () => {
 								height={20}
 								className=''
 							/>
-							<p className='flex items-center gap-4 p-2 px-4 font-bold text-white text-lg'>
+							<p className='flex items-center gap-4 p-2 px-4 font-bold text-black-2 text-lg'>
 								Activity
 							</p>
 						</div>
@@ -49,7 +49,7 @@ const DashBoardSideNav = () => {
 								)}>
 								<Link
 									href={link.link}
-									className='flex items-center gap-4 p-2 px-4 font-bold text-white text-lg'>
+									className='flex items-center gap-4 p-2 px-4 font-bold text-black-2 text-lg'>
 									<TooltipProvider>
 										<Tooltip>
 											<TooltipTrigger>
@@ -66,13 +66,13 @@ const DashBoardSideNav = () => {
 													height={
 														20
 													}
-													className='invert '
+													className=''
 												/>
 											</TooltipTrigger>
 											<p className='hidden lg:flex'>
 												{link.label}
 											</p>
-											<TooltipContent className='bg-black border-none ring-0 text-white'>
+											<TooltipContent className='bg-black border-none ring-0 text-black-2'>
 												<p>
 													{
 														link.label

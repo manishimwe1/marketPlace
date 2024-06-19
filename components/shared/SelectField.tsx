@@ -112,7 +112,7 @@ function SelectField({
 				<AlertDialog open={isOpen}>
 					<AlertDialogTrigger
 						onClick={handleOpen}
-						className='font-semibold capitalize hover:bg-purple-500  rounded-lg py-2 hover:text-white w-full'>
+						className='font-semibold capitalize hover:bg-purple-500  rounded-lg py-2 hover:text-black-2 w-full'>
 						Add New Category
 					</AlertDialogTrigger>
 					<AlertDialogContent className=' text-stone-950'>

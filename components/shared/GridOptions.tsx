@@ -83,12 +83,7 @@ const GridOptions = ({
 										</span>
 									</p>
 									<p className='bg-primary rounded-full text-base font-semibold px-3 py-0.5'>
-										-
-										{
-											allProduct[0]
-												.SuperDeals
-										}
-										% off
+										- 0 % off
 									</p>
 								</div>
 							</div>

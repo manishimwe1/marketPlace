@@ -47,17 +47,17 @@ const storePage = async ({ params: { id } }: Props) => {
 								<SelectContent className='bg-gradient text-purple-200 border-white/10'>
 									<SelectItem
 										value='light'
-										className='hover:!bg-black/50 hover:!text-purple-100 cursor-pointer'>
+										className='hover:!bg-black/50 hover:text-black-2 cursor-pointer'>
 										Light
 									</SelectItem>
 									<SelectItem
 										value='dark'
-										className='hover:!bg-black/50 hover:!text-purple-100 cursor-pointer'>
+										className='hover:!bg-black/50 hover:text-black-2 cursor-pointer'>
 										Dark
 									</SelectItem>
 									<SelectItem
 										value='system'
-										className='hover:!bg-black/50 hover:!text-purple-100 cursor-pointer'>
+										className='hover:!bg-black/50 hover:text-black-2 cursor-pointer'>
 										System
 									</SelectItem>
 								</SelectContent>
