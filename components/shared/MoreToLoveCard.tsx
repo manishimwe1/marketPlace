@@ -9,8 +9,10 @@ import { ShoppingModal } from "./ShopingCartModal";
 
 const MoreToLoveCard = ({
 	product,
+	admin,
 }: {
 	product: ProductType;
+	admin?: boolean;
 }) => {
 	const [open, setOpen] = useState(false);
 	return (

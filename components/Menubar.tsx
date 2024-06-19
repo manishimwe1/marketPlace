@@ -49,19 +49,19 @@ const Menubar = ({
 
 	return (
 		<nav className='bg-primary py-2 lg:py-6  w-full h-8 lg:h-10 flex gap-6 items-center'>
-			<div className='max-w-7xl mx-auto py-8 flex justify-between items-center gap-6 h-full w-full'>
+			<div className='max-w-7xl  mx-auto py-8 flex justify-between items-center gap-6 h-full w-full'>
 				<NavigationMenu>
 					<NavigationMenuList>
 						<NavigationMenuItem>
 							<NavigationMenuTrigger>
 								<div className='flex gap-4 items-center'>
 									<Bars4Icon className='w-5 h-5 lg:w-7 lg:h-7' />
-									<p className='font-semibold text-sm lg:text-lg'>
+									<p className='font-semibold text-sm lg:text-lg !text-light-2'>
 										All Categories
 									</p>
 								</div>
 							</NavigationMenuTrigger>
-							<NavigationMenuContent className=' py-2 lg:py-4 mr-4'>
+							<NavigationMenuContent className=' py-2 lg:py-4 mr-4 text-light-2'>
 								<NavigationMenuLink>
 									{allProductCategory ? (
 										removeDuplicates(
@@ -72,7 +72,7 @@ const Menubar = ({
 													key={
 														category._id
 													}
-													className='flex flex-col gap-2 px-2 '>
+													className='flex flex-col gap-2 px-2 text-light-2'>
 													<Link
 														key={
 															category._id
@@ -104,7 +104,7 @@ const Menubar = ({
 							className={cn(
 								link.label === "SuperDeals"
 									? "text-red-500"
-									: "",
+									: "text-light-2",
 								"hover:underline hover:underline-offset-2 text-lg font-bold",
 							)}>
 							{link.label}

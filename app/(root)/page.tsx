@@ -7,6 +7,7 @@ import NewCollectionCard from "@/components/NewCollectionCard";
 import PopularCategory from "@/components/PopularCategory";
 import SuperDeals from "@/components/SuperDeals";
 import ShoppingOptionsCard from "@/components/shared/ShoppingOptionsCard";
+import { Separator } from "@/components/ui/separator";
 import {
 	getAllProduct,
 	getAllProductCategory,
@@ -60,6 +61,9 @@ async function page() {
 						</div>
 					</div>
 				</section>
+				<div className='w-full h-fit flex items-center justify-center py-10'>
+					<Separator className='max-w-5xl mx-auto border border-purple-800/50 rounded-full' />
+				</div>
 				<MoreToLove />
 			</main>
 			<div className='w-full h-full lg:hidden flex'>

@@ -71,7 +71,6 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 			location: "",
 			freeDelivery: false,
 			deliveryFee: 0,
-			SuperDeals: 0,
 			frontView: "",
 			backView: "",
 			sideView: "",
@@ -106,10 +105,10 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 		let uploadedImageUrl = values.image;
 		let uploadedFrontViewUrl = values.frontView;
 
-		console.log(
-			uploadedFrontViewUrl,
-			"FRONTview>>>>>>",
-		);
+		// console.log(
+		// 	uploadedFrontViewUrl,
+		// 	"FRONTview>>>>>>",
+		// );
 
 		try {
 			if (image.length > 0) {

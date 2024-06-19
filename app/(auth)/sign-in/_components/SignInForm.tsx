@@ -78,10 +78,10 @@ const SignInForm = () => {
 										}
 										{...field}
 									/>
-									<div className='absolute h-full w-fit right-0 top-0 rounded-r-lg bg-black overflow-hidden flex items-center justify-center px-1'>
+									<div className='absolute h-full w-fit right-0 top-0 rounded-r-lg bg-light-2 overflow-hidden flex items-center justify-center px-1'>
 										{showPassword ? (
 											<EyeIcon
-												className='h-4 w-4  cursor-pointer text-pink-300'
+												className='h-4 w-4  cursor-pointer text-dark-1'
 												onClick={() => {
 													setShowPassword(
 														!showPassword,
@@ -90,7 +90,7 @@ const SignInForm = () => {
 											/>
 										) : (
 											<EyeSlashIcon
-												className='h-4 w-4  cursor-pointer text-pink-300'
+												className='h-4 w-4  cursor-pointer text-dark-1'
 												onClick={() => {
 													setShowPassword(
 														!showPassword,

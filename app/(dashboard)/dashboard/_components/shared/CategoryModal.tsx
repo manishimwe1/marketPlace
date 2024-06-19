@@ -57,7 +57,7 @@ const CategoryModal = ({
 			unstable_noStore();
 			const allcategory = await getAllCategories();
 			if (allcategory) {
-				console.log(allCategory, "allPRODUct");
+				// console.log(allCategory, "allPRODUct");
 				setAllCategory(allCategory);
 			}
 		};

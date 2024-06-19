@@ -14,7 +14,7 @@ const ShopCard = ({
 	total: number;
 	data: IStore;
 }) => {
-	console.log(data);
+	// console.log(data);
 	return (
 		<section className='bg-slate-400/10  flex-grow p-2 rounded-lg shadow-sm shadow-[#e2dede] flex flex-col w-full h-full py-4 gap-3 border border-white/50'>
 			<div className=' flex flex-col items-center justify-between gap-2 lg:gap-4  relative cursor-pointer w-full '>

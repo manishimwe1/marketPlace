@@ -39,23 +39,21 @@ const Navbar = async () => {
 				{user?.user ? (
 					<UserButton />
 				) : (
-					<div className='flex items-center gap-1 '>
-						<UserIcon className='lg:w-8  w-6 lg:h-8' />
-
-						<form
-							className='w-full'
-							action={async () => {
-								"use server";
-								await signIn("google");
-							}}>
-							<Button
-								variant={"link"}
-								type='submit'
-								className='text-purple-100'>
-								Sign in
-							</Button>
-						</form>
-					</div>
+					<form
+						className='w-fit'
+						action={async () => {
+							"use server";
+							await signIn("google");
+						}}>
+						<Button
+							variant={"link"}
+							type='submit'
+							size={"sm"}
+							className='text-purple-100 w-fit  '>
+							<UserIcon className='lg:w-8  w-6 lg:h-8 text-purple-200' />
+							Sign in
+						</Button>
+					</form>
 				)}
 				<ShoppingCart />
 			</div>
