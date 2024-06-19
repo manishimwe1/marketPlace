@@ -5,6 +5,7 @@ import { getProductNotProven } from "../_actions/getProductNotProven";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import EmptyStatePage from "@/app/(dashboard)/dashboard/_components/shared/emptyState";
 
 type Props = {};
 
@@ -15,7 +16,12 @@ async function AdminPage({}: Props) {
 
 	const allProduct = await getProductNotProven();
 
-	if (!allProduct) return <div>UNthorized</div>;
+	if (!allProduct)
+		return (
+			<div>
+				<EmptyStatePage title='unthorized' />
+			</div>
+		);
 	console.log(allProduct);
 
 	return (
@@ -25,11 +31,11 @@ async function AdminPage({}: Props) {
 					? allProduct.map(
 							(product: ProductType) => (
 								<Link
-									href={`/admin/${product._id}`}>
+									href={`/admin/${product._id}`}
+									key={product._id}>
 									<MoreToLoveCard
 										admin={true}
 										product={product}
-										key={product._id}
 									/>
 								</Link>
 							),
