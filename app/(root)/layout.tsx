@@ -14,9 +14,12 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-	title: "Tech marketPlace",
+	title: "marketPlace",
 	description:
 		"Better prices | better choices | Fast delivery",
+	icons: {
+		icon: "/logo.svg",
+	},
 };
 
 export default async function RootLayout({

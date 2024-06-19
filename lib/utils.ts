@@ -4,6 +4,13 @@ import { twMerge } from "tailwind-merge";
 import { ICategory } from "@/typing";
 import * as crypto from "crypto";
 
+import {
+	generateUploadButton,
+	generateUploadDropzone,
+} from "@uploadthing/react";
+
+import type { OurFileRouter } from "@/app/api/uploadthing/core";
+
 // import type { OurFileRouter } from "@/app/api/uploadthing/core";
 
 export function cn(...inputs: ClassValue[]) {
@@ -70,37 +77,7 @@ export function getFirstWord(str: string) {
 	return words.length > 0 ? words[0] : "";
 }
 
-export function saltAndHashPassword(
-	password: string,
-	saltLen: number = 16,
-	iterations: number = 100000,
-	keyLen: number = 64,
-	digest: string = "sha512",
-): Promise<string> {
-	return new Promise<string>((resolve, reject) => {
-		try {
-			const salt = crypto
-				.randomBytes(saltLen)
-				.toString("base64");
-			crypto.pbkdf2(
-				password,
-				salt,
-				iterations,
-				keyLen,
-				digest,
-				(err, derivedKey) => {
-					if (err) {
-						reject(err);
-					} else {
-						const hash = `${digest}$${iterations}$${salt}$${derivedKey.toString(
-							"base64",
-						)}`;
-						resolve(hash);
-					}
-				},
-			);
-		} catch (err) {
-			reject(err);
-		}
-	});
-}
+export const UploadButton =
+	generateUploadButton<OurFileRouter>();
+export const UploadDropzone =
+	generateUploadDropzone<OurFileRouter>();

@@ -24,7 +24,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { createProduct } from "../../../_actions/createStoreProduct";
-import CreateProductFormCard from "@/app/(dashboard)/dashboard/_components/shared/CreateProductFormCard";
 import { useToast } from "@/components/ui/use-toast";
 import CustomField from "../../../_components/shared/CustomField";
 import ViewCard from "@/components/shared/ViewCard";
@@ -35,7 +34,7 @@ type Props = {
 const CreateProductPage = ({ params: { id } }: Props) => {
 	const [CategoryId, setCategoryId] = useState("");
 	const [user, setUser] = useState({});
-	const [image, setImage] = useState<File[]>([]);
+	const [image, setImage] = useState<string>();
 	const [product, setProduct] =
 		useState<ProductType | null>(null);
 	const [isSubmiting, setIsSubmiting] = useState(false);
@@ -100,7 +99,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 	async function onSubmit(
 		values: z.infer<typeof createProductSchemma>,
 	) {
-		if (image.length <= 0) {
+		if (!image) {
 			return toast({
 				title: "Image is required",
 				description:
@@ -117,17 +116,10 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 			values.deliveryFee = 0;
 		}
 		try {
-			if (image.length > 0) {
-				const uploadedImages = await startUpload(
-					image,
-				);
-				if (!uploadedImages) return;
-				uploadedImageUrl = uploadedImages[0].url;
-			}
 			const data = {
 				...values,
 				storeId: id,
-				image: uploadedImageUrl,
+				image,
 			};
 			const results = createProduct(data);
 			results.then((Item: ProductType) => {
@@ -180,7 +172,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 							)}
 							className='space-y-8'>
 							<div className='flex w-full flex-col md:flex-row gap-4 items-center justify-between h-full '>
-								<div className='lg:w-[500px] h-48 lg:h-[250px] w-full '>
+								<div className='lg:w-[50%] h-48 lg:h-[250px] w-full '>
 									<FormField
 										control={
 											form.control
@@ -209,7 +201,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 										)}
 									/>
 								</div>
-								<div className='p-2 h-full flex flex-col items-center justify-center gap-20 w-full '>
+								{/* <div className='p-2 h-full flex flex-col items-center justify-center gap-20 w-full '>
 									<div className='grid grid-cols-4 lg:grid-cols-5 gap-2 w-full h-full  items-start'>
 										<ViewCard
 											setView={
@@ -272,7 +264,7 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 											}
 										/>
 									</div>
-								</div>
+								</div> */}
 							</div>
 
 							<CustomField

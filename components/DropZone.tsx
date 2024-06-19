@@ -1,6 +1,10 @@
 "use client ";
 
-import { cn, convertFileToUrl } from "@/lib/utils";
+import {
+	UploadButton,
+	cn,
+	convertFileToUrl,
+} from "@/lib/utils";
 import { SquaresPlusIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import {
@@ -14,89 +18,94 @@ import Dropzone, {
 	useDropzone,
 } from "react-dropzone";
 import { generateClientDropzoneAccept } from "uploadthing/client";
+import { useToast } from "./ui/use-toast";
 
 type Props = {
-	setImage: Dispatch<SetStateAction<File[]>>;
+	setImage: Dispatch<SetStateAction<string | undefined>>;
 	onFieldChange: (url: string) => void;
 };
 
 const DropZone = ({ setImage, onFieldChange }: Props) => {
-	const [showProductImage, setShowProductImage] =
-		useState<string>("");
-	const onDrop = useCallback(
-		(acceptedFiles: FileWithPath[]) => {
-			setImage(acceptedFiles);
-			onFieldChange(
-				convertFileToUrl(acceptedFiles[0]),
-			);
-			if (setShowProductImage) {
-				setShowProductImage(
-					convertFileToUrl(acceptedFiles[0]),
-				);
-			}
-		},
-		[setImage, onFieldChange, setShowProductImage],
-	);
+	const { toast } = useToast();
+	// const [showProductImage, setShowProductImage] =
+	// 	useState<string>("");
+	// const onDrop = useCallback(
+	// 	(acceptedFiles: FileWithPath[]) => {
+	// 		setImage(acceptedFiles);
+	// 		onFieldChange(
+	// 			convertFileToUrl(acceptedFiles[0]),
+	// 		);
+	// 		if (setShowProductImage) {
+	// 			setShowProductImage(
+	// 				convertFileToUrl(acceptedFiles[0]),
+	// 			);
+	// 		}
+	// 	},
+	// 	[setImage, onFieldChange, setShowProductImage],
+	// );
 
-	const { getRootProps, getInputProps } = useDropzone({
-		onDrop,
-		accept: "image/*"
-			? generateClientDropzoneAccept(["image/*"])
-			: undefined,
-	});
+	// const { getRootProps, getInputProps } = useDropzone({
+	// 	onDrop,
+	// 	accept: "image/*"
+	// 		? generateClientDropzoneAccept(["image/*"])
+	// 		: undefined,
+	// });
 	return (
-		<Dropzone onDrop={onDrop}>
-			{({
-				getRootProps,
-				getInputProps,
-				isDragActive,
-				isDragReject,
-				fileRejections,
-			}) => {
-				return (
-					<section className='w-full h-full flex justify-center text-stone-700'>
-						{showProductImage !== "" ? (
-							<div className=' h-full w-full relative'>
-								<Image
-									src={showProductImage}
-									alt='product'
-									fill
-									className='object-contain'
-								/>
-							</div>
-						) : (
-							<div
-								{...getRootProps()}
-								className={cn(
-									" h-full w-full flex flex-col gap-4 justify-center items-center p-5 border border-dashed rounded-lg text-center",
-									isDragActive
-										? "bg-purple-500 text-white animate-pulse"
-										: "bg-gradient text-slate-400",
-								)}>
-								<SquaresPlusIcon className='h-8 w-8' />
+		// <Dropzone onDrop={onDrop}>
+		// 	{({
+		// 		getRootProps,
+		// 		getInputProps,
+		// 		isDragActive,
+		// 		isDragReject,
+		// 		fileRejections,
+		// 	}) => {
+		// 		return (
 
-								<input
-									{...getInputProps()}
-									className='w-full'
-								/>
-								{isDragActive &&
-									"click here or drag a file to upload!."}
-								{isDragActive &&
-									isDragReject &&
-									"Drop to upload this file"}
-								{isDragReject &&
-									"File type not accepted, sorry!"}
+		// 		);
+		// 	}}
+		// </Dropzone>
+		<section className='w-full h-full flex justify-center text-stone-700 relative'>
+			<div
+				className={cn(
+					" h-full w-full flex flex-col gap-4 justify-center items-center p-5 border border-dashed rounded-lg text-center text-white animate-pulse",
+				)}>
+				{/* <input
+					{...getInputProps()}
+					className='w-full'
+				/>
+				{isDragActive &&
+					"click here or drag a file to upload!."}
+				{isDragActive &&
+					isDragReject &&
+					"Drop to upload this file"}
+				{isDragReject &&
+					"File type not accepted, sorry!"} */}
 
-								<p className='text-sm font-semibold capitalize text-stone-500'>
-									click or drag and drop
-									photo here!
-								</p>
-							</div>
-						)}
-					</section>
-				);
-			}}
-		</Dropzone>
+				<p className='text-sm font-semibold capitalize text-stone-500'>
+					click or drag and drop photo here!
+				</p>
+				<UploadButton
+					endpoint='imageUploader'
+					onClientUploadComplete={(res) => {
+						toast({
+							title: "Upload Complete",
+							variant: "success",
+						});
+
+						setImage(res[0].url);
+					}}
+					onUploadError={(error: Error) => {
+						// Do something with the error.
+						alert(`ERROR! ${error.message}`);
+						toast({
+							title: "ERROR",
+							description: error.message,
+							variant: "destructive",
+						});
+					}}
+				/>
+			</div>
+		</section>
 	);
 };
 

@@ -9,11 +9,9 @@ if (!process.env.MONGODB_URI) {
 
 const uri = process.env.MONGODB_URI;
 const options = {
-	serverApi: {
-		version: ServerApiVersion.v1,
-		strict: true,
-		deprecationErrors: true,
-	},
+	serverSelectionTimeoutMS: 5000, // Increase this timeout as needed
+	connectTimeoutMS: 10000, // Connection timeout
+	socketTimeoutMS: 45000, // Socket timeout
 };
 
 let client;

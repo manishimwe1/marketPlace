@@ -5,7 +5,16 @@ import "../globals.css";
 import DashboardNav from "./dashboard/_components/shared/DashboardNav";
 import { Toaster } from "@/components/ui/toaster";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+	title: "MarketPlace dashboard",
+	description:
+		"Better prices | better choices | Fast delivery",
+	icons: {
+		icon: "/logo.svg",
+	},
+};
 export default async function RootLayout({
 	children,
 }: Readonly<{
@@ -27,16 +36,14 @@ export default async function RootLayout({
 						shadow='0 0 10px #2299DD,0 0 5px #2299DD'
 					/>
 
+					<Toaster />
 					<DashboardNav />
-					<main className='flex w-full gap-3 bg-bgImg  h-[calc(h-full-20px)]  relative items-start justify-between overflow-hidden'>
+					<main className='flex w-full gap-3 bg-bgImg   relative items-start justify-between overflow-hidden'>
 						<DashBoardSideNav />
 						<ScrollArea className=' shadow-md shadow-purple-700/20  h-screen !px-3 w-full pb-5'>
 							{children}
 						</ScrollArea>
 					</main>
-					<div className='absolute  py-4 w-full h-20 top-0 lg:bottom-0 inset-x-0 lg:right-2 flex items-center justify-center'>
-						<Toaster />
-					</div>
 				</body>
 			</Provider>
 		</html>

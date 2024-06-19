@@ -20,7 +20,7 @@ const ShopCard = ({
 		<section className='bg-gradient-to-tr from-[#0c040b] to-[#1a010f] flex-grow p-2 rounded-lg shadow-sm shadow-[#000000] flex flex-col w-full h-full py-4 gap-3 border border-white/10'>
 			<div className=' flex items-center justify-between gap-2 relative cursor-pointer'>
 				<Link
-					href={`/dashboard/shop/create-product/${data.storeId}`}>
+					href={`/dashboard/shop/${data.storeId}`}>
 					<div className='flex justify-start items-start flex-col gap-3 w-full '>
 						<p className='font-bold text-lg text-purple-300 capitalize text-nowrap '>
 							{data.name.split(" ")[0]}

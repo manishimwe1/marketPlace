@@ -61,15 +61,16 @@ const CreateStorePage = () => {
 		} finally {
 			setIsSubmiting(false);
 			toast({
-				title: "Creating store successfully.",
+				title: "Successfully.",
 				description: "Your store has been created!",
+				variant: "success",
 			});
 		}
 	}
 	return (
 		<div className=' w-full lg:w-[50%] mx-auto mt-6 h-full pb-20'>
 			<div className='flex gap-3 lg:flex-row flex-col w-full h-full text-stone-600'>
-				<div className='w-full  px-4 '>
+				<div className='w-full px-2 lg:px-0'>
 					<h2 className='text-3xl font-bold text-purple-300 mb-6'>
 						Create Store
 					</h2>
