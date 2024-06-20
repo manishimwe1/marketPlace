@@ -1,10 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
+import { getTechnologiesProduct } from "@/lib/actions/product.actions";
 
-const ShoppingOptionsCard = () => {
+const ShoppingOptionsCard = async () => {
 	return (
-		<div className='w-full h-fit flex flex-col  shadow-purple-500/20 shadow-md rounded-3xl'>
+		<div className='w-full h-fit flex flex-col  shadow-purple-500/20 shadow-md rounded-3xl cursor-pointer'>
 			<div className='w-full h-44 py-4 relative shadow-md shadow-purple-500/20 bg-purple-400/20 rounded-t-3xl '>
 				<Image
 					src='/images/computer.png'

@@ -46,7 +46,7 @@ async function page() {
 						Trending Product For You!
 					</h3>
 					<div className='w-full flex h-full items-center justify-between flex-col md:flex-row gap-6 lg:gap-12 mt-4 md:mt-10'>
-						<div className='w-full md:w-[50%] flex flex-col sm:flex-row gap-2 items-center justify-center h-full  rounded-3xl'>
+						<div className='w-full md:w-[50%] flex flex-col sm:flex-row gap-4  items-center justify-center h-full  rounded-3xl px-3'>
 							<ShoppingOptionsCard />
 							<ShoppingOptionsCard />
 						</div>

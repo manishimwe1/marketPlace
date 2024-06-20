@@ -109,7 +109,7 @@ export const getCategoryName = async (name: string) => {
 	if (categoryNames) {
 		const categoryName = categoryNames.filter(
 			(categoryName) =>
-				categoryName.categoryName === `${name}`,
+				categoryName.category === `${name}`,
 		);
 
 		// if (categoryName)
@@ -117,5 +117,24 @@ export const getCategoryName = async (name: string) => {
 		// 		"CATEGORYNAME",
 		// 		categoryName,
 		// 	);
+	}
+};
+
+export const getTechnologiesProduct = async () => {
+	try {
+		connectToDB();
+		const product = await Product.find({}).sort({
+			_id: "desc",
+		});
+
+		if (!product) {
+			console.log("error in getting Product");
+			return;
+		}
+
+		revalidatePath("/");
+		return JSON.parse(JSON.stringify(product));
+	} catch (error) {
+		console.log(error);
 	}
 };
