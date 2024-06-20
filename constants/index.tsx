@@ -126,3 +126,26 @@ export const DashbaordData = [
 		desc: "We make",
 	},
 ];
+
+export const CategoryData = [
+	{
+		title: "Electronics",
+		image: "/images/electronics.jpg",
+	},
+	{
+		title: "Fashion",
+		image: "/fashion.svg",
+	},
+	{
+		title: "Watchs",
+		image: "/images/horo-1.svg",
+	},
+	{
+		title: "Funiture",
+		image: "/home&garden.svg",
+	},
+	{
+		title: "Bags & Essentials",
+		image: "/images/hero-2.svg",
+	},
+];

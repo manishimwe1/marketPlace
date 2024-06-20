@@ -55,7 +55,7 @@ const Menubar = ({
 						<NavigationMenuItem>
 							<NavigationMenuTrigger>
 								<div className='flex gap-4 items-center'>
-									<Bars4Icon className='w-5 h-5 lg:w-7 lg:h-7' />
+									<Bars4Icon className='w-5 h-5 lg:w-7 lg:h-7 text-light-2' />
 									<p className='font-semibold text-sm lg:text-lg !text-light-2'>
 										All Categories
 									</p>
@@ -82,7 +82,7 @@ const Menubar = ({
 															"hover:underline hover:underline-offset-2 text-lg font-bold text-gray-500",
 														)}>
 														{
-															category.categoryName
+															category.category
 														}
 													</Link>
 												</div>

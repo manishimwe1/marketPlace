@@ -31,8 +31,8 @@ const MenuNavigation = ({
 						<p
 							className={cn(
 								title === "Sort by" &&
-									"text-sm  font-medium",
-								"font-semibold text-lg",
+									"text-sm text-light-2   font-medium",
+								"font-semibold text-light-2 text-lg",
 								className,
 							)}>
 							{title}

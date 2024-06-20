@@ -37,7 +37,7 @@ const UserButton = async () => {
 								)}
 							</AvatarFallback>
 						</Avatar>
-						<p className='text-dark-2 text-sm font-semibold text-left md:inline-block hidden'>
+						<p className='text-light-2 text-sm font-semibold text-left md:inline-block hidden'>
 							{session?.user?.name}
 						</p>
 					</DropdownMenuTrigger>

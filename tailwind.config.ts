@@ -82,6 +82,8 @@ const config = {
 				SignImage: "url('/images/media.png')",
 				bgImg: "url('/images/bgGr.svg')",
 				bgWhite: "url('/images/whitebg.svg')",
+				categoryImage:
+					"url('/images/computer.jpg')",
 			},
 			keyframes: {
 				"accordion-down": {
