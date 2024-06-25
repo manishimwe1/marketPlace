@@ -77,7 +77,7 @@ const Menubar = ({
 														key={
 															category._id
 														}
-														href={`/product/categrized/${category._id}`}
+														href={`/product/category/${category._id}`}
 														className={cn(
 															"hover:underline hover:underline-offset-2 text-lg font-bold text-gray-500",
 														)}>

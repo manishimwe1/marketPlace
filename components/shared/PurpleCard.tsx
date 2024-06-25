@@ -5,7 +5,7 @@ const PurpleCard = async () => {
 	await getCategoryName("Speaker");
 	return (
 		<div className=' w-full rounded-3xl h-full cursor-pointer shadow-md shadow-purple-300 bg-purple-900/50 saturate-150 px-5 py-5 overflow-hidden'>
-			<div className=' h-40  w-full relative   lg:ml-32 rounded-3xl '>
+			<div className=' h-full p-6  w-full relative   lg:ml-32 rounded-3xl '>
 				<Image
 					src={"/speaker.png"}
 					width={200}

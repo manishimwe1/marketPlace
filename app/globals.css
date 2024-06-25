@@ -4,6 +4,8 @@
 
 ::-webkit-scrollbar {
 	width: 10px;
+	background-color: transparent;
+	border-radius: 5px;
 }
 
 /* Track */

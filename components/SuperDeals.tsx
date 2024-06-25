@@ -1,4 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card";
 import {
 	Carousel,
 	CarouselContent,
@@ -9,7 +8,6 @@ import {
 import { getAllProduct } from "@/lib/actions/product.actions";
 import { truncateString } from "@/lib/utils";
 import Image from "next/image";
-import HeartComponent from "./HeartComponent";
 import Loader from "./shared/Loader";
 import { ProductType } from "@/typing";
 import CarouselCard from "./shared/CarouselCard";
