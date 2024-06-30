@@ -76,10 +76,10 @@ export const columns: ColumnDef<ProductType>[] = [
 			} else {
 				return (
 					<div className='text-right flex gap-1 items-center justify-between'>
-						<p className='font-semibold text-red-500 '>
+						<p className='font-semibold text-green-500 '>
 							True
 						</p>
-						<Check className='h-4 w-4 rounded-full text-red-500 border border-red-500' />
+						<Check className='h-4 w-4 rounded-full text-green-500 border border-green-500' />
 					</div>
 				);
 			}
