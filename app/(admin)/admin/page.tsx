@@ -42,9 +42,9 @@ async function AdminPage({}: Props) {
 
 	return (
 		<main className='px-2 lg:px-4'>
-			<div className='grid grid-cols-1  mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 w-full h-full gap-2 lg:gap-4'>
-				{allProduct.length > 0 ? (
-					allProduct.map(
+			{allProduct.length > 0 ? (
+				<div className='grid grid-cols-1  mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 w-full h-full gap-2 lg:gap-4'>
+					{allProduct.map(
 						(product: ProductType) => (
 							<Link
 								href={`/admin/${product._id}`}
@@ -55,13 +55,13 @@ async function AdminPage({}: Props) {
 								/>
 							</Link>
 						),
-					)
-				) : (
-					<div className='w-full h-full flex justify-center items-center'>
-						<EmptyStatePage title='No Product to show Here!' />
-					</div>
-				)}
-			</div>
+					)}
+				</div>
+			) : (
+				<div className='w-full h-full flex justify-center items-center'>
+					<EmptyStatePage title='No Product to show Here!' />
+				</div>
+			)}
 		</main>
 	);
 }
