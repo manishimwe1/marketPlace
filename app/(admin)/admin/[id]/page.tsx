@@ -7,7 +7,6 @@ import {
 	buttonVariants,
 } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { getProductById } from "./_actions/product.actions";
 import { cn, truncateString } from "@/lib/utils";
 import { ProductType } from "@/typing";
 import { Pencil } from "lucide-react";
@@ -17,6 +16,7 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { adminUser } from "@/lib/adminUser";
 import SubmitActions from "../../_components/SubmitActions";
+import { getProductById } from "@/app/(root)/_actions/product.actions";
 
 type Props = {
 	params: { id: string };
@@ -51,7 +51,7 @@ const page = async ({ params: { id } }: Props) => {
 						<Pencil className='text-stone-500' />
 					</Link>
 
-					<div className=' bg-purple-500/10 border border-black  flex-1 relative rounded-3xl flex flex-col md:flex-row  p-5 bg-purple-50 shadow-sm shadow-purple-500/30 '>
+					<div className=' bg-purple-500/10   flex-1 relative rounded-3xl flex flex-col md:flex-row  p-5 bg-purple-50 shadow-sm shadow-purple-500/30 '>
 						<div className='w-[100px] h-full hidden lg:flex flex-col px-3 gap-4 bg-purple-50'>
 							<div className='h-40 w-full relative'>
 								<Image

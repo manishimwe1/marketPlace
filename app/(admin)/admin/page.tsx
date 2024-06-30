@@ -26,7 +26,7 @@ async function AdminPage({}: Props) {
 	if (!allProduct)
 		return (
 			<div className='mt-10 flex flex-col gap-4 items-center justify-center'>
-				<EmptyStatePage title='unthorized You are not allowed to be here' />
+				<EmptyStatePage title='unauthorized You are not allowed to be here' />
 				<Link
 					href='/'
 					className={cn(
@@ -43,20 +43,24 @@ async function AdminPage({}: Props) {
 	return (
 		<main className='px-2 lg:px-4'>
 			<div className='grid grid-cols-1  mt-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 w-full h-full gap-2 lg:gap-4'>
-				{allProduct.length > 0
-					? allProduct.map(
-							(product: ProductType) => (
-								<Link
-									href={`/admin/${product._id}`}
-									key={product._id}>
-									<MoreToLoveCard
-										admin={true}
-										product={product}
-									/>
-								</Link>
-							),
-					  )
-					: !allProduct && <p>no data to show</p>}
+				{allProduct.length > 0 ? (
+					allProduct.map(
+						(product: ProductType) => (
+							<Link
+								href={`/admin/${product._id}`}
+								key={product._id}>
+								<MoreToLoveCard
+									admin={true}
+									product={product}
+								/>
+							</Link>
+						),
+					)
+				) : (
+					<div className='w-full h-full flex justify-center items-center'>
+						<EmptyStatePage title='No Product to show Here!' />
+					</div>
+				)}
 			</div>
 		</main>
 	);
