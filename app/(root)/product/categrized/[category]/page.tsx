@@ -25,17 +25,16 @@ type Props = {
 const page = async ({ params: { category } }: Props) => {
 	const allProductCategory = await getAllCategories();
 	const product: ProductType[] =
-		await getProductByCategory(category);
+		await getProductByCategory(
+			decodeURIComponent(category),
+		);
 
 	const allCategory: CategoryType[] =
 		await getAllCategories();
-	// console.log(allCategory, "this is all category");
+	console.log(product[0], "this is product[0] For ");
 
 	if (!product || !allCategory) {
-		return console.log(
-			"no pruct found ",
-			typeof category,
-		);
+		return console.log("no pruct found ", category);
 	}
 	return (
 		<>

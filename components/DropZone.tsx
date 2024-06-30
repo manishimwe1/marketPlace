@@ -33,7 +33,7 @@ const DropZone = ({ setImage, onFieldChange }: Props) => {
 					}}
 					onUploadError={(error: Error) => {
 						// Do something with the error.
-						alert(`ERROR! ${error.message}`);
+
 						toast({
 							title: "ERROR",
 							description: error.message,

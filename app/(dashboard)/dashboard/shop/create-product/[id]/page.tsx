@@ -133,9 +133,10 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 			setIsSubmiting(false);
 			form.reset();
 			toast({
-				title: "Creating product successfully.",
+				title: "product Created successfully.",
 				description:
 					"Your product has been created!",
+				variant: "success",
 			});
 			router.push(`/dashboard/shop/${id}`);
 		} catch (error) {
