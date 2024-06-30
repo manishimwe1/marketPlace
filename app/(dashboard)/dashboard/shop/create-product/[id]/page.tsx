@@ -145,63 +145,58 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 		}
 	}
 	return (
-		<div className='max-w-4xl mx-auto h-full px-3 py-20 lg:py-10 overflow-y-auto mb-10'>
-			<div className='flex gap-3 lg:flex-row flex-col w-full min-h-screen text-stone-600'>
-				<div className=' w-full  px-4 lg:px-12 '>
-					<h2 className='text-3xl w-full  font-bold text-purple-100 text-center lg:text-left  text-balance capitalize mb-6'>
-						complete creating product
-					</h2>
-					<div className='flex flex-col w-full gap-2 mb-6'>
-						<h4 className='text-base lg:text-lg font-semibold text-purple-400 text-balance capitalize'>
-							PHOTOS & VIDEO
-						</h4>
-						<p className=' text-xs lg:text-base text-muted-foreground'>
-							Add at least 5 photos. You can
-							add up to 24 photos. Buyers want
-							to see all details and angles.{" "}
-							<span className='underline underline-offset-4 cursor-pointer hover:text-purple-400 decoration-purple-500'>
-								Tips for taking pro photos
-							</span>
-						</p>
-					</div>
+		<section className='max-w-4xl mx-auto h-full px-3 py-20 lg:py-10 overflow-y-auto mb-10'>
+			<div className=' w-full  px-4 lg:px-12 pb-10'>
+				<h2 className='text-3xl w-full  font-bold text-dark-2 text-center lg:text-left  text-balance capitalize mb-6'>
+					complete creating product
+				</h2>
+				<div className='flex flex-col w-full gap-2 mb-6'>
+					<h4 className='text-base lg:text-lg font-semibold text-stone-600 text-balance capitalize'>
+						PHOTOS & VIDEO
+					</h4>
+					<p className=' text-xs lg:text-base text-muted-foreground'>
+						Add at least 5 photos. You can add
+						up to 24 photos. Buyers want to see
+						all details and angles.{" "}
+						<span className='underline underline-offset-4 cursor-pointer hover:text-purple-400 decoration-purple-500'>
+							Tips for taking pro photos
+						</span>
+					</p>
+				</div>
 
-					<Form {...form}>
-						<form
-							onSubmit={form.handleSubmit(
-								onSubmit,
-							)}
-							className='space-y-8'>
-							<div className='flex w-full flex-col md:flex-row gap-4 items-center justify-between h-full '>
-								<div className='lg:w-[50%] h-48 lg:h-[250px] w-full '>
-									<FormField
-										control={
-											form.control
-										}
-										name='image'
-										render={({
-											field,
-										}) => (
-											<FormItem className='h-full'>
-												<FormControl className='h-full'>
-													<div className='w-full cursor-pointer h-full'>
-														<DropZone
-															setImage={
-																setImage
-															}
-															onFieldChange={
-																field.onChange
-															}
-															{...field}
-														/>
-													</div>
-												</FormControl>
+				<Form {...form}>
+					<form
+						onSubmit={form.handleSubmit(
+							onSubmit,
+						)}
+						className='space-y-8'>
+						<div className='flex w-full flex-col md:flex-row gap-4 items-center justify-between h-full '>
+							<div className='lg:w-[50%] h-48 lg:h-[250px] w-full '>
+								<FormField
+									control={form.control}
+									name='image'
+									render={({ field }) => (
+										<FormItem className='h-full'>
+											<FormControl className='h-full'>
+												<div className='w-full cursor-pointer h-full'>
+													<DropZone
+														setImage={
+															setImage
+														}
+														onFieldChange={
+															field.onChange
+														}
+														{...field}
+													/>
+												</div>
+											</FormControl>
 
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
-								</div>
-								{/* <div className='p-2 h-full flex flex-col items-center justify-center gap-20 w-full '>
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+							</div>
+							{/* <div className='p-2 h-full flex flex-col items-center justify-center gap-20 w-full '>
 									<div className='grid grid-cols-4 lg:grid-cols-5 gap-2 w-full h-full  items-start'>
 										<ViewCard
 											setView={
@@ -265,195 +260,177 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 										/>
 									</div>
 								</div> */}
+						</div>
+
+						<CustomField
+							control={form.control}
+							render={({ field }) => (
+								<Input
+									className='input_field'
+									placeholder='eg: Ai max pro'
+									{...field}
+								/>
+							)}
+							name={"title"}
+							formLabel={"Title"}
+						/>
+						<CustomField
+							control={form.control}
+							render={({ field }) => (
+								<Textarea
+									className='bg-black/20 text-black'
+									rows={5}
+									placeholder='eg: Description'
+									{...field}
+								/>
+							)}
+							name={"description"}
+							formLabel={
+								"Describe Your Product"
+							}
+							className={""}
+						/>
+
+						<div className='flex justify-between w-full h-full items-center flex-col md:flex-row gap-4'>
+							<div className='w-full h-full flex flex-col items-center justify-between gap-2 md:flex-row'>
+								<CustomField
+									control={form.control}
+									render={({ field }) => (
+										<Input
+											className='input_field'
+											placeholder='eg: 1000'
+											{...field}
+										/>
+									)}
+									name={"price"}
+									formLabel={
+										"Price (rwf)"
+									}
+									className={"w-full"}
+								/>
+								<CustomField
+									control={form.control}
+									render={({ field }) => (
+										<Input
+											className='input_field'
+											placeholder='eg: 100'
+											{...field}
+										/>
+									)}
+									name={"stock"}
+									formLabel={"Stock"}
+									className={"w-full"}
+								/>
 							</div>
+							<div className='w-full h-full  items-center flex justify-between gap-3   md:flex-row '>
+								<FormField
+									control={form.control}
+									name='freeDelivery'
+									render={({ field }) => (
+										<FormItem className='flex flex-col'>
+											<FormLabel>
+												Free
+												delivery
+											</FormLabel>
+											<FormControl>
+												<Switch
+													checked={
+														field.value
+													}
+													onCheckedChange={
+														handleSwitch
+													}
+												/>
+											</FormControl>
+
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+								<CustomField
+									control={form.control}
+									render={({ field }) => (
+										<>
+											<Input
+												className='input_field'
+												disabled={
+													switcherState ===
+													true
+												}
+												placeholder='Delivery Fee'
+												{...field}
+											/>
+											{switcherState && (
+												<p className='text-xs text-red-900 text-muted-foreground font-semibold'>
+													This
+													product
+													is Free
+													delivery
+												</p>
+											)}
+										</>
+									)}
+									name={"deliveryFee"}
+									formLabel={
+										"Delivery Fee"
+									}
+								/>
+							</div>
+						</div>
+						<div className='w-full h-full  items-center flex justify-between gap-3 flex-col  md:flex-row '>
+							<FormField
+								control={form.control}
+								name='category'
+								render={({ field }) => (
+									<FormItem className='flex flex-col w-full'>
+										<FormLabel>
+											Category
+										</FormLabel>
+										<SelectField
+											onFieldChange={
+												field.onChange
+											}
+											{...field}
+											setCategoryId={
+												setCategoryId
+											}
+										/>
+									</FormItem>
+								)}
+							/>
 
 							<CustomField
 								control={form.control}
 								render={({ field }) => (
 									<Input
-										className='input_field border-white/10 text-purple-200'
-										placeholder='eg: Ai max pro'
+										placeholder='eg: Rwanda eastern province'
+										className='input_field w-full'
 										{...field}
 									/>
 								)}
-								name={"title"}
-								formLabel={"Title"}
+								name={"location"}
+								formLabel={"Location"}
+								className='w-full'
 							/>
-							<CustomField
-								control={form.control}
-								render={({ field }) => (
-									<Textarea
-										className='input_field border-white/10 text-purple-200'
-										rows={5}
-										placeholder='eg: Description'
-										{...field}
-									/>
-								)}
-								name={"description"}
-								formLabel={
-									"Describe Your Product"
+						</div>
+
+						<div className='w-full items-center flex justify-center mx-auto'>
+							<ShimmerButton
+								type='submit'
+								title={
+									isSubmiting
+										? "Creating..."
+										: "Create"
 								}
-								className={""}
+								image='/loader-white.svg'
+								className='w-full'
+								showImage={isSubmiting}
 							/>
-
-							<div className='flex justify-between w-full h-full items-center flex-col md:flex-row gap-4'>
-								<div className='w-full h-full flex flex-col items-center justify-between gap-2 md:flex-row'>
-									<CustomField
-										control={
-											form.control
-										}
-										render={({
-											field,
-										}) => (
-											<Input
-												className='input_field border-white/10 text-purple-200'
-												placeholder='eg: 1000'
-												{...field}
-											/>
-										)}
-										name={"price"}
-										formLabel={
-											"Price (rwf)"
-										}
-										className={"w-full"}
-									/>
-									<CustomField
-										control={
-											form.control
-										}
-										render={({
-											field,
-										}) => (
-											<Input
-												className='input_field border-white/10 text-purple-200'
-												placeholder='eg: 100'
-												{...field}
-											/>
-										)}
-										name={"stock"}
-										formLabel={"Stock"}
-										className={"w-full"}
-									/>
-								</div>
-								<div className='w-full h-full  items-center flex justify-between gap-3   md:flex-row '>
-									<FormField
-										control={
-											form.control
-										}
-										name='freeDelivery'
-										render={({
-											field,
-										}) => (
-											<FormItem className='flex flex-col'>
-												<FormLabel>
-													Free
-													delivery
-												</FormLabel>
-												<FormControl>
-													<Switch
-														checked={
-															field.value
-														}
-														onCheckedChange={
-															handleSwitch
-														}
-													/>
-												</FormControl>
-
-												<FormMessage />
-											</FormItem>
-										)}
-									/>
-									<CustomField
-										control={
-											form.control
-										}
-										render={({
-											field,
-										}) => (
-											<>
-												<Input
-													className='input_field border-white/10 text-purple-200'
-													disabled={
-														switcherState ===
-														true
-													}
-													placeholder='Delivery Fee'
-													{...field}
-												/>
-												{switcherState && (
-													<p className='text-xs text-red-900 text-muted-foreground font-semibold'>
-														This
-														product
-														is
-														Free
-														delivery
-													</p>
-												)}
-											</>
-										)}
-										name={"deliveryFee"}
-										formLabel={
-											"Delivery Fee"
-										}
-									/>
-								</div>
-							</div>
-							<div className='w-full h-full  items-center flex justify-between gap-3 flex-col  md:flex-row '>
-								<FormField
-									control={form.control}
-									name='category'
-									render={({ field }) => (
-										<FormItem className='flex flex-col w-full'>
-											<FormLabel>
-												Category
-											</FormLabel>
-											<SelectField
-												onFieldChange={
-													field.onChange
-												}
-												{...field}
-												setCategoryId={
-													setCategoryId
-												}
-											/>
-										</FormItem>
-									)}
-								/>
-
-								<CustomField
-									control={form.control}
-									render={({ field }) => (
-										<Input
-											placeholder='eg: Rwanda eastern province'
-											className='input_field border-white/10 text-purple-200 w-full'
-											{...field}
-										/>
-									)}
-									name={"location"}
-									formLabel={"Location"}
-									className='w-full'
-								/>
-							</div>
-
-							<div className='w-full items-center flex justify-center mx-auto'>
-								<ShimmerButton
-									type='submit'
-									title={
-										isSubmiting
-											? "Creating..."
-											: "Create"
-									}
-									image='/loader-white.svg'
-									className='w-full'
-									showImage={isSubmiting}
-								/>
-							</div>
-						</form>
-					</Form>
-				</div>
+						</div>
+					</form>
+				</Form>
 			</div>
-		</div>
+		</section>
 	);
 };
 

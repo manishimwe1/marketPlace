@@ -8,6 +8,7 @@ import { getUserById } from "@/lib/actions/user.actions";
 
 export const saveCategory = async (
 	categoryName: string,
+	categoryBrand: string,
 ) => {
 	const session = await auth();
 	const path = "saler/product/create-product";
@@ -23,8 +24,10 @@ export const saveCategory = async (
 			);
 		}
 
+		if (!categoryName || categoryName === "") return;
 		const data = {
 			categoryName,
+			categoryBrand,
 			userId: user._id,
 		};
 		const category = await Category.create(data);

@@ -36,9 +36,9 @@
 	.bg-gradient {
 		@apply bg-gradient-to-bl from-slate-500 via-gray-700 to-zinc-900 backdrop:filter backdrop-saturate-150;
 	}
-	/* .input_field {
-		@apply w-full bg-gradient-to-tr from-[#000000] to-[#050104] focus-visible:bg-black/5 text-purple-200 py-2;
-	} */
+	.input_field {
+		@apply bg-black/20 text-black font-semibold placeholder:font-normal;
+	}
 	.max-wrapper {
 		@apply max-w-6xl mx-auto py-7 lg:py-14;
 	}
