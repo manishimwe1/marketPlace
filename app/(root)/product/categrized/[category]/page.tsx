@@ -7,7 +7,7 @@ import { getAllCategories } from "@/lib/actions/category.actions";
 import {
 	getAllProductCategory,
 	getProductByCategory,
-} from "@/lib/actions/product.actions";
+} from "./_actions/product.actions";
 import { truncateString } from "@/lib/utils";
 import {
 	CategoryType,

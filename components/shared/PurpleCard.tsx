@@ -1,4 +1,4 @@
-import { getCategoryName } from "@/lib/actions/product.actions";
+import { getCategoryName } from "@/app/(root)/_actions/product.actions";
 import Image from "next/image";
 
 const PurpleCard = async () => {

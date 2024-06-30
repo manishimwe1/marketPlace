@@ -1,11 +1,10 @@
 "use server";
 
-import { CategoryType } from "@/typing";
 import { auth } from "@/auth";
-import { connectToDB } from "../database/db.config";
-import { Category } from "../database/models/category.model";
-import { getUserById } from "./user.actions";
+import { connectToDB } from "@/lib/database/db.config";
+import { Category } from "@/lib/database/models/category.model";
 import { revalidatePath } from "next/cache";
+import { getUserById } from "@/lib/actions/user.actions";
 
 export const saveCategory = async (
 	categoryName: string,

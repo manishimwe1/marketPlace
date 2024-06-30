@@ -1,8 +1,8 @@
 import { ProductType } from "@/typing";
 import React from "react";
 import MoreToLoveCard from "./shared/MoreToLoveCard";
-import { getAllProduct } from "@/lib/actions/product.actions";
 import { Separator } from "./ui/separator";
+import { getAllProduct } from "@/app/(root)/_actions/product.actions";
 
 const MoreToLove = async () => {
 	const allProduct: ProductType[] = await getAllProduct();

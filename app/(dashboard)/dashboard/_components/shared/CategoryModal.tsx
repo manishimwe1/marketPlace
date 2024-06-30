@@ -1,4 +1,8 @@
 "use client";
+import {
+	getAllCategories,
+	getCategoryByID,
+} from "@/app/(root)/_actions/category.actions";
 import Loader from "@/components/shared/Loader";
 import ShimmerButton from "@/components/ui/ShimmerBtn";
 import { Button } from "@/components/ui/button";
@@ -11,10 +15,7 @@ import {
 	DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import {
-	getAllCategories,
-	getCategoryByID,
-} from "@/lib/actions/category.actions";
+
 import { ICategory } from "@/typing";
 import { ChevronDoubleRightIcon } from "@heroicons/react/24/solid";
 import { Search } from "lucide-react";
@@ -109,9 +110,7 @@ const CategoryModal = ({
 												`${data[0].categoryName}`,
 											)
 										}>
-										{
-											category.categoryName
-										}{" "}
+										{category.category}{" "}
 										&gt;
 										<span className='hover:underline'>
 											{`${data[0].categoryName}`}
@@ -132,7 +131,7 @@ const CategoryModal = ({
 												)
 											}>
 											{
-												category.categoryName
+												category.category
 											}{" "}
 											&gt;
 											<span>
@@ -154,7 +153,7 @@ const CategoryModal = ({
 													}
 													className=' text-purple-400 text-sm  w-full cursor-pointer hover:bg-black/30 rounded-lg hover:px-2 transition-all ease-in-out duration-500 capitalize'>
 													{
-														item.categoryName
+														item.category
 													}
 												</p>
 											),
@@ -195,7 +194,7 @@ const CategoryModal = ({
 										<div className='flex flex-col gap-1'>
 											<p className='mt-2 text-purple-400 text-lg capitalize'>
 												{
-													category.categoryName
+													category.category
 												}{" "}
 												&gt;{" "}
 												{selectedCategory && (

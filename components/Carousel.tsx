@@ -39,11 +39,11 @@ const CarouselPage = ({ carouselItems }: Props) => {
 									rwf
 								</span>
 							</p>
-							{items.SuperDeals && (
+							{/* {items.SuperDeals && (
 								<p className='bg-primary rounded-full text-base font-semibold px-3 py-0.5'>
 									-{items.SuperDeals}% off
 								</p>
-							)}
+							)} */}
 						</div>
 					</section>
 				))}

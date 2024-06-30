@@ -21,31 +21,7 @@ const Menubar = ({
 }: {
 	allProductCategory: ICategory[];
 }) => {
-	console.log(allProductCategory);
-
-	// useEffect(() => {
-	// 	// console.log(scoll, "this is scoll", prevScroll);
-	// 	document.addEventListener("scroll", () => {
-	// 		setprevScroll(Number(scrollY.toFixed()));
-	// 		setScoll([
-	// 			prevScroll,
-	// 			Number(scrollY.toFixed()),
-	// 		]);
-	// 	});
-	// 	if (scoll[0] > scoll[1]) {
-	// 		setShowMenu(true);
-	// 	} else {
-	// 		setShowMenu(false);
-	// 	}
-	// 	return () => {
-	// 		document.removeEventListener("scroll", () => {
-	// 			setScoll([
-	// 				prevScroll,
-	// 				Number(scrollY.toFixed()),
-	// 			]);
-	// 		});
-	// 	};
-	// }, [scrollY.toFixed()]);
+	console.log(allProductCategory, "This is category");
 
 	return (
 		<nav className='bg-primary py-2 lg:py-6  w-full h-8 lg:h-10 flex gap-6 items-center'>
@@ -61,7 +37,7 @@ const Menubar = ({
 									</p>
 								</div>
 							</NavigationMenuTrigger>
-							<NavigationMenuContent className=' py-2 lg:py-4 mr-4 text-light-2'>
+							<NavigationMenuContent className=' py-2 lg:py-4 mr-4 text-light-2 lg:w-[200px]'>
 								<NavigationMenuLink>
 									{allProductCategory ? (
 										removeDuplicates(
@@ -79,7 +55,7 @@ const Menubar = ({
 														}
 														href={`/product/category/${category._id}`}
 														className={cn(
-															"hover:underline hover:underline-offset-2 text-lg font-bold text-gray-500",
+															"hover:underline hover:underline-offset-2 text-lg font-bold text-dark-2 text-nowrap lg:pl-5",
 														)}>
 														{
 															category.category

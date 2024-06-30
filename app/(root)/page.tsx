@@ -8,12 +8,14 @@ import PopularCategory from "@/components/PopularCategory";
 import SuperDeals from "@/components/SuperDeals";
 import ShoppingOptionsCard from "@/components/shared/ShoppingOptionsCard";
 import { Separator } from "@/components/ui/separator";
+
+import { ICategory, ProductType } from "@/typing";
 import {
 	getAllProduct,
 	getAllProductCategory,
 	getSuperDeals,
-} from "@/lib/actions/product.actions";
-import { ICategory, ProductType } from "@/typing";
+} from "./_actions/product.actions";
+import { getAllCategories } from "./_actions/category.actions";
 
 async function page() {
 	const allProduct: ProductType[] = await getAllProduct();
@@ -21,13 +23,11 @@ async function page() {
 		await getAllProductCategory();
 	const superDealProduct: ProductType[] =
 		await getSuperDeals();
-
+	const allCategories = await getAllCategories();
 	return (
 		<div className='w-full h-full  overflow-y-auto absolute inset-x-0 pb-20'>
 			{/* <ImageComponent removedImage={removedImage} /> */}
-			<Menubar
-				allProductCategory={allProductCategory}
-			/>
+			<Menubar allProductCategory={allCategories} />
 			<main className='max-container pb-10'>
 				<div className='w-full h-full hidden lg:flex'>
 					<AboutUs />

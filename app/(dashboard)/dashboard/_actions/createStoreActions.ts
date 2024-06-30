@@ -1,6 +1,5 @@
 "use server";
 
-import { getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@/auth";
 import { connectToDB } from "@/lib/database/db.config";
 import { Store } from "@/lib/database/models/store.model";
@@ -10,6 +9,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { randomUUID } from "crypto";
 import { redirect } from "next/navigation";
+import { getUserById } from "@/lib/actions/user.actions";
 
 export const createStore = async (
 	dataProps: z.infer<typeof createStoreSchema>,

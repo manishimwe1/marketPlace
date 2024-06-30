@@ -7,7 +7,7 @@ import {
 	buttonVariants,
 } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { getProductById } from "@/lib/actions/product.actions";
+import { getProductById } from "./_actions/product.actions";
 import { cn, truncateString } from "@/lib/utils";
 import { ProductType } from "@/typing";
 import { Pencil } from "lucide-react";

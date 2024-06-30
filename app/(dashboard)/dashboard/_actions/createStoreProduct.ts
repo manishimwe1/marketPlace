@@ -1,7 +1,7 @@
 "use server";
 
-import { getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@/auth";
+import { getUserById } from "@/lib/actions/user.actions";
 import { connectToDB } from "@/lib/database/db.config";
 import { Product } from "@/lib/database/models/product.model";
 import { ProductType } from "@/typing";

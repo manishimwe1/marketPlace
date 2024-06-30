@@ -30,7 +30,7 @@ export const provingProduct = async (id: string) => {
 			},
 			{ provedByAdmin: true },
 		);
-		console.log("PRoduct", product);
+		// console.log("PRoduct", product);
 
 		revalidatePath("/admin");
 	} catch (error: any) {

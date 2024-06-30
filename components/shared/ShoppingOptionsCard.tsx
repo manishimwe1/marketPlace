@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
-import { getTechnologiesProduct } from "@/lib/actions/product.actions";
+import { getTechnologiesProduct } from "./_actions/product.actions";
 
 const ShoppingOptionsCard = async () => {
 	return (

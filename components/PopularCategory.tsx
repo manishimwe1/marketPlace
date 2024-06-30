@@ -8,7 +8,7 @@ const PopularCategory = ({
 }: {
 	allProductCategory: ICategory[];
 }) => {
-	console.log(allProductCategory);
+	// console.log(allProductCategory);
 
 	return (
 		<section className='flex flex-col gap-6 mt-10'>

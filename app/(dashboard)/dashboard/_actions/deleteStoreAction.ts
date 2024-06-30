@@ -1,7 +1,7 @@
 "use server";
 
-import { getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@/auth";
+import { getUserById } from "@/lib/actions/user.actions";
 import { connectToDB } from "@/lib/database/db.config";
 import { Store } from "@/lib/database/models/store.model";
 import { revalidatePath } from "next/cache";

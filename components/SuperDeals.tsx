@@ -5,12 +5,12 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "@/components/ui/carousel";
-import { getAllProduct } from "@/lib/actions/product.actions";
 import { truncateString } from "@/lib/utils";
 import Image from "next/image";
 import Loader from "./shared/Loader";
 import { ProductType } from "@/typing";
 import CarouselCard from "./shared/CarouselCard";
+import { getAllProduct } from "@/app/(root)/_actions/product.actions";
 
 const SuperDeals = async ({}: // allProduct,
 {

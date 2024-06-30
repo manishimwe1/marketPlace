@@ -2,8 +2,8 @@
 
 import { ICategory } from "@/typing";
 import { revalidatePath } from "next/cache";
-import { connectToDB } from "../database/db.config";
-import { Product } from "../database/models/product.model";
+import { connectToDB } from "@/lib/database/db.config";
+import { Product } from "@/lib/database/models/product.model";
 
 export const getAllProduct = async () => {
 	try {
@@ -136,5 +136,12 @@ export const getTechnologiesProduct = async () => {
 		return JSON.parse(JSON.stringify(product));
 	} catch (error) {
 		console.log(error);
+	}
+};
+
+export const getCategories = async () => {
+	try {
+	} catch (error: any) {
+		console.log("Failed to getCategory", error);
 	}
 };

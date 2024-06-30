@@ -38,7 +38,7 @@ async function AdminPage({}: Props) {
 				</Link>
 			</div>
 		);
-	console.log(allProduct);
+	// console.log(allProduct);
 
 	return (
 		<main className='px-2 lg:px-4'>

@@ -1,7 +1,7 @@
 "use server";
 
-import { connectToDB } from "../database/db.config";
-import User from "../database/models/user.model";
+import { connectToDB } from "@/lib/database/db.config";
+import User from "@/lib/database/models/user.model";
 
 export const getUserById = async (email: string) => {
 	try {
