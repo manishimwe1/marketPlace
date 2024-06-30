@@ -13,14 +13,14 @@ const PurpleCard = async () => {
 					alt='isaha'
 					className='object-contain rounded-lg sm:h-[250px] sm:w-[250px] absolute right-0 bottom-4 md:right-0 md:-bottom-10 lg:right-0 z-20'
 				/>
-				<div className=' absolute left-0 top-2 w-full h-full rounded-3xl  flex flex-col'>
+				<div className=' absolute left-0 top-2 lg:top-5 w-full h-full rounded-3xl  flex flex-col'>
 					<h3 className='text-2xl   text-nowrap font-bold text-stone-950  rounded-t-3xl px-4 py-2 '>
 						Immersive Audio{" "}
 						<span className='text-purple-400 '>
 							Excellence
 						</span>
 					</h3>
-					<p className='text-left text-xs  rounded-b-3xl px-4 py-2  font-semibold text-stone-700 -z-10 '>
+					<p className='text-left text-xs  rounded-b-3xl px-4 py-2  font-semibold text-stone-900 -z-10 '>
 						Elevate your listening
 						<br />
 						experience with our unparalleled

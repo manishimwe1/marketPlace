@@ -6,12 +6,12 @@ import {
 	buttonVariants,
 } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { getProductById } from "./_actions/product.actions";
 import { cn, truncateString } from "@/lib/utils";
 import { ProductType } from "@/typing";
 import { Pencil } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { getProductById } from "../../_actions/product.actions";
 
 type Props = {
 	params: { id: string };
@@ -22,9 +22,9 @@ const page = async ({ params: { id } }: Props) => {
 	const product: ProductType = await getProductById(id);
 
 	return (
-		<div className='lg:max-container w-full p-2 lg:p-20'>
+		<div className='w-full h-full py-10 max-w-6xl mx-auto lg:mb-10'>
 			{product ? (
-				<div className='w-full relative h-full flex md:flex-row flex-col  text-stone-900 border border-red-500 rounded-3xl bg-purple-500/30 py-4'>
+				<div className='w-full relative h-full flex md:flex-row flex-col  text-stone-900  rounded-3xl bg-purple-500/30 py-4'>
 					<Link
 						href={`/saler/product/edit-product/${id}`}
 						className={cn(
@@ -36,7 +36,7 @@ const page = async ({ params: { id } }: Props) => {
 						<Pencil className='text-stone-500' />
 					</Link>
 
-					<div className=' bg-purple-500/10 border border-black  flex-1 relative rounded-3xl flex flex-col md:flex-row  p-5 bg-purple-50 shadow-sm shadow-purple-500/30 '>
+					<div className=' bg-purple-500/10  flex-1 relative rounded-3xl flex flex-col md:flex-row  p-5 bg-purple-50 shadow-sm shadow-purple-500/30 '>
 						<div className='w-[100px] h-full hidden lg:flex flex-col px-3 gap-4 bg-purple-50'>
 							<div className='h-40 w-full relative'>
 								<Image
