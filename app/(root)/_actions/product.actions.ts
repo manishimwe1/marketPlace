@@ -91,6 +91,7 @@ export const getProductByCategory = async (
 	try {
 		const product = await Product.find({
 			category: categoryId,
+			provedByAdmin: true,
 		}).populate("category");
 		if (!product)
 			return console.log(

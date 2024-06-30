@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-import { ICategory } from "@/typing";
+import { CategoryType } from "@/typing";
 import * as crypto from "crypto";
 
 import {
@@ -37,12 +37,13 @@ export function truncateString(
 }
 
 export function removeDuplicates(
-	items: ICategory[],
-): ICategory[] {
-	const categoriesMap: Map<string, ICategory> = new Map();
+	items: CategoryType[],
+): CategoryType[] {
+	const categoriesMap: Map<string, CategoryType> =
+		new Map();
 
 	// Iterate through each item
-	items.forEach((item: ICategory) => {
+	items.forEach((item: CategoryType) => {
 		const categoryId = item._id;
 
 		// If the category is not already in the map, add it

@@ -31,17 +31,24 @@ const MenuNavigation = ({
 						<p
 							className={cn(
 								title === "Sort by" &&
-									"text-sm text-light-2   font-medium",
-								"font-semibold text-light-2 text-lg",
+									"text-sm text-dark-2   font-medium",
+								"font-semibold text-dark-2 text-lg",
 								className,
 							)}>
 							{title}
 						</p>
 					</NavigationMenuTrigger>
-					<NavigationMenuContent>
-						<NavigationMenuLink>
+					<NavigationMenuContent className='text-dark-2'>
+						<NavigationMenuLink className='w-fit'>
 							{title === "Sort by" ? (
-								<></>
+								<div className='w-20 py-3 px-2'>
+									<p className='text-xs py-2 font-semibold text-stone-600  cursor-pointer'>
+										Newest
+									</p>
+									<p className='text-xs py-2 font-semibold text-stone-600 cursor-pointer'>
+										Oldest
+									</p>
+								</div>
 							) : session.data?.user ? (
 								<Link
 									href={

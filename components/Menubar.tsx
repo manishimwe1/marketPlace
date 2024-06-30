@@ -13,13 +13,13 @@ import { cn, removeDuplicates } from "@/lib/utils";
 import { Bars4Icon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import MenuNavigation from "./shared/MenuNavigation";
-import { ICategory } from "@/typing";
+import { CategoryType } from "@/typing";
 import Loader from "./shared/Loader";
 
 const Menubar = ({
 	allProductCategory,
 }: {
-	allProductCategory: ICategory[];
+	allProductCategory: CategoryType[];
 }) => {
 	console.log(allProductCategory, "This is category");
 
@@ -58,7 +58,7 @@ const Menubar = ({
 															"hover:underline hover:underline-offset-2 text-lg font-bold text-dark-2 text-nowrap lg:pl-5",
 														)}>
 														{
-															category.category
+															category.categoryName
 														}
 													</Link>
 												</div>

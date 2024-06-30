@@ -134,15 +134,15 @@ export const CategoryData = [
 	},
 	{
 		title: "Fashion",
-		image: "/fashion.svg",
+		image: "/images/fashion.jpg",
 	},
 	{
 		title: "Watchs",
-		image: "/images/horo-1.svg",
+		image: "/images/hero-1.svg",
 	},
 	{
 		title: "Funiture",
-		image: "/home&garden.svg",
+		image: "/images/furniture.png",
 	},
 	{
 		title: "Bags & Essentials",

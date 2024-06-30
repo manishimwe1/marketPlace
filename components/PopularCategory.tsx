@@ -28,11 +28,10 @@ const PopularCategory = ({
 									<div
 										className='relative shadow-sm shadow-purple-500/20 p-2  bg-no-repeat bg-center bg-contain w-36 h-36  rounded-full flex justify-center items-center'
 										style={{
-											backgroundImage:
-												"url(`${}`)",
+											backgroundImage: `url(${product.image})`,
 										}}>
 										<div className='absolute bg-black/30 backdrop-filter backdrop-blur-sm  h-full w-full rounded-full' />
-										<h4 className='text-sm lg:text-base capitalize group-hover:underline group-hover:underline-offset-4 font-bold text-light-2 z-20'>
+										<h4 className='text-sm lg:text-base capitalize group-hover:underline group-hover:underline-offset-4 font-bold text-light-2 z-20 text-center'>
 											{product.title}
 										</h4>
 									</div>

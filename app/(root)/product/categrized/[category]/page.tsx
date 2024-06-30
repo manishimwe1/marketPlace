@@ -1,13 +1,14 @@
+import { getAllCategories } from "@/app/(root)/_actions/category.actions";
+import {
+	getAllProductCategory,
+	getProductByCategory,
+} from "@/app/(root)/_actions/product.actions";
 import Menubar from "@/components/Menubar";
 import StarWigets from "@/components/StarWigets";
 import BrandinginCard from "@/components/shared/BrandinginCard";
 import MenuNavigation from "@/components/shared/MenuNavigation";
 import MenuTogler from "@/components/shared/MenuTogler";
-import { getAllCategories } from "@/lib/actions/category.actions";
-import {
-	getAllProductCategory,
-	getProductByCategory,
-} from "./_actions/product.actions";
+
 import { truncateString } from "@/lib/utils";
 import {
 	CategoryType,
@@ -22,8 +23,7 @@ type Props = {
 	};
 };
 const page = async ({ params: { category } }: Props) => {
-	const allProductCategory: ICategory[] =
-		await getAllProductCategory();
+	const allProductCategory = await getAllCategories();
 	const product: ProductType[] =
 		await getProductByCategory(category);
 
@@ -31,7 +31,7 @@ const page = async ({ params: { category } }: Props) => {
 		await getAllCategories();
 	// console.log(allCategory, "this is all category");
 
-	if (!product || allCategory) {
+	if (!product || !allCategory) {
 		return console.log(
 			"no pruct found ",
 			typeof category,
@@ -42,7 +42,7 @@ const page = async ({ params: { category } }: Props) => {
 			<Menubar
 				allProductCategory={allProductCategory}
 			/>
-			<section className='max-container text-stone-950'>
+			<section className='max-container text-stone-950 lg:mb-10'>
 				<div className='h-10 py-2 shadow-sm shadow-purple-950/10 w-full bg-slate-400/20 flex justify-between items-center px-3'>
 					<div>
 						<p className='font-semibold text-sm lg:text-base'>
