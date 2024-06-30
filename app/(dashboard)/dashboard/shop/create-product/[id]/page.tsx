@@ -145,8 +145,8 @@ const CreateProductPage = ({ params: { id } }: Props) => {
 		}
 	}
 	return (
-		<section className='max-w-4xl mx-auto h-full px-3 py-20 lg:py-10 overflow-y-auto mb-10'>
-			<div className=' w-full  px-4 lg:px-12 pb-10'>
+		<section className='max-w-4xl mx-auto h-full px-3 lg:py-10 overflow-y-auto'>
+			<div className='w-full h-full py-10 mt-14 lg:pt-0 lg:mt-5'>
 				<h2 className='text-3xl w-full  font-bold text-dark-2 text-center lg:text-left  text-balance capitalize mb-6'>
 					complete creating product
 				</h2>

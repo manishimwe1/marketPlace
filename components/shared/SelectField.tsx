@@ -84,9 +84,10 @@ function SelectField({
 		saveCategory(newCategory, categoryBrand).then(
 			(category: ICategory) => {
 				setIsSubmiting(false);
-				setNewCategory(category._id);
+				setNewCategory("");
 				setIsOpen(!isOpen);
 				setCategoryId(category._id);
+
 				//TODO:emplement this modal of coplex category
 				// setShowModal(true);
 			},
@@ -110,7 +111,7 @@ function SelectField({
 						<SelectItem
 							key={items._id}
 							value={items.categoryName}
-							className='capitalize cursor-pointer hover:!bg-black/20 font-semibold  '>
+							className='capitalize cursor-pointer hover:!bg-black/20 font-semibold text-dark-2 '>
 							{items.categoryName}
 						</SelectItem>
 					))

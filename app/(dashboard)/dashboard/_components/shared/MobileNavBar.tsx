@@ -23,7 +23,7 @@ const MobileNavBar = () => {
 				</div>
 			</SheetTrigger>
 			<SheetContent
-				className='bg-gradient border-white/20'
+				className='bg-slate-100 border-white/20'
 				side={"left"}>
 				<aside className='w-full p-2 text-center flex flex-col gap-4'>
 					<nav className=' py-5 '>
@@ -34,23 +34,7 @@ const MobileNavBar = () => {
 								GuraGurisha
 							</h2>
 						</Link>
-						<div className=' py-4 px-2 flex w-full justify-between items-center relative'>
-							<div className='flex items-center gap-1 cursor-pointer'>
-								<Image
-									src={"/chart.svg"}
-									alt={"chart"}
-									width={20}
-									height={20}
-									className=''
-								/>
-								<p className='flex items-center gap-4 p-2 px-4 font-bold text-dark-2 text-sm lg:text-lg'>
-									Activity
-								</p>
-							</div>
-							<p className='bg-purple-500 h-7   lg:flex text-center justify-center font-bold text-purple-100 w-7 rounded-full absolute top-0 right-4 cursor-pointer ScaleAnimation'>
-								10
-							</p>
-						</div>
+
 						{DASHBAORD_LINKS.map((link) => {
 							const isActive =
 								link.link === pathname;
@@ -70,7 +54,7 @@ const MobileNavBar = () => {
 											alt={link.label}
 											width={20}
 											height={20}
-											className='invert '
+											className=' '
 										/>
 
 										<SheetClose>
