@@ -1,9 +1,13 @@
 import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
-import { getTechnologiesProduct } from "./_actions/product.actions";
+import { getTechnologiesProduct } from "@/app/(root)/_actions/product.actions";
 
 const ShoppingOptionsCard = async () => {
+	const product = await getTechnologiesProduct();
+
+	// console.log(product, "this is tech product");
+
 	return (
 		<div className='w-full h-fit flex flex-col  shadow-purple-500/20 shadow-md rounded-3xl cursor-pointer'>
 			<div className='w-full h-44 py-4 relative shadow-md shadow-purple-500/20 bg-purple-400/20 rounded-t-3xl '>

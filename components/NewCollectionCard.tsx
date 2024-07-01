@@ -13,6 +13,9 @@ const NewCollectionCard = ({
 	title: string;
 	subTitle: string;
 }) => {
+	if (title === "Plus") {
+		console.log(allProduct, "product here");
+	}
 	return (
 		<div className='w-full h-full '>
 			<h2 className='text-stone-950 text-left font-bold text-3xl opacity-80 mt-2'>

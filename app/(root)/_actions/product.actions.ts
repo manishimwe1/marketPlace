@@ -121,12 +121,17 @@ export const getCategoryName = async (name: string) => {
 	}
 };
 
+export const getCategories = async () => {
+	try {
+	} catch (error: any) {
+		console.log("Failed to getCategory", error);
+	}
+};
+
 export const getTechnologiesProduct = async () => {
 	try {
 		connectToDB();
-		const product = await Product.find({}).sort({
-			_id: "desc",
-		});
+		const product = await Product.find({});
 
 		if (!product) {
 			console.log("error in getting Product");
@@ -137,12 +142,5 @@ export const getTechnologiesProduct = async () => {
 		return JSON.parse(JSON.stringify(product));
 	} catch (error) {
 		console.log(error);
-	}
-};
-
-export const getCategories = async () => {
-	try {
-	} catch (error: any) {
-		console.log("Failed to getCategory", error);
 	}
 };

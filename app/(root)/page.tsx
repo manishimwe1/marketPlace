@@ -56,7 +56,9 @@ async function page() {
 								subTitle={
 									"Featured brands with savings"
 								}
-								allProduct={allProduct}
+								allProduct={
+									superDealProduct
+								}
 							/>
 						</div>
 					</div>
